@@ -1,0 +1,128 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "rds": "https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/",
+    "schema": "https://schema.org/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "dcterms": "http://purl.org/dc/terms/",
+
+    "DBInstance": {
+      "@id": "rds:DBInstance",
+      "@context": {
+        "dBInstanceIdentifier": "rds:dBInstanceIdentifier",
+        "dBInstanceClass": "rds:dBInstanceClass",
+        "engine": "rds:engine",
+        "engineVersion": "rds:engineVersion",
+        "dBInstanceStatus": "rds:dBInstanceStatus",
+        "masterUsername": "rds:masterUsername",
+        "dBName": "rds:dBName",
+        "endpoint": "rds:endpoint",
+        "allocatedStorage": {
+          "@id": "rds:allocatedStorage",
+          "@type": "xsd:integer"
+        },
+        "instanceCreateTime": {
+          "@id": "dcterms:created",
+          "@type": "xsd:dateTime"
+        },
+        "availabilityZone": "rds:availabilityZone",
+        "multiAZ": {
+          "@id": "rds:multiAZ",
+          "@type": "xsd:boolean"
+        },
+        "storageType": "rds:storageType",
+        "storageEncrypted": {
+          "@id": "rds:storageEncrypted",
+          "@type": "xsd:boolean"
+        },
+        "dBInstanceArn": {
+          "@id": "rds:dBInstanceArn",
+          "@type": "@id"
+        },
+        "tags": {
+          "@id": "rds:tags",
+          "@container": "@set"
+        }
+      }
+    },
+
+    "DBCluster": {
+      "@id": "rds:DBCluster",
+      "@context": {
+        "dBClusterIdentifier": "rds:dBClusterIdentifier",
+        "dBClusterArn": {
+          "@id": "rds:dBClusterArn",
+          "@type": "@id"
+        },
+        "status": "rds:status",
+        "engine": "rds:engine",
+        "engineVersion": "rds:engineVersion",
+        "databaseName": "rds:databaseName",
+        "masterUsername": "rds:masterUsername",
+        "endpoint": "rds:endpoint",
+        "readerEndpoint": "rds:readerEndpoint",
+        "port": {
+          "@id": "rds:port",
+          "@type": "xsd:integer"
+        },
+        "clusterCreateTime": {
+          "@id": "dcterms:created",
+          "@type": "xsd:dateTime"
+        },
+        "multiAZ": {
+          "@id": "rds:multiAZ",
+          "@type": "xsd:boolean"
+        },
+        "storageEncrypted": {
+          "@id": "rds:storageEncrypted",
+          "@type": "xsd:boolean"
+        },
+        "dBClusterMembers": {
+          "@id": "rds:dBClusterMembers",
+          "@container": "@set"
+        },
+        "availabilityZones": {
+          "@id": "rds:availabilityZones",
+          "@container": "@list"
+        },
+        "tags": {
+          "@id": "rds:tags",
+          "@container": "@set"
+        }
+      }
+    },
+
+    "DBSnapshot": {
+      "@id": "rds:DBSnapshot",
+      "@context": {
+        "dBSnapshotIdentifier": "rds:dBSnapshotIdentifier",
+        "dBInstanceIdentifier": "rds:dBInstanceIdentifier",
+        "snapshotCreateTime": {
+          "@id": "dcterms:created",
+          "@type": "xsd:dateTime"
+        },
+        "engine": "rds:engine",
+        "engineVersion": "rds:engineVersion",
+        "status": "rds:status",
+        "allocatedStorage": {
+          "@id": "rds:allocatedStorage",
+          "@type": "xsd:integer"
+        },
+        "availabilityZone": "rds:availabilityZone",
+        "snapshotType": "rds:snapshotType",
+        "encrypted": {
+          "@id": "rds:encrypted",
+          "@type": "xsd:boolean"
+        },
+        "dBSnapshotArn": {
+          "@id": "rds:dBSnapshotArn",
+          "@type": "@id"
+        },
+        "tags": {
+          "@id": "rds:tags",
+          "@container": "@set"
+        }
+      }
+    }
+  }
+}

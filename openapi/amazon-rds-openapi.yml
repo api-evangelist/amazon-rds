@@ -1,0 +1,1014 @@
+openapi: 3.1.0
+info:
+  title: Amazon RDS API
+  description: >-
+    Amazon Relational Database Service (RDS) makes it easy to set up, operate,
+    and scale a relational database in the cloud. This API enables you to create
+    and manage database instances, clusters, snapshots, and other database
+    resources with support for multiple database engines including MySQL,
+    PostgreSQL, MariaDB, Oracle, SQL Server, and Amazon Aurora.
+  version: '2014-10-31'
+  contact:
+    name: Amazon Web Services
+    url: https://aws.amazon.com/contact-us/
+  termsOfService: https://aws.amazon.com/service-terms/
+externalDocs:
+  description: Amazon RDS API Reference
+  url: https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/
+servers:
+  - url: https://rds.{region}.amazonaws.com
+    description: Amazon RDS Regional Endpoint
+    variables:
+      region:
+        default: us-east-1
+        description: AWS Region
+tags:
+  - name: DB Instances
+    description: Operations for creating, managing, and deleting RDS database instances
+  - name: DB Snapshots
+    description: Operations for creating and managing database snapshots
+  - name: DB Clusters
+    description: Operations for creating and managing Aurora database clusters
+  - name: DB Engine Versions
+    description: Operations for describing available database engine versions
+security:
+  - sigv4Auth: []
+paths:
+  /?Action=CreateDBInstance:
+    get:
+      operationId: createDBInstance
+      summary: Create a new DB instance
+      description: >-
+        Creates a new DB instance. The new DB instance can be an RDS DB instance,
+        or it can be a DB instance in an Aurora DB cluster. You can specify the
+        DB engine, instance class, allocated storage, master username and
+        password, and other configuration settings.
+      tags:
+        - DB Instances
+      parameters:
+        - name: DBInstanceIdentifier
+          in: query
+          required: true
+          description: The DB instance identifier, unique for each DB instance
+          schema:
+            type: string
+        - name: DBInstanceClass
+          in: query
+          required: true
+          description: The compute and memory capacity of the DB instance (e.g., db.m5.large)
+          schema:
+            type: string
+        - name: Engine
+          in: query
+          required: true
+          description: The database engine to use (mysql, postgres, mariadb, oracle-ee, sqlserver-ee, aurora-mysql, aurora-postgresql)
+          schema:
+            type: string
+        - name: MasterUsername
+          in: query
+          description: The name for the master user
+          schema:
+            type: string
+        - name: MasterUserPassword
+          in: query
+          description: The password for the master user
+          schema:
+            type: string
+        - name: AllocatedStorage
+          in: query
+          description: The amount of storage in gibibytes (GiB) to allocate for the DB instance
+          schema:
+            type: integer
+            minimum: 20
+            maximum: 65536
+        - name: EngineVersion
+          in: query
+          description: The version number of the database engine to use
+          schema:
+            type: string
+        - name: DBName
+          in: query
+          description: The name of the database to create when the DB instance is created
+          schema:
+            type: string
+        - name: Port
+          in: query
+          description: The port number on which the database accepts connections
+          schema:
+            type: integer
+        - name: MultiAZ
+          in: query
+          description: Whether the DB instance is a Multi-AZ deployment
+          schema:
+            type: boolean
+        - name: StorageType
+          in: query
+          description: The storage type to associate with the DB instance (gp2, gp3, io1, standard)
+          schema:
+            type: string
+        - name: PubliclyAccessible
+          in: query
+          description: Whether the DB instance is publicly accessible
+          schema:
+            type: boolean
+        - name: VpcSecurityGroupIds.member.1
+          in: query
+          description: A VPC security group to associate with the DB instance
+          schema:
+            type: string
+        - name: DBSubnetGroupName
+          in: query
+          description: A DB subnet group to associate with this DB instance
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successfully created DB instance
+          content:
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/CreateDBInstanceResponse'
+        '400':
+          description: Invalid request parameters
+        '401':
+          description: Authentication failure
+        '403':
+          description: Authorization failure
+  /?Action=DescribeDBInstances:
+    get:
+      operationId: describeDBInstances
+      summary: Describe DB instances
+      description: >-
+        Describes provisioned RDS instances. This API supports pagination.
+        Returns information about the DB instances including engine, instance
+        class, storage, endpoint, status, and configuration details.
+      tags:
+        - DB Instances
+      parameters:
+        - name: DBInstanceIdentifier
+          in: query
+          description: The identifier of the DB instance to describe
+          schema:
+            type: string
+        - name: Filters.member.1.Name
+          in: query
+          description: The name of a filter
+          schema:
+            type: string
+        - name: Filters.member.1.Values.member.1
+          in: query
+          description: A value for the filter
+          schema:
+            type: string
+        - name: MaxRecords
+          in: query
+          description: Maximum number of records to include in the response
+          schema:
+            type: integer
+            minimum: 20
+            maximum: 100
+        - name: Marker
+          in: query
+          description: An optional pagination token provided by a previous request
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successfully described DB instances
+          content:
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/DescribeDBInstancesResponse'
+        '400':
+          description: Invalid request parameters
+        '401':
+          description: Authentication failure
+  /?Action=ModifyDBInstance:
+    get:
+      operationId: modifyDBInstance
+      summary: Modify a DB instance
+      description: >-
+        Modifies settings for a DB instance. You can change one or more
+        database configuration parameters by specifying these parameters
+        and the new values in the request. Some modifications are applied
+        immediately, while others are applied during the next maintenance window.
+      tags:
+        - DB Instances
+      parameters:
+        - name: DBInstanceIdentifier
+          in: query
+          required: true
+          description: The DB instance identifier for the instance to be modified
+          schema:
+            type: string
+        - name: DBInstanceClass
+          in: query
+          description: The new compute and memory capacity of the DB instance
+          schema:
+            type: string
+        - name: AllocatedStorage
+          in: query
+          description: The new amount of storage in GiB to allocate for the DB instance
+          schema:
+            type: integer
+        - name: MasterUserPassword
+          in: query
+          description: The new password for the master user
+          schema:
+            type: string
+        - name: MultiAZ
+          in: query
+          description: Whether the DB instance is a Multi-AZ deployment
+          schema:
+            type: boolean
+        - name: EngineVersion
+          in: query
+          description: The version number of the database engine to upgrade to
+          schema:
+            type: string
+        - name: ApplyImmediately
+          in: query
+          description: >-
+            Whether to apply the modification immediately or during the
+            next maintenance window
+          schema:
+            type: boolean
+        - name: BackupRetentionPeriod
+          in: query
+          description: The number of days to retain automated backups (0-35)
+          schema:
+            type: integer
+            minimum: 0
+            maximum: 35
+        - name: StorageType
+          in: query
+          description: The storage type to associate with the DB instance
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successfully modified DB instance
+          content:
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ModifyDBInstanceResponse'
+        '400':
+          description: Invalid request parameters
+        '401':
+          description: Authentication failure
+  /?Action=DeleteDBInstance:
+    get:
+      operationId: deleteDBInstance
+      summary: Delete a DB instance
+      description: >-
+        Deletes a previously provisioned DB instance. When you delete a DB
+        instance, all automated backups are deleted and cannot be recovered.
+        Manual DB snapshots are not deleted.
+      tags:
+        - DB Instances
+      parameters:
+        - name: DBInstanceIdentifier
+          in: query
+          required: true
+          description: The DB instance identifier for the DB instance to be deleted
+          schema:
+            type: string
+        - name: SkipFinalSnapshot
+          in: query
+          description: >-
+            Whether to skip the creation of a final DB snapshot before deleting
+            the instance
+          schema:
+            type: boolean
+        - name: FinalDBSnapshotIdentifier
+          in: query
+          description: >-
+            The identifier of the final DB snapshot to create before deleting
+            the instance
+          schema:
+            type: string
+        - name: DeleteAutomatedBackups
+          in: query
+          description: Whether to remove automated backups immediately after deletion
+          schema:
+            type: boolean
+      responses:
+        '200':
+          description: Successfully deleted DB instance
+        '400':
+          description: Invalid request parameters
+        '401':
+          description: Authentication failure
+  /?Action=RebootDBInstance:
+    get:
+      operationId: rebootDBInstance
+      summary: Reboot a DB instance
+      description: >-
+        Reboots a DB instance. The reboot causes a momentary outage and the
+        database instance status is set to rebooting. A DB instance can be
+        rebooted when it is in the available state. If the DB instance is in
+        a Multi-AZ deployment, you can force a failover from one AZ to another.
+      tags:
+        - DB Instances
+      parameters:
+        - name: DBInstanceIdentifier
+          in: query
+          required: true
+          description: The DB instance identifier
+          schema:
+            type: string
+        - name: ForceFailover
+          in: query
+          description: >-
+            Whether to force a failover from one AZ to another in a Multi-AZ
+            deployment
+          schema:
+            type: boolean
+      responses:
+        '200':
+          description: Successfully requested DB instance reboot
+        '400':
+          description: Invalid request parameters
+        '401':
+          description: Authentication failure
+  /?Action=CreateDBSnapshot:
+    get:
+      operationId: createDBSnapshot
+      summary: Create a DB snapshot
+      description: >-
+        Creates a snapshot of a DB instance. The source DB instance must be in
+        the available or storage-optimization state. The DB snapshot is created
+        with a snapshot type of manual.
+      tags:
+        - DB Snapshots
+      parameters:
+        - name: DBSnapshotIdentifier
+          in: query
+          required: true
+          description: The identifier for the DB snapshot
+          schema:
+            type: string
+        - name: DBInstanceIdentifier
+          in: query
+          required: true
+          description: The identifier of the DB instance to create the snapshot from
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successfully created DB snapshot
+          content:
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/CreateDBSnapshotResponse'
+        '400':
+          description: Invalid request parameters
+        '401':
+          description: Authentication failure
+  /?Action=DescribeDBSnapshots:
+    get:
+      operationId: describeDBSnapshots
+      summary: Describe DB snapshots
+      description: >-
+        Returns information about DB snapshots. This API supports pagination.
+        You can filter by DB instance identifier, DB snapshot identifier,
+        snapshot type, and other criteria.
+      tags:
+        - DB Snapshots
+      parameters:
+        - name: DBInstanceIdentifier
+          in: query
+          description: The ID of the DB instance to retrieve snapshots for
+          schema:
+            type: string
+        - name: DBSnapshotIdentifier
+          in: query
+          description: A specific DB snapshot identifier to describe
+          schema:
+            type: string
+        - name: SnapshotType
+          in: query
+          description: The type of snapshots to return (automated, manual, shared, public, awsbackup)
+          schema:
+            type: string
+        - name: MaxRecords
+          in: query
+          description: Maximum number of records to include in the response
+          schema:
+            type: integer
+            minimum: 20
+            maximum: 100
+        - name: Marker
+          in: query
+          description: An optional pagination token provided by a previous request
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successfully described DB snapshots
+          content:
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/DescribeDBSnapshotsResponse'
+        '400':
+          description: Invalid request parameters
+        '401':
+          description: Authentication failure
+  /?Action=DeleteDBSnapshot:
+    get:
+      operationId: deleteDBSnapshot
+      summary: Delete a DB snapshot
+      description: >-
+        Deletes a DB snapshot. If the snapshot is being copied, the copy
+        operation is terminated. The DB snapshot must be in the available
+        state to be deleted.
+      tags:
+        - DB Snapshots
+      parameters:
+        - name: DBSnapshotIdentifier
+          in: query
+          required: true
+          description: The identifier of the DB snapshot to delete
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successfully deleted DB snapshot
+        '400':
+          description: Invalid request parameters
+        '401':
+          description: Authentication failure
+  /?Action=CreateDBCluster:
+    get:
+      operationId: createDBCluster
+      summary: Create a new DB cluster
+      description: >-
+        Creates a new Amazon Aurora DB cluster or Multi-AZ DB cluster. You can
+        use the ReplicationSourceIdentifier parameter to create an Amazon Aurora
+        DB cluster as a read replica of another DB cluster or Amazon RDS
+        MySQL or PostgreSQL DB instance.
+      tags:
+        - DB Clusters
+      parameters:
+        - name: DBClusterIdentifier
+          in: query
+          required: true
+          description: The DB cluster identifier, unique for each DB cluster
+          schema:
+            type: string
+        - name: Engine
+          in: query
+          required: true
+          description: The database engine to use (aurora-mysql, aurora-postgresql)
+          schema:
+            type: string
+        - name: EngineVersion
+          in: query
+          description: The version number of the database engine to use
+          schema:
+            type: string
+        - name: MasterUsername
+          in: query
+          description: The name of the master user for the DB cluster
+          schema:
+            type: string
+        - name: MasterUserPassword
+          in: query
+          description: The password for the master database user
+          schema:
+            type: string
+        - name: DatabaseName
+          in: query
+          description: The name for a database to create in the DB cluster
+          schema:
+            type: string
+        - name: Port
+          in: query
+          description: The port number on which the instances in the DB cluster accept connections
+          schema:
+            type: integer
+        - name: DBSubnetGroupName
+          in: query
+          description: A DB subnet group to associate with this DB cluster
+          schema:
+            type: string
+        - name: VpcSecurityGroupIds.member.1
+          in: query
+          description: A VPC security group to associate with the DB cluster
+          schema:
+            type: string
+        - name: StorageEncrypted
+          in: query
+          description: Whether the DB cluster is encrypted
+          schema:
+            type: boolean
+        - name: BackupRetentionPeriod
+          in: query
+          description: The number of days for which automated backups are retained (1-35)
+          schema:
+            type: integer
+            minimum: 1
+            maximum: 35
+      responses:
+        '200':
+          description: Successfully created DB cluster
+          content:
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/CreateDBClusterResponse'
+        '400':
+          description: Invalid request parameters
+        '401':
+          description: Authentication failure
+        '403':
+          description: Authorization failure
+  /?Action=DescribeDBClusters:
+    get:
+      operationId: describeDBClusters
+      summary: Describe DB clusters
+      description: >-
+        Returns information about Amazon Aurora DB clusters and Multi-AZ DB
+        clusters. This API supports pagination. For more information on Amazon
+        Aurora DB clusters, see the Amazon Aurora User Guide.
+      tags:
+        - DB Clusters
+      parameters:
+        - name: DBClusterIdentifier
+          in: query
+          description: The identifier of the DB cluster to describe
+          schema:
+            type: string
+        - name: Filters.member.1.Name
+          in: query
+          description: The name of a filter
+          schema:
+            type: string
+        - name: Filters.member.1.Values.member.1
+          in: query
+          description: A value for the filter
+          schema:
+            type: string
+        - name: MaxRecords
+          in: query
+          description: Maximum number of records to include in the response
+          schema:
+            type: integer
+            minimum: 20
+            maximum: 100
+        - name: Marker
+          in: query
+          description: An optional pagination token provided by a previous request
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successfully described DB clusters
+          content:
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/DescribeDBClustersResponse'
+        '400':
+          description: Invalid request parameters
+        '401':
+          description: Authentication failure
+  /?Action=DeleteDBCluster:
+    get:
+      operationId: deleteDBCluster
+      summary: Delete a DB cluster
+      description: >-
+        Deletes a previously provisioned DB cluster. When you delete a DB
+        cluster, all automated backups are deleted and cannot be recovered.
+        Manual DB cluster snapshots are not deleted.
+      tags:
+        - DB Clusters
+      parameters:
+        - name: DBClusterIdentifier
+          in: query
+          required: true
+          description: The DB cluster identifier for the DB cluster to be deleted
+          schema:
+            type: string
+        - name: SkipFinalSnapshot
+          in: query
+          description: >-
+            Whether to skip the creation of a final DB cluster snapshot before
+            deleting the cluster
+          schema:
+            type: boolean
+        - name: FinalDBSnapshotIdentifier
+          in: query
+          description: >-
+            The identifier of the final DB cluster snapshot to create before
+            deleting the cluster
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successfully deleted DB cluster
+        '400':
+          description: Invalid request parameters
+        '401':
+          description: Authentication failure
+  /?Action=DescribeDBEngineVersions:
+    get:
+      operationId: describeDBEngineVersions
+      summary: Describe DB engine versions
+      description: >-
+        Returns a list of the available DB engines and their versions. You can
+        filter by engine, engine version, DB parameter group family, and other
+        criteria.
+      tags:
+        - DB Engine Versions
+      parameters:
+        - name: Engine
+          in: query
+          description: The database engine to return (mysql, postgres, mariadb, oracle-ee, sqlserver-ee, aurora-mysql, aurora-postgresql)
+          schema:
+            type: string
+        - name: EngineVersion
+          in: query
+          description: The database engine version to return
+          schema:
+            type: string
+        - name: DBParameterGroupFamily
+          in: query
+          description: The name of a specific DB parameter group family to return details for
+          schema:
+            type: string
+        - name: DefaultOnly
+          in: query
+          description: Whether to return only the default version of the engine
+          schema:
+            type: boolean
+        - name: MaxRecords
+          in: query
+          description: Maximum number of records to include in the response
+          schema:
+            type: integer
+            minimum: 20
+            maximum: 100
+        - name: Marker
+          in: query
+          description: An optional pagination token provided by a previous request
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successfully described DB engine versions
+        '400':
+          description: Invalid request parameters
+        '401':
+          description: Authentication failure
+components:
+  securitySchemes:
+    sigv4Auth:
+      type: apiKey
+      name: Authorization
+      in: header
+      description: AWS Signature Version 4 authentication
+  schemas:
+    CreateDBInstanceResponse:
+      type: object
+      description: Response from the CreateDBInstance action
+      properties:
+        dBInstance:
+          $ref: '#/components/schemas/DBInstance'
+    DescribeDBInstancesResponse:
+      type: object
+      description: Response from the DescribeDBInstances action
+      properties:
+        dBInstances:
+          type: array
+          description: A list of DB instance descriptions
+          items:
+            $ref: '#/components/schemas/DBInstance'
+        marker:
+          type: string
+          description: An optional pagination token provided by a previous request
+    ModifyDBInstanceResponse:
+      type: object
+      description: Response from the ModifyDBInstance action
+      properties:
+        dBInstance:
+          $ref: '#/components/schemas/DBInstance'
+    CreateDBSnapshotResponse:
+      type: object
+      description: Response from the CreateDBSnapshot action
+      properties:
+        dBSnapshot:
+          $ref: '#/components/schemas/DBSnapshot'
+    DescribeDBSnapshotsResponse:
+      type: object
+      description: Response from the DescribeDBSnapshots action
+      properties:
+        dBSnapshots:
+          type: array
+          description: A list of DB snapshot descriptions
+          items:
+            $ref: '#/components/schemas/DBSnapshot'
+        marker:
+          type: string
+          description: An optional pagination token provided by a previous request
+    CreateDBClusterResponse:
+      type: object
+      description: Response from the CreateDBCluster action
+      properties:
+        dBCluster:
+          $ref: '#/components/schemas/DBCluster'
+    DescribeDBClustersResponse:
+      type: object
+      description: Response from the DescribeDBClusters action
+      properties:
+        dBClusters:
+          type: array
+          description: A list of DB cluster descriptions
+          items:
+            $ref: '#/components/schemas/DBCluster'
+        marker:
+          type: string
+          description: An optional pagination token provided by a previous request
+    DBInstance:
+      type: object
+      description: Describes an Amazon RDS DB instance
+      properties:
+        dBInstanceIdentifier:
+          type: string
+          description: The user-supplied unique key that identifies the DB instance
+        dBInstanceClass:
+          type: string
+          description: The name of the compute and memory capacity class of the DB instance
+        engine:
+          type: string
+          description: The database engine for this DB instance
+        engineVersion:
+          type: string
+          description: The version of the database engine
+        dBInstanceStatus:
+          type: string
+          description: The current state of the DB instance
+          enum:
+            - available
+            - backing-up
+            - configuring-enhanced-monitoring
+            - configuring-iam-database-auth
+            - configuring-log-exports
+            - creating
+            - delete-precheck
+            - deleting
+            - failed
+            - inaccessible-encryption-credentials
+            - incompatible-network
+            - incompatible-option-group
+            - incompatible-parameters
+            - incompatible-restore
+            - maintenance
+            - modifying
+            - moving-to-vpc
+            - rebooting
+            - renaming
+            - resetting-master-credentials
+            - restore-error
+            - starting
+            - stopped
+            - stopping
+            - storage-full
+            - storage-optimization
+            - upgrading
+        masterUsername:
+          type: string
+          description: The master username for the DB instance
+        dBName:
+          type: string
+          description: The name of the initial database provided during creation
+        endpoint:
+          type: object
+          description: The connection endpoint for the DB instance
+          properties:
+            address:
+              type: string
+              description: The DNS address of the DB instance
+            port:
+              type: integer
+              description: The port that the DB instance listens on
+            hostedZoneId:
+              type: string
+              description: The ID of the hosted zone for the DB instance
+        allocatedStorage:
+          type: integer
+          description: The allocated storage size in gibibytes (GiB)
+        instanceCreateTime:
+          type: string
+          format: date-time
+          description: The date and time the DB instance was created
+        preferredBackupWindow:
+          type: string
+          description: The daily time range during which automated backups are created
+        backupRetentionPeriod:
+          type: integer
+          description: The number of days for which automatic DB snapshots are retained
+        vpcSecurityGroups:
+          type: array
+          description: The VPC security groups associated with the DB instance
+          items:
+            type: object
+            properties:
+              vpcSecurityGroupId:
+                type: string
+                description: The ID of the VPC security group
+              status:
+                type: string
+                description: The membership status of the VPC security group
+        availabilityZone:
+          type: string
+          description: The Availability Zone where the DB instance is located
+        dBSubnetGroup:
+          type: object
+          description: Information about the subnet group associated with the DB instance
+          properties:
+            dBSubnetGroupName:
+              type: string
+              description: The name of the DB subnet group
+            dBSubnetGroupDescription:
+              type: string
+              description: The description of the DB subnet group
+            vpcId:
+              type: string
+              description: The VPC ID of the DB subnet group
+        multiAZ:
+          type: boolean
+          description: Whether the DB instance is a Multi-AZ deployment
+        autoMinorVersionUpgrade:
+          type: boolean
+          description: Whether minor version patches are applied automatically
+        storageType:
+          type: string
+          description: The storage type associated with the DB instance
+        storageEncrypted:
+          type: boolean
+          description: Whether the DB instance is encrypted
+        publiclyAccessible:
+          type: boolean
+          description: Whether the DB instance is publicly accessible
+        dBInstanceArn:
+          type: string
+          description: The Amazon Resource Name (ARN) for the DB instance
+        tags:
+          type: array
+          description: Tags assigned to the DB instance
+          items:
+            $ref: '#/components/schemas/Tag'
+    DBSnapshot:
+      type: object
+      description: Describes an Amazon RDS DB snapshot
+      properties:
+        dBSnapshotIdentifier:
+          type: string
+          description: The identifier for the DB snapshot
+        dBInstanceIdentifier:
+          type: string
+          description: The DB instance identifier of the source DB instance
+        snapshotCreateTime:
+          type: string
+          format: date-time
+          description: The time when the snapshot was taken
+        engine:
+          type: string
+          description: The database engine for the snapshot
+        engineVersion:
+          type: string
+          description: The version of the database engine
+        status:
+          type: string
+          description: The status of the DB snapshot
+          enum:
+            - available
+            - creating
+            - deleting
+            - copying
+        allocatedStorage:
+          type: integer
+          description: The allocated storage size in GiB
+        port:
+          type: integer
+          description: The port that the database engine was listening on at snapshot time
+        availabilityZone:
+          type: string
+          description: The Availability Zone where the snapshot was created
+        vpcId:
+          type: string
+          description: The VPC ID associated with the DB snapshot
+        instanceCreateTime:
+          type: string
+          format: date-time
+          description: The time when the source DB instance was created
+        masterUsername:
+          type: string
+          description: The master username for the DB snapshot
+        snapshotType:
+          type: string
+          description: The type of the DB snapshot
+          enum:
+            - automated
+            - manual
+            - shared
+            - public
+            - awsbackup
+        encrypted:
+          type: boolean
+          description: Whether the DB snapshot is encrypted
+        storageType:
+          type: string
+          description: The storage type associated with the DB snapshot
+        dBSnapshotArn:
+          type: string
+          description: The Amazon Resource Name (ARN) for the DB snapshot
+        tags:
+          type: array
+          description: Tags assigned to the DB snapshot
+          items:
+            $ref: '#/components/schemas/Tag'
+    DBCluster:
+      type: object
+      description: Describes an Amazon Aurora DB cluster
+      properties:
+        dBClusterIdentifier:
+          type: string
+          description: The user-supplied identifier for the DB cluster
+        dBClusterArn:
+          type: string
+          description: The Amazon Resource Name (ARN) for the DB cluster
+        status:
+          type: string
+          description: The current state of the DB cluster
+        engine:
+          type: string
+          description: The database engine for the DB cluster
+        engineVersion:
+          type: string
+          description: The version of the database engine
+        databaseName:
+          type: string
+          description: The name of the initial database
+        masterUsername:
+          type: string
+          description: The master username for the DB cluster
+        endpoint:
+          type: string
+          description: The DNS address of the primary instance of the DB cluster
+        readerEndpoint:
+          type: string
+          description: The reader endpoint for the DB cluster
+        port:
+          type: integer
+          description: The port that the database engine is listening on
+        dBClusterMembers:
+          type: array
+          description: The list of DB instances that are part of the cluster
+          items:
+            type: object
+            properties:
+              dBInstanceIdentifier:
+                type: string
+                description: The instance identifier for the cluster member
+              isClusterWriter:
+                type: boolean
+                description: Whether the cluster member is the primary instance
+              dBClusterParameterGroupStatus:
+                type: string
+                description: The status of the parameter group for this member
+        availabilityZones:
+          type: array
+          description: The Availability Zones the DB cluster is associated with
+          items:
+            type: string
+        backupRetentionPeriod:
+          type: integer
+          description: The number of days for which automatic DB snapshots are retained
+        storageEncrypted:
+          type: boolean
+          description: Whether the DB cluster is encrypted
+        multiAZ:
+          type: boolean
+          description: Whether the DB cluster has instances in multiple AZs
+        clusterCreateTime:
+          type: string
+          format: date-time
+          description: The time when the DB cluster was created
+        allocatedStorage:
+          type: integer
+          description: The current allocated storage size in GiB for the cluster
+        tags:
+          type: array
+          description: Tags assigned to the DB cluster
+          items:
+            $ref: '#/components/schemas/Tag'
+    Tag:
+      type: object
+      description: Describes a resource tag
+      properties:
+        key:
+          type: string
+          description: The key of the tag
+        value:
+          type: string
+          description: The value of the tag
