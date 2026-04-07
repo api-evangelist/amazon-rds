@@ -23,14 +23,14 @@ servers:
         default: us-east-1
         description: AWS Region
 tags:
-  - name: DB Instances
-    description: Operations for creating, managing, and deleting RDS database instances
-  - name: DB Snapshots
-    description: Operations for creating and managing database snapshots
   - name: DB Clusters
     description: Operations for creating and managing Aurora database clusters
   - name: DB Engine Versions
     description: Operations for describing available database engine versions
+  - name: DB Instances
+    description: Operations for creating, managing, and deleting RDS database instances
+  - name: DB Snapshots
+    description: Operations for creating and managing database snapshots
 security:
   - sigv4Auth: []
 paths:
