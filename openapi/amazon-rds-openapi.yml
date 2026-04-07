@@ -37,7 +37,7 @@ paths:
   /?Action=CreateDBInstance:
     get:
       operationId: createDBInstance
-      summary: Create a new DB instance
+      summary: Amazon RDS Create a new DB instance
       description: >-
         Creates a new DB instance. The new DB instance can be an RDS DB instance,
         or it can be a DB instance in an Aurora DB cluster. You can specify the
@@ -137,7 +137,7 @@ paths:
   /?Action=DescribeDBInstances:
     get:
       operationId: describeDBInstances
-      summary: Describe DB instances
+      summary: Amazon RDS Describe DB instances
       description: >-
         Describes provisioned RDS instances. This API supports pagination.
         Returns information about the DB instances including engine, instance
@@ -186,7 +186,7 @@ paths:
   /?Action=ModifyDBInstance:
     get:
       operationId: modifyDBInstance
-      summary: Modify a DB instance
+      summary: Amazon RDS Modify a DB instance
       description: >-
         Modifies settings for a DB instance. You can change one or more
         database configuration parameters by specifying these parameters
@@ -259,7 +259,7 @@ paths:
   /?Action=DeleteDBInstance:
     get:
       operationId: deleteDBInstance
-      summary: Delete a DB instance
+      summary: Amazon RDS Delete a DB instance
       description: >-
         Deletes a previously provisioned DB instance. When you delete a DB
         instance, all automated backups are deleted and cannot be recovered.
@@ -302,7 +302,7 @@ paths:
   /?Action=RebootDBInstance:
     get:
       operationId: rebootDBInstance
-      summary: Reboot a DB instance
+      summary: Amazon RDS Reboot a DB instance
       description: >-
         Reboots a DB instance. The reboot causes a momentary outage and the
         database instance status is set to rebooting. A DB instance can be
@@ -334,7 +334,7 @@ paths:
   /?Action=CreateDBSnapshot:
     get:
       operationId: createDBSnapshot
-      summary: Create a DB snapshot
+      summary: Amazon RDS Create a DB snapshot
       description: >-
         Creates a snapshot of a DB instance. The source DB instance must be in
         the available or storage-optimization state. The DB snapshot is created
@@ -368,7 +368,7 @@ paths:
   /?Action=DescribeDBSnapshots:
     get:
       operationId: describeDBSnapshots
-      summary: Describe DB snapshots
+      summary: Amazon RDS Describe DB snapshots
       description: >-
         Returns information about DB snapshots. This API supports pagination.
         You can filter by DB instance identifier, DB snapshot identifier,
@@ -417,7 +417,7 @@ paths:
   /?Action=DeleteDBSnapshot:
     get:
       operationId: deleteDBSnapshot
-      summary: Delete a DB snapshot
+      summary: Amazon RDS Delete a DB snapshot
       description: >-
         Deletes a DB snapshot. If the snapshot is being copied, the copy
         operation is terminated. The DB snapshot must be in the available
@@ -441,7 +441,7 @@ paths:
   /?Action=CreateDBCluster:
     get:
       operationId: createDBCluster
-      summary: Create a new DB cluster
+      summary: Amazon RDS Create a new DB cluster
       description: >-
         Creates a new Amazon Aurora DB cluster or Multi-AZ DB cluster. You can
         use the ReplicationSourceIdentifier parameter to create an Amazon Aurora
@@ -525,7 +525,7 @@ paths:
   /?Action=DescribeDBClusters:
     get:
       operationId: describeDBClusters
-      summary: Describe DB clusters
+      summary: Amazon RDS Describe DB clusters
       description: >-
         Returns information about Amazon Aurora DB clusters and Multi-AZ DB
         clusters. This API supports pagination. For more information on Amazon
@@ -574,7 +574,7 @@ paths:
   /?Action=DeleteDBCluster:
     get:
       operationId: deleteDBCluster
-      summary: Delete a DB cluster
+      summary: Amazon RDS Delete a DB cluster
       description: >-
         Deletes a previously provisioned DB cluster. When you delete a DB
         cluster, all automated backups are deleted and cannot be recovered.
@@ -612,7 +612,7 @@ paths:
   /?Action=DescribeDBEngineVersions:
     get:
       operationId: describeDBEngineVersions
-      summary: Describe DB engine versions
+      summary: Amazon RDS Describe DB engine versions
       description: >-
         Returns a list of the available DB engines and their versions. You can
         filter by engine, engine version, DB parameter group family, and other
