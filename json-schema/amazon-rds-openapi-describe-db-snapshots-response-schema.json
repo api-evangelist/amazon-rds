@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-rds/refs/heads/main/json-schema/amazon-rds-openapi-describe-db-snapshots-response-schema.json",
+  "title": "DescribeDBSnapshotsResponse",
+  "description": "Response from the DescribeDBSnapshots action",
+  "type": "object",
+  "properties": {
+    "dBSnapshots": {
+      "type": "array",
+      "description": "A list of DB snapshot descriptions",
+      "items": {
+        "$ref": "#/components/schemas/DBSnapshot"
+      }
+    },
+    "marker": {
+      "type": "string",
+      "description": "An optional pagination token provided by a previous request"
+    }
+  }
+}

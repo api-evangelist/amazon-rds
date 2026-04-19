@@ -1,0 +1,93 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-rds/refs/heads/main/json-structure/amazon-rds-openapi-db-snapshot-structure.json",
+  "description": "Describes an Amazon RDS DB snapshot",
+  "type": "object",
+  "properties": {
+    "dBSnapshotIdentifier": {
+      "type": "string",
+      "description": "The identifier for the DB snapshot"
+    },
+    "dBInstanceIdentifier": {
+      "type": "string",
+      "description": "The DB instance identifier of the source DB instance"
+    },
+    "snapshotCreateTime": {
+      "type": "datetime",
+      "description": "The time when the snapshot was taken"
+    },
+    "engine": {
+      "type": "string",
+      "description": "The database engine for the snapshot"
+    },
+    "engineVersion": {
+      "type": "string",
+      "description": "The version of the database engine"
+    },
+    "status": {
+      "type": "string",
+      "description": "The status of the DB snapshot",
+      "enum": [
+        "available",
+        "creating",
+        "deleting",
+        "copying"
+      ]
+    },
+    "allocatedStorage": {
+      "type": "int32",
+      "description": "The allocated storage size in GiB"
+    },
+    "port": {
+      "type": "int32",
+      "description": "The port that the database engine was listening on at snapshot time"
+    },
+    "availabilityZone": {
+      "type": "string",
+      "description": "The Availability Zone where the snapshot was created"
+    },
+    "vpcId": {
+      "type": "string",
+      "description": "The VPC ID associated with the DB snapshot"
+    },
+    "instanceCreateTime": {
+      "type": "datetime",
+      "description": "The time when the source DB instance was created"
+    },
+    "masterUsername": {
+      "type": "string",
+      "description": "The master username for the DB snapshot"
+    },
+    "snapshotType": {
+      "type": "string",
+      "description": "The type of the DB snapshot",
+      "enum": [
+        "automated",
+        "manual",
+        "shared",
+        "public",
+        "awsbackup"
+      ]
+    },
+    "encrypted": {
+      "type": "boolean",
+      "description": "Whether the DB snapshot is encrypted"
+    },
+    "storageType": {
+      "type": "string",
+      "description": "The storage type associated with the DB snapshot"
+    },
+    "dBSnapshotArn": {
+      "type": "string",
+      "description": "The Amazon Resource Name (ARN) for the DB snapshot"
+    },
+    "tags": {
+      "type": "array",
+      "description": "Tags assigned to the DB snapshot",
+      "items": {
+        "$ref": "#/components/schemas/Tag"
+      }
+    }
+  },
+  "name": "DBSnapshot"
+}

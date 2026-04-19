@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-rds/refs/heads/main/json-schema/amazon-rds-openapi-describe-db-instances-response-schema.json",
+  "title": "DescribeDBInstancesResponse",
+  "description": "Response from the DescribeDBInstances action",
+  "type": "object",
+  "properties": {
+    "dBInstances": {
+      "type": "array",
+      "description": "A list of DB instance descriptions",
+      "items": {
+        "$ref": "#/components/schemas/DBInstance"
+      }
+    },
+    "marker": {
+      "type": "string",
+      "description": "An optional pagination token provided by a previous request"
+    }
+  }
+}

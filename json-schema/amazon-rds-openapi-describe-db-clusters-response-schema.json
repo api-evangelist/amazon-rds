@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-rds/refs/heads/main/json-schema/amazon-rds-openapi-describe-db-clusters-response-schema.json",
+  "title": "DescribeDBClustersResponse",
+  "description": "Response from the DescribeDBClusters action",
+  "type": "object",
+  "properties": {
+    "dBClusters": {
+      "type": "array",
+      "description": "A list of DB cluster descriptions",
+      "items": {
+        "$ref": "#/components/schemas/DBCluster"
+      }
+    },
+    "marker": {
+      "type": "string",
+      "description": "An optional pagination token provided by a previous request"
+    }
+  }
+}

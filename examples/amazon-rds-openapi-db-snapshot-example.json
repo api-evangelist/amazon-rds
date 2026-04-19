@@ -1,0 +1,12 @@
+{
+  "dBSnapshotIdentifier": "example-value",
+  "dBInstanceIdentifier": "example-value",
+  "snapshotCreateTime": "2026-04-19T00:00:00Z",
+  "engine": "example-value",
+  "engineVersion": "example-value",
+  "status": "available",
+  "allocatedStorage": 100,
+  "port": 100,
+  "availabilityZone": "example-value",
+  "vpcId": "abc123"
+}

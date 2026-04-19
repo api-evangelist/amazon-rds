@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-rds/refs/heads/main/json-schema/amazon-rds-openapi-create-db-instance-response-schema.json",
+  "title": "CreateDBInstanceResponse",
+  "description": "Response from the CreateDBInstance action",
+  "type": "object",
+  "properties": {
+    "dBInstance": {
+      "$ref": "#/components/schemas/DBInstance"
+    }
+  }
+}

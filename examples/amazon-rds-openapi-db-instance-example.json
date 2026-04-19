@@ -1,0 +1,16 @@
+{
+  "dBInstanceIdentifier": "example-value",
+  "dBInstanceClass": "example-value",
+  "engine": "example-value",
+  "engineVersion": "example-value",
+  "dBInstanceStatus": "available",
+  "masterUsername": "Example Resource",
+  "dBName": "Example Resource",
+  "endpoint": {
+    "address": "example-value",
+    "port": 100,
+    "hostedZoneId": "abc123"
+  },
+  "allocatedStorage": 100,
+  "instanceCreateTime": "2026-04-19T00:00:00Z"
+}

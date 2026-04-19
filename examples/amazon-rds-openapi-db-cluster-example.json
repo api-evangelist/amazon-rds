@@ -1,0 +1,12 @@
+{
+  "dBClusterIdentifier": "example-value",
+  "dBClusterArn": "arn:aws:service:us-east-1:123456789012:resource/example",
+  "status": "ACTIVE",
+  "engine": "example-value",
+  "engineVersion": "example-value",
+  "databaseName": "Example Resource",
+  "masterUsername": "Example Resource",
+  "endpoint": "example-value",
+  "readerEndpoint": "example-value",
+  "port": 100
+}

@@ -1,0 +1,105 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-rds/refs/heads/main/json-schema/amazon-rds-openapi-db-cluster-schema.json",
+  "title": "DBCluster",
+  "description": "Describes an Amazon Aurora DB cluster",
+  "type": "object",
+  "properties": {
+    "dBClusterIdentifier": {
+      "type": "string",
+      "description": "The user-supplied identifier for the DB cluster"
+    },
+    "dBClusterArn": {
+      "type": "string",
+      "description": "The Amazon Resource Name (ARN) for the DB cluster"
+    },
+    "status": {
+      "type": "string",
+      "description": "The current state of the DB cluster"
+    },
+    "engine": {
+      "type": "string",
+      "description": "The database engine for the DB cluster"
+    },
+    "engineVersion": {
+      "type": "string",
+      "description": "The version of the database engine"
+    },
+    "databaseName": {
+      "type": "string",
+      "description": "The name of the initial database"
+    },
+    "masterUsername": {
+      "type": "string",
+      "description": "The master username for the DB cluster"
+    },
+    "endpoint": {
+      "type": "string",
+      "description": "The DNS address of the primary instance of the DB cluster"
+    },
+    "readerEndpoint": {
+      "type": "string",
+      "description": "The reader endpoint for the DB cluster"
+    },
+    "port": {
+      "type": "integer",
+      "description": "The port that the database engine is listening on"
+    },
+    "dBClusterMembers": {
+      "type": "array",
+      "description": "The list of DB instances that are part of the cluster",
+      "items": {
+        "type": "object",
+        "properties": {
+          "dBInstanceIdentifier": {
+            "type": "string",
+            "description": "The instance identifier for the cluster member"
+          },
+          "isClusterWriter": {
+            "type": "boolean",
+            "description": "Whether the cluster member is the primary instance"
+          },
+          "dBClusterParameterGroupStatus": {
+            "type": "string",
+            "description": "The status of the parameter group for this member"
+          }
+        }
+      }
+    },
+    "availabilityZones": {
+      "type": "array",
+      "description": "The Availability Zones the DB cluster is associated with",
+      "items": {
+        "type": "string"
+      }
+    },
+    "backupRetentionPeriod": {
+      "type": "integer",
+      "description": "The number of days for which automatic DB snapshots are retained"
+    },
+    "storageEncrypted": {
+      "type": "boolean",
+      "description": "Whether the DB cluster is encrypted"
+    },
+    "multiAZ": {
+      "type": "boolean",
+      "description": "Whether the DB cluster has instances in multiple AZs"
+    },
+    "clusterCreateTime": {
+      "type": "string",
+      "format": "date-time",
+      "description": "The time when the DB cluster was created"
+    },
+    "allocatedStorage": {
+      "type": "integer",
+      "description": "The current allocated storage size in GiB for the cluster"
+    },
+    "tags": {
+      "type": "array",
+      "description": "Tags assigned to the DB cluster",
+      "items": {
+        "$ref": "#/components/schemas/Tag"
+      }
+    }
+  }
+}

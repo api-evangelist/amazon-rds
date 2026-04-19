@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-rds/refs/heads/main/json-schema/amazon-rds-openapi-create-db-snapshot-response-schema.json",
+  "title": "CreateDBSnapshotResponse",
+  "description": "Response from the CreateDBSnapshot action",
+  "type": "object",
+  "properties": {
+    "dBSnapshot": {
+      "$ref": "#/components/schemas/DBSnapshot"
+    }
+  }
+}

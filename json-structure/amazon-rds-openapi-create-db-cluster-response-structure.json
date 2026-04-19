@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-rds/refs/heads/main/json-structure/amazon-rds-openapi-create-db-cluster-response-structure.json",
+  "description": "Response from the CreateDBCluster action",
+  "type": "object",
+  "properties": {
+    "dBCluster": {
+      "$ref": "#/components/schemas/DBCluster"
+    }
+  },
+  "name": "CreateDBClusterResponse"
+}

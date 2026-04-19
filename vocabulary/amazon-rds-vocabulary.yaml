@@ -1,0 +1,151 @@
+vocabulary: 1.0.0
+info:
+  provider: Amazon Rds
+  description: Vocabulary for Amazon Rds APIs covering operational and capability dimensions
+  created: '2026-04-19'
+  modified: '2026-04-19'
+operational:
+  apis:
+  - name: Amazon Rds
+    namespace: amazon-rds
+    status: active
+  resources:
+  - name: ?Action=CreateDBInstance
+    api: amazon-rds-openapi
+    actions:
+    - createDBInstance
+  - name: ?Action=DescribeDBInstances
+    api: amazon-rds-openapi
+    actions:
+    - describeDBInstances
+  - name: ?Action=ModifyDBInstance
+    api: amazon-rds-openapi
+    actions:
+    - modifyDBInstance
+  - name: ?Action=DeleteDBInstance
+    api: amazon-rds-openapi
+    actions:
+    - deleteDBInstance
+  - name: ?Action=RebootDBInstance
+    api: amazon-rds-openapi
+    actions:
+    - rebootDBInstance
+  - name: ?Action=CreateDBSnapshot
+    api: amazon-rds-openapi
+    actions:
+    - createDBSnapshot
+  - name: ?Action=DescribeDBSnapshots
+    api: amazon-rds-openapi
+    actions:
+    - describeDBSnapshots
+  - name: ?Action=DeleteDBSnapshot
+    api: amazon-rds-openapi
+    actions:
+    - deleteDBSnapshot
+  - name: ?Action=CreateDBCluster
+    api: amazon-rds-openapi
+    actions:
+    - createDBCluster
+  - name: ?Action=DescribeDBClusters
+    api: amazon-rds-openapi
+    actions:
+    - describeDBClusters
+  - name: ?Action=DeleteDBCluster
+    api: amazon-rds-openapi
+    actions:
+    - deleteDBCluster
+  - name: ?Action=DescribeDBEngineVersions
+    api: amazon-rds-openapi
+    actions:
+    - describeDBEngineVersions
+  actions:
+  - name: create
+    httpMethod: GET
+    pattern: read
+  - name: get
+    httpMethod: GET
+    pattern: read
+  - name: delete
+    httpMethod: GET
+    pattern: read
+  schemas:
+    core:
+    - amazon-rds-instance
+    - amazon-rds-openapi-create-db-cluster-response
+    - amazon-rds-openapi-create-db-instance-response
+    - amazon-rds-openapi-create-db-snapshot-response
+    - amazon-rds-openapi-db-cluster
+    - amazon-rds-openapi-db-instance
+    - amazon-rds-openapi-db-snapshot
+    - amazon-rds-openapi-describe-db-clusters-response
+    - amazon-rds-openapi-describe-db-instances-response
+    - amazon-rds-openapi-describe-db-snapshots-response
+    - amazon-rds-openapi-modify-db-instance-response
+    - amazon-rds-openapi-tag
+  authentication:
+    schemes:
+    - type: bearer
+      description: AWS Signature V4
+capability:
+  workflows:
+  - name: Amazon Rds Operations
+    file: capabilities/amazon-rds.yaml
+    description: Automation workflow for Amazon Rds
+  personas:
+  - id: cloud-engineer
+    name: Cloud Engineer
+    description: Engineer managing Amazon Rds resources
+  domains:
+  - name: Cloud Operations
+    description: AWS cloud resource management
+crossReference:
+- resource: ?Action=CreateDBInstance
+  operations:
+  - createDBInstance
+  workflows:
+  - Amazon Rds Operations
+- resource: ?Action=DescribeDBInstances
+  operations:
+  - describeDBInstances
+  workflows:
+  - Amazon Rds Operations
+- resource: ?Action=ModifyDBInstance
+  operations:
+  - modifyDBInstance
+  workflows:
+  - Amazon Rds Operations
+- resource: ?Action=DeleteDBInstance
+  operations:
+  - deleteDBInstance
+  workflows:
+  - Amazon Rds Operations
+- resource: ?Action=RebootDBInstance
+  operations:
+  - rebootDBInstance
+  workflows:
+  - Amazon Rds Operations
+- resource: ?Action=CreateDBSnapshot
+  operations:
+  - createDBSnapshot
+  workflows:
+  - Amazon Rds Operations
+- resource: ?Action=DescribeDBSnapshots
+  operations:
+  - describeDBSnapshots
+  workflows:
+  - Amazon Rds Operations
+- resource: ?Action=DeleteDBSnapshot
+  operations:
+  - deleteDBSnapshot
+  workflows:
+  - Amazon Rds Operations
+- resource: ?Action=CreateDBCluster
+  operations:
+  - createDBCluster
+  workflows:
+  - Amazon Rds Operations
+- resource: ?Action=DescribeDBClusters
+  operations:
+  - describeDBClusters
+  workflows:
+  - Amazon Rds Operations

@@ -1,0 +1,48 @@
+naftiko: 1.0.0-alpha1
+info:
+  label: Amazon Rds Operations
+  description: Workflow capability for Amazon Rds. Enables automation of Amazon Rds resources for cloud operations teams.
+  tags:
+  - Amazon Rds
+  - AWS
+  - Cloud Operations
+  created: '2026-04-19'
+  modified: '2026-04-19'
+binds:
+- namespace: env
+  keys:
+    AWS_ACCESS_KEY: AWS_ACCESS_KEY
+    AWS_SECRET_KEY: AWS_SECRET_KEY
+capability:
+  consumes:
+  - import: amazon-rds
+    location: ./shared/amazon-rds.yaml
+  exposes:
+  - type: rest
+    port: 8080
+    namespace: amazon-rds-api
+    description: Unified REST API for Amazon Rds operations.
+    resources:
+    - path: /v1/resources
+      name: resources
+      description: Amazon Rds resources
+      operations:
+      - method: GET
+        name: list-resources
+        description: List Amazon Rds resources
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    port: 9090
+    namespace: amazon-rds-mcp
+    transport: http
+    description: MCP server for AI-assisted Amazon Rds operations.
+    tools:
+    - name: list-amazon-rds-resources
+      description: List Amazon Rds resources
+      hints:
+        readOnly: true
+      outputParameters:
+      - type: object
+        mapping: $.

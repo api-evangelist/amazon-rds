@@ -1,0 +1,12 @@
+{
+  "dBInstanceIdentifier": "example-value",
+  "dBInstanceClass": "example-value",
+  "engine": "mysql",
+  "engineVersion": "example-value",
+  "dBInstanceStatus": "available",
+  "masterUsername": "Example Resource",
+  "dBName": "Example Resource",
+  "endpoint": "example-value",
+  "allocatedStorage": 100,
+  "instanceCreateTime": "2026-04-19T00:00:00Z"
+}

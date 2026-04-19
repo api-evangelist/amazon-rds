@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-rds/refs/heads/main/json-structure/amazon-rds-openapi-tag-structure.json",
+  "description": "Describes a resource tag",
+  "type": "object",
+  "properties": {
+    "key": {
+      "type": "string",
+      "description": "The key of the tag"
+    },
+    "value": {
+      "type": "string",
+      "description": "The value of the tag"
+    }
+  },
+  "name": "Tag"
+}

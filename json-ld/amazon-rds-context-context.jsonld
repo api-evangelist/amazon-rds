@@ -1,0 +1,220 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "aws": "https://aws.amazon.com/schema/",
+    "schema": "https://schema.org/",
+    "dcterms": "http://purl.org/dc/terms/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "Amazon RDS DB Instance": "aws:Amazon RDS DB Instance",
+    "CreateDBClusterResponse": "aws:CreateDBClusterResponse",
+    "CreateDBInstanceResponse": "aws:CreateDBInstanceResponse",
+    "CreateDBSnapshotResponse": "aws:CreateDBSnapshotResponse",
+    "DBCluster": "aws:DBCluster",
+    "DBInstance": "aws:DBInstance",
+    "DBSnapshot": "aws:DBSnapshot",
+    "DescribeDBClustersResponse": "aws:DescribeDBClustersResponse",
+    "DescribeDBInstancesResponse": "aws:DescribeDBInstancesResponse",
+    "DescribeDBSnapshotsResponse": "aws:DescribeDBSnapshotsResponse",
+    "ModifyDBInstanceResponse": "aws:ModifyDBInstanceResponse",
+    "Tag": "aws:Tag",
+    "dBInstanceIdentifier": {
+      "@id": "aws:dBInstanceIdentifier",
+      "@type": "xsd:string"
+    },
+    "dBInstanceClass": {
+      "@id": "aws:dBInstanceClass",
+      "@type": "xsd:string"
+    },
+    "engine": {
+      "@id": "aws:engine",
+      "@type": "xsd:string"
+    },
+    "engineVersion": {
+      "@id": "aws:engineVersion",
+      "@type": "xsd:string"
+    },
+    "dBInstanceStatus": {
+      "@id": "aws:dBInstanceStatus",
+      "@type": "xsd:string"
+    },
+    "masterUsername": {
+      "@id": "aws:masterUsername",
+      "@type": "xsd:string"
+    },
+    "dBName": {
+      "@id": "aws:dBName",
+      "@type": "xsd:string"
+    },
+    "endpoint": {
+      "@id": "aws:endpoint",
+      "@type": "xsd:string"
+    },
+    "allocatedStorage": {
+      "@id": "aws:allocatedStorage",
+      "@type": "xsd:integer"
+    },
+    "instanceCreateTime": {
+      "@id": "aws:instanceCreateTime",
+      "@type": "xsd:dateTime"
+    },
+    "preferredBackupWindow": {
+      "@id": "aws:preferredBackupWindow",
+      "@type": "xsd:string"
+    },
+    "backupRetentionPeriod": {
+      "@id": "aws:backupRetentionPeriod",
+      "@type": "xsd:integer"
+    },
+    "vpcSecurityGroups": {
+      "@id": "aws:vpcSecurityGroups",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "availabilityZone": {
+      "@id": "aws:availabilityZone",
+      "@type": "xsd:string"
+    },
+    "dBSubnetGroup": {
+      "@id": "aws:dBSubnetGroup",
+      "@type": "xsd:string"
+    },
+    "multiAZ": {
+      "@id": "aws:multiAZ",
+      "@type": "xsd:boolean"
+    },
+    "autoMinorVersionUpgrade": {
+      "@id": "aws:autoMinorVersionUpgrade",
+      "@type": "xsd:boolean"
+    },
+    "storageType": {
+      "@id": "aws:storageType",
+      "@type": "xsd:string"
+    },
+    "storageEncrypted": {
+      "@id": "aws:storageEncrypted",
+      "@type": "xsd:boolean"
+    },
+    "publiclyAccessible": {
+      "@id": "aws:publiclyAccessible",
+      "@type": "xsd:boolean"
+    },
+    "cACertificateIdentifier": {
+      "@id": "aws:cACertificateIdentifier",
+      "@type": "xsd:string"
+    },
+    "dBInstanceArn": {
+      "@id": "aws:dBInstanceArn",
+      "@type": "xsd:string"
+    },
+    "tags": {
+      "@id": "aws:tags",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "port": {
+      "@id": "aws:port",
+      "@type": "xsd:integer"
+    },
+    "dBClusterIdentifier": {
+      "@id": "aws:dBClusterIdentifier",
+      "@type": "xsd:string"
+    },
+    "licenseModel": {
+      "@id": "aws:licenseModel",
+      "@type": "xsd:string"
+    },
+    "dBCluster": {
+      "@id": "aws:dBCluster",
+      "@type": "xsd:string"
+    },
+    "dBInstance": {
+      "@id": "aws:dBInstance",
+      "@type": "xsd:string"
+    },
+    "dBSnapshot": {
+      "@id": "aws:dBSnapshot",
+      "@type": "xsd:string"
+    },
+    "dBClusterArn": {
+      "@id": "aws:dBClusterArn",
+      "@type": "xsd:string"
+    },
+    "status": {
+      "@id": "aws:status",
+      "@type": "xsd:string"
+    },
+    "databaseName": {
+      "@id": "aws:databaseName",
+      "@type": "xsd:string"
+    },
+    "readerEndpoint": {
+      "@id": "aws:readerEndpoint",
+      "@type": "xsd:string"
+    },
+    "dBClusterMembers": {
+      "@id": "aws:dBClusterMembers",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "availabilityZones": {
+      "@id": "aws:availabilityZones",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "clusterCreateTime": {
+      "@id": "aws:clusterCreateTime",
+      "@type": "xsd:dateTime"
+    },
+    "dBSnapshotIdentifier": {
+      "@id": "aws:dBSnapshotIdentifier",
+      "@type": "xsd:string"
+    },
+    "snapshotCreateTime": {
+      "@id": "aws:snapshotCreateTime",
+      "@type": "xsd:dateTime"
+    },
+    "vpcId": {
+      "@id": "aws:vpcId",
+      "@type": "xsd:string"
+    },
+    "snapshotType": {
+      "@id": "aws:snapshotType",
+      "@type": "xsd:string"
+    },
+    "encrypted": {
+      "@id": "aws:encrypted",
+      "@type": "xsd:boolean"
+    },
+    "dBSnapshotArn": {
+      "@id": "aws:dBSnapshotArn",
+      "@type": "xsd:string"
+    },
+    "dBClusters": {
+      "@id": "aws:dBClusters",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "marker": {
+      "@id": "aws:marker",
+      "@type": "xsd:string"
+    },
+    "dBInstances": {
+      "@id": "aws:dBInstances",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "dBSnapshots": {
+      "@id": "aws:dBSnapshots",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "key": {
+      "@id": "aws:key",
+      "@type": "xsd:string"
+    },
+    "value": {
+      "@id": "aws:value",
+      "@type": "xsd:string"
+    }
+  }
+}
