@@ -1,4 +1,4 @@
-naftiko: 1.0.0-alpha1
+naftiko: 1.0.0-alpha2
 info:
   label: Amazon Rds Operations
   description: Workflow capability for Amazon Rds. Enables automation of Amazon Rds resources for cloud operations teams.
@@ -7,7 +7,7 @@ info:
   - AWS
   - Cloud Operations
   created: '2026-04-19'
-  modified: '2026-04-19'
+  modified: '2026-05-06'
 binds:
 - namespace: env
   keys:
@@ -15,8 +15,158 @@ binds:
     AWS_SECRET_KEY: AWS_SECRET_KEY
 capability:
   consumes:
-  - import: amazon-rds
-    location: ./shared/amazon-rds.yaml
+  - type: http
+    namespace: amazon-rds
+    baseUri: https://rds.{region}.amazonaws.com
+    description: Amazon RDS API
+    authentication:
+      type: bearer
+      token: '{{AWS_ACCESS_KEY}}'
+    resources:
+    - name: ?Action=CreateDBInstance
+      path: /?Action=CreateDBInstance
+      description: ?Action=CreateDBInstance operations
+      operations:
+      - name: createDBInstance
+        method: GET
+        description: Amazon RDS Create a new DB instance
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: ?Action=DescribeDBInstances
+      path: /?Action=DescribeDBInstances
+      description: ?Action=DescribeDBInstances operations
+      operations:
+      - name: describeDBInstances
+        method: GET
+        description: Amazon RDS Describe DB instances
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: ?Action=ModifyDBInstance
+      path: /?Action=ModifyDBInstance
+      description: ?Action=ModifyDBInstance operations
+      operations:
+      - name: modifyDBInstance
+        method: GET
+        description: Amazon RDS Modify a DB instance
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: ?Action=DeleteDBInstance
+      path: /?Action=DeleteDBInstance
+      description: ?Action=DeleteDBInstance operations
+      operations:
+      - name: deleteDBInstance
+        method: GET
+        description: Amazon RDS Delete a DB instance
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: ?Action=RebootDBInstance
+      path: /?Action=RebootDBInstance
+      description: ?Action=RebootDBInstance operations
+      operations:
+      - name: rebootDBInstance
+        method: GET
+        description: Amazon RDS Reboot a DB instance
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: ?Action=CreateDBSnapshot
+      path: /?Action=CreateDBSnapshot
+      description: ?Action=CreateDBSnapshot operations
+      operations:
+      - name: createDBSnapshot
+        method: GET
+        description: Amazon RDS Create a DB snapshot
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: ?Action=DescribeDBSnapshots
+      path: /?Action=DescribeDBSnapshots
+      description: ?Action=DescribeDBSnapshots operations
+      operations:
+      - name: describeDBSnapshots
+        method: GET
+        description: Amazon RDS Describe DB snapshots
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: ?Action=DeleteDBSnapshot
+      path: /?Action=DeleteDBSnapshot
+      description: ?Action=DeleteDBSnapshot operations
+      operations:
+      - name: deleteDBSnapshot
+        method: GET
+        description: Amazon RDS Delete a DB snapshot
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: ?Action=CreateDBCluster
+      path: /?Action=CreateDBCluster
+      description: ?Action=CreateDBCluster operations
+      operations:
+      - name: createDBCluster
+        method: GET
+        description: Amazon RDS Create a new DB cluster
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: ?Action=DescribeDBClusters
+      path: /?Action=DescribeDBClusters
+      description: ?Action=DescribeDBClusters operations
+      operations:
+      - name: describeDBClusters
+        method: GET
+        description: Amazon RDS Describe DB clusters
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: ?Action=DeleteDBCluster
+      path: /?Action=DeleteDBCluster
+      description: ?Action=DeleteDBCluster operations
+      operations:
+      - name: deleteDBCluster
+        method: GET
+        description: Amazon RDS Delete a DB cluster
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: ?Action=DescribeDBEngineVersions
+      path: /?Action=DescribeDBEngineVersions
+      description: ?Action=DescribeDBEngineVersions operations
+      operations:
+      - name: describeDBEngineVersions
+        method: GET
+        description: Amazon RDS Describe DB engine versions
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
   exposes:
   - type: rest
     port: 8080
