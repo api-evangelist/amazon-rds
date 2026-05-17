@@ -38,7 +38,7 @@ apis:
     url: https://aws.amazon.com/rds/getting-started/
   - type: FAQ
     url: https://aws.amazon.com/rds/faqs/
-  - type: Service Level Agreement
+  - type: ServiceLevelAgreement
     url: https://aws.amazon.com/rds/sla/
   - type: User Guide
     url: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/
@@ -85,7 +85,7 @@ common:
   url: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.html
 - type: Compliance
   url: https://aws.amazon.com/compliance/
-- type: JSON-LD
+- type: JSONLD
   url: json-ld/amazon-rds-context-context.jsonld
 - type: JSONSchema
   url: json-schema/amazon-rds-openapi-create-db-cluster-response-schema.json
