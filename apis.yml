@@ -1,17 +1,16 @@
 name: Amazon RDS
-description: Amazon Relational Database Service (RDS) makes it easy to set up, operate, and scale a relational database in the cloud, providing cost-efficient and resizable capacity while automating 
-  time-consuming administration tasks such as hardware provisioning, database setup, patching, and backups.
+description: Amazon Relational Database Service (RDS) makes it easy to set up, operate, and scale a relational database in
+  the cloud, providing cost-efficient and resizable capacity while automating time-consuming administration tasks such as
+  hardware provisioning, database setup, patching, and backups.
 image: https://a0.awsstatic.com/libra-css/images/logos/aws_logo_smile_1200x630.png
 url: https://raw.githubusercontent.com/api-evangelist/amazon-rds/refs/heads/main/apis.yml
 created: '2024-01-15'
-modified: '2026-04-19'
+modified: '2026-05-19'
 apis:
 - name: Amazon RDS API
-  description: >-
-    Core API for managing Amazon RDS database instances, clusters, snapshots,
-    parameter groups, subnet groups, and other relational database resources
-    across multiple database engines including MySQL, PostgreSQL, MariaDB,
-    Oracle, SQL Server, and Amazon Aurora.
+  description: Core API for managing Amazon RDS database instances, clusters, snapshots, parameter groups, subnet groups,
+    and other relational database resources across multiple database engines including MySQL, PostgreSQL, MariaDB, Oracle,
+    SQL Server, and Amazon Aurora.
   image: https://a0.awsstatic.com/libra-css/images/logos/aws_logo_smile_1200x630.png
   humanURL: https://aws.amazon.com/rds/
   baseURL: https://rds.amazonaws.com
@@ -48,6 +47,14 @@ apis:
     url: https://docs.aws.amazon.com/cli/latest/reference/rds/
   - type: Security
     url: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.html
+  - type: NaftikoCapability
+    url: capabilities/amazon-rds-db-clusters.yaml
+  - type: NaftikoCapability
+    url: capabilities/amazon-rds-db-engine-versions.yaml
+  - type: NaftikoCapability
+    url: capabilities/amazon-rds-db-instances.yaml
+  - type: NaftikoCapability
+    url: capabilities/amazon-rds-db-snapshots.yaml
 common:
 - type: Portal
   url: https://aws.amazon.com/
@@ -157,10 +164,6 @@ common:
   url: examples/amazon-rds-openapi-modify-db-instance-response-example.json
 - type: Example
   url: examples/amazon-rds-openapi-tag-example.json
-- type: NaftikoCapability
-  url: capabilities/amazon-rds.yaml
-- type: NaftikoCapability
-  url: capabilities/shared/amazon-rds.yaml
 - type: SpectralRules
   url: rules/amazon-rds-spectral-rules.yml
 - type: Vocabulary
@@ -168,14 +171,14 @@ common:
 - type: Integrations
   url: https://aws.amazon.com/partners/
 integrations:
-  - name: Partner Programs
-  - name: Resources
-  - name: Success Stories
-  - name: Work with an AWS Partner
-  - name: AWS Marketplace
-  - name: AWS Partner Central
-  - name: Partner Paths
-  - name: co-sell with AWS
+- name: Partner Programs
+- name: Resources
+- name: Success Stories
+- name: Work with an AWS Partner
+- name: AWS Marketplace
+- name: AWS Partner Central
+- name: Partner Paths
+- name: co-sell with AWS
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
