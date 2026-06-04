@@ -1,0 +1,104 @@
+arazzo: 1.0.1
+info:
+  title: Amazon RDS Scale DB Instance Storage
+  summary: Increase allocated storage immediately and poll until the instance stabilizes.
+  description: >-
+    Grows the allocated storage of a DB instance and waits for the storage
+    scaling to complete. The workflow confirms the instance is available, submits
+    a modify request that raises AllocatedStorage with ApplyImmediately, and
+    polls DescribeDBInstances until the status settles back to available, looping
+    while the instance is still modifying or in storage-optimization. Every step
+    spells out its request inline so the flow can be read and executed without
+    opening the underlying OpenAPI description.
+  version: 1.0.0
+sourceDescriptions:
+- name: amazonRdsApi
+  url: ../openapi/amazon-rds-openapi.yml
+  type: openapi
+workflows:
+- workflowId: scale-instance-storage
+  summary: Increase a DB instance allocated storage and wait for it to stabilize.
+  description: >-
+    Confirms the instance is available, raises AllocatedStorage with
+    ApplyImmediately, then polls until DescribeDBInstances reports the instance
+    available again.
+  inputs:
+    type: object
+    required:
+    - dbInstanceIdentifier
+    - allocatedStorage
+    properties:
+      dbInstanceIdentifier:
+        type: string
+        description: The identifier of the DB instance to scale storage for.
+      allocatedStorage:
+        type: integer
+        description: The new allocated storage in gibibytes (GiB); must exceed the current size.
+  steps:
+  - stepId: confirmInstance
+    description: >-
+      Describe the DB instance to confirm it is available and read its current
+      allocated storage before scaling.
+    operationId: describeDBInstances
+    parameters:
+    - name: DBInstanceIdentifier
+      in: query
+      value: $inputs.dbInstanceIdentifier
+    successCriteria:
+    - condition: $statusCode == 200
+    - context: $response.body
+      condition: $.dBInstances[0].dBInstanceStatus == 'available'
+      type: jsonpath
+    outputs:
+      currentStorage: $response.body#/dBInstances/0/allocatedStorage
+  - stepId: scaleStorage
+    description: >-
+      Submit the modify request raising the allocated storage with the change
+      applied immediately.
+    operationId: modifyDBInstance
+    parameters:
+    - name: DBInstanceIdentifier
+      in: query
+      value: $inputs.dbInstanceIdentifier
+    - name: AllocatedStorage
+      in: query
+      value: $inputs.allocatedStorage
+    - name: ApplyImmediately
+      in: query
+      value: true
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      pendingStatus: $response.body#/dBInstance/dBInstanceStatus
+  - stepId: pollInstance
+    description: >-
+      Describe the DB instance and inspect its status. While the instance is
+      still modifying or optimizing storage the workflow loops back to poll
+      again; once it is available the flow ends.
+    operationId: describeDBInstances
+    parameters:
+    - name: DBInstanceIdentifier
+      in: query
+      value: $inputs.dbInstanceIdentifier
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      status: $response.body#/dBInstances/0/dBInstanceStatus
+      appliedStorage: $response.body#/dBInstances/0/allocatedStorage
+    onSuccess:
+    - name: stillScaling
+      type: goto
+      stepId: pollInstance
+      criteria:
+      - context: $response.body
+        condition: $.dBInstances[0].dBInstanceStatus != 'available'
+        type: jsonpath
+    - name: available
+      type: end
+      criteria:
+      - context: $response.body
+        condition: $.dBInstances[0].dBInstanceStatus == 'available'
+        type: jsonpath
+  outputs:
+    status: $steps.pollInstance.outputs.status
+    appliedStorage: $steps.pollInstance.outputs.appliedStorage

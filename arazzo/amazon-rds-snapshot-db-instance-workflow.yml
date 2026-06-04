@@ -1,0 +1,101 @@
+arazzo: 1.0.1
+info:
+  title: Amazon RDS Snapshot a DB Instance
+  summary: Create a manual DB snapshot and poll until it reports the available status.
+  description: >-
+    Captures a point-in-time manual snapshot of a running DB instance and waits
+    for the snapshot to finish. The workflow confirms the source instance is
+    available, requests a manual snapshot, and then polls DescribeDBSnapshots
+    until the snapshot status reaches available, looping while the snapshot is
+    still creating. Every step spells out its request inline so the flow can be
+    read and executed without opening the underlying OpenAPI description.
+  version: 1.0.0
+sourceDescriptions:
+- name: amazonRdsApi
+  url: ../openapi/amazon-rds-openapi.yml
+  type: openapi
+workflows:
+- workflowId: snapshot-db-instance
+  summary: Take a manual DB snapshot and wait for it to become available.
+  description: >-
+    Verifies the source DB instance is available, creates a manual snapshot,
+    and polls DescribeDBSnapshots until the snapshot status is available.
+  inputs:
+    type: object
+    required:
+    - dbInstanceIdentifier
+    - dbSnapshotIdentifier
+    properties:
+      dbInstanceIdentifier:
+        type: string
+        description: The identifier of the source DB instance to snapshot.
+      dbSnapshotIdentifier:
+        type: string
+        description: The identifier to assign to the new manual DB snapshot.
+  steps:
+  - stepId: confirmInstance
+    description: >-
+      Describe the source DB instance to confirm it exists and is in the
+      available state before requesting a snapshot.
+    operationId: describeDBInstances
+    parameters:
+    - name: DBInstanceIdentifier
+      in: query
+      value: $inputs.dbInstanceIdentifier
+    successCriteria:
+    - condition: $statusCode == 200
+    - context: $response.body
+      condition: $.dBInstances[0].dBInstanceStatus == 'available'
+      type: jsonpath
+    outputs:
+      sourceStatus: $response.body#/dBInstances/0/dBInstanceStatus
+  - stepId: createSnapshot
+    description: >-
+      Request a manual snapshot of the source DB instance using the supplied
+      snapshot identifier.
+    operationId: createDBSnapshot
+    parameters:
+    - name: DBSnapshotIdentifier
+      in: query
+      value: $inputs.dbSnapshotIdentifier
+    - name: DBInstanceIdentifier
+      in: query
+      value: $inputs.dbInstanceIdentifier
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      snapshotId: $response.body#/dBSnapshot/dBSnapshotIdentifier
+      initialStatus: $response.body#/dBSnapshot/status
+  - stepId: pollSnapshot
+    description: >-
+      Describe the snapshot and inspect its status. While the snapshot is still
+      creating the workflow loops back to poll again; once it is available the
+      flow ends.
+    operationId: describeDBSnapshots
+    parameters:
+    - name: DBSnapshotIdentifier
+      in: query
+      value: $inputs.dbSnapshotIdentifier
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      status: $response.body#/dBSnapshots/0/status
+      snapshotCreateTime: $response.body#/dBSnapshots/0/snapshotCreateTime
+    onSuccess:
+    - name: stillCreating
+      type: goto
+      stepId: pollSnapshot
+      criteria:
+      - context: $response.body
+        condition: $.dBSnapshots[0].status != 'available'
+        type: jsonpath
+    - name: available
+      type: end
+      criteria:
+      - context: $response.body
+        condition: $.dBSnapshots[0].status == 'available'
+        type: jsonpath
+  outputs:
+    snapshotId: $steps.createSnapshot.outputs.snapshotId
+    status: $steps.pollSnapshot.outputs.status
+    snapshotCreateTime: $steps.pollSnapshot.outputs.snapshotCreateTime

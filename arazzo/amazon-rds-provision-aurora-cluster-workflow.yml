@@ -1,0 +1,108 @@
+arazzo: 1.0.1
+info:
+  title: Amazon RDS Provision an Aurora DB Cluster
+  summary: Create an Aurora DB cluster and poll until it reports the available status.
+  description: >-
+    Provisions a new Amazon Aurora DB cluster and waits for it to come online.
+    The workflow submits the create-cluster request with the engine and master
+    credentials, captures the cluster identifier and endpoints, and polls
+    DescribeDBClusters until the cluster status reaches available, looping while
+    it is still creating. Every step spells out its request inline so the flow
+    can be read and executed without opening the underlying OpenAPI description.
+  version: 1.0.0
+sourceDescriptions:
+- name: amazonRdsApi
+  url: ../openapi/amazon-rds-openapi.yml
+  type: openapi
+workflows:
+- workflowId: provision-aurora-cluster
+  summary: Create an Aurora DB cluster and wait for it to become available.
+  description: >-
+    Creates an Aurora DB cluster with the supplied engine and master
+    credentials, then polls DescribeDBClusters until the cluster status is
+    available.
+  inputs:
+    type: object
+    required:
+    - dbClusterIdentifier
+    - engine
+    - masterUsername
+    - masterUserPassword
+    properties:
+      dbClusterIdentifier:
+        type: string
+        description: The unique identifier for the new Aurora DB cluster.
+      engine:
+        type: string
+        description: The Aurora engine to use (aurora-mysql, aurora-postgresql).
+      masterUsername:
+        type: string
+        description: The name for the master database user.
+      masterUserPassword:
+        type: string
+        description: The password for the master database user.
+      databaseName:
+        type: string
+        description: An optional name for an initial database in the cluster.
+  steps:
+  - stepId: createCluster
+    description: >-
+      Submit the request to create the Aurora DB cluster with the supplied
+      engine and master credentials.
+    operationId: createDBCluster
+    parameters:
+    - name: DBClusterIdentifier
+      in: query
+      value: $inputs.dbClusterIdentifier
+    - name: Engine
+      in: query
+      value: $inputs.engine
+    - name: MasterUsername
+      in: query
+      value: $inputs.masterUsername
+    - name: MasterUserPassword
+      in: query
+      value: $inputs.masterUserPassword
+    - name: DatabaseName
+      in: query
+      value: $inputs.databaseName
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      clusterId: $response.body#/dBCluster/dBClusterIdentifier
+      initialStatus: $response.body#/dBCluster/status
+  - stepId: pollCluster
+    description: >-
+      Describe the DB cluster and inspect its status. While the cluster is still
+      creating the workflow loops back to poll again; once it is available the
+      flow ends.
+    operationId: describeDBClusters
+    parameters:
+    - name: DBClusterIdentifier
+      in: query
+      value: $inputs.dbClusterIdentifier
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      status: $response.body#/dBClusters/0/status
+      endpoint: $response.body#/dBClusters/0/endpoint
+      readerEndpoint: $response.body#/dBClusters/0/readerEndpoint
+    onSuccess:
+    - name: stillCreating
+      type: goto
+      stepId: pollCluster
+      criteria:
+      - context: $response.body
+        condition: $.dBClusters[0].status != 'available'
+        type: jsonpath
+    - name: available
+      type: end
+      criteria:
+      - context: $response.body
+        condition: $.dBClusters[0].status == 'available'
+        type: jsonpath
+  outputs:
+    clusterId: $steps.createCluster.outputs.clusterId
+    status: $steps.pollCluster.outputs.status
+    endpoint: $steps.pollCluster.outputs.endpoint
+    readerEndpoint: $steps.pollCluster.outputs.readerEndpoint

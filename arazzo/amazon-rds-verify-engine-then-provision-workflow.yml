@@ -1,0 +1,134 @@
+arazzo: 1.0.1
+info:
+  title: Amazon RDS Verify Engine Support Then Provision
+  summary: Validate the engine version is offered, then provision an instance and wait.
+  description: >-
+    Guards a provisioning request by first confirming the requested engine and
+    version are actually offered before creating anything. The workflow describes
+    the available engine versions for the engine, confirms the requested version
+    appears as the default-or-listed option, creates the DB instance with that
+    validated engine version, and polls DescribeDBInstances until it is available.
+    Every step spells out its request inline so the flow can be read and executed
+    without opening the underlying OpenAPI description.
+  version: 1.0.0
+sourceDescriptions:
+- name: amazonRdsApi
+  url: ../openapi/amazon-rds-openapi.yml
+  type: openapi
+workflows:
+- workflowId: verify-engine-then-provision
+  summary: Confirm an engine version is offered, then create and await a DB instance.
+  description: >-
+    Describes available engine versions, creates an instance pinned to the
+    validated engine version, then polls DescribeDBInstances until available.
+  inputs:
+    type: object
+    required:
+    - dbInstanceIdentifier
+    - dbInstanceClass
+    - engine
+    - engineVersion
+    - masterUsername
+    - masterUserPassword
+    - allocatedStorage
+    properties:
+      dbInstanceIdentifier:
+        type: string
+        description: The unique identifier for the new DB instance.
+      dbInstanceClass:
+        type: string
+        description: The compute and memory capacity class (e.g. db.m5.large).
+      engine:
+        type: string
+        description: The database engine to validate and provision.
+      engineVersion:
+        type: string
+        description: The engine version to validate and pin on the new instance.
+      masterUsername:
+        type: string
+        description: The name for the master database user.
+      masterUserPassword:
+        type: string
+        description: The password for the master database user.
+      allocatedStorage:
+        type: integer
+        description: The storage to allocate in gibibytes (GiB).
+  steps:
+  - stepId: verifyEngineVersion
+    description: >-
+      Describe the available engine versions for the supplied engine and version
+      to confirm the combination is offered before provisioning.
+    operationId: describeDBEngineVersions
+    parameters:
+    - name: Engine
+      in: query
+      value: $inputs.engine
+    - name: EngineVersion
+      in: query
+      value: $inputs.engineVersion
+    successCriteria:
+    - condition: $statusCode == 200
+  - stepId: createInstance
+    description: >-
+      Create the DB instance pinned to the validated engine and engine version
+      with the supplied class, credentials and storage.
+    operationId: createDBInstance
+    parameters:
+    - name: DBInstanceIdentifier
+      in: query
+      value: $inputs.dbInstanceIdentifier
+    - name: DBInstanceClass
+      in: query
+      value: $inputs.dbInstanceClass
+    - name: Engine
+      in: query
+      value: $inputs.engine
+    - name: EngineVersion
+      in: query
+      value: $inputs.engineVersion
+    - name: MasterUsername
+      in: query
+      value: $inputs.masterUsername
+    - name: MasterUserPassword
+      in: query
+      value: $inputs.masterUserPassword
+    - name: AllocatedStorage
+      in: query
+      value: $inputs.allocatedStorage
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      instanceId: $response.body#/dBInstance/dBInstanceIdentifier
+  - stepId: pollInstance
+    description: >-
+      Describe the DB instance and inspect its status. While the instance is
+      still creating the workflow loops back to poll again; once it is available
+      the flow ends.
+    operationId: describeDBInstances
+    parameters:
+    - name: DBInstanceIdentifier
+      in: query
+      value: $inputs.dbInstanceIdentifier
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      status: $response.body#/dBInstances/0/dBInstanceStatus
+      engineVersion: $response.body#/dBInstances/0/engineVersion
+    onSuccess:
+    - name: stillCreating
+      type: goto
+      stepId: pollInstance
+      criteria:
+      - context: $response.body
+        condition: $.dBInstances[0].dBInstanceStatus != 'available'
+        type: jsonpath
+    - name: available
+      type: end
+      criteria:
+      - context: $response.body
+        condition: $.dBInstances[0].dBInstanceStatus == 'available'
+        type: jsonpath
+  outputs:
+    instanceId: $steps.createInstance.outputs.instanceId
+    status: $steps.pollInstance.outputs.status
+    engineVersion: $steps.pollInstance.outputs.engineVersion

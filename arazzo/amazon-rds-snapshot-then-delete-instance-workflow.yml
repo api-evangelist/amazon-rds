@@ -1,0 +1,104 @@
+arazzo: 1.0.1
+info:
+  title: Amazon RDS Snapshot Then Delete a DB Instance
+  summary: Take a final manual snapshot, wait for it, then safely delete the instance.
+  description: >-
+    Safely decommissions a DB instance by first capturing a manual snapshot,
+    waiting for that snapshot to become available, and only then deleting the
+    instance with a final snapshot retained. The workflow creates a manual
+    snapshot, polls DescribeDBSnapshots until it is available, and then issues
+    the delete with SkipFinalSnapshot false and a FinalDBSnapshotIdentifier.
+    Every step spells out its request inline so the flow can be read and executed
+    without opening the underlying OpenAPI description.
+  version: 1.0.0
+sourceDescriptions:
+- name: amazonRdsApi
+  url: ../openapi/amazon-rds-openapi.yml
+  type: openapi
+workflows:
+- workflowId: snapshot-then-delete-instance
+  summary: Snapshot a DB instance, wait for the snapshot, then delete the instance.
+  description: >-
+    Creates a manual snapshot, polls until it is available, then deletes the
+    source instance while retaining a final snapshot.
+  inputs:
+    type: object
+    required:
+    - dbInstanceIdentifier
+    - dbSnapshotIdentifier
+    - finalDbSnapshotIdentifier
+    properties:
+      dbInstanceIdentifier:
+        type: string
+        description: The identifier of the DB instance to snapshot and delete.
+      dbSnapshotIdentifier:
+        type: string
+        description: The identifier for the pre-deletion manual snapshot.
+      finalDbSnapshotIdentifier:
+        type: string
+        description: The identifier for the final snapshot taken during deletion.
+  steps:
+  - stepId: createSnapshot
+    description: >-
+      Request a manual snapshot of the source DB instance before deletion.
+    operationId: createDBSnapshot
+    parameters:
+    - name: DBSnapshotIdentifier
+      in: query
+      value: $inputs.dbSnapshotIdentifier
+    - name: DBInstanceIdentifier
+      in: query
+      value: $inputs.dbInstanceIdentifier
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      snapshotId: $response.body#/dBSnapshot/dBSnapshotIdentifier
+  - stepId: pollSnapshot
+    description: >-
+      Describe the snapshot and inspect its status. While the snapshot is still
+      creating the workflow loops back to poll again; once it is available it
+      proceeds to delete the instance.
+    operationId: describeDBSnapshots
+    parameters:
+    - name: DBSnapshotIdentifier
+      in: query
+      value: $inputs.dbSnapshotIdentifier
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      snapshotStatus: $response.body#/dBSnapshots/0/status
+    onSuccess:
+    - name: stillCreating
+      type: goto
+      stepId: pollSnapshot
+      criteria:
+      - context: $response.body
+        condition: $.dBSnapshots[0].status != 'available'
+        type: jsonpath
+    - name: snapshotReady
+      type: goto
+      stepId: deleteInstance
+      criteria:
+      - context: $response.body
+        condition: $.dBSnapshots[0].status == 'available'
+        type: jsonpath
+  - stepId: deleteInstance
+    description: >-
+      Delete the source DB instance, retaining a final snapshot rather than
+      skipping it.
+    operationId: deleteDBInstance
+    parameters:
+    - name: DBInstanceIdentifier
+      in: query
+      value: $inputs.dbInstanceIdentifier
+    - name: SkipFinalSnapshot
+      in: query
+      value: false
+    - name: FinalDBSnapshotIdentifier
+      in: query
+      value: $inputs.finalDbSnapshotIdentifier
+    successCriteria:
+    - condition: $statusCode == 200
+  outputs:
+    snapshotId: $steps.createSnapshot.outputs.snapshotId
+    snapshotStatus: $steps.pollSnapshot.outputs.snapshotStatus

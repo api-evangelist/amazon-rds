@@ -1,0 +1,104 @@
+arazzo: 1.0.1
+info:
+  title: Amazon RDS Modify a DB Instance Class
+  summary: Resize a DB instance class immediately and poll until it stabilizes.
+  description: >-
+    Scales a DB instance up or down by changing its instance class with the
+    modification applied immediately, then waits for the instance to finish
+    applying the change. The workflow confirms the instance is available,
+    submits the modify request with ApplyImmediately set, and polls
+    DescribeDBInstances until the status settles back to available, looping
+    while the instance is still modifying. Every step spells out its request
+    inline so the flow can be read and executed without opening the underlying
+    OpenAPI description.
+  version: 1.0.0
+sourceDescriptions:
+- name: amazonRdsApi
+  url: ../openapi/amazon-rds-openapi.yml
+  type: openapi
+workflows:
+- workflowId: modify-instance-class
+  summary: Change a DB instance class immediately and wait for it to stabilize.
+  description: >-
+    Confirms the instance is available, modifies the instance class with
+    ApplyImmediately, then polls DescribeDBInstances until status is available.
+  inputs:
+    type: object
+    required:
+    - dbInstanceIdentifier
+    - dbInstanceClass
+    properties:
+      dbInstanceIdentifier:
+        type: string
+        description: The identifier of the DB instance to resize.
+      dbInstanceClass:
+        type: string
+        description: The new compute and memory capacity class (e.g. db.r5.large).
+  steps:
+  - stepId: confirmInstance
+    description: >-
+      Describe the DB instance to confirm it is available before applying a
+      modification.
+    operationId: describeDBInstances
+    parameters:
+    - name: DBInstanceIdentifier
+      in: query
+      value: $inputs.dbInstanceIdentifier
+    successCriteria:
+    - condition: $statusCode == 200
+    - context: $response.body
+      condition: $.dBInstances[0].dBInstanceStatus == 'available'
+      type: jsonpath
+    outputs:
+      currentClass: $response.body#/dBInstances/0/dBInstanceClass
+  - stepId: modifyInstance
+    description: >-
+      Submit the modify request changing the instance class with the change
+      applied immediately rather than during the next maintenance window.
+    operationId: modifyDBInstance
+    parameters:
+    - name: DBInstanceIdentifier
+      in: query
+      value: $inputs.dbInstanceIdentifier
+    - name: DBInstanceClass
+      in: query
+      value: $inputs.dbInstanceClass
+    - name: ApplyImmediately
+      in: query
+      value: true
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      pendingStatus: $response.body#/dBInstance/dBInstanceStatus
+  - stepId: pollInstance
+    description: >-
+      Describe the DB instance and inspect its status. While the instance is
+      still modifying the workflow loops back to poll again; once it is
+      available the flow ends.
+    operationId: describeDBInstances
+    parameters:
+    - name: DBInstanceIdentifier
+      in: query
+      value: $inputs.dbInstanceIdentifier
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      status: $response.body#/dBInstances/0/dBInstanceStatus
+      appliedClass: $response.body#/dBInstances/0/dBInstanceClass
+    onSuccess:
+    - name: stillModifying
+      type: goto
+      stepId: pollInstance
+      criteria:
+      - context: $response.body
+        condition: $.dBInstances[0].dBInstanceStatus != 'available'
+        type: jsonpath
+    - name: available
+      type: end
+      criteria:
+      - context: $response.body
+        condition: $.dBInstances[0].dBInstanceStatus == 'available'
+        type: jsonpath
+  outputs:
+    status: $steps.pollInstance.outputs.status
+    appliedClass: $steps.pollInstance.outputs.appliedClass

@@ -1,0 +1,96 @@
+arazzo: 1.0.1
+info:
+  title: Amazon RDS Reboot a DB Instance
+  summary: Reboot a DB instance with optional failover and poll until it recovers.
+  description: >-
+    Reboots a DB instance to apply pending changes or force a Multi-AZ failover,
+    then waits for the database to return to service. The workflow confirms the
+    instance is available, issues the reboot, and polls DescribeDBInstances until
+    the status returns to available, looping while the instance is still
+    rebooting. Every step spells out its request inline so the flow can be read
+    and executed without opening the underlying OpenAPI description.
+  version: 1.0.0
+sourceDescriptions:
+- name: amazonRdsApi
+  url: ../openapi/amazon-rds-openapi.yml
+  type: openapi
+workflows:
+- workflowId: reboot-instance
+  summary: Reboot a DB instance and wait for it to return to available.
+  description: >-
+    Confirms the instance is available, reboots it (optionally forcing a
+    failover), then polls until DescribeDBInstances reports the instance
+    available again.
+  inputs:
+    type: object
+    required:
+    - dbInstanceIdentifier
+    properties:
+      dbInstanceIdentifier:
+        type: string
+        description: The identifier of the DB instance to reboot.
+      forceFailover:
+        type: boolean
+        description: Whether to force a Multi-AZ failover during the reboot.
+  steps:
+  - stepId: confirmInstance
+    description: >-
+      Describe the DB instance to confirm it is available before rebooting.
+    operationId: describeDBInstances
+    parameters:
+    - name: DBInstanceIdentifier
+      in: query
+      value: $inputs.dbInstanceIdentifier
+    successCriteria:
+    - condition: $statusCode == 200
+    - context: $response.body
+      condition: $.dBInstances[0].dBInstanceStatus == 'available'
+      type: jsonpath
+    outputs:
+      preRebootStatus: $response.body#/dBInstances/0/dBInstanceStatus
+  - stepId: rebootInstance
+    description: >-
+      Issue the reboot request, optionally forcing a failover from one
+      Availability Zone to another in a Multi-AZ deployment.
+    operationId: rebootDBInstance
+    parameters:
+    - name: DBInstanceIdentifier
+      in: query
+      value: $inputs.dbInstanceIdentifier
+    - name: ForceFailover
+      in: query
+      value: $inputs.forceFailover
+    successCriteria:
+    - condition: $statusCode == 200
+  - stepId: pollInstance
+    description: >-
+      Describe the DB instance and inspect its status. While the instance is
+      still rebooting the workflow loops back to poll again; once it is
+      available the flow ends.
+    operationId: describeDBInstances
+    parameters:
+    - name: DBInstanceIdentifier
+      in: query
+      value: $inputs.dbInstanceIdentifier
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      status: $response.body#/dBInstances/0/dBInstanceStatus
+      endpointAddress: $response.body#/dBInstances/0/endpoint/address
+    onSuccess:
+    - name: stillRebooting
+      type: goto
+      stepId: pollInstance
+      criteria:
+      - context: $response.body
+        condition: $.dBInstances[0].dBInstanceStatus != 'available'
+        type: jsonpath
+    - name: available
+      type: end
+      criteria:
+      - context: $response.body
+        condition: $.dBInstances[0].dBInstanceStatus == 'available'
+        type: jsonpath
+  outputs:
+    status: $steps.pollInstance.outputs.status
+    endpointAddress: $steps.pollInstance.outputs.endpointAddress

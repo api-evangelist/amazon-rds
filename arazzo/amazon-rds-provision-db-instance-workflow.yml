@@ -1,0 +1,116 @@
+arazzo: 1.0.1
+info:
+  title: Amazon RDS Provision a DB Instance
+  summary: Create a DB instance and poll until it reports the available status.
+  description: >-
+    Provisions a new Amazon RDS DB instance and then waits for it to finish
+    provisioning. The workflow submits the create request, captures the returned
+    instance identifier and initial status, and then polls the describe action
+    until the DBInstanceStatus reaches available, branching back into the poll
+    while the instance is still creating, modifying, or backing-up. Every step
+    spells out its request inline so the flow can be read and executed without
+    opening the underlying OpenAPI description.
+  version: 1.0.0
+sourceDescriptions:
+- name: amazonRdsApi
+  url: ../openapi/amazon-rds-openapi.yml
+  type: openapi
+workflows:
+- workflowId: provision-db-instance
+  summary: Create a DB instance and wait for it to become available.
+  description: >-
+    Creates a DB instance with the supplied engine, instance class and storage,
+    then polls DescribeDBInstances until the instance status is available.
+  inputs:
+    type: object
+    required:
+    - dbInstanceIdentifier
+    - dbInstanceClass
+    - engine
+    - masterUsername
+    - masterUserPassword
+    - allocatedStorage
+    properties:
+      dbInstanceIdentifier:
+        type: string
+        description: The unique identifier for the new DB instance.
+      dbInstanceClass:
+        type: string
+        description: The compute and memory capacity class (e.g. db.m5.large).
+      engine:
+        type: string
+        description: The database engine (mysql, postgres, mariadb, etc.).
+      masterUsername:
+        type: string
+        description: The name for the master database user.
+      masterUserPassword:
+        type: string
+        description: The password for the master database user.
+      allocatedStorage:
+        type: integer
+        description: The storage to allocate in gibibytes (GiB).
+  steps:
+  - stepId: createInstance
+    description: >-
+      Submit the request to create the DB instance with the supplied engine,
+      instance class, master credentials and allocated storage.
+    operationId: createDBInstance
+    parameters:
+    - name: DBInstanceIdentifier
+      in: query
+      value: $inputs.dbInstanceIdentifier
+    - name: DBInstanceClass
+      in: query
+      value: $inputs.dbInstanceClass
+    - name: Engine
+      in: query
+      value: $inputs.engine
+    - name: MasterUsername
+      in: query
+      value: $inputs.masterUsername
+    - name: MasterUserPassword
+      in: query
+      value: $inputs.masterUserPassword
+    - name: AllocatedStorage
+      in: query
+      value: $inputs.allocatedStorage
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      instanceId: $response.body#/dBInstance/dBInstanceIdentifier
+      initialStatus: $response.body#/dBInstance/dBInstanceStatus
+  - stepId: pollInstance
+    description: >-
+      Describe the DB instance and inspect its status. While the instance is
+      still creating, modifying or backing-up the workflow loops back to poll
+      again; once it is available the flow ends.
+    operationId: describeDBInstances
+    parameters:
+    - name: DBInstanceIdentifier
+      in: query
+      value: $inputs.dbInstanceIdentifier
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      status: $response.body#/dBInstances/0/dBInstanceStatus
+      endpointAddress: $response.body#/dBInstances/0/endpoint/address
+      endpointPort: $response.body#/dBInstances/0/endpoint/port
+    onSuccess:
+    - name: stillProvisioning
+      type: goto
+      stepId: pollInstance
+      criteria:
+      - context: $response.body
+        condition: $.dBInstances[0].dBInstanceStatus != 'available'
+        type: jsonpath
+    - name: available
+      type: end
+      criteria:
+      - context: $response.body
+        condition: $.dBInstances[0].dBInstanceStatus == 'available'
+        type: jsonpath
+  outputs:
+    instanceId: $steps.createInstance.outputs.instanceId
+    status: $steps.pollInstance.outputs.status
+    endpointAddress: $steps.pollInstance.outputs.endpointAddress
+    endpointPort: $steps.pollInstance.outputs.endpointPort

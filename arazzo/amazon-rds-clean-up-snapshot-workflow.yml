@@ -1,0 +1,82 @@
+arazzo: 1.0.1
+info:
+  title: Amazon RDS Clean Up a DB Snapshot
+  summary: Confirm a manual snapshot is available, delete it, then verify removal.
+  description: >-
+    Removes a manual DB snapshot that is no longer needed and confirms it is
+    gone. The workflow describes the snapshot to confirm it is a deletable
+    manual snapshot in the available state, deletes it, and re-describes
+    snapshots for the source instance to verify the snapshot no longer appears.
+    Every step spells out its request inline so the flow can be read and executed
+    without opening the underlying OpenAPI description.
+  version: 1.0.0
+sourceDescriptions:
+- name: amazonRdsApi
+  url: ../openapi/amazon-rds-openapi.yml
+  type: openapi
+workflows:
+- workflowId: clean-up-snapshot
+  summary: Delete a manual DB snapshot and verify it has been removed.
+  description: >-
+    Confirms the snapshot is an available manual snapshot, deletes it, then
+    re-lists manual snapshots for the source instance to verify removal.
+  inputs:
+    type: object
+    required:
+    - dbSnapshotIdentifier
+    - dbInstanceIdentifier
+    properties:
+      dbSnapshotIdentifier:
+        type: string
+        description: The identifier of the manual DB snapshot to delete.
+      dbInstanceIdentifier:
+        type: string
+        description: The source DB instance whose snapshots are re-listed to verify removal.
+  steps:
+  - stepId: confirmSnapshot
+    description: >-
+      Describe the snapshot to confirm it is an available manual snapshot before
+      deleting it.
+    operationId: describeDBSnapshots
+    parameters:
+    - name: DBSnapshotIdentifier
+      in: query
+      value: $inputs.dbSnapshotIdentifier
+    successCriteria:
+    - condition: $statusCode == 200
+    - context: $response.body
+      condition: $.dBSnapshots[0].status == 'available'
+      type: jsonpath
+    - context: $response.body
+      condition: $.dBSnapshots[0].snapshotType == 'manual'
+      type: jsonpath
+    outputs:
+      snapshotType: $response.body#/dBSnapshots/0/snapshotType
+  - stepId: deleteSnapshot
+    description: >-
+      Delete the confirmed manual snapshot.
+    operationId: deleteDBSnapshot
+    parameters:
+    - name: DBSnapshotIdentifier
+      in: query
+      value: $inputs.dbSnapshotIdentifier
+    successCriteria:
+    - condition: $statusCode == 200
+  - stepId: verifyRemoval
+    description: >-
+      Re-list the manual snapshots for the source DB instance to verify the
+      deleted snapshot no longer appears.
+    operationId: describeDBSnapshots
+    parameters:
+    - name: DBInstanceIdentifier
+      in: query
+      value: $inputs.dbInstanceIdentifier
+    - name: SnapshotType
+      in: query
+      value: manual
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      remainingMarker: $response.body#/marker
+  outputs:
+    snapshotType: $steps.confirmSnapshot.outputs.snapshotType

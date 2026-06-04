@@ -1,0 +1,172 @@
+arazzo: 1.0.1
+info:
+  title: Amazon RDS Snapshot and Rebuild a DB Instance
+  summary: Snapshot a source instance, wait for it, then build a fresh matching instance.
+  description: >-
+    Approximates a restore-from-snapshot clone using only the operations this
+    API exposes. The workflow snapshots the source instance, polls
+    DescribeDBSnapshots until the snapshot is available (so a restore point
+    exists), reads the source instance configuration, and creates a new instance
+    that mirrors the source engine, instance class and storage, then polls the
+    new instance until it is available. Every step spells out its request inline
+    so the flow can be read and executed without opening the underlying OpenAPI
+    description.
+  version: 1.0.0
+sourceDescriptions:
+- name: amazonRdsApi
+  url: ../openapi/amazon-rds-openapi.yml
+  type: openapi
+workflows:
+- workflowId: snapshot-and-rebuild-instance
+  summary: Snapshot a source instance and build a fresh instance mirroring its config.
+  description: >-
+    Snapshots the source instance and waits for it, reads the source config,
+    creates a matching new instance, then polls until that new instance is
+    available.
+  inputs:
+    type: object
+    required:
+    - sourceDbInstanceIdentifier
+    - dbSnapshotIdentifier
+    - targetDbInstanceIdentifier
+    - masterUsername
+    - masterUserPassword
+    properties:
+      sourceDbInstanceIdentifier:
+        type: string
+        description: The identifier of the source DB instance to snapshot and mirror.
+      dbSnapshotIdentifier:
+        type: string
+        description: The identifier for the restore-point snapshot of the source.
+      targetDbInstanceIdentifier:
+        type: string
+        description: The unique identifier for the new mirrored DB instance.
+      masterUsername:
+        type: string
+        description: The master username for the new DB instance.
+      masterUserPassword:
+        type: string
+        description: The master password for the new DB instance.
+  steps:
+  - stepId: snapshotSource
+    description: >-
+      Create a manual snapshot of the source instance to act as the restore
+      point for the rebuild.
+    operationId: createDBSnapshot
+    parameters:
+    - name: DBSnapshotIdentifier
+      in: query
+      value: $inputs.dbSnapshotIdentifier
+    - name: DBInstanceIdentifier
+      in: query
+      value: $inputs.sourceDbInstanceIdentifier
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      snapshotId: $response.body#/dBSnapshot/dBSnapshotIdentifier
+  - stepId: pollSnapshot
+    description: >-
+      Describe the snapshot and inspect its status. While it is still creating
+      the workflow loops back to poll again; once it is available it proceeds to
+      read the source configuration.
+    operationId: describeDBSnapshots
+    parameters:
+    - name: DBSnapshotIdentifier
+      in: query
+      value: $inputs.dbSnapshotIdentifier
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      snapshotStatus: $response.body#/dBSnapshots/0/status
+    onSuccess:
+    - name: stillCreating
+      type: goto
+      stepId: pollSnapshot
+      criteria:
+      - context: $response.body
+        condition: $.dBSnapshots[0].status != 'available'
+        type: jsonpath
+    - name: snapshotReady
+      type: goto
+      stepId: readSource
+      criteria:
+      - context: $response.body
+        condition: $.dBSnapshots[0].status == 'available'
+        type: jsonpath
+  - stepId: readSource
+    description: >-
+      Describe the source instance to read the engine, instance class and
+      allocated storage used to build the mirrored instance.
+    operationId: describeDBInstances
+    parameters:
+    - name: DBInstanceIdentifier
+      in: query
+      value: $inputs.sourceDbInstanceIdentifier
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      engine: $response.body#/dBInstances/0/engine
+      instanceClass: $response.body#/dBInstances/0/dBInstanceClass
+      allocatedStorage: $response.body#/dBInstances/0/allocatedStorage
+  - stepId: createTarget
+    description: >-
+      Create the new DB instance mirroring the source engine, instance class and
+      allocated storage with fresh master credentials.
+    operationId: createDBInstance
+    parameters:
+    - name: DBInstanceIdentifier
+      in: query
+      value: $inputs.targetDbInstanceIdentifier
+    - name: DBInstanceClass
+      in: query
+      value: $steps.readSource.outputs.instanceClass
+    - name: Engine
+      in: query
+      value: $steps.readSource.outputs.engine
+    - name: AllocatedStorage
+      in: query
+      value: $steps.readSource.outputs.allocatedStorage
+    - name: MasterUsername
+      in: query
+      value: $inputs.masterUsername
+    - name: MasterUserPassword
+      in: query
+      value: $inputs.masterUserPassword
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      targetId: $response.body#/dBInstance/dBInstanceIdentifier
+  - stepId: pollTarget
+    description: >-
+      Describe the new instance and inspect its status. While it is still
+      creating the workflow loops back to poll again; once it is available the
+      flow ends.
+    operationId: describeDBInstances
+    parameters:
+    - name: DBInstanceIdentifier
+      in: query
+      value: $inputs.targetDbInstanceIdentifier
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      status: $response.body#/dBInstances/0/dBInstanceStatus
+      endpointAddress: $response.body#/dBInstances/0/endpoint/address
+    onSuccess:
+    - name: stillCreating
+      type: goto
+      stepId: pollTarget
+      criteria:
+      - context: $response.body
+        condition: $.dBInstances[0].dBInstanceStatus != 'available'
+        type: jsonpath
+    - name: available
+      type: end
+      criteria:
+      - context: $response.body
+        condition: $.dBInstances[0].dBInstanceStatus == 'available'
+        type: jsonpath
+  outputs:
+    snapshotId: $steps.snapshotSource.outputs.snapshotId
+    targetId: $steps.createTarget.outputs.targetId
+    status: $steps.pollTarget.outputs.status
+    endpointAddress: $steps.pollTarget.outputs.endpointAddress

@@ -1,0 +1,112 @@
+arazzo: 1.0.1
+info:
+  title: Amazon RDS Delete an Aurora DB Cluster
+  summary: Snapshot member instances, delete them, then delete the Aurora cluster.
+  description: >-
+    Tears down an Aurora DB cluster member and the cluster itself with a final
+    cluster snapshot retained. The workflow confirms the cluster is available,
+    deletes the supplied member instance while skipping its individual snapshot,
+    waits for the instance to disappear, and then deletes the cluster while
+    retaining a final cluster snapshot. Every step spells out its request inline
+    so the flow can be read and executed without opening the underlying OpenAPI
+    description.
+  version: 1.0.0
+sourceDescriptions:
+- name: amazonRdsApi
+  url: ../openapi/amazon-rds-openapi.yml
+  type: openapi
+workflows:
+- workflowId: delete-aurora-cluster
+  summary: Delete an Aurora cluster member then the cluster with a final snapshot.
+  description: >-
+    Confirms the cluster is available, deletes the member instance, polls until
+    the instance is gone, then deletes the cluster retaining a final snapshot.
+  inputs:
+    type: object
+    required:
+    - dbClusterIdentifier
+    - dbInstanceIdentifier
+    - finalDbSnapshotIdentifier
+    properties:
+      dbClusterIdentifier:
+        type: string
+        description: The identifier of the Aurora DB cluster to delete.
+      dbInstanceIdentifier:
+        type: string
+        description: The identifier of the cluster member instance to delete first.
+      finalDbSnapshotIdentifier:
+        type: string
+        description: The identifier for the final cluster snapshot taken during deletion.
+  steps:
+  - stepId: confirmCluster
+    description: >-
+      Describe the Aurora DB cluster to confirm it is available before tearing
+      it down.
+    operationId: describeDBClusters
+    parameters:
+    - name: DBClusterIdentifier
+      in: query
+      value: $inputs.dbClusterIdentifier
+    successCriteria:
+    - condition: $statusCode == 200
+    - context: $response.body
+      condition: $.dBClusters[0].status == 'available'
+      type: jsonpath
+    outputs:
+      clusterStatus: $response.body#/dBClusters/0/status
+  - stepId: deleteMember
+    description: >-
+      Delete the cluster member instance, skipping a per-instance final
+      snapshot since a cluster-level snapshot is taken later.
+    operationId: deleteDBInstance
+    parameters:
+    - name: DBInstanceIdentifier
+      in: query
+      value: $inputs.dbInstanceIdentifier
+    - name: SkipFinalSnapshot
+      in: query
+      value: true
+    successCriteria:
+    - condition: $statusCode == 200
+  - stepId: pollMemberGone
+    description: >-
+      Describe the member instance to track its teardown. While it is still
+      deleting the workflow loops back to poll again; once it reports deleting
+      it proceeds to remove the cluster.
+    operationId: describeDBInstances
+    parameters:
+    - name: DBInstanceIdentifier
+      in: query
+      value: $inputs.dbInstanceIdentifier
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      memberStatus: $response.body#/dBInstances/0/dBInstanceStatus
+    onSuccess:
+    - name: stillDeleting
+      type: goto
+      stepId: deleteCluster
+      criteria:
+      - context: $response.body
+        condition: $.dBInstances[0].dBInstanceStatus == 'deleting'
+        type: jsonpath
+  - stepId: deleteCluster
+    description: >-
+      Delete the Aurora DB cluster, retaining a final cluster snapshot rather
+      than skipping it.
+    operationId: deleteDBCluster
+    parameters:
+    - name: DBClusterIdentifier
+      in: query
+      value: $inputs.dbClusterIdentifier
+    - name: SkipFinalSnapshot
+      in: query
+      value: false
+    - name: FinalDBSnapshotIdentifier
+      in: query
+      value: $inputs.finalDbSnapshotIdentifier
+    successCriteria:
+    - condition: $statusCode == 200
+  outputs:
+    clusterStatus: $steps.confirmCluster.outputs.clusterStatus
+    memberStatus: $steps.pollMemberGone.outputs.memberStatus
