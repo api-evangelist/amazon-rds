@@ -1,0 +1,3429 @@
+{
+  "info": {
+    "_postman_id": "4d5d11c9-ad80-436c-94cd-2b1f4a9ea300",
+    "name": "Amazon RDS API",
+    "description": "Amazon Relational Database Service (RDS) makes it easy to set up, operate, and scale a relational database in the cloud. This API enables you to create and manage database instances, clusters, snapshots, and other database resources with support for multiple database engines including MySQL, PostgreSQL, MariaDB, Oracle, SQL Server, and Amazon Aurora.\n\nContact Support:\n Name: Amazon Web Services",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-06-05T15:04:58.000Z",
+    "updatedAt": "2026-06-05T15:04:58.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-4d5d11c9-ad80-436c-94cd-2b1f4a9ea300"
+  },
+  "item": [
+    {
+      "name": "?Action=CreateDBInstance",
+      "item": [
+        {
+          "name": "Amazon RDS Create a new DB instance",
+          "id": "97f75337-bb28-4094-83b5-0108b797c363",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/xml"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/?Action=CreateDBInstance&DBInstanceIdentifier=<string>&DBInstanceClass=<string>&Engine=<string>&MasterUsername=<string>&MasterUserPassword=<string>&AllocatedStorage=<integer>&EngineVersion=<string>&DBName=<string>&Port=<integer>&MultiAZ=<boolean>&StorageType=<string>&PubliclyAccessible=<boolean>&VpcSecurityGroupIds.member.1=<string>&DBSubnetGroupName=<string>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                ""
+              ],
+              "query": [
+                {
+                  "key": "Action",
+                  "value": "CreateDBInstance"
+                },
+                {
+                  "description": "(Required) The DB instance identifier, unique for each DB instance",
+                  "key": "DBInstanceIdentifier",
+                  "value": "<string>"
+                },
+                {
+                  "description": "(Required) The compute and memory capacity of the DB instance (e.g., db.m5.large)",
+                  "key": "DBInstanceClass",
+                  "value": "<string>"
+                },
+                {
+                  "description": "(Required) The database engine to use (mysql, postgres, mariadb, oracle-ee, sqlserver-ee, aurora-mysql, aurora-postgresql)",
+                  "key": "Engine",
+                  "value": "<string>"
+                },
+                {
+                  "description": "The name for the master user",
+                  "key": "MasterUsername",
+                  "value": "<string>"
+                },
+                {
+                  "description": "The password for the master user",
+                  "key": "MasterUserPassword",
+                  "value": "<string>"
+                },
+                {
+                  "description": "The amount of storage in gibibytes (GiB) to allocate for the DB instance",
+                  "key": "AllocatedStorage",
+                  "value": "<integer>"
+                },
+                {
+                  "description": "The version number of the database engine to use",
+                  "key": "EngineVersion",
+                  "value": "<string>"
+                },
+                {
+                  "description": "The name of the database to create when the DB instance is created",
+                  "key": "DBName",
+                  "value": "<string>"
+                },
+                {
+                  "description": "The port number on which the database accepts connections",
+                  "key": "Port",
+                  "value": "<integer>"
+                },
+                {
+                  "description": "Whether the DB instance is a Multi-AZ deployment",
+                  "key": "MultiAZ",
+                  "value": "<boolean>"
+                },
+                {
+                  "description": "The storage type to associate with the DB instance (gp2, gp3, io1, standard)",
+                  "key": "StorageType",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Whether the DB instance is publicly accessible",
+                  "key": "PubliclyAccessible",
+                  "value": "<boolean>"
+                },
+                {
+                  "description": "A VPC security group to associate with the DB instance",
+                  "key": "VpcSecurityGroupIds.member.1",
+                  "value": "<string>"
+                },
+                {
+                  "description": "A DB subnet group to associate with this DB instance",
+                  "key": "DBSubnetGroupName",
+                  "value": "<string>"
+                }
+              ]
+            },
+            "description": "Creates a new DB instance. The new DB instance can be an RDS DB instance, or it can be a DB instance in an Aurora DB cluster. You can specify the DB engine, instance class, allocated storage, master username and password, and other configuration settings."
+          },
+          "response": [
+            {
+              "id": "e0c5c5bf-e215-4067-b497-a827a7e817f0",
+              "name": "Successfully created DB instance",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/xml"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/?DBInstanceIdentifier=<string>&DBInstanceClass=<string>&Engine=<string>&MasterUsername=<string>&MasterUserPassword=<string>&AllocatedStorage=<integer>&EngineVersion=<string>&DBName=<string>&Port=<integer>&MultiAZ=<boolean>&StorageType=<string>&PubliclyAccessible=<boolean>&VpcSecurityGroupIds.member.1=<string>&DBSubnetGroupName=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) The DB instance identifier, unique for each DB instance",
+                      "key": "DBInstanceIdentifier",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) The compute and memory capacity of the DB instance (e.g., db.m5.large)",
+                      "key": "DBInstanceClass",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) The database engine to use (mysql, postgres, mariadb, oracle-ee, sqlserver-ee, aurora-mysql, aurora-postgresql)",
+                      "key": "Engine",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The name for the master user",
+                      "key": "MasterUsername",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The password for the master user",
+                      "key": "MasterUserPassword",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The amount of storage in gibibytes (GiB) to allocate for the DB instance",
+                      "key": "AllocatedStorage",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "The version number of the database engine to use",
+                      "key": "EngineVersion",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The name of the database to create when the DB instance is created",
+                      "key": "DBName",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The port number on which the database accepts connections",
+                      "key": "Port",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Whether the DB instance is a Multi-AZ deployment",
+                      "key": "MultiAZ",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "The storage type to associate with the DB instance (gp2, gp3, io1, standard)",
+                      "key": "StorageType",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Whether the DB instance is publicly accessible",
+                      "key": "PubliclyAccessible",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "A VPC security group to associate with the DB instance",
+                      "key": "VpcSecurityGroupIds.member.1",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "A DB subnet group to associate with this DB instance",
+                      "key": "DBSubnetGroupName",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "xml",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/xml"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<element>\n  <dBInstance>\n    <dBInstanceIdentifier>(string)</dBInstanceIdentifier>\n    <dBInstanceClass>(string)</dBInstanceClass>\n    <engine>(string)</engine>\n    <engineVersion>(string)</engineVersion>\n    <dBInstanceStatus>(string)</dBInstanceStatus>\n    <masterUsername>(string)</masterUsername>\n    <dBName>(string)</dBName>\n    <endpoint>\n      <address>(string)</address>\n      <port>(integer)</port>\n      <hostedZoneId>(string)</hostedZoneId>\n    </endpoint>\n    <allocatedStorage>(integer)</allocatedStorage>\n    <instanceCreateTime>(string)</instanceCreateTime>\n    <preferredBackupWindow>(string)</preferredBackupWindow>\n    <backupRetentionPeriod>(integer)</backupRetentionPeriod>\n    <vpcSecurityGroups>\n      <vpcSecurityGroupId>(string)</vpcSecurityGroupId>\n      <status>(string)</status>\n    </vpcSecurityGroups>\n    <vpcSecurityGroups>\n      <vpcSecurityGroupId>(string)</vpcSecurityGroupId>\n      <status>(string)</status>\n    </vpcSecurityGroups>\n    <availabilityZone>(string)</availabilityZone>\n    <dBSubnetGroup>\n      <dBSubnetGroupName>(string)</dBSubnetGroupName>\n      <dBSubnetGroupDescription>(string)</dBSubnetGroupDescription>\n      <vpcId>(string)</vpcId>\n    </dBSubnetGroup>\n    <multiAZ>(boolean)</multiAZ>\n    <autoMinorVersionUpgrade>(boolean)</autoMinorVersionUpgrade>\n    <storageType>(string)</storageType>\n    <storageEncrypted>(boolean)</storageEncrypted>\n    <publiclyAccessible>(boolean)</publiclyAccessible>\n    <dBInstanceArn>(string)</dBInstanceArn>\n    <tags>\n      <key>(string)</key>\n      <value>(string)</value>\n    </tags>\n    <tags>\n      <key>(string)</key>\n      <value>(string)</value>\n    </tags>\n  </dBInstance>\n</element>",
+              "createdAt": "2026-06-05T15:04:58.000Z",
+              "updatedAt": "2026-06-05T15:04:58.000Z",
+              "uid": "35240-e0c5c5bf-e215-4067-b497-a827a7e817f0"
+            },
+            {
+              "id": "a2bb916a-bc5d-4089-8c75-bad554bd64d7",
+              "name": "Invalid request parameters",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/?DBInstanceIdentifier=<string>&DBInstanceClass=<string>&Engine=<string>&MasterUsername=<string>&MasterUserPassword=<string>&AllocatedStorage=<integer>&EngineVersion=<string>&DBName=<string>&Port=<integer>&MultiAZ=<boolean>&StorageType=<string>&PubliclyAccessible=<boolean>&VpcSecurityGroupIds.member.1=<string>&DBSubnetGroupName=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) The DB instance identifier, unique for each DB instance",
+                      "key": "DBInstanceIdentifier",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) The compute and memory capacity of the DB instance (e.g., db.m5.large)",
+                      "key": "DBInstanceClass",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) The database engine to use (mysql, postgres, mariadb, oracle-ee, sqlserver-ee, aurora-mysql, aurora-postgresql)",
+                      "key": "Engine",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The name for the master user",
+                      "key": "MasterUsername",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The password for the master user",
+                      "key": "MasterUserPassword",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The amount of storage in gibibytes (GiB) to allocate for the DB instance",
+                      "key": "AllocatedStorage",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "The version number of the database engine to use",
+                      "key": "EngineVersion",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The name of the database to create when the DB instance is created",
+                      "key": "DBName",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The port number on which the database accepts connections",
+                      "key": "Port",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Whether the DB instance is a Multi-AZ deployment",
+                      "key": "MultiAZ",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "The storage type to associate with the DB instance (gp2, gp3, io1, standard)",
+                      "key": "StorageType",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Whether the DB instance is publicly accessible",
+                      "key": "PubliclyAccessible",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "A VPC security group to associate with the DB instance",
+                      "key": "VpcSecurityGroupIds.member.1",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "A DB subnet group to associate with this DB instance",
+                      "key": "DBSubnetGroupName",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-06-05T15:04:58.000Z",
+              "updatedAt": "2026-06-05T15:04:58.000Z",
+              "uid": "35240-a2bb916a-bc5d-4089-8c75-bad554bd64d7"
+            },
+            {
+              "id": "b7166744-a60d-4083-8fc2-de11060106aa",
+              "name": "Authentication failure",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/?DBInstanceIdentifier=<string>&DBInstanceClass=<string>&Engine=<string>&MasterUsername=<string>&MasterUserPassword=<string>&AllocatedStorage=<integer>&EngineVersion=<string>&DBName=<string>&Port=<integer>&MultiAZ=<boolean>&StorageType=<string>&PubliclyAccessible=<boolean>&VpcSecurityGroupIds.member.1=<string>&DBSubnetGroupName=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) The DB instance identifier, unique for each DB instance",
+                      "key": "DBInstanceIdentifier",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) The compute and memory capacity of the DB instance (e.g., db.m5.large)",
+                      "key": "DBInstanceClass",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) The database engine to use (mysql, postgres, mariadb, oracle-ee, sqlserver-ee, aurora-mysql, aurora-postgresql)",
+                      "key": "Engine",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The name for the master user",
+                      "key": "MasterUsername",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The password for the master user",
+                      "key": "MasterUserPassword",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The amount of storage in gibibytes (GiB) to allocate for the DB instance",
+                      "key": "AllocatedStorage",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "The version number of the database engine to use",
+                      "key": "EngineVersion",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The name of the database to create when the DB instance is created",
+                      "key": "DBName",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The port number on which the database accepts connections",
+                      "key": "Port",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Whether the DB instance is a Multi-AZ deployment",
+                      "key": "MultiAZ",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "The storage type to associate with the DB instance (gp2, gp3, io1, standard)",
+                      "key": "StorageType",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Whether the DB instance is publicly accessible",
+                      "key": "PubliclyAccessible",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "A VPC security group to associate with the DB instance",
+                      "key": "VpcSecurityGroupIds.member.1",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "A DB subnet group to associate with this DB instance",
+                      "key": "DBSubnetGroupName",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-06-05T15:04:58.000Z",
+              "updatedAt": "2026-06-05T15:04:58.000Z",
+              "uid": "35240-b7166744-a60d-4083-8fc2-de11060106aa"
+            },
+            {
+              "id": "9972f40d-5592-427f-99a5-b7b60d8b1a46",
+              "name": "Authorization failure",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/?DBInstanceIdentifier=<string>&DBInstanceClass=<string>&Engine=<string>&MasterUsername=<string>&MasterUserPassword=<string>&AllocatedStorage=<integer>&EngineVersion=<string>&DBName=<string>&Port=<integer>&MultiAZ=<boolean>&StorageType=<string>&PubliclyAccessible=<boolean>&VpcSecurityGroupIds.member.1=<string>&DBSubnetGroupName=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) The DB instance identifier, unique for each DB instance",
+                      "key": "DBInstanceIdentifier",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) The compute and memory capacity of the DB instance (e.g., db.m5.large)",
+                      "key": "DBInstanceClass",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) The database engine to use (mysql, postgres, mariadb, oracle-ee, sqlserver-ee, aurora-mysql, aurora-postgresql)",
+                      "key": "Engine",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The name for the master user",
+                      "key": "MasterUsername",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The password for the master user",
+                      "key": "MasterUserPassword",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The amount of storage in gibibytes (GiB) to allocate for the DB instance",
+                      "key": "AllocatedStorage",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "The version number of the database engine to use",
+                      "key": "EngineVersion",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The name of the database to create when the DB instance is created",
+                      "key": "DBName",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The port number on which the database accepts connections",
+                      "key": "Port",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Whether the DB instance is a Multi-AZ deployment",
+                      "key": "MultiAZ",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "The storage type to associate with the DB instance (gp2, gp3, io1, standard)",
+                      "key": "StorageType",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Whether the DB instance is publicly accessible",
+                      "key": "PubliclyAccessible",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "A VPC security group to associate with the DB instance",
+                      "key": "VpcSecurityGroupIds.member.1",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "A DB subnet group to associate with this DB instance",
+                      "key": "DBSubnetGroupName",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-06-05T15:04:58.000Z",
+              "updatedAt": "2026-06-05T15:04:58.000Z",
+              "uid": "35240-9972f40d-5592-427f-99a5-b7b60d8b1a46"
+            }
+          ],
+          "createdAt": "2026-06-05T15:04:58.000Z",
+          "updatedAt": "2026-06-05T15:04:58.000Z",
+          "uid": "35240-97f75337-bb28-4094-83b5-0108b797c363"
+        }
+      ],
+      "id": "b59a771b-cd44-41f6-9c19-e07be3b9a692",
+      "createdAt": "2026-06-05T15:04:58.000Z",
+      "updatedAt": "2026-06-05T15:04:58.000Z",
+      "uid": "35240-b59a771b-cd44-41f6-9c19-e07be3b9a692"
+    },
+    {
+      "name": "?Action=DescribeDBInstances",
+      "item": [
+        {
+          "name": "Amazon RDS Describe DB instances",
+          "id": "be9dca24-30be-4b7a-865e-9238d5b8780d",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/xml"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/?Action=DescribeDBInstances&DBInstanceIdentifier=<string>&Filters.member.1.Name=<string>&Filters.member.1.Values.member.1=<string>&MaxRecords=<integer>&Marker=<string>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                ""
+              ],
+              "query": [
+                {
+                  "key": "Action",
+                  "value": "DescribeDBInstances"
+                },
+                {
+                  "description": "The identifier of the DB instance to describe",
+                  "key": "DBInstanceIdentifier",
+                  "value": "<string>"
+                },
+                {
+                  "description": "The name of a filter",
+                  "key": "Filters.member.1.Name",
+                  "value": "<string>"
+                },
+                {
+                  "description": "A value for the filter",
+                  "key": "Filters.member.1.Values.member.1",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Maximum number of records to include in the response",
+                  "key": "MaxRecords",
+                  "value": "<integer>"
+                },
+                {
+                  "description": "An optional pagination token provided by a previous request",
+                  "key": "Marker",
+                  "value": "<string>"
+                }
+              ]
+            },
+            "description": "Describes provisioned RDS instances. This API supports pagination. Returns information about the DB instances including engine, instance class, storage, endpoint, status, and configuration details."
+          },
+          "response": [
+            {
+              "id": "2daf582b-17f7-4e13-bee9-20c50e51c404",
+              "name": "Successfully described DB instances",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/xml"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/?DBInstanceIdentifier=<string>&Filters.member.1.Name=<string>&Filters.member.1.Values.member.1=<string>&MaxRecords=<integer>&Marker=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "The identifier of the DB instance to describe",
+                      "key": "DBInstanceIdentifier",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The name of a filter",
+                      "key": "Filters.member.1.Name",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "A value for the filter",
+                      "key": "Filters.member.1.Values.member.1",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Maximum number of records to include in the response",
+                      "key": "MaxRecords",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "An optional pagination token provided by a previous request",
+                      "key": "Marker",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "xml",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/xml"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<element>\n  <dBInstances>\n    <dBInstanceIdentifier>(string)</dBInstanceIdentifier>\n    <dBInstanceClass>(string)</dBInstanceClass>\n    <engine>(string)</engine>\n    <engineVersion>(string)</engineVersion>\n    <dBInstanceStatus>(string)</dBInstanceStatus>\n    <masterUsername>(string)</masterUsername>\n    <dBName>(string)</dBName>\n    <endpoint>\n      <address>(string)</address>\n      <port>(integer)</port>\n      <hostedZoneId>(string)</hostedZoneId>\n    </endpoint>\n    <allocatedStorage>(integer)</allocatedStorage>\n    <instanceCreateTime>(string)</instanceCreateTime>\n    <preferredBackupWindow>(string)</preferredBackupWindow>\n    <backupRetentionPeriod>(integer)</backupRetentionPeriod>\n    <vpcSecurityGroups>\n      <vpcSecurityGroupId>(string)</vpcSecurityGroupId>\n      <status>(string)</status>\n    </vpcSecurityGroups>\n    <vpcSecurityGroups>\n      <vpcSecurityGroupId>(string)</vpcSecurityGroupId>\n      <status>(string)</status>\n    </vpcSecurityGroups>\n    <availabilityZone>(string)</availabilityZone>\n    <dBSubnetGroup>\n      <dBSubnetGroupName>(string)</dBSubnetGroupName>\n      <dBSubnetGroupDescription>(string)</dBSubnetGroupDescription>\n      <vpcId>(string)</vpcId>\n    </dBSubnetGroup>\n    <multiAZ>(boolean)</multiAZ>\n    <autoMinorVersionUpgrade>(boolean)</autoMinorVersionUpgrade>\n    <storageType>(string)</storageType>\n    <storageEncrypted>(boolean)</storageEncrypted>\n    <publiclyAccessible>(boolean)</publiclyAccessible>\n    <dBInstanceArn>(string)</dBInstanceArn>\n    <tags>\n      <key>(string)</key>\n      <value>(string)</value>\n    </tags>\n    <tags>\n      <key>(string)</key>\n      <value>(string)</value>\n    </tags>\n  </dBInstances>\n  <dBInstances>\n    <dBInstanceIdentifier>(string)</dBInstanceIdentifier>\n    <dBInstanceClass>(string)</dBInstanceClass>\n    <engine>(string)</engine>\n    <engineVersion>(string)</engineVersion>\n    <dBInstanceStatus>(string)</dBInstanceStatus>\n    <masterUsername>(string)</masterUsername>\n    <dBName>(string)</dBName>\n    <endpoint>\n      <address>(string)</address>\n      <port>(integer)</port>\n      <hostedZoneId>(string)</hostedZoneId>\n    </endpoint>\n    <allocatedStorage>(integer)</allocatedStorage>\n    <instanceCreateTime>(string)</instanceCreateTime>\n    <preferredBackupWindow>(string)</preferredBackupWindow>\n    <backupRetentionPeriod>(integer)</backupRetentionPeriod>\n    <vpcSecurityGroups>\n      <vpcSecurityGroupId>(string)</vpcSecurityGroupId>\n      <status>(string)</status>\n    </vpcSecurityGroups>\n    <vpcSecurityGroups>\n      <vpcSecurityGroupId>(string)</vpcSecurityGroupId>\n      <status>(string)</status>\n    </vpcSecurityGroups>\n    <availabilityZone>(string)</availabilityZone>\n    <dBSubnetGroup>\n      <dBSubnetGroupName>(string)</dBSubnetGroupName>\n      <dBSubnetGroupDescription>(string)</dBSubnetGroupDescription>\n      <vpcId>(string)</vpcId>\n    </dBSubnetGroup>\n    <multiAZ>(boolean)</multiAZ>\n    <autoMinorVersionUpgrade>(boolean)</autoMinorVersionUpgrade>\n    <storageType>(string)</storageType>\n    <storageEncrypted>(boolean)</storageEncrypted>\n    <publiclyAccessible>(boolean)</publiclyAccessible>\n    <dBInstanceArn>(string)</dBInstanceArn>\n    <tags>\n      <key>(string)</key>\n      <value>(string)</value>\n    </tags>\n    <tags>\n      <key>(string)</key>\n      <value>(string)</value>\n    </tags>\n  </dBInstances>\n  <marker>(string)</marker>\n</element>",
+              "createdAt": "2026-06-05T15:04:58.000Z",
+              "updatedAt": "2026-06-05T15:04:58.000Z",
+              "uid": "35240-2daf582b-17f7-4e13-bee9-20c50e51c404"
+            },
+            {
+              "id": "a8e7b178-55e0-4d01-b4b8-13da09c0c037",
+              "name": "Invalid request parameters",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/?DBInstanceIdentifier=<string>&Filters.member.1.Name=<string>&Filters.member.1.Values.member.1=<string>&MaxRecords=<integer>&Marker=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "The identifier of the DB instance to describe",
+                      "key": "DBInstanceIdentifier",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The name of a filter",
+                      "key": "Filters.member.1.Name",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "A value for the filter",
+                      "key": "Filters.member.1.Values.member.1",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Maximum number of records to include in the response",
+                      "key": "MaxRecords",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "An optional pagination token provided by a previous request",
+                      "key": "Marker",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-06-05T15:04:58.000Z",
+              "updatedAt": "2026-06-05T15:04:58.000Z",
+              "uid": "35240-a8e7b178-55e0-4d01-b4b8-13da09c0c037"
+            },
+            {
+              "id": "bc171126-66d7-4416-8478-177ec10004a4",
+              "name": "Authentication failure",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/?DBInstanceIdentifier=<string>&Filters.member.1.Name=<string>&Filters.member.1.Values.member.1=<string>&MaxRecords=<integer>&Marker=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "The identifier of the DB instance to describe",
+                      "key": "DBInstanceIdentifier",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The name of a filter",
+                      "key": "Filters.member.1.Name",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "A value for the filter",
+                      "key": "Filters.member.1.Values.member.1",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Maximum number of records to include in the response",
+                      "key": "MaxRecords",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "An optional pagination token provided by a previous request",
+                      "key": "Marker",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-06-05T15:04:58.000Z",
+              "updatedAt": "2026-06-05T15:04:58.000Z",
+              "uid": "35240-bc171126-66d7-4416-8478-177ec10004a4"
+            }
+          ],
+          "createdAt": "2026-06-05T15:04:58.000Z",
+          "updatedAt": "2026-06-05T15:04:58.000Z",
+          "uid": "35240-be9dca24-30be-4b7a-865e-9238d5b8780d"
+        }
+      ],
+      "id": "7a4bed11-b312-490b-a525-a984db8041f3",
+      "createdAt": "2026-06-05T15:04:58.000Z",
+      "updatedAt": "2026-06-05T15:04:58.000Z",
+      "uid": "35240-7a4bed11-b312-490b-a525-a984db8041f3"
+    },
+    {
+      "name": "?Action=ModifyDBInstance",
+      "item": [
+        {
+          "name": "Amazon RDS Modify a DB instance",
+          "id": "ae0c7134-0926-4ec8-84da-1803d4110e27",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/xml"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/?Action=ModifyDBInstance&DBInstanceIdentifier=<string>&DBInstanceClass=<string>&AllocatedStorage=<integer>&MasterUserPassword=<string>&MultiAZ=<boolean>&EngineVersion=<string>&ApplyImmediately=<boolean>&BackupRetentionPeriod=<integer>&StorageType=<string>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                ""
+              ],
+              "query": [
+                {
+                  "key": "Action",
+                  "value": "ModifyDBInstance"
+                },
+                {
+                  "description": "(Required) The DB instance identifier for the instance to be modified",
+                  "key": "DBInstanceIdentifier",
+                  "value": "<string>"
+                },
+                {
+                  "description": "The new compute and memory capacity of the DB instance",
+                  "key": "DBInstanceClass",
+                  "value": "<string>"
+                },
+                {
+                  "description": "The new amount of storage in GiB to allocate for the DB instance",
+                  "key": "AllocatedStorage",
+                  "value": "<integer>"
+                },
+                {
+                  "description": "The new password for the master user",
+                  "key": "MasterUserPassword",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Whether the DB instance is a Multi-AZ deployment",
+                  "key": "MultiAZ",
+                  "value": "<boolean>"
+                },
+                {
+                  "description": "The version number of the database engine to upgrade to",
+                  "key": "EngineVersion",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Whether to apply the modification immediately or during the next maintenance window",
+                  "key": "ApplyImmediately",
+                  "value": "<boolean>"
+                },
+                {
+                  "description": "The number of days to retain automated backups (0-35)",
+                  "key": "BackupRetentionPeriod",
+                  "value": "<integer>"
+                },
+                {
+                  "description": "The storage type to associate with the DB instance",
+                  "key": "StorageType",
+                  "value": "<string>"
+                }
+              ]
+            },
+            "description": "Modifies settings for a DB instance. You can change one or more database configuration parameters by specifying these parameters and the new values in the request. Some modifications are applied immediately, while others are applied during the next maintenance window."
+          },
+          "response": [
+            {
+              "id": "6fb8d674-4db9-4bf6-81c3-f56108ac154b",
+              "name": "Successfully modified DB instance",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/xml"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/?DBInstanceIdentifier=<string>&DBInstanceClass=<string>&AllocatedStorage=<integer>&MasterUserPassword=<string>&MultiAZ=<boolean>&EngineVersion=<string>&ApplyImmediately=<boolean>&BackupRetentionPeriod=<integer>&StorageType=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) The DB instance identifier for the instance to be modified",
+                      "key": "DBInstanceIdentifier",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The new compute and memory capacity of the DB instance",
+                      "key": "DBInstanceClass",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The new amount of storage in GiB to allocate for the DB instance",
+                      "key": "AllocatedStorage",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "The new password for the master user",
+                      "key": "MasterUserPassword",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Whether the DB instance is a Multi-AZ deployment",
+                      "key": "MultiAZ",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "The version number of the database engine to upgrade to",
+                      "key": "EngineVersion",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Whether to apply the modification immediately or during the next maintenance window",
+                      "key": "ApplyImmediately",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "The number of days to retain automated backups (0-35)",
+                      "key": "BackupRetentionPeriod",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "The storage type to associate with the DB instance",
+                      "key": "StorageType",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "xml",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/xml"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<element>\n  <dBInstance>\n    <dBInstanceIdentifier>(string)</dBInstanceIdentifier>\n    <dBInstanceClass>(string)</dBInstanceClass>\n    <engine>(string)</engine>\n    <engineVersion>(string)</engineVersion>\n    <dBInstanceStatus>(string)</dBInstanceStatus>\n    <masterUsername>(string)</masterUsername>\n    <dBName>(string)</dBName>\n    <endpoint>\n      <address>(string)</address>\n      <port>(integer)</port>\n      <hostedZoneId>(string)</hostedZoneId>\n    </endpoint>\n    <allocatedStorage>(integer)</allocatedStorage>\n    <instanceCreateTime>(string)</instanceCreateTime>\n    <preferredBackupWindow>(string)</preferredBackupWindow>\n    <backupRetentionPeriod>(integer)</backupRetentionPeriod>\n    <vpcSecurityGroups>\n      <vpcSecurityGroupId>(string)</vpcSecurityGroupId>\n      <status>(string)</status>\n    </vpcSecurityGroups>\n    <vpcSecurityGroups>\n      <vpcSecurityGroupId>(string)</vpcSecurityGroupId>\n      <status>(string)</status>\n    </vpcSecurityGroups>\n    <availabilityZone>(string)</availabilityZone>\n    <dBSubnetGroup>\n      <dBSubnetGroupName>(string)</dBSubnetGroupName>\n      <dBSubnetGroupDescription>(string)</dBSubnetGroupDescription>\n      <vpcId>(string)</vpcId>\n    </dBSubnetGroup>\n    <multiAZ>(boolean)</multiAZ>\n    <autoMinorVersionUpgrade>(boolean)</autoMinorVersionUpgrade>\n    <storageType>(string)</storageType>\n    <storageEncrypted>(boolean)</storageEncrypted>\n    <publiclyAccessible>(boolean)</publiclyAccessible>\n    <dBInstanceArn>(string)</dBInstanceArn>\n    <tags>\n      <key>(string)</key>\n      <value>(string)</value>\n    </tags>\n    <tags>\n      <key>(string)</key>\n      <value>(string)</value>\n    </tags>\n  </dBInstance>\n</element>",
+              "createdAt": "2026-06-05T15:04:58.000Z",
+              "updatedAt": "2026-06-05T15:04:58.000Z",
+              "uid": "35240-6fb8d674-4db9-4bf6-81c3-f56108ac154b"
+            },
+            {
+              "id": "38dd9281-d4e6-4601-99a2-ee5b03898610",
+              "name": "Invalid request parameters",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/?DBInstanceIdentifier=<string>&DBInstanceClass=<string>&AllocatedStorage=<integer>&MasterUserPassword=<string>&MultiAZ=<boolean>&EngineVersion=<string>&ApplyImmediately=<boolean>&BackupRetentionPeriod=<integer>&StorageType=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) The DB instance identifier for the instance to be modified",
+                      "key": "DBInstanceIdentifier",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The new compute and memory capacity of the DB instance",
+                      "key": "DBInstanceClass",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The new amount of storage in GiB to allocate for the DB instance",
+                      "key": "AllocatedStorage",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "The new password for the master user",
+                      "key": "MasterUserPassword",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Whether the DB instance is a Multi-AZ deployment",
+                      "key": "MultiAZ",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "The version number of the database engine to upgrade to",
+                      "key": "EngineVersion",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Whether to apply the modification immediately or during the next maintenance window",
+                      "key": "ApplyImmediately",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "The number of days to retain automated backups (0-35)",
+                      "key": "BackupRetentionPeriod",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "The storage type to associate with the DB instance",
+                      "key": "StorageType",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-06-05T15:04:58.000Z",
+              "updatedAt": "2026-06-05T15:04:58.000Z",
+              "uid": "35240-38dd9281-d4e6-4601-99a2-ee5b03898610"
+            },
+            {
+              "id": "641edd25-b334-40ec-ade8-85514c3794f0",
+              "name": "Authentication failure",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/?DBInstanceIdentifier=<string>&DBInstanceClass=<string>&AllocatedStorage=<integer>&MasterUserPassword=<string>&MultiAZ=<boolean>&EngineVersion=<string>&ApplyImmediately=<boolean>&BackupRetentionPeriod=<integer>&StorageType=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) The DB instance identifier for the instance to be modified",
+                      "key": "DBInstanceIdentifier",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The new compute and memory capacity of the DB instance",
+                      "key": "DBInstanceClass",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The new amount of storage in GiB to allocate for the DB instance",
+                      "key": "AllocatedStorage",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "The new password for the master user",
+                      "key": "MasterUserPassword",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Whether the DB instance is a Multi-AZ deployment",
+                      "key": "MultiAZ",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "The version number of the database engine to upgrade to",
+                      "key": "EngineVersion",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Whether to apply the modification immediately or during the next maintenance window",
+                      "key": "ApplyImmediately",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "The number of days to retain automated backups (0-35)",
+                      "key": "BackupRetentionPeriod",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "The storage type to associate with the DB instance",
+                      "key": "StorageType",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-06-05T15:04:58.000Z",
+              "updatedAt": "2026-06-05T15:04:58.000Z",
+              "uid": "35240-641edd25-b334-40ec-ade8-85514c3794f0"
+            }
+          ],
+          "createdAt": "2026-06-05T15:04:58.000Z",
+          "updatedAt": "2026-06-05T15:04:58.000Z",
+          "uid": "35240-ae0c7134-0926-4ec8-84da-1803d4110e27"
+        }
+      ],
+      "id": "033aa245-66b6-4dec-8623-26c265a0b3fa",
+      "createdAt": "2026-06-05T15:04:58.000Z",
+      "updatedAt": "2026-06-05T15:04:58.000Z",
+      "uid": "35240-033aa245-66b6-4dec-8623-26c265a0b3fa"
+    },
+    {
+      "name": "?Action=DeleteDBInstance",
+      "item": [
+        {
+          "name": "Amazon RDS Delete a DB instance",
+          "id": "3116c5aa-837b-4933-b90d-adec968bf2d4",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/?Action=DeleteDBInstance&DBInstanceIdentifier=<string>&SkipFinalSnapshot=<boolean>&FinalDBSnapshotIdentifier=<string>&DeleteAutomatedBackups=<boolean>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                ""
+              ],
+              "query": [
+                {
+                  "key": "Action",
+                  "value": "DeleteDBInstance"
+                },
+                {
+                  "description": "(Required) The DB instance identifier for the DB instance to be deleted",
+                  "key": "DBInstanceIdentifier",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Whether to skip the creation of a final DB snapshot before deleting the instance",
+                  "key": "SkipFinalSnapshot",
+                  "value": "<boolean>"
+                },
+                {
+                  "description": "The identifier of the final DB snapshot to create before deleting the instance",
+                  "key": "FinalDBSnapshotIdentifier",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Whether to remove automated backups immediately after deletion",
+                  "key": "DeleteAutomatedBackups",
+                  "value": "<boolean>"
+                }
+              ]
+            },
+            "description": "Deletes a previously provisioned DB instance. When you delete a DB instance, all automated backups are deleted and cannot be recovered. Manual DB snapshots are not deleted."
+          },
+          "response": [
+            {
+              "id": "23e6b1d5-236d-41e8-8f05-84af8af71197",
+              "name": "Successfully deleted DB instance",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/?DBInstanceIdentifier=<string>&SkipFinalSnapshot=<boolean>&FinalDBSnapshotIdentifier=<string>&DeleteAutomatedBackups=<boolean>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) The DB instance identifier for the DB instance to be deleted",
+                      "key": "DBInstanceIdentifier",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Whether to skip the creation of a final DB snapshot before deleting the instance",
+                      "key": "SkipFinalSnapshot",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "The identifier of the final DB snapshot to create before deleting the instance",
+                      "key": "FinalDBSnapshotIdentifier",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Whether to remove automated backups immediately after deletion",
+                      "key": "DeleteAutomatedBackups",
+                      "value": "<boolean>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-06-05T15:04:58.000Z",
+              "updatedAt": "2026-06-05T15:04:58.000Z",
+              "uid": "35240-23e6b1d5-236d-41e8-8f05-84af8af71197"
+            },
+            {
+              "id": "a90933a0-ec35-4f03-9ab6-543087b1aab9",
+              "name": "Invalid request parameters",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/?DBInstanceIdentifier=<string>&SkipFinalSnapshot=<boolean>&FinalDBSnapshotIdentifier=<string>&DeleteAutomatedBackups=<boolean>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) The DB instance identifier for the DB instance to be deleted",
+                      "key": "DBInstanceIdentifier",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Whether to skip the creation of a final DB snapshot before deleting the instance",
+                      "key": "SkipFinalSnapshot",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "The identifier of the final DB snapshot to create before deleting the instance",
+                      "key": "FinalDBSnapshotIdentifier",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Whether to remove automated backups immediately after deletion",
+                      "key": "DeleteAutomatedBackups",
+                      "value": "<boolean>"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-06-05T15:04:58.000Z",
+              "updatedAt": "2026-06-05T15:04:58.000Z",
+              "uid": "35240-a90933a0-ec35-4f03-9ab6-543087b1aab9"
+            },
+            {
+              "id": "7b0bfbe7-bd52-4ad1-8978-78988ec707bb",
+              "name": "Authentication failure",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/?DBInstanceIdentifier=<string>&SkipFinalSnapshot=<boolean>&FinalDBSnapshotIdentifier=<string>&DeleteAutomatedBackups=<boolean>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) The DB instance identifier for the DB instance to be deleted",
+                      "key": "DBInstanceIdentifier",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Whether to skip the creation of a final DB snapshot before deleting the instance",
+                      "key": "SkipFinalSnapshot",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "The identifier of the final DB snapshot to create before deleting the instance",
+                      "key": "FinalDBSnapshotIdentifier",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Whether to remove automated backups immediately after deletion",
+                      "key": "DeleteAutomatedBackups",
+                      "value": "<boolean>"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-06-05T15:04:58.000Z",
+              "updatedAt": "2026-06-05T15:04:58.000Z",
+              "uid": "35240-7b0bfbe7-bd52-4ad1-8978-78988ec707bb"
+            }
+          ],
+          "createdAt": "2026-06-05T15:04:58.000Z",
+          "updatedAt": "2026-06-05T15:04:58.000Z",
+          "uid": "35240-3116c5aa-837b-4933-b90d-adec968bf2d4"
+        }
+      ],
+      "id": "164a92af-6bfd-4f0d-9b9b-7021c2ab4742",
+      "createdAt": "2026-06-05T15:04:58.000Z",
+      "updatedAt": "2026-06-05T15:04:58.000Z",
+      "uid": "35240-164a92af-6bfd-4f0d-9b9b-7021c2ab4742"
+    },
+    {
+      "name": "?Action=RebootDBInstance",
+      "item": [
+        {
+          "name": "Amazon RDS Reboot a DB instance",
+          "id": "6dca720f-76b0-4ae8-9267-cb896d3ac445",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/?Action=RebootDBInstance&DBInstanceIdentifier=<string>&ForceFailover=<boolean>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                ""
+              ],
+              "query": [
+                {
+                  "key": "Action",
+                  "value": "RebootDBInstance"
+                },
+                {
+                  "description": "(Required) The DB instance identifier",
+                  "key": "DBInstanceIdentifier",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Whether to force a failover from one AZ to another in a Multi-AZ deployment",
+                  "key": "ForceFailover",
+                  "value": "<boolean>"
+                }
+              ]
+            },
+            "description": "Reboots a DB instance. The reboot causes a momentary outage and the database instance status is set to rebooting. A DB instance can be rebooted when it is in the available state. If the DB instance is in a Multi-AZ deployment, you can force a failover from one AZ to another."
+          },
+          "response": [
+            {
+              "id": "b1333460-6e03-4ca5-97aa-ae0d859bf85e",
+              "name": "Successfully requested DB instance reboot",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/?DBInstanceIdentifier=<string>&ForceFailover=<boolean>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) The DB instance identifier",
+                      "key": "DBInstanceIdentifier",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Whether to force a failover from one AZ to another in a Multi-AZ deployment",
+                      "key": "ForceFailover",
+                      "value": "<boolean>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-06-05T15:04:58.000Z",
+              "updatedAt": "2026-06-05T15:04:58.000Z",
+              "uid": "35240-b1333460-6e03-4ca5-97aa-ae0d859bf85e"
+            },
+            {
+              "id": "d32f01ec-b5ff-467a-be78-e6591175aff5",
+              "name": "Invalid request parameters",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/?DBInstanceIdentifier=<string>&ForceFailover=<boolean>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) The DB instance identifier",
+                      "key": "DBInstanceIdentifier",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Whether to force a failover from one AZ to another in a Multi-AZ deployment",
+                      "key": "ForceFailover",
+                      "value": "<boolean>"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-06-05T15:04:58.000Z",
+              "updatedAt": "2026-06-05T15:04:58.000Z",
+              "uid": "35240-d32f01ec-b5ff-467a-be78-e6591175aff5"
+            },
+            {
+              "id": "292e6f90-e276-4bc6-a495-9055dd5494cd",
+              "name": "Authentication failure",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/?DBInstanceIdentifier=<string>&ForceFailover=<boolean>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) The DB instance identifier",
+                      "key": "DBInstanceIdentifier",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Whether to force a failover from one AZ to another in a Multi-AZ deployment",
+                      "key": "ForceFailover",
+                      "value": "<boolean>"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-06-05T15:04:58.000Z",
+              "updatedAt": "2026-06-05T15:04:58.000Z",
+              "uid": "35240-292e6f90-e276-4bc6-a495-9055dd5494cd"
+            }
+          ],
+          "createdAt": "2026-06-05T15:04:58.000Z",
+          "updatedAt": "2026-06-05T15:04:58.000Z",
+          "uid": "35240-6dca720f-76b0-4ae8-9267-cb896d3ac445"
+        }
+      ],
+      "id": "4b8ef768-2cfb-4be4-a476-7577d4daad82",
+      "createdAt": "2026-06-05T15:04:58.000Z",
+      "updatedAt": "2026-06-05T15:04:58.000Z",
+      "uid": "35240-4b8ef768-2cfb-4be4-a476-7577d4daad82"
+    },
+    {
+      "name": "?Action=CreateDBSnapshot",
+      "item": [
+        {
+          "name": "Amazon RDS Create a DB snapshot",
+          "id": "7e5c0b14-1f17-4636-b4f3-a78246c8e0bd",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/xml"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/?Action=CreateDBSnapshot&DBSnapshotIdentifier=<string>&DBInstanceIdentifier=<string>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                ""
+              ],
+              "query": [
+                {
+                  "key": "Action",
+                  "value": "CreateDBSnapshot"
+                },
+                {
+                  "description": "(Required) The identifier for the DB snapshot",
+                  "key": "DBSnapshotIdentifier",
+                  "value": "<string>"
+                },
+                {
+                  "description": "(Required) The identifier of the DB instance to create the snapshot from",
+                  "key": "DBInstanceIdentifier",
+                  "value": "<string>"
+                }
+              ]
+            },
+            "description": "Creates a snapshot of a DB instance. The source DB instance must be in the available or storage-optimization state. The DB snapshot is created with a snapshot type of manual."
+          },
+          "response": [
+            {
+              "id": "488d22b0-05cd-428a-b269-494cfcce78d9",
+              "name": "Successfully created DB snapshot",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/xml"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/?DBSnapshotIdentifier=<string>&DBInstanceIdentifier=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) The identifier for the DB snapshot",
+                      "key": "DBSnapshotIdentifier",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) The identifier of the DB instance to create the snapshot from",
+                      "key": "DBInstanceIdentifier",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "xml",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/xml"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<element>\n  <dBSnapshot>\n    <dBSnapshotIdentifier>(string)</dBSnapshotIdentifier>\n    <dBInstanceIdentifier>(string)</dBInstanceIdentifier>\n    <snapshotCreateTime>(string)</snapshotCreateTime>\n    <engine>(string)</engine>\n    <engineVersion>(string)</engineVersion>\n    <status>(string)</status>\n    <allocatedStorage>(integer)</allocatedStorage>\n    <port>(integer)</port>\n    <availabilityZone>(string)</availabilityZone>\n    <vpcId>(string)</vpcId>\n    <instanceCreateTime>(string)</instanceCreateTime>\n    <masterUsername>(string)</masterUsername>\n    <snapshotType>(string)</snapshotType>\n    <encrypted>(boolean)</encrypted>\n    <storageType>(string)</storageType>\n    <dBSnapshotArn>(string)</dBSnapshotArn>\n    <tags>\n      <key>(string)</key>\n      <value>(string)</value>\n    </tags>\n    <tags>\n      <key>(string)</key>\n      <value>(string)</value>\n    </tags>\n  </dBSnapshot>\n</element>",
+              "createdAt": "2026-06-05T15:04:58.000Z",
+              "updatedAt": "2026-06-05T15:04:58.000Z",
+              "uid": "35240-488d22b0-05cd-428a-b269-494cfcce78d9"
+            },
+            {
+              "id": "08914113-11df-418e-83d6-63344fab39f9",
+              "name": "Invalid request parameters",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/?DBSnapshotIdentifier=<string>&DBInstanceIdentifier=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) The identifier for the DB snapshot",
+                      "key": "DBSnapshotIdentifier",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) The identifier of the DB instance to create the snapshot from",
+                      "key": "DBInstanceIdentifier",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-06-05T15:04:58.000Z",
+              "updatedAt": "2026-06-05T15:04:58.000Z",
+              "uid": "35240-08914113-11df-418e-83d6-63344fab39f9"
+            },
+            {
+              "id": "343ff229-fafd-4030-822d-cc175778d2fa",
+              "name": "Authentication failure",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/?DBSnapshotIdentifier=<string>&DBInstanceIdentifier=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) The identifier for the DB snapshot",
+                      "key": "DBSnapshotIdentifier",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) The identifier of the DB instance to create the snapshot from",
+                      "key": "DBInstanceIdentifier",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-06-05T15:04:58.000Z",
+              "updatedAt": "2026-06-05T15:04:58.000Z",
+              "uid": "35240-343ff229-fafd-4030-822d-cc175778d2fa"
+            }
+          ],
+          "createdAt": "2026-06-05T15:04:58.000Z",
+          "updatedAt": "2026-06-05T15:04:58.000Z",
+          "uid": "35240-7e5c0b14-1f17-4636-b4f3-a78246c8e0bd"
+        }
+      ],
+      "id": "4d144ade-f40d-4d2a-b70f-82aecaf9f5f8",
+      "createdAt": "2026-06-05T15:04:58.000Z",
+      "updatedAt": "2026-06-05T15:04:58.000Z",
+      "uid": "35240-4d144ade-f40d-4d2a-b70f-82aecaf9f5f8"
+    },
+    {
+      "name": "?Action=DescribeDBSnapshots",
+      "item": [
+        {
+          "name": "Amazon RDS Describe DB snapshots",
+          "id": "13ac7771-8fed-439b-9322-28765fbfa3b6",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/xml"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/?Action=DescribeDBSnapshots&DBInstanceIdentifier=<string>&DBSnapshotIdentifier=<string>&SnapshotType=<string>&MaxRecords=<integer>&Marker=<string>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                ""
+              ],
+              "query": [
+                {
+                  "key": "Action",
+                  "value": "DescribeDBSnapshots"
+                },
+                {
+                  "description": "The ID of the DB instance to retrieve snapshots for",
+                  "key": "DBInstanceIdentifier",
+                  "value": "<string>"
+                },
+                {
+                  "description": "A specific DB snapshot identifier to describe",
+                  "key": "DBSnapshotIdentifier",
+                  "value": "<string>"
+                },
+                {
+                  "description": "The type of snapshots to return (automated, manual, shared, public, awsbackup)",
+                  "key": "SnapshotType",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Maximum number of records to include in the response",
+                  "key": "MaxRecords",
+                  "value": "<integer>"
+                },
+                {
+                  "description": "An optional pagination token provided by a previous request",
+                  "key": "Marker",
+                  "value": "<string>"
+                }
+              ]
+            },
+            "description": "Returns information about DB snapshots. This API supports pagination. You can filter by DB instance identifier, DB snapshot identifier, snapshot type, and other criteria."
+          },
+          "response": [
+            {
+              "id": "f602ba48-67bd-493e-a472-a35d27c42669",
+              "name": "Successfully described DB snapshots",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/xml"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/?DBInstanceIdentifier=<string>&DBSnapshotIdentifier=<string>&SnapshotType=<string>&MaxRecords=<integer>&Marker=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "The ID of the DB instance to retrieve snapshots for",
+                      "key": "DBInstanceIdentifier",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "A specific DB snapshot identifier to describe",
+                      "key": "DBSnapshotIdentifier",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The type of snapshots to return (automated, manual, shared, public, awsbackup)",
+                      "key": "SnapshotType",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Maximum number of records to include in the response",
+                      "key": "MaxRecords",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "An optional pagination token provided by a previous request",
+                      "key": "Marker",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "xml",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/xml"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<element>\n  <dBSnapshots>\n    <dBSnapshotIdentifier>(string)</dBSnapshotIdentifier>\n    <dBInstanceIdentifier>(string)</dBInstanceIdentifier>\n    <snapshotCreateTime>(string)</snapshotCreateTime>\n    <engine>(string)</engine>\n    <engineVersion>(string)</engineVersion>\n    <status>(string)</status>\n    <allocatedStorage>(integer)</allocatedStorage>\n    <port>(integer)</port>\n    <availabilityZone>(string)</availabilityZone>\n    <vpcId>(string)</vpcId>\n    <instanceCreateTime>(string)</instanceCreateTime>\n    <masterUsername>(string)</masterUsername>\n    <snapshotType>(string)</snapshotType>\n    <encrypted>(boolean)</encrypted>\n    <storageType>(string)</storageType>\n    <dBSnapshotArn>(string)</dBSnapshotArn>\n    <tags>\n      <key>(string)</key>\n      <value>(string)</value>\n    </tags>\n    <tags>\n      <key>(string)</key>\n      <value>(string)</value>\n    </tags>\n  </dBSnapshots>\n  <dBSnapshots>\n    <dBSnapshotIdentifier>(string)</dBSnapshotIdentifier>\n    <dBInstanceIdentifier>(string)</dBInstanceIdentifier>\n    <snapshotCreateTime>(string)</snapshotCreateTime>\n    <engine>(string)</engine>\n    <engineVersion>(string)</engineVersion>\n    <status>(string)</status>\n    <allocatedStorage>(integer)</allocatedStorage>\n    <port>(integer)</port>\n    <availabilityZone>(string)</availabilityZone>\n    <vpcId>(string)</vpcId>\n    <instanceCreateTime>(string)</instanceCreateTime>\n    <masterUsername>(string)</masterUsername>\n    <snapshotType>(string)</snapshotType>\n    <encrypted>(boolean)</encrypted>\n    <storageType>(string)</storageType>\n    <dBSnapshotArn>(string)</dBSnapshotArn>\n    <tags>\n      <key>(string)</key>\n      <value>(string)</value>\n    </tags>\n    <tags>\n      <key>(string)</key>\n      <value>(string)</value>\n    </tags>\n  </dBSnapshots>\n  <marker>(string)</marker>\n</element>",
+              "createdAt": "2026-06-05T15:04:58.000Z",
+              "updatedAt": "2026-06-05T15:04:58.000Z",
+              "uid": "35240-f602ba48-67bd-493e-a472-a35d27c42669"
+            },
+            {
+              "id": "0b00fe4b-a6af-45a8-99ee-6219812bb752",
+              "name": "Invalid request parameters",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/?DBInstanceIdentifier=<string>&DBSnapshotIdentifier=<string>&SnapshotType=<string>&MaxRecords=<integer>&Marker=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "The ID of the DB instance to retrieve snapshots for",
+                      "key": "DBInstanceIdentifier",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "A specific DB snapshot identifier to describe",
+                      "key": "DBSnapshotIdentifier",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The type of snapshots to return (automated, manual, shared, public, awsbackup)",
+                      "key": "SnapshotType",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Maximum number of records to include in the response",
+                      "key": "MaxRecords",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "An optional pagination token provided by a previous request",
+                      "key": "Marker",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-06-05T15:04:58.000Z",
+              "updatedAt": "2026-06-05T15:04:58.000Z",
+              "uid": "35240-0b00fe4b-a6af-45a8-99ee-6219812bb752"
+            },
+            {
+              "id": "04330f11-07be-4bb1-b595-8b8c2c21697f",
+              "name": "Authentication failure",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/?DBInstanceIdentifier=<string>&DBSnapshotIdentifier=<string>&SnapshotType=<string>&MaxRecords=<integer>&Marker=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "The ID of the DB instance to retrieve snapshots for",
+                      "key": "DBInstanceIdentifier",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "A specific DB snapshot identifier to describe",
+                      "key": "DBSnapshotIdentifier",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The type of snapshots to return (automated, manual, shared, public, awsbackup)",
+                      "key": "SnapshotType",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Maximum number of records to include in the response",
+                      "key": "MaxRecords",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "An optional pagination token provided by a previous request",
+                      "key": "Marker",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-06-05T15:04:58.000Z",
+              "updatedAt": "2026-06-05T15:04:58.000Z",
+              "uid": "35240-04330f11-07be-4bb1-b595-8b8c2c21697f"
+            }
+          ],
+          "createdAt": "2026-06-05T15:04:58.000Z",
+          "updatedAt": "2026-06-05T15:04:58.000Z",
+          "uid": "35240-13ac7771-8fed-439b-9322-28765fbfa3b6"
+        }
+      ],
+      "id": "600b8c9a-4e7f-47c9-9db6-25eeb5443ed8",
+      "createdAt": "2026-06-05T15:04:58.000Z",
+      "updatedAt": "2026-06-05T15:04:58.000Z",
+      "uid": "35240-600b8c9a-4e7f-47c9-9db6-25eeb5443ed8"
+    },
+    {
+      "name": "?Action=DeleteDBSnapshot",
+      "item": [
+        {
+          "name": "Amazon RDS Delete a DB snapshot",
+          "id": "1074c30f-ca1e-4ad6-b826-007feca5ba60",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/?Action=DeleteDBSnapshot&DBSnapshotIdentifier=<string>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                ""
+              ],
+              "query": [
+                {
+                  "key": "Action",
+                  "value": "DeleteDBSnapshot"
+                },
+                {
+                  "description": "(Required) The identifier of the DB snapshot to delete",
+                  "key": "DBSnapshotIdentifier",
+                  "value": "<string>"
+                }
+              ]
+            },
+            "description": "Deletes a DB snapshot. If the snapshot is being copied, the copy operation is terminated. The DB snapshot must be in the available state to be deleted."
+          },
+          "response": [
+            {
+              "id": "6b71654d-b457-479c-98f6-5688129ad6a6",
+              "name": "Successfully deleted DB snapshot",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/?DBSnapshotIdentifier=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) The identifier of the DB snapshot to delete",
+                      "key": "DBSnapshotIdentifier",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-06-05T15:04:58.000Z",
+              "updatedAt": "2026-06-05T15:04:58.000Z",
+              "uid": "35240-6b71654d-b457-479c-98f6-5688129ad6a6"
+            },
+            {
+              "id": "be6e7080-8681-42fc-b23b-35f9b6122a7f",
+              "name": "Invalid request parameters",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/?DBSnapshotIdentifier=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) The identifier of the DB snapshot to delete",
+                      "key": "DBSnapshotIdentifier",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-06-05T15:04:58.000Z",
+              "updatedAt": "2026-06-05T15:04:58.000Z",
+              "uid": "35240-be6e7080-8681-42fc-b23b-35f9b6122a7f"
+            },
+            {
+              "id": "b7850452-d3ad-4369-b3fd-0bb6b8e35967",
+              "name": "Authentication failure",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/?DBSnapshotIdentifier=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) The identifier of the DB snapshot to delete",
+                      "key": "DBSnapshotIdentifier",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-06-05T15:04:58.000Z",
+              "updatedAt": "2026-06-05T15:04:58.000Z",
+              "uid": "35240-b7850452-d3ad-4369-b3fd-0bb6b8e35967"
+            }
+          ],
+          "createdAt": "2026-06-05T15:04:58.000Z",
+          "updatedAt": "2026-06-05T15:04:58.000Z",
+          "uid": "35240-1074c30f-ca1e-4ad6-b826-007feca5ba60"
+        }
+      ],
+      "id": "df09b338-93da-484f-9e30-a4267e2dc4b6",
+      "createdAt": "2026-06-05T15:04:58.000Z",
+      "updatedAt": "2026-06-05T15:04:58.000Z",
+      "uid": "35240-df09b338-93da-484f-9e30-a4267e2dc4b6"
+    },
+    {
+      "name": "?Action=CreateDBCluster",
+      "item": [
+        {
+          "name": "Amazon RDS Create a new DB cluster",
+          "id": "13170bfe-b744-41b9-9c3f-7d9963aafe49",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/xml"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/?Action=CreateDBCluster&DBClusterIdentifier=<string>&Engine=<string>&EngineVersion=<string>&MasterUsername=<string>&MasterUserPassword=<string>&DatabaseName=<string>&Port=<integer>&DBSubnetGroupName=<string>&VpcSecurityGroupIds.member.1=<string>&StorageEncrypted=<boolean>&BackupRetentionPeriod=<integer>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                ""
+              ],
+              "query": [
+                {
+                  "key": "Action",
+                  "value": "CreateDBCluster"
+                },
+                {
+                  "description": "(Required) The DB cluster identifier, unique for each DB cluster",
+                  "key": "DBClusterIdentifier",
+                  "value": "<string>"
+                },
+                {
+                  "description": "(Required) The database engine to use (aurora-mysql, aurora-postgresql)",
+                  "key": "Engine",
+                  "value": "<string>"
+                },
+                {
+                  "description": "The version number of the database engine to use",
+                  "key": "EngineVersion",
+                  "value": "<string>"
+                },
+                {
+                  "description": "The name of the master user for the DB cluster",
+                  "key": "MasterUsername",
+                  "value": "<string>"
+                },
+                {
+                  "description": "The password for the master database user",
+                  "key": "MasterUserPassword",
+                  "value": "<string>"
+                },
+                {
+                  "description": "The name for a database to create in the DB cluster",
+                  "key": "DatabaseName",
+                  "value": "<string>"
+                },
+                {
+                  "description": "The port number on which the instances in the DB cluster accept connections",
+                  "key": "Port",
+                  "value": "<integer>"
+                },
+                {
+                  "description": "A DB subnet group to associate with this DB cluster",
+                  "key": "DBSubnetGroupName",
+                  "value": "<string>"
+                },
+                {
+                  "description": "A VPC security group to associate with the DB cluster",
+                  "key": "VpcSecurityGroupIds.member.1",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Whether the DB cluster is encrypted",
+                  "key": "StorageEncrypted",
+                  "value": "<boolean>"
+                },
+                {
+                  "description": "The number of days for which automated backups are retained (1-35)",
+                  "key": "BackupRetentionPeriod",
+                  "value": "<integer>"
+                }
+              ]
+            },
+            "description": "Creates a new Amazon Aurora DB cluster or Multi-AZ DB cluster. You can use the ReplicationSourceIdentifier parameter to create an Amazon Aurora DB cluster as a read replica of another DB cluster or Amazon RDS MySQL or PostgreSQL DB instance."
+          },
+          "response": [
+            {
+              "id": "4fd4a912-8180-48a3-a6a0-86d1d135ad68",
+              "name": "Successfully created DB cluster",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/xml"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/?DBClusterIdentifier=<string>&Engine=<string>&EngineVersion=<string>&MasterUsername=<string>&MasterUserPassword=<string>&DatabaseName=<string>&Port=<integer>&DBSubnetGroupName=<string>&VpcSecurityGroupIds.member.1=<string>&StorageEncrypted=<boolean>&BackupRetentionPeriod=<integer>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) The DB cluster identifier, unique for each DB cluster",
+                      "key": "DBClusterIdentifier",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) The database engine to use (aurora-mysql, aurora-postgresql)",
+                      "key": "Engine",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The version number of the database engine to use",
+                      "key": "EngineVersion",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The name of the master user for the DB cluster",
+                      "key": "MasterUsername",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The password for the master database user",
+                      "key": "MasterUserPassword",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The name for a database to create in the DB cluster",
+                      "key": "DatabaseName",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The port number on which the instances in the DB cluster accept connections",
+                      "key": "Port",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "A DB subnet group to associate with this DB cluster",
+                      "key": "DBSubnetGroupName",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "A VPC security group to associate with the DB cluster",
+                      "key": "VpcSecurityGroupIds.member.1",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Whether the DB cluster is encrypted",
+                      "key": "StorageEncrypted",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "The number of days for which automated backups are retained (1-35)",
+                      "key": "BackupRetentionPeriod",
+                      "value": "<integer>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "xml",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/xml"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<element>\n  <dBCluster>\n    <dBClusterIdentifier>(string)</dBClusterIdentifier>\n    <dBClusterArn>(string)</dBClusterArn>\n    <status>(string)</status>\n    <engine>(string)</engine>\n    <engineVersion>(string)</engineVersion>\n    <databaseName>(string)</databaseName>\n    <masterUsername>(string)</masterUsername>\n    <endpoint>(string)</endpoint>\n    <readerEndpoint>(string)</readerEndpoint>\n    <port>(integer)</port>\n    <dBClusterMembers>\n      <dBInstanceIdentifier>(string)</dBInstanceIdentifier>\n      <isClusterWriter>(boolean)</isClusterWriter>\n      <dBClusterParameterGroupStatus>(string)</dBClusterParameterGroupStatus>\n    </dBClusterMembers>\n    <dBClusterMembers>\n      <dBInstanceIdentifier>(string)</dBInstanceIdentifier>\n      <isClusterWriter>(boolean)</isClusterWriter>\n      <dBClusterParameterGroupStatus>(string)</dBClusterParameterGroupStatus>\n    </dBClusterMembers>\n    <availabilityZones>(string)</availabilityZones>\n    <availabilityZones>(string)</availabilityZones>\n    <backupRetentionPeriod>(integer)</backupRetentionPeriod>\n    <storageEncrypted>(boolean)</storageEncrypted>\n    <multiAZ>(boolean)</multiAZ>\n    <clusterCreateTime>(string)</clusterCreateTime>\n    <allocatedStorage>(integer)</allocatedStorage>\n    <tags>\n      <key>(string)</key>\n      <value>(string)</value>\n    </tags>\n    <tags>\n      <key>(string)</key>\n      <value>(string)</value>\n    </tags>\n  </dBCluster>\n</element>",
+              "createdAt": "2026-06-05T15:04:58.000Z",
+              "updatedAt": "2026-06-05T15:04:58.000Z",
+              "uid": "35240-4fd4a912-8180-48a3-a6a0-86d1d135ad68"
+            },
+            {
+              "id": "07edbb24-a9b4-46e1-a064-d2b339671816",
+              "name": "Invalid request parameters",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/?DBClusterIdentifier=<string>&Engine=<string>&EngineVersion=<string>&MasterUsername=<string>&MasterUserPassword=<string>&DatabaseName=<string>&Port=<integer>&DBSubnetGroupName=<string>&VpcSecurityGroupIds.member.1=<string>&StorageEncrypted=<boolean>&BackupRetentionPeriod=<integer>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) The DB cluster identifier, unique for each DB cluster",
+                      "key": "DBClusterIdentifier",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) The database engine to use (aurora-mysql, aurora-postgresql)",
+                      "key": "Engine",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The version number of the database engine to use",
+                      "key": "EngineVersion",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The name of the master user for the DB cluster",
+                      "key": "MasterUsername",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The password for the master database user",
+                      "key": "MasterUserPassword",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The name for a database to create in the DB cluster",
+                      "key": "DatabaseName",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The port number on which the instances in the DB cluster accept connections",
+                      "key": "Port",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "A DB subnet group to associate with this DB cluster",
+                      "key": "DBSubnetGroupName",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "A VPC security group to associate with the DB cluster",
+                      "key": "VpcSecurityGroupIds.member.1",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Whether the DB cluster is encrypted",
+                      "key": "StorageEncrypted",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "The number of days for which automated backups are retained (1-35)",
+                      "key": "BackupRetentionPeriod",
+                      "value": "<integer>"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-06-05T15:04:58.000Z",
+              "updatedAt": "2026-06-05T15:04:58.000Z",
+              "uid": "35240-07edbb24-a9b4-46e1-a064-d2b339671816"
+            },
+            {
+              "id": "8376ed39-a7b8-4db4-9f6b-2f5a18d4d2d5",
+              "name": "Authentication failure",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/?DBClusterIdentifier=<string>&Engine=<string>&EngineVersion=<string>&MasterUsername=<string>&MasterUserPassword=<string>&DatabaseName=<string>&Port=<integer>&DBSubnetGroupName=<string>&VpcSecurityGroupIds.member.1=<string>&StorageEncrypted=<boolean>&BackupRetentionPeriod=<integer>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) The DB cluster identifier, unique for each DB cluster",
+                      "key": "DBClusterIdentifier",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) The database engine to use (aurora-mysql, aurora-postgresql)",
+                      "key": "Engine",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The version number of the database engine to use",
+                      "key": "EngineVersion",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The name of the master user for the DB cluster",
+                      "key": "MasterUsername",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The password for the master database user",
+                      "key": "MasterUserPassword",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The name for a database to create in the DB cluster",
+                      "key": "DatabaseName",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The port number on which the instances in the DB cluster accept connections",
+                      "key": "Port",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "A DB subnet group to associate with this DB cluster",
+                      "key": "DBSubnetGroupName",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "A VPC security group to associate with the DB cluster",
+                      "key": "VpcSecurityGroupIds.member.1",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Whether the DB cluster is encrypted",
+                      "key": "StorageEncrypted",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "The number of days for which automated backups are retained (1-35)",
+                      "key": "BackupRetentionPeriod",
+                      "value": "<integer>"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-06-05T15:04:58.000Z",
+              "updatedAt": "2026-06-05T15:04:58.000Z",
+              "uid": "35240-8376ed39-a7b8-4db4-9f6b-2f5a18d4d2d5"
+            },
+            {
+              "id": "132512d6-abe1-4b99-a809-96e1bf9a4ad7",
+              "name": "Authorization failure",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/?DBClusterIdentifier=<string>&Engine=<string>&EngineVersion=<string>&MasterUsername=<string>&MasterUserPassword=<string>&DatabaseName=<string>&Port=<integer>&DBSubnetGroupName=<string>&VpcSecurityGroupIds.member.1=<string>&StorageEncrypted=<boolean>&BackupRetentionPeriod=<integer>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) The DB cluster identifier, unique for each DB cluster",
+                      "key": "DBClusterIdentifier",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) The database engine to use (aurora-mysql, aurora-postgresql)",
+                      "key": "Engine",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The version number of the database engine to use",
+                      "key": "EngineVersion",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The name of the master user for the DB cluster",
+                      "key": "MasterUsername",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The password for the master database user",
+                      "key": "MasterUserPassword",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The name for a database to create in the DB cluster",
+                      "key": "DatabaseName",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The port number on which the instances in the DB cluster accept connections",
+                      "key": "Port",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "A DB subnet group to associate with this DB cluster",
+                      "key": "DBSubnetGroupName",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "A VPC security group to associate with the DB cluster",
+                      "key": "VpcSecurityGroupIds.member.1",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Whether the DB cluster is encrypted",
+                      "key": "StorageEncrypted",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "The number of days for which automated backups are retained (1-35)",
+                      "key": "BackupRetentionPeriod",
+                      "value": "<integer>"
+                    }
+                  ]
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-06-05T15:04:58.000Z",
+              "updatedAt": "2026-06-05T15:04:58.000Z",
+              "uid": "35240-132512d6-abe1-4b99-a809-96e1bf9a4ad7"
+            }
+          ],
+          "createdAt": "2026-06-05T15:04:58.000Z",
+          "updatedAt": "2026-06-05T15:04:58.000Z",
+          "uid": "35240-13170bfe-b744-41b9-9c3f-7d9963aafe49"
+        }
+      ],
+      "id": "634ac2a4-6ecc-471a-813c-feb820d8ae47",
+      "createdAt": "2026-06-05T15:04:58.000Z",
+      "updatedAt": "2026-06-05T15:04:58.000Z",
+      "uid": "35240-634ac2a4-6ecc-471a-813c-feb820d8ae47"
+    },
+    {
+      "name": "?Action=DescribeDBClusters",
+      "item": [
+        {
+          "name": "Amazon RDS Describe DB clusters",
+          "id": "60860351-2f6a-423a-9f4a-12a37795aa3c",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/xml"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/?Action=DescribeDBClusters&DBClusterIdentifier=<string>&Filters.member.1.Name=<string>&Filters.member.1.Values.member.1=<string>&MaxRecords=<integer>&Marker=<string>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                ""
+              ],
+              "query": [
+                {
+                  "key": "Action",
+                  "value": "DescribeDBClusters"
+                },
+                {
+                  "description": "The identifier of the DB cluster to describe",
+                  "key": "DBClusterIdentifier",
+                  "value": "<string>"
+                },
+                {
+                  "description": "The name of a filter",
+                  "key": "Filters.member.1.Name",
+                  "value": "<string>"
+                },
+                {
+                  "description": "A value for the filter",
+                  "key": "Filters.member.1.Values.member.1",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Maximum number of records to include in the response",
+                  "key": "MaxRecords",
+                  "value": "<integer>"
+                },
+                {
+                  "description": "An optional pagination token provided by a previous request",
+                  "key": "Marker",
+                  "value": "<string>"
+                }
+              ]
+            },
+            "description": "Returns information about Amazon Aurora DB clusters and Multi-AZ DB clusters. This API supports pagination. For more information on Amazon Aurora DB clusters, see the Amazon Aurora User Guide."
+          },
+          "response": [
+            {
+              "id": "f0714ba5-ae70-4f40-8889-97711876479a",
+              "name": "Successfully described DB clusters",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/xml"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/?DBClusterIdentifier=<string>&Filters.member.1.Name=<string>&Filters.member.1.Values.member.1=<string>&MaxRecords=<integer>&Marker=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "The identifier of the DB cluster to describe",
+                      "key": "DBClusterIdentifier",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The name of a filter",
+                      "key": "Filters.member.1.Name",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "A value for the filter",
+                      "key": "Filters.member.1.Values.member.1",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Maximum number of records to include in the response",
+                      "key": "MaxRecords",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "An optional pagination token provided by a previous request",
+                      "key": "Marker",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "xml",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/xml"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<element>\n  <dBClusters>\n    <dBClusterIdentifier>(string)</dBClusterIdentifier>\n    <dBClusterArn>(string)</dBClusterArn>\n    <status>(string)</status>\n    <engine>(string)</engine>\n    <engineVersion>(string)</engineVersion>\n    <databaseName>(string)</databaseName>\n    <masterUsername>(string)</masterUsername>\n    <endpoint>(string)</endpoint>\n    <readerEndpoint>(string)</readerEndpoint>\n    <port>(integer)</port>\n    <dBClusterMembers>\n      <dBInstanceIdentifier>(string)</dBInstanceIdentifier>\n      <isClusterWriter>(boolean)</isClusterWriter>\n      <dBClusterParameterGroupStatus>(string)</dBClusterParameterGroupStatus>\n    </dBClusterMembers>\n    <dBClusterMembers>\n      <dBInstanceIdentifier>(string)</dBInstanceIdentifier>\n      <isClusterWriter>(boolean)</isClusterWriter>\n      <dBClusterParameterGroupStatus>(string)</dBClusterParameterGroupStatus>\n    </dBClusterMembers>\n    <availabilityZones>(string)</availabilityZones>\n    <availabilityZones>(string)</availabilityZones>\n    <backupRetentionPeriod>(integer)</backupRetentionPeriod>\n    <storageEncrypted>(boolean)</storageEncrypted>\n    <multiAZ>(boolean)</multiAZ>\n    <clusterCreateTime>(string)</clusterCreateTime>\n    <allocatedStorage>(integer)</allocatedStorage>\n    <tags>\n      <key>(string)</key>\n      <value>(string)</value>\n    </tags>\n    <tags>\n      <key>(string)</key>\n      <value>(string)</value>\n    </tags>\n  </dBClusters>\n  <dBClusters>\n    <dBClusterIdentifier>(string)</dBClusterIdentifier>\n    <dBClusterArn>(string)</dBClusterArn>\n    <status>(string)</status>\n    <engine>(string)</engine>\n    <engineVersion>(string)</engineVersion>\n    <databaseName>(string)</databaseName>\n    <masterUsername>(string)</masterUsername>\n    <endpoint>(string)</endpoint>\n    <readerEndpoint>(string)</readerEndpoint>\n    <port>(integer)</port>\n    <dBClusterMembers>\n      <dBInstanceIdentifier>(string)</dBInstanceIdentifier>\n      <isClusterWriter>(boolean)</isClusterWriter>\n      <dBClusterParameterGroupStatus>(string)</dBClusterParameterGroupStatus>\n    </dBClusterMembers>\n    <dBClusterMembers>\n      <dBInstanceIdentifier>(string)</dBInstanceIdentifier>\n      <isClusterWriter>(boolean)</isClusterWriter>\n      <dBClusterParameterGroupStatus>(string)</dBClusterParameterGroupStatus>\n    </dBClusterMembers>\n    <availabilityZones>(string)</availabilityZones>\n    <availabilityZones>(string)</availabilityZones>\n    <backupRetentionPeriod>(integer)</backupRetentionPeriod>\n    <storageEncrypted>(boolean)</storageEncrypted>\n    <multiAZ>(boolean)</multiAZ>\n    <clusterCreateTime>(string)</clusterCreateTime>\n    <allocatedStorage>(integer)</allocatedStorage>\n    <tags>\n      <key>(string)</key>\n      <value>(string)</value>\n    </tags>\n    <tags>\n      <key>(string)</key>\n      <value>(string)</value>\n    </tags>\n  </dBClusters>\n  <marker>(string)</marker>\n</element>",
+              "createdAt": "2026-06-05T15:04:58.000Z",
+              "updatedAt": "2026-06-05T15:04:58.000Z",
+              "uid": "35240-f0714ba5-ae70-4f40-8889-97711876479a"
+            },
+            {
+              "id": "85ff3c28-87f2-41bd-9ac4-df4a36be7c6f",
+              "name": "Invalid request parameters",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/?DBClusterIdentifier=<string>&Filters.member.1.Name=<string>&Filters.member.1.Values.member.1=<string>&MaxRecords=<integer>&Marker=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "The identifier of the DB cluster to describe",
+                      "key": "DBClusterIdentifier",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The name of a filter",
+                      "key": "Filters.member.1.Name",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "A value for the filter",
+                      "key": "Filters.member.1.Values.member.1",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Maximum number of records to include in the response",
+                      "key": "MaxRecords",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "An optional pagination token provided by a previous request",
+                      "key": "Marker",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-06-05T15:04:58.000Z",
+              "updatedAt": "2026-06-05T15:04:58.000Z",
+              "uid": "35240-85ff3c28-87f2-41bd-9ac4-df4a36be7c6f"
+            },
+            {
+              "id": "472f18ce-44b7-4d63-8b14-52660e0739fc",
+              "name": "Authentication failure",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/?DBClusterIdentifier=<string>&Filters.member.1.Name=<string>&Filters.member.1.Values.member.1=<string>&MaxRecords=<integer>&Marker=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "The identifier of the DB cluster to describe",
+                      "key": "DBClusterIdentifier",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The name of a filter",
+                      "key": "Filters.member.1.Name",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "A value for the filter",
+                      "key": "Filters.member.1.Values.member.1",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Maximum number of records to include in the response",
+                      "key": "MaxRecords",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "An optional pagination token provided by a previous request",
+                      "key": "Marker",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-06-05T15:04:58.000Z",
+              "updatedAt": "2026-06-05T15:04:58.000Z",
+              "uid": "35240-472f18ce-44b7-4d63-8b14-52660e0739fc"
+            }
+          ],
+          "createdAt": "2026-06-05T15:04:58.000Z",
+          "updatedAt": "2026-06-05T15:04:58.000Z",
+          "uid": "35240-60860351-2f6a-423a-9f4a-12a37795aa3c"
+        }
+      ],
+      "id": "b3769d1b-daf8-4516-9cbf-ecfbc6e2755d",
+      "createdAt": "2026-06-05T15:04:58.000Z",
+      "updatedAt": "2026-06-05T15:04:58.000Z",
+      "uid": "35240-b3769d1b-daf8-4516-9cbf-ecfbc6e2755d"
+    },
+    {
+      "name": "?Action=DeleteDBCluster",
+      "item": [
+        {
+          "name": "Amazon RDS Delete a DB cluster",
+          "id": "12a47707-9bd8-4c25-baa2-a93814582271",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/?Action=DeleteDBCluster&DBClusterIdentifier=<string>&SkipFinalSnapshot=<boolean>&FinalDBSnapshotIdentifier=<string>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                ""
+              ],
+              "query": [
+                {
+                  "key": "Action",
+                  "value": "DeleteDBCluster"
+                },
+                {
+                  "description": "(Required) The DB cluster identifier for the DB cluster to be deleted",
+                  "key": "DBClusterIdentifier",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Whether to skip the creation of a final DB cluster snapshot before deleting the cluster",
+                  "key": "SkipFinalSnapshot",
+                  "value": "<boolean>"
+                },
+                {
+                  "description": "The identifier of the final DB cluster snapshot to create before deleting the cluster",
+                  "key": "FinalDBSnapshotIdentifier",
+                  "value": "<string>"
+                }
+              ]
+            },
+            "description": "Deletes a previously provisioned DB cluster. When you delete a DB cluster, all automated backups are deleted and cannot be recovered. Manual DB cluster snapshots are not deleted."
+          },
+          "response": [
+            {
+              "id": "690e186f-2934-433c-818f-3018499af152",
+              "name": "Successfully deleted DB cluster",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/?DBClusterIdentifier=<string>&SkipFinalSnapshot=<boolean>&FinalDBSnapshotIdentifier=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) The DB cluster identifier for the DB cluster to be deleted",
+                      "key": "DBClusterIdentifier",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Whether to skip the creation of a final DB cluster snapshot before deleting the cluster",
+                      "key": "SkipFinalSnapshot",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "The identifier of the final DB cluster snapshot to create before deleting the cluster",
+                      "key": "FinalDBSnapshotIdentifier",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-06-05T15:04:58.000Z",
+              "updatedAt": "2026-06-05T15:04:58.000Z",
+              "uid": "35240-690e186f-2934-433c-818f-3018499af152"
+            },
+            {
+              "id": "bb94cfeb-4bb1-45d2-9b79-0aae58be06b0",
+              "name": "Invalid request parameters",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/?DBClusterIdentifier=<string>&SkipFinalSnapshot=<boolean>&FinalDBSnapshotIdentifier=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) The DB cluster identifier for the DB cluster to be deleted",
+                      "key": "DBClusterIdentifier",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Whether to skip the creation of a final DB cluster snapshot before deleting the cluster",
+                      "key": "SkipFinalSnapshot",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "The identifier of the final DB cluster snapshot to create before deleting the cluster",
+                      "key": "FinalDBSnapshotIdentifier",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-06-05T15:04:58.000Z",
+              "updatedAt": "2026-06-05T15:04:58.000Z",
+              "uid": "35240-bb94cfeb-4bb1-45d2-9b79-0aae58be06b0"
+            },
+            {
+              "id": "2937d5b6-9047-40ba-adb4-ecf3f9a92cef",
+              "name": "Authentication failure",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/?DBClusterIdentifier=<string>&SkipFinalSnapshot=<boolean>&FinalDBSnapshotIdentifier=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) The DB cluster identifier for the DB cluster to be deleted",
+                      "key": "DBClusterIdentifier",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Whether to skip the creation of a final DB cluster snapshot before deleting the cluster",
+                      "key": "SkipFinalSnapshot",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "The identifier of the final DB cluster snapshot to create before deleting the cluster",
+                      "key": "FinalDBSnapshotIdentifier",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-06-05T15:04:58.000Z",
+              "updatedAt": "2026-06-05T15:04:58.000Z",
+              "uid": "35240-2937d5b6-9047-40ba-adb4-ecf3f9a92cef"
+            }
+          ],
+          "createdAt": "2026-06-05T15:04:58.000Z",
+          "updatedAt": "2026-06-05T15:04:58.000Z",
+          "uid": "35240-12a47707-9bd8-4c25-baa2-a93814582271"
+        }
+      ],
+      "id": "6a8fe26f-7e18-4500-a95e-f3a8e1dfe5ef",
+      "createdAt": "2026-06-05T15:04:58.000Z",
+      "updatedAt": "2026-06-05T15:04:58.000Z",
+      "uid": "35240-6a8fe26f-7e18-4500-a95e-f3a8e1dfe5ef"
+    },
+    {
+      "name": "?Action=DescribeDBEngineVersions",
+      "item": [
+        {
+          "name": "Amazon RDS Describe DB engine versions",
+          "id": "e1af137d-a12e-49da-b47b-0908d57e22a0",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/?Action=DescribeDBEngineVersions&Engine=<string>&EngineVersion=<string>&DBParameterGroupFamily=<string>&DefaultOnly=<boolean>&MaxRecords=<integer>&Marker=<string>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                ""
+              ],
+              "query": [
+                {
+                  "key": "Action",
+                  "value": "DescribeDBEngineVersions"
+                },
+                {
+                  "description": "The database engine to return (mysql, postgres, mariadb, oracle-ee, sqlserver-ee, aurora-mysql, aurora-postgresql)",
+                  "key": "Engine",
+                  "value": "<string>"
+                },
+                {
+                  "description": "The database engine version to return",
+                  "key": "EngineVersion",
+                  "value": "<string>"
+                },
+                {
+                  "description": "The name of a specific DB parameter group family to return details for",
+                  "key": "DBParameterGroupFamily",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Whether to return only the default version of the engine",
+                  "key": "DefaultOnly",
+                  "value": "<boolean>"
+                },
+                {
+                  "description": "Maximum number of records to include in the response",
+                  "key": "MaxRecords",
+                  "value": "<integer>"
+                },
+                {
+                  "description": "An optional pagination token provided by a previous request",
+                  "key": "Marker",
+                  "value": "<string>"
+                }
+              ]
+            },
+            "description": "Returns a list of the available DB engines and their versions. You can filter by engine, engine version, DB parameter group family, and other criteria."
+          },
+          "response": [
+            {
+              "id": "5108813b-6054-4e3c-bb80-09234c7357d9",
+              "name": "Successfully described DB engine versions",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/?Engine=<string>&EngineVersion=<string>&DBParameterGroupFamily=<string>&DefaultOnly=<boolean>&MaxRecords=<integer>&Marker=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "The database engine to return (mysql, postgres, mariadb, oracle-ee, sqlserver-ee, aurora-mysql, aurora-postgresql)",
+                      "key": "Engine",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The database engine version to return",
+                      "key": "EngineVersion",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The name of a specific DB parameter group family to return details for",
+                      "key": "DBParameterGroupFamily",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Whether to return only the default version of the engine",
+                      "key": "DefaultOnly",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "Maximum number of records to include in the response",
+                      "key": "MaxRecords",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "An optional pagination token provided by a previous request",
+                      "key": "Marker",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-06-05T15:04:58.000Z",
+              "updatedAt": "2026-06-05T15:04:58.000Z",
+              "uid": "35240-5108813b-6054-4e3c-bb80-09234c7357d9"
+            },
+            {
+              "id": "a8c3269c-0608-4ddf-be8f-0118ee58fee8",
+              "name": "Invalid request parameters",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/?Engine=<string>&EngineVersion=<string>&DBParameterGroupFamily=<string>&DefaultOnly=<boolean>&MaxRecords=<integer>&Marker=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "The database engine to return (mysql, postgres, mariadb, oracle-ee, sqlserver-ee, aurora-mysql, aurora-postgresql)",
+                      "key": "Engine",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The database engine version to return",
+                      "key": "EngineVersion",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The name of a specific DB parameter group family to return details for",
+                      "key": "DBParameterGroupFamily",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Whether to return only the default version of the engine",
+                      "key": "DefaultOnly",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "Maximum number of records to include in the response",
+                      "key": "MaxRecords",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "An optional pagination token provided by a previous request",
+                      "key": "Marker",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-06-05T15:04:58.000Z",
+              "updatedAt": "2026-06-05T15:04:58.000Z",
+              "uid": "35240-a8c3269c-0608-4ddf-be8f-0118ee58fee8"
+            },
+            {
+              "id": "7998c309-beea-4b7b-b4d2-5c3bd82afed6",
+              "name": "Authentication failure",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/?Engine=<string>&EngineVersion=<string>&DBParameterGroupFamily=<string>&DefaultOnly=<boolean>&MaxRecords=<integer>&Marker=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "The database engine to return (mysql, postgres, mariadb, oracle-ee, sqlserver-ee, aurora-mysql, aurora-postgresql)",
+                      "key": "Engine",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The database engine version to return",
+                      "key": "EngineVersion",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The name of a specific DB parameter group family to return details for",
+                      "key": "DBParameterGroupFamily",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Whether to return only the default version of the engine",
+                      "key": "DefaultOnly",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "Maximum number of records to include in the response",
+                      "key": "MaxRecords",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "An optional pagination token provided by a previous request",
+                      "key": "Marker",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-06-05T15:04:58.000Z",
+              "updatedAt": "2026-06-05T15:04:58.000Z",
+              "uid": "35240-7998c309-beea-4b7b-b4d2-5c3bd82afed6"
+            }
+          ],
+          "createdAt": "2026-06-05T15:04:58.000Z",
+          "updatedAt": "2026-06-05T15:04:58.000Z",
+          "uid": "35240-e1af137d-a12e-49da-b47b-0908d57e22a0"
+        }
+      ],
+      "id": "2c748d58-0022-461b-a614-5333e28b72d8",
+      "createdAt": "2026-06-05T15:04:58.000Z",
+      "updatedAt": "2026-06-05T15:04:58.000Z",
+      "uid": "35240-2c748d58-0022-461b-a614-5333e28b72d8"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "region",
+      "value": "us-east-1"
+    },
+    {
+      "key": "baseUrl",
+      "value": "https://rds.{{region}}.amazonaws.com"
+    }
+  ]
+}

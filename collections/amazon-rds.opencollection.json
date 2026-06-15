@@ -1,0 +1,608 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Amazon RDS API",
+    "version": "2014-10-31"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "DB Instances",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Amazon RDS Create a new DB instance",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://rds.{region}.amazonaws.com/?Action=CreateDBInstance",
+            "params": [
+              {
+                "name": "DBInstanceIdentifier",
+                "value": "",
+                "type": "query",
+                "description": "The DB instance identifier, unique for each DB instance"
+              },
+              {
+                "name": "DBInstanceClass",
+                "value": "",
+                "type": "query",
+                "description": "The compute and memory capacity of the DB instance (e.g., db.m5.large)"
+              },
+              {
+                "name": "Engine",
+                "value": "",
+                "type": "query",
+                "description": "The database engine to use (mysql, postgres, mariadb, oracle-ee, sqlserver-ee, aurora-mysql, aurora-postgresql)"
+              },
+              {
+                "name": "MasterUsername",
+                "value": "",
+                "type": "query",
+                "description": "The name for the master user"
+              },
+              {
+                "name": "MasterUserPassword",
+                "value": "",
+                "type": "query",
+                "description": "The password for the master user"
+              },
+              {
+                "name": "AllocatedStorage",
+                "value": "",
+                "type": "query",
+                "description": "The amount of storage in gibibytes (GiB) to allocate for the DB instance"
+              },
+              {
+                "name": "EngineVersion",
+                "value": "",
+                "type": "query",
+                "description": "The version number of the database engine to use"
+              },
+              {
+                "name": "DBName",
+                "value": "",
+                "type": "query",
+                "description": "The name of the database to create when the DB instance is created"
+              },
+              {
+                "name": "Port",
+                "value": "",
+                "type": "query",
+                "description": "The port number on which the database accepts connections"
+              },
+              {
+                "name": "MultiAZ",
+                "value": "",
+                "type": "query",
+                "description": "Whether the DB instance is a Multi-AZ deployment"
+              },
+              {
+                "name": "StorageType",
+                "value": "",
+                "type": "query",
+                "description": "The storage type to associate with the DB instance (gp2, gp3, io1, standard)"
+              },
+              {
+                "name": "PubliclyAccessible",
+                "value": "",
+                "type": "query",
+                "description": "Whether the DB instance is publicly accessible"
+              },
+              {
+                "name": "VpcSecurityGroupIds.member.1",
+                "value": "",
+                "type": "query",
+                "description": "A VPC security group to associate with the DB instance"
+              },
+              {
+                "name": "DBSubnetGroupName",
+                "value": "",
+                "type": "query",
+                "description": "A DB subnet group to associate with this DB instance"
+              }
+            ]
+          },
+          "docs": "Creates a new DB instance. The new DB instance can be an RDS DB instance, or it can be a DB instance in an Aurora DB cluster. You can specify the DB engine, instance class, allocated storage, master username and password, and other configuration settings."
+        },
+        {
+          "info": {
+            "name": "Amazon RDS Describe DB instances",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://rds.{region}.amazonaws.com/?Action=DescribeDBInstances",
+            "params": [
+              {
+                "name": "DBInstanceIdentifier",
+                "value": "",
+                "type": "query",
+                "description": "The identifier of the DB instance to describe"
+              },
+              {
+                "name": "Filters.member.1.Name",
+                "value": "",
+                "type": "query",
+                "description": "The name of a filter"
+              },
+              {
+                "name": "Filters.member.1.Values.member.1",
+                "value": "",
+                "type": "query",
+                "description": "A value for the filter"
+              },
+              {
+                "name": "MaxRecords",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of records to include in the response"
+              },
+              {
+                "name": "Marker",
+                "value": "",
+                "type": "query",
+                "description": "An optional pagination token provided by a previous request"
+              }
+            ]
+          },
+          "docs": "Describes provisioned RDS instances. This API supports pagination. Returns information about the DB instances including engine, instance class, storage, endpoint, status, and configuration details."
+        },
+        {
+          "info": {
+            "name": "Amazon RDS Modify a DB instance",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://rds.{region}.amazonaws.com/?Action=ModifyDBInstance",
+            "params": [
+              {
+                "name": "DBInstanceIdentifier",
+                "value": "",
+                "type": "query",
+                "description": "The DB instance identifier for the instance to be modified"
+              },
+              {
+                "name": "DBInstanceClass",
+                "value": "",
+                "type": "query",
+                "description": "The new compute and memory capacity of the DB instance"
+              },
+              {
+                "name": "AllocatedStorage",
+                "value": "",
+                "type": "query",
+                "description": "The new amount of storage in GiB to allocate for the DB instance"
+              },
+              {
+                "name": "MasterUserPassword",
+                "value": "",
+                "type": "query",
+                "description": "The new password for the master user"
+              },
+              {
+                "name": "MultiAZ",
+                "value": "",
+                "type": "query",
+                "description": "Whether the DB instance is a Multi-AZ deployment"
+              },
+              {
+                "name": "EngineVersion",
+                "value": "",
+                "type": "query",
+                "description": "The version number of the database engine to upgrade to"
+              },
+              {
+                "name": "ApplyImmediately",
+                "value": "",
+                "type": "query",
+                "description": "Whether to apply the modification immediately or during the next maintenance window"
+              },
+              {
+                "name": "BackupRetentionPeriod",
+                "value": "",
+                "type": "query",
+                "description": "The number of days to retain automated backups (0-35)"
+              },
+              {
+                "name": "StorageType",
+                "value": "",
+                "type": "query",
+                "description": "The storage type to associate with the DB instance"
+              }
+            ]
+          },
+          "docs": "Modifies settings for a DB instance. You can change one or more database configuration parameters by specifying these parameters and the new values in the request. Some modifications are applied immediately, while others are applied during the next maintenance window."
+        },
+        {
+          "info": {
+            "name": "Amazon RDS Delete a DB instance",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://rds.{region}.amazonaws.com/?Action=DeleteDBInstance",
+            "params": [
+              {
+                "name": "DBInstanceIdentifier",
+                "value": "",
+                "type": "query",
+                "description": "The DB instance identifier for the DB instance to be deleted"
+              },
+              {
+                "name": "SkipFinalSnapshot",
+                "value": "",
+                "type": "query",
+                "description": "Whether to skip the creation of a final DB snapshot before deleting the instance"
+              },
+              {
+                "name": "FinalDBSnapshotIdentifier",
+                "value": "",
+                "type": "query",
+                "description": "The identifier of the final DB snapshot to create before deleting the instance"
+              },
+              {
+                "name": "DeleteAutomatedBackups",
+                "value": "",
+                "type": "query",
+                "description": "Whether to remove automated backups immediately after deletion"
+              }
+            ]
+          },
+          "docs": "Deletes a previously provisioned DB instance. When you delete a DB instance, all automated backups are deleted and cannot be recovered. Manual DB snapshots are not deleted."
+        },
+        {
+          "info": {
+            "name": "Amazon RDS Reboot a DB instance",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://rds.{region}.amazonaws.com/?Action=RebootDBInstance",
+            "params": [
+              {
+                "name": "DBInstanceIdentifier",
+                "value": "",
+                "type": "query",
+                "description": "The DB instance identifier"
+              },
+              {
+                "name": "ForceFailover",
+                "value": "",
+                "type": "query",
+                "description": "Whether to force a failover from one AZ to another in a Multi-AZ deployment"
+              }
+            ]
+          },
+          "docs": "Reboots a DB instance. The reboot causes a momentary outage and the database instance status is set to rebooting. A DB instance can be rebooted when it is in the available state. If the DB instance is in a Multi-AZ deployment, you can force a failover from one AZ to another."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "DB Snapshots",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Amazon RDS Create a DB snapshot",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://rds.{region}.amazonaws.com/?Action=CreateDBSnapshot",
+            "params": [
+              {
+                "name": "DBSnapshotIdentifier",
+                "value": "",
+                "type": "query",
+                "description": "The identifier for the DB snapshot"
+              },
+              {
+                "name": "DBInstanceIdentifier",
+                "value": "",
+                "type": "query",
+                "description": "The identifier of the DB instance to create the snapshot from"
+              }
+            ]
+          },
+          "docs": "Creates a snapshot of a DB instance. The source DB instance must be in the available or storage-optimization state. The DB snapshot is created with a snapshot type of manual."
+        },
+        {
+          "info": {
+            "name": "Amazon RDS Describe DB snapshots",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://rds.{region}.amazonaws.com/?Action=DescribeDBSnapshots",
+            "params": [
+              {
+                "name": "DBInstanceIdentifier",
+                "value": "",
+                "type": "query",
+                "description": "The ID of the DB instance to retrieve snapshots for"
+              },
+              {
+                "name": "DBSnapshotIdentifier",
+                "value": "",
+                "type": "query",
+                "description": "A specific DB snapshot identifier to describe"
+              },
+              {
+                "name": "SnapshotType",
+                "value": "",
+                "type": "query",
+                "description": "The type of snapshots to return (automated, manual, shared, public, awsbackup)"
+              },
+              {
+                "name": "MaxRecords",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of records to include in the response"
+              },
+              {
+                "name": "Marker",
+                "value": "",
+                "type": "query",
+                "description": "An optional pagination token provided by a previous request"
+              }
+            ]
+          },
+          "docs": "Returns information about DB snapshots. This API supports pagination. You can filter by DB instance identifier, DB snapshot identifier, snapshot type, and other criteria."
+        },
+        {
+          "info": {
+            "name": "Amazon RDS Delete a DB snapshot",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://rds.{region}.amazonaws.com/?Action=DeleteDBSnapshot",
+            "params": [
+              {
+                "name": "DBSnapshotIdentifier",
+                "value": "",
+                "type": "query",
+                "description": "The identifier of the DB snapshot to delete"
+              }
+            ]
+          },
+          "docs": "Deletes a DB snapshot. If the snapshot is being copied, the copy operation is terminated. The DB snapshot must be in the available state to be deleted."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "DB Clusters",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Amazon RDS Create a new DB cluster",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://rds.{region}.amazonaws.com/?Action=CreateDBCluster",
+            "params": [
+              {
+                "name": "DBClusterIdentifier",
+                "value": "",
+                "type": "query",
+                "description": "The DB cluster identifier, unique for each DB cluster"
+              },
+              {
+                "name": "Engine",
+                "value": "",
+                "type": "query",
+                "description": "The database engine to use (aurora-mysql, aurora-postgresql)"
+              },
+              {
+                "name": "EngineVersion",
+                "value": "",
+                "type": "query",
+                "description": "The version number of the database engine to use"
+              },
+              {
+                "name": "MasterUsername",
+                "value": "",
+                "type": "query",
+                "description": "The name of the master user for the DB cluster"
+              },
+              {
+                "name": "MasterUserPassword",
+                "value": "",
+                "type": "query",
+                "description": "The password for the master database user"
+              },
+              {
+                "name": "DatabaseName",
+                "value": "",
+                "type": "query",
+                "description": "The name for a database to create in the DB cluster"
+              },
+              {
+                "name": "Port",
+                "value": "",
+                "type": "query",
+                "description": "The port number on which the instances in the DB cluster accept connections"
+              },
+              {
+                "name": "DBSubnetGroupName",
+                "value": "",
+                "type": "query",
+                "description": "A DB subnet group to associate with this DB cluster"
+              },
+              {
+                "name": "VpcSecurityGroupIds.member.1",
+                "value": "",
+                "type": "query",
+                "description": "A VPC security group to associate with the DB cluster"
+              },
+              {
+                "name": "StorageEncrypted",
+                "value": "",
+                "type": "query",
+                "description": "Whether the DB cluster is encrypted"
+              },
+              {
+                "name": "BackupRetentionPeriod",
+                "value": "",
+                "type": "query",
+                "description": "The number of days for which automated backups are retained (1-35)"
+              }
+            ]
+          },
+          "docs": "Creates a new Amazon Aurora DB cluster or Multi-AZ DB cluster. You can use the ReplicationSourceIdentifier parameter to create an Amazon Aurora DB cluster as a read replica of another DB cluster or Amazon RDS MySQL or PostgreSQL DB instance."
+        },
+        {
+          "info": {
+            "name": "Amazon RDS Describe DB clusters",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://rds.{region}.amazonaws.com/?Action=DescribeDBClusters",
+            "params": [
+              {
+                "name": "DBClusterIdentifier",
+                "value": "",
+                "type": "query",
+                "description": "The identifier of the DB cluster to describe"
+              },
+              {
+                "name": "Filters.member.1.Name",
+                "value": "",
+                "type": "query",
+                "description": "The name of a filter"
+              },
+              {
+                "name": "Filters.member.1.Values.member.1",
+                "value": "",
+                "type": "query",
+                "description": "A value for the filter"
+              },
+              {
+                "name": "MaxRecords",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of records to include in the response"
+              },
+              {
+                "name": "Marker",
+                "value": "",
+                "type": "query",
+                "description": "An optional pagination token provided by a previous request"
+              }
+            ]
+          },
+          "docs": "Returns information about Amazon Aurora DB clusters and Multi-AZ DB clusters. This API supports pagination. For more information on Amazon Aurora DB clusters, see the Amazon Aurora User Guide."
+        },
+        {
+          "info": {
+            "name": "Amazon RDS Delete a DB cluster",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://rds.{region}.amazonaws.com/?Action=DeleteDBCluster",
+            "params": [
+              {
+                "name": "DBClusterIdentifier",
+                "value": "",
+                "type": "query",
+                "description": "The DB cluster identifier for the DB cluster to be deleted"
+              },
+              {
+                "name": "SkipFinalSnapshot",
+                "value": "",
+                "type": "query",
+                "description": "Whether to skip the creation of a final DB cluster snapshot before deleting the cluster"
+              },
+              {
+                "name": "FinalDBSnapshotIdentifier",
+                "value": "",
+                "type": "query",
+                "description": "The identifier of the final DB cluster snapshot to create before deleting the cluster"
+              }
+            ]
+          },
+          "docs": "Deletes a previously provisioned DB cluster. When you delete a DB cluster, all automated backups are deleted and cannot be recovered. Manual DB cluster snapshots are not deleted."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "DB Engine Versions",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Amazon RDS Describe DB engine versions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://rds.{region}.amazonaws.com/?Action=DescribeDBEngineVersions",
+            "params": [
+              {
+                "name": "Engine",
+                "value": "",
+                "type": "query",
+                "description": "The database engine to return (mysql, postgres, mariadb, oracle-ee, sqlserver-ee, aurora-mysql, aurora-postgresql)"
+              },
+              {
+                "name": "EngineVersion",
+                "value": "",
+                "type": "query",
+                "description": "The database engine version to return"
+              },
+              {
+                "name": "DBParameterGroupFamily",
+                "value": "",
+                "type": "query",
+                "description": "The name of a specific DB parameter group family to return details for"
+              },
+              {
+                "name": "DefaultOnly",
+                "value": "",
+                "type": "query",
+                "description": "Whether to return only the default version of the engine"
+              },
+              {
+                "name": "MaxRecords",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of records to include in the response"
+              },
+              {
+                "name": "Marker",
+                "value": "",
+                "type": "query",
+                "description": "An optional pagination token provided by a previous request"
+              }
+            ]
+          },
+          "docs": "Returns a list of the available DB engines and their versions. You can filter by engine, engine version, DB parameter group family, and other criteria."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
