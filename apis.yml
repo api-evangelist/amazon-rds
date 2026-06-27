@@ -52,57 +52,54 @@ apis:
 common:
   - type: PostmanWorkspace
     url: https://www.postman.com/kinlaneapi/amazon-rds/overview
-  - type: ArazzoWorkflows
-    url: arazzo/
-    workflows:
-      - url: arazzo/amazon-rds-add-aurora-replica-instance-workflow.yml
-        name: Amazon RDS Add an Aurora Replica Instance
-        summary: Confirm a cluster is available, add a reader instance, and poll until it joins.
-      - url: arazzo/amazon-rds-clean-up-snapshot-workflow.yml
-        name: Amazon RDS Clean Up a DB Snapshot
-        summary: Confirm a manual snapshot is available, delete it, then verify removal.
-      - url: arazzo/amazon-rds-clone-instance-from-snapshot-restore-workflow.yml
-        name: Amazon RDS Snapshot and Rebuild a DB Instance
-        summary: Snapshot a source instance, wait for it, then build a fresh matching instance.
-      - url: arazzo/amazon-rds-convert-to-multi-az-workflow.yml
-        name: Amazon RDS Convert Instance to Multi-AZ
-        summary: Enable Multi-AZ on a DB instance immediately and poll until stable.
-      - url: arazzo/amazon-rds-delete-aurora-cluster-workflow.yml
-        name: Amazon RDS Delete an Aurora DB Cluster
-        summary: Snapshot member instances, delete them, then delete the Aurora cluster.
-      - url: arazzo/amazon-rds-enable-backup-retention-workflow.yml
-        name: Amazon RDS Enable Backup Retention
-        summary: Set an instance backup retention period immediately and poll until stable.
-      - url: arazzo/amazon-rds-modify-instance-class-workflow.yml
-        name: Amazon RDS Modify a DB Instance Class
-        summary: Resize a DB instance class immediately and poll until it stabilizes.
-      - url: arazzo/amazon-rds-provision-aurora-cluster-workflow.yml
-        name: Amazon RDS Provision an Aurora DB Cluster
-        summary: Create an Aurora DB cluster and poll until it reports the available status.
-      - url: arazzo/amazon-rds-provision-db-instance-workflow.yml
-        name: Amazon RDS Provision a DB Instance
-        summary: Create a DB instance and poll until it reports the available status.
-      - url: arazzo/amazon-rds-reboot-instance-workflow.yml
-        name: Amazon RDS Reboot a DB Instance
-        summary: Reboot a DB instance with optional failover and poll until it recovers.
-      - url: arazzo/amazon-rds-rotate-master-password-workflow.yml
-        name: Amazon RDS Rotate Master Password
-        summary: Reset the master user password immediately and poll until the instance stabilizes.
-      - url: arazzo/amazon-rds-scale-instance-storage-workflow.yml
-        name: Amazon RDS Scale DB Instance Storage
-        summary: Increase allocated storage immediately and poll until the instance stabilizes.
-      - url: arazzo/amazon-rds-snapshot-db-instance-workflow.yml
-        name: Amazon RDS Snapshot a DB Instance
-        summary: Create a manual DB snapshot and poll until it reports the available status.
-      - url: arazzo/amazon-rds-snapshot-then-delete-instance-workflow.yml
-        name: Amazon RDS Snapshot Then Delete a DB Instance
-        summary: Take a final manual snapshot, wait for it, then safely delete the instance.
-      - url: arazzo/amazon-rds-upgrade-engine-version-workflow.yml
-        name: Amazon RDS Upgrade DB Engine Version
-        summary: Resolve a target engine version, upgrade the instance, and poll until stable.
-      - url: arazzo/amazon-rds-verify-engine-then-provision-workflow.yml
-        name: Amazon RDS Verify Engine Support Then Provision
-        summary: Validate the engine version is offered, then provision an instance and wait.
+  - type: Arazzo
+    url: arazzo/amazon-rds-add-aurora-replica-instance-workflow.yml
+    name: Amazon RDS Add an Aurora Replica Instance
+  - type: Arazzo
+    url: arazzo/amazon-rds-clean-up-snapshot-workflow.yml
+    name: Amazon RDS Clean Up a DB Snapshot
+  - type: Arazzo
+    url: arazzo/amazon-rds-clone-instance-from-snapshot-restore-workflow.yml
+    name: Amazon RDS Snapshot and Rebuild a DB Instance
+  - type: Arazzo
+    url: arazzo/amazon-rds-convert-to-multi-az-workflow.yml
+    name: Amazon RDS Convert Instance to Multi-AZ
+  - type: Arazzo
+    url: arazzo/amazon-rds-delete-aurora-cluster-workflow.yml
+    name: Amazon RDS Delete an Aurora DB Cluster
+  - type: Arazzo
+    url: arazzo/amazon-rds-enable-backup-retention-workflow.yml
+    name: Amazon RDS Enable Backup Retention
+  - type: Arazzo
+    url: arazzo/amazon-rds-modify-instance-class-workflow.yml
+    name: Amazon RDS Modify a DB Instance Class
+  - type: Arazzo
+    url: arazzo/amazon-rds-provision-aurora-cluster-workflow.yml
+    name: Amazon RDS Provision an Aurora DB Cluster
+  - type: Arazzo
+    url: arazzo/amazon-rds-provision-db-instance-workflow.yml
+    name: Amazon RDS Provision a DB Instance
+  - type: Arazzo
+    url: arazzo/amazon-rds-reboot-instance-workflow.yml
+    name: Amazon RDS Reboot a DB Instance
+  - type: Arazzo
+    url: arazzo/amazon-rds-rotate-master-password-workflow.yml
+    name: Amazon RDS Rotate Master Password
+  - type: Arazzo
+    url: arazzo/amazon-rds-scale-instance-storage-workflow.yml
+    name: Amazon RDS Scale DB Instance Storage
+  - type: Arazzo
+    url: arazzo/amazon-rds-snapshot-db-instance-workflow.yml
+    name: Amazon RDS Snapshot a DB Instance
+  - type: Arazzo
+    url: arazzo/amazon-rds-snapshot-then-delete-instance-workflow.yml
+    name: Amazon RDS Snapshot Then Delete a DB Instance
+  - type: Arazzo
+    url: arazzo/amazon-rds-upgrade-engine-version-workflow.yml
+    name: Amazon RDS Upgrade DB Engine Version
+  - type: Arazzo
+    url: arazzo/amazon-rds-verify-engine-then-provision-workflow.yml
+    name: Amazon RDS Verify Engine Support Then Provision
   - type: Portal
     url: https://aws.amazon.com/
   - type: Portal
@@ -121,7 +118,7 @@ common:
     url: https://github.com/aws
   - type: Portal
     url: https://console.aws.amazon.com/rds/
-  - type: SignUp
+  - type: Signup
     url: https://signin.aws.amazon.com/signup?request_type=register
   - type: Login
     url: https://aws.amazon.com/console/
@@ -187,29 +184,29 @@ common:
     url: json-structure/amazon-rds-openapi-modify-db-instance-response-structure.json
   - type: JSONStructure
     url: json-structure/amazon-rds-openapi-tag-structure.json
-  - type: Example
+  - type: Examples
     url: examples/amazon-rds-instance-example.json
-  - type: Example
+  - type: Examples
     url: examples/amazon-rds-openapi-create-db-cluster-response-example.json
-  - type: Example
+  - type: Examples
     url: examples/amazon-rds-openapi-create-db-instance-response-example.json
-  - type: Example
+  - type: Examples
     url: examples/amazon-rds-openapi-create-db-snapshot-response-example.json
-  - type: Example
+  - type: Examples
     url: examples/amazon-rds-openapi-db-cluster-example.json
-  - type: Example
+  - type: Examples
     url: examples/amazon-rds-openapi-db-instance-example.json
-  - type: Example
+  - type: Examples
     url: examples/amazon-rds-openapi-db-snapshot-example.json
-  - type: Example
+  - type: Examples
     url: examples/amazon-rds-openapi-describe-db-clusters-response-example.json
-  - type: Example
+  - type: Examples
     url: examples/amazon-rds-openapi-describe-db-instances-response-example.json
-  - type: Example
+  - type: Examples
     url: examples/amazon-rds-openapi-describe-db-snapshots-response-example.json
-  - type: Example
+  - type: Examples
     url: examples/amazon-rds-openapi-modify-db-instance-response-example.json
-  - type: Example
+  - type: Examples
     url: examples/amazon-rds-openapi-tag-example.json
   - type: SpectralRules
     url: rules/amazon-rds-spectral-rules.yml
