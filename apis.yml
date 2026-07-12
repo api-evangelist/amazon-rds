@@ -50,6 +50,14 @@ apis:
       - type: Security
         url: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.html
 common:
+  - type: TrustCenter
+    url: security/amazon-rds-trust-center.yml
+  - type: VulnerabilityDisclosure
+    url: security/amazon-rds-vulnerability-disclosure.yml
+  - type: DomainSecurity
+    url: security/amazon-rds-domain-security.yml
+  - type: Authentication
+    url: authentication/amazon-rds-authentication.yml
   - type: PostmanWorkspace
     url: https://www.postman.com/kinlaneapi/amazon-rds/overview
   - type: Arazzo
