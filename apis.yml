@@ -50,6 +50,8 @@ apis:
       - type: Security
         url: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.html
 common:
+  - type: AgenticAccess
+    url: agentic-access/amazon-rds-agentic-access.yml
   - type: TrustCenter
     url: security/amazon-rds-trust-center.yml
   - type: VulnerabilityDisclosure

@@ -1,0 +1,134 @@
+generated: '2026-07-15'
+method: generated
+source: openapi/amazon-rds-openapi.yml
+description: Recommended x-agentic-access execution contracts, classified heuristically from
+  the OpenAPI. A governance starting point for exposing this API to AI agents — review and bind
+  audience per deployment. See research/curity/agentic-governance/.
+summary:
+  operations: 12
+  by_action_class:
+    connected: 12
+  by_consequence:
+    read: 12
+  human_in_the_loop_required: 0
+operations:
+- path: /?Action=CreateDBInstance
+  method: get
+  operationId: createDBInstance
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /?Action=DescribeDBInstances
+  method: get
+  operationId: describeDBInstances
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /?Action=ModifyDBInstance
+  method: get
+  operationId: modifyDBInstance
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /?Action=DeleteDBInstance
+  method: get
+  operationId: deleteDBInstance
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /?Action=RebootDBInstance
+  method: get
+  operationId: rebootDBInstance
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /?Action=CreateDBSnapshot
+  method: get
+  operationId: createDBSnapshot
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /?Action=DescribeDBSnapshots
+  method: get
+  operationId: describeDBSnapshots
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /?Action=DeleteDBSnapshot
+  method: get
+  operationId: deleteDBSnapshot
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /?Action=CreateDBCluster
+  method: get
+  operationId: createDBCluster
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /?Action=DescribeDBClusters
+  method: get
+  operationId: describeDBClusters
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /?Action=DeleteDBCluster
+  method: get
+  operationId: deleteDBCluster
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /?Action=DescribeDBEngineVersions
+  method: get
+  operationId: describeDBEngineVersions
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
