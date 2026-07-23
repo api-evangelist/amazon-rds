@@ -1,0 +1,468 @@
+openapi: 3.1.0
+info:
+  title: Amazon RDS DB Clusters DB Instances API
+  description: Amazon Relational Database Service (RDS) makes it easy to set up, operate, and scale a relational database in the cloud. This API enables you to create and manage database instances, clusters, snapshots, and other database resources with support for multiple database engines including MySQL, PostgreSQL, MariaDB, Oracle, SQL Server, and Amazon Aurora.
+  version: '2014-10-31'
+  contact:
+    name: Amazon Web Services
+    url: https://aws.amazon.com/contact-us/
+  termsOfService: https://aws.amazon.com/service-terms/
+servers:
+- url: https://rds.{region}.amazonaws.com
+  description: Amazon RDS Regional Endpoint
+  variables:
+    region:
+      default: us-east-1
+      description: AWS Region
+security:
+- sigv4Auth: []
+tags:
+- name: DB Instances
+  description: Operations for creating, managing, and deleting RDS database instances
+paths:
+  /?Action=CreateDBInstance:
+    get:
+      operationId: createDBInstance
+      summary: Amazon RDS Create a new DB instance
+      description: Creates a new DB instance. The new DB instance can be an RDS DB instance, or it can be a DB instance in an Aurora DB cluster. You can specify the DB engine, instance class, allocated storage, master username and password, and other configuration settings.
+      tags:
+      - DB Instances
+      parameters:
+      - name: DBInstanceIdentifier
+        in: query
+        required: true
+        description: The DB instance identifier, unique for each DB instance
+        schema:
+          type: string
+      - name: DBInstanceClass
+        in: query
+        required: true
+        description: The compute and memory capacity of the DB instance (e.g., db.m5.large)
+        schema:
+          type: string
+      - name: Engine
+        in: query
+        required: true
+        description: The database engine to use (mysql, postgres, mariadb, oracle-ee, sqlserver-ee, aurora-mysql, aurora-postgresql)
+        schema:
+          type: string
+      - name: MasterUsername
+        in: query
+        description: The name for the master user
+        schema:
+          type: string
+      - name: MasterUserPassword
+        in: query
+        description: The password for the master user
+        schema:
+          type: string
+      - name: AllocatedStorage
+        in: query
+        description: The amount of storage in gibibytes (GiB) to allocate for the DB instance
+        schema:
+          type: integer
+          minimum: 20
+          maximum: 65536
+      - name: EngineVersion
+        in: query
+        description: The version number of the database engine to use
+        schema:
+          type: string
+      - name: DBName
+        in: query
+        description: The name of the database to create when the DB instance is created
+        schema:
+          type: string
+      - name: Port
+        in: query
+        description: The port number on which the database accepts connections
+        schema:
+          type: integer
+      - name: MultiAZ
+        in: query
+        description: Whether the DB instance is a Multi-AZ deployment
+        schema:
+          type: boolean
+      - name: StorageType
+        in: query
+        description: The storage type to associate with the DB instance (gp2, gp3, io1, standard)
+        schema:
+          type: string
+      - name: PubliclyAccessible
+        in: query
+        description: Whether the DB instance is publicly accessible
+        schema:
+          type: boolean
+      - name: VpcSecurityGroupIds.member.1
+        in: query
+        description: A VPC security group to associate with the DB instance
+        schema:
+          type: string
+      - name: DBSubnetGroupName
+        in: query
+        description: A DB subnet group to associate with this DB instance
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successfully created DB instance
+          content:
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/CreateDBInstanceResponse'
+        '400':
+          description: Invalid request parameters
+        '401':
+          description: Authentication failure
+        '403':
+          description: Authorization failure
+  /?Action=DescribeDBInstances:
+    get:
+      operationId: describeDBInstances
+      summary: Amazon RDS Describe DB instances
+      description: Describes provisioned RDS instances. This API supports pagination. Returns information about the DB instances including engine, instance class, storage, endpoint, status, and configuration details.
+      tags:
+      - DB Instances
+      parameters:
+      - name: DBInstanceIdentifier
+        in: query
+        description: The identifier of the DB instance to describe
+        schema:
+          type: string
+      - name: Filters.member.1.Name
+        in: query
+        description: The name of a filter
+        schema:
+          type: string
+      - name: Filters.member.1.Values.member.1
+        in: query
+        description: A value for the filter
+        schema:
+          type: string
+      - name: MaxRecords
+        in: query
+        description: Maximum number of records to include in the response
+        schema:
+          type: integer
+          minimum: 20
+          maximum: 100
+      - name: Marker
+        in: query
+        description: An optional pagination token provided by a previous request
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successfully described DB instances
+          content:
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/DescribeDBInstancesResponse'
+        '400':
+          description: Invalid request parameters
+        '401':
+          description: Authentication failure
+  /?Action=ModifyDBInstance:
+    get:
+      operationId: modifyDBInstance
+      summary: Amazon RDS Modify a DB instance
+      description: Modifies settings for a DB instance. You can change one or more database configuration parameters by specifying these parameters and the new values in the request. Some modifications are applied immediately, while others are applied during the next maintenance window.
+      tags:
+      - DB Instances
+      parameters:
+      - name: DBInstanceIdentifier
+        in: query
+        required: true
+        description: The DB instance identifier for the instance to be modified
+        schema:
+          type: string
+      - name: DBInstanceClass
+        in: query
+        description: The new compute and memory capacity of the DB instance
+        schema:
+          type: string
+      - name: AllocatedStorage
+        in: query
+        description: The new amount of storage in GiB to allocate for the DB instance
+        schema:
+          type: integer
+      - name: MasterUserPassword
+        in: query
+        description: The new password for the master user
+        schema:
+          type: string
+      - name: MultiAZ
+        in: query
+        description: Whether the DB instance is a Multi-AZ deployment
+        schema:
+          type: boolean
+      - name: EngineVersion
+        in: query
+        description: The version number of the database engine to upgrade to
+        schema:
+          type: string
+      - name: ApplyImmediately
+        in: query
+        description: Whether to apply the modification immediately or during the next maintenance window
+        schema:
+          type: boolean
+      - name: BackupRetentionPeriod
+        in: query
+        description: The number of days to retain automated backups (0-35)
+        schema:
+          type: integer
+          minimum: 0
+          maximum: 35
+      - name: StorageType
+        in: query
+        description: The storage type to associate with the DB instance
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successfully modified DB instance
+          content:
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ModifyDBInstanceResponse'
+        '400':
+          description: Invalid request parameters
+        '401':
+          description: Authentication failure
+  /?Action=DeleteDBInstance:
+    get:
+      operationId: deleteDBInstance
+      summary: Amazon RDS Delete a DB instance
+      description: Deletes a previously provisioned DB instance. When you delete a DB instance, all automated backups are deleted and cannot be recovered. Manual DB snapshots are not deleted.
+      tags:
+      - DB Instances
+      parameters:
+      - name: DBInstanceIdentifier
+        in: query
+        required: true
+        description: The DB instance identifier for the DB instance to be deleted
+        schema:
+          type: string
+      - name: SkipFinalSnapshot
+        in: query
+        description: Whether to skip the creation of a final DB snapshot before deleting the instance
+        schema:
+          type: boolean
+      - name: FinalDBSnapshotIdentifier
+        in: query
+        description: The identifier of the final DB snapshot to create before deleting the instance
+        schema:
+          type: string
+      - name: DeleteAutomatedBackups
+        in: query
+        description: Whether to remove automated backups immediately after deletion
+        schema:
+          type: boolean
+      responses:
+        '200':
+          description: Successfully deleted DB instance
+        '400':
+          description: Invalid request parameters
+        '401':
+          description: Authentication failure
+  /?Action=RebootDBInstance:
+    get:
+      operationId: rebootDBInstance
+      summary: Amazon RDS Reboot a DB instance
+      description: Reboots a DB instance. The reboot causes a momentary outage and the database instance status is set to rebooting. A DB instance can be rebooted when it is in the available state. If the DB instance is in a Multi-AZ deployment, you can force a failover from one AZ to another.
+      tags:
+      - DB Instances
+      parameters:
+      - name: DBInstanceIdentifier
+        in: query
+        required: true
+        description: The DB instance identifier
+        schema:
+          type: string
+      - name: ForceFailover
+        in: query
+        description: Whether to force a failover from one AZ to another in a Multi-AZ deployment
+        schema:
+          type: boolean
+      responses:
+        '200':
+          description: Successfully requested DB instance reboot
+        '400':
+          description: Invalid request parameters
+        '401':
+          description: Authentication failure
+components:
+  schemas:
+    CreateDBInstanceResponse:
+      type: object
+      description: Response from the CreateDBInstance action
+      properties:
+        dBInstance:
+          $ref: '#/components/schemas/DBInstance'
+    ModifyDBInstanceResponse:
+      type: object
+      description: Response from the ModifyDBInstance action
+      properties:
+        dBInstance:
+          $ref: '#/components/schemas/DBInstance'
+    DBInstance:
+      type: object
+      description: Describes an Amazon RDS DB instance
+      properties:
+        dBInstanceIdentifier:
+          type: string
+          description: The user-supplied unique key that identifies the DB instance
+        dBInstanceClass:
+          type: string
+          description: The name of the compute and memory capacity class of the DB instance
+        engine:
+          type: string
+          description: The database engine for this DB instance
+        engineVersion:
+          type: string
+          description: The version of the database engine
+        dBInstanceStatus:
+          type: string
+          description: The current state of the DB instance
+          enum:
+          - available
+          - backing-up
+          - configuring-enhanced-monitoring
+          - configuring-iam-database-auth
+          - configuring-log-exports
+          - creating
+          - delete-precheck
+          - deleting
+          - failed
+          - inaccessible-encryption-credentials
+          - incompatible-network
+          - incompatible-option-group
+          - incompatible-parameters
+          - incompatible-restore
+          - maintenance
+          - modifying
+          - moving-to-vpc
+          - rebooting
+          - renaming
+          - resetting-master-credentials
+          - restore-error
+          - starting
+          - stopped
+          - stopping
+          - storage-full
+          - storage-optimization
+          - upgrading
+        masterUsername:
+          type: string
+          description: The master username for the DB instance
+        dBName:
+          type: string
+          description: The name of the initial database provided during creation
+        endpoint:
+          type: object
+          description: The connection endpoint for the DB instance
+          properties:
+            address:
+              type: string
+              description: The DNS address of the DB instance
+            port:
+              type: integer
+              description: The port that the DB instance listens on
+            hostedZoneId:
+              type: string
+              description: The ID of the hosted zone for the DB instance
+        allocatedStorage:
+          type: integer
+          description: The allocated storage size in gibibytes (GiB)
+        instanceCreateTime:
+          type: string
+          format: date-time
+          description: The date and time the DB instance was created
+        preferredBackupWindow:
+          type: string
+          description: The daily time range during which automated backups are created
+        backupRetentionPeriod:
+          type: integer
+          description: The number of days for which automatic DB snapshots are retained
+        vpcSecurityGroups:
+          type: array
+          description: The VPC security groups associated with the DB instance
+          items:
+            type: object
+            properties:
+              vpcSecurityGroupId:
+                type: string
+                description: The ID of the VPC security group
+              status:
+                type: string
+                description: The membership status of the VPC security group
+        availabilityZone:
+          type: string
+          description: The Availability Zone where the DB instance is located
+        dBSubnetGroup:
+          type: object
+          description: Information about the subnet group associated with the DB instance
+          properties:
+            dBSubnetGroupName:
+              type: string
+              description: The name of the DB subnet group
+            dBSubnetGroupDescription:
+              type: string
+              description: The description of the DB subnet group
+            vpcId:
+              type: string
+              description: The VPC ID of the DB subnet group
+        multiAZ:
+          type: boolean
+          description: Whether the DB instance is a Multi-AZ deployment
+        autoMinorVersionUpgrade:
+          type: boolean
+          description: Whether minor version patches are applied automatically
+        storageType:
+          type: string
+          description: The storage type associated with the DB instance
+        storageEncrypted:
+          type: boolean
+          description: Whether the DB instance is encrypted
+        publiclyAccessible:
+          type: boolean
+          description: Whether the DB instance is publicly accessible
+        dBInstanceArn:
+          type: string
+          description: The Amazon Resource Name (ARN) for the DB instance
+        tags:
+          type: array
+          description: Tags assigned to the DB instance
+          items:
+            $ref: '#/components/schemas/Tag'
+    DescribeDBInstancesResponse:
+      type: object
+      description: Response from the DescribeDBInstances action
+      properties:
+        dBInstances:
+          type: array
+          description: A list of DB instance descriptions
+          items:
+            $ref: '#/components/schemas/DBInstance'
+        marker:
+          type: string
+          description: An optional pagination token provided by a previous request
+    Tag:
+      type: object
+      description: Describes a resource tag
+      properties:
+        key:
+          type: string
+          description: The key of the tag
+        value:
+          type: string
+          description: The value of the tag
+  securitySchemes:
+    sigv4Auth:
+      type: apiKey
+      name: Authorization
+      in: header
+      description: AWS Signature Version 4 authentication
+externalDocs:
+  description: Amazon RDS API Reference
+  url: https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/

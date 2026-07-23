@@ -1,0 +1,229 @@
+openapi: 3.1.0
+info:
+  title: Amazon RDS DB Clusters DB Snapshots API
+  description: Amazon Relational Database Service (RDS) makes it easy to set up, operate, and scale a relational database in the cloud. This API enables you to create and manage database instances, clusters, snapshots, and other database resources with support for multiple database engines including MySQL, PostgreSQL, MariaDB, Oracle, SQL Server, and Amazon Aurora.
+  version: '2014-10-31'
+  contact:
+    name: Amazon Web Services
+    url: https://aws.amazon.com/contact-us/
+  termsOfService: https://aws.amazon.com/service-terms/
+servers:
+- url: https://rds.{region}.amazonaws.com
+  description: Amazon RDS Regional Endpoint
+  variables:
+    region:
+      default: us-east-1
+      description: AWS Region
+security:
+- sigv4Auth: []
+tags:
+- name: DB Snapshots
+  description: Operations for creating and managing database snapshots
+paths:
+  /?Action=CreateDBSnapshot:
+    get:
+      operationId: createDBSnapshot
+      summary: Amazon RDS Create a DB snapshot
+      description: Creates a snapshot of a DB instance. The source DB instance must be in the available or storage-optimization state. The DB snapshot is created with a snapshot type of manual.
+      tags:
+      - DB Snapshots
+      parameters:
+      - name: DBSnapshotIdentifier
+        in: query
+        required: true
+        description: The identifier for the DB snapshot
+        schema:
+          type: string
+      - name: DBInstanceIdentifier
+        in: query
+        required: true
+        description: The identifier of the DB instance to create the snapshot from
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successfully created DB snapshot
+          content:
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/CreateDBSnapshotResponse'
+        '400':
+          description: Invalid request parameters
+        '401':
+          description: Authentication failure
+  /?Action=DescribeDBSnapshots:
+    get:
+      operationId: describeDBSnapshots
+      summary: Amazon RDS Describe DB snapshots
+      description: Returns information about DB snapshots. This API supports pagination. You can filter by DB instance identifier, DB snapshot identifier, snapshot type, and other criteria.
+      tags:
+      - DB Snapshots
+      parameters:
+      - name: DBInstanceIdentifier
+        in: query
+        description: The ID of the DB instance to retrieve snapshots for
+        schema:
+          type: string
+      - name: DBSnapshotIdentifier
+        in: query
+        description: A specific DB snapshot identifier to describe
+        schema:
+          type: string
+      - name: SnapshotType
+        in: query
+        description: The type of snapshots to return (automated, manual, shared, public, awsbackup)
+        schema:
+          type: string
+      - name: MaxRecords
+        in: query
+        description: Maximum number of records to include in the response
+        schema:
+          type: integer
+          minimum: 20
+          maximum: 100
+      - name: Marker
+        in: query
+        description: An optional pagination token provided by a previous request
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successfully described DB snapshots
+          content:
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/DescribeDBSnapshotsResponse'
+        '400':
+          description: Invalid request parameters
+        '401':
+          description: Authentication failure
+  /?Action=DeleteDBSnapshot:
+    get:
+      operationId: deleteDBSnapshot
+      summary: Amazon RDS Delete a DB snapshot
+      description: Deletes a DB snapshot. If the snapshot is being copied, the copy operation is terminated. The DB snapshot must be in the available state to be deleted.
+      tags:
+      - DB Snapshots
+      parameters:
+      - name: DBSnapshotIdentifier
+        in: query
+        required: true
+        description: The identifier of the DB snapshot to delete
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successfully deleted DB snapshot
+        '400':
+          description: Invalid request parameters
+        '401':
+          description: Authentication failure
+components:
+  schemas:
+    DescribeDBSnapshotsResponse:
+      type: object
+      description: Response from the DescribeDBSnapshots action
+      properties:
+        dBSnapshots:
+          type: array
+          description: A list of DB snapshot descriptions
+          items:
+            $ref: '#/components/schemas/DBSnapshot'
+        marker:
+          type: string
+          description: An optional pagination token provided by a previous request
+    Tag:
+      type: object
+      description: Describes a resource tag
+      properties:
+        key:
+          type: string
+          description: The key of the tag
+        value:
+          type: string
+          description: The value of the tag
+    CreateDBSnapshotResponse:
+      type: object
+      description: Response from the CreateDBSnapshot action
+      properties:
+        dBSnapshot:
+          $ref: '#/components/schemas/DBSnapshot'
+    DBSnapshot:
+      type: object
+      description: Describes an Amazon RDS DB snapshot
+      properties:
+        dBSnapshotIdentifier:
+          type: string
+          description: The identifier for the DB snapshot
+        dBInstanceIdentifier:
+          type: string
+          description: The DB instance identifier of the source DB instance
+        snapshotCreateTime:
+          type: string
+          format: date-time
+          description: The time when the snapshot was taken
+        engine:
+          type: string
+          description: The database engine for the snapshot
+        engineVersion:
+          type: string
+          description: The version of the database engine
+        status:
+          type: string
+          description: The status of the DB snapshot
+          enum:
+          - available
+          - creating
+          - deleting
+          - copying
+        allocatedStorage:
+          type: integer
+          description: The allocated storage size in GiB
+        port:
+          type: integer
+          description: The port that the database engine was listening on at snapshot time
+        availabilityZone:
+          type: string
+          description: The Availability Zone where the snapshot was created
+        vpcId:
+          type: string
+          description: The VPC ID associated with the DB snapshot
+        instanceCreateTime:
+          type: string
+          format: date-time
+          description: The time when the source DB instance was created
+        masterUsername:
+          type: string
+          description: The master username for the DB snapshot
+        snapshotType:
+          type: string
+          description: The type of the DB snapshot
+          enum:
+          - automated
+          - manual
+          - shared
+          - public
+          - awsbackup
+        encrypted:
+          type: boolean
+          description: Whether the DB snapshot is encrypted
+        storageType:
+          type: string
+          description: The storage type associated with the DB snapshot
+        dBSnapshotArn:
+          type: string
+          description: The Amazon Resource Name (ARN) for the DB snapshot
+        tags:
+          type: array
+          description: Tags assigned to the DB snapshot
+          items:
+            $ref: '#/components/schemas/Tag'
+  securitySchemes:
+    sigv4Auth:
+      type: apiKey
+      name: Authorization
+      in: header
+      description: AWS Signature Version 4 authentication
+externalDocs:
+  description: Amazon RDS API Reference
+  url: https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/

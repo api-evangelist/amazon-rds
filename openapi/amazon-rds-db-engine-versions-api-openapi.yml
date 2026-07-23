@@ -1,0 +1,79 @@
+openapi: 3.1.0
+info:
+  title: Amazon RDS DB Clusters DB Engine Versions API
+  description: Amazon Relational Database Service (RDS) makes it easy to set up, operate, and scale a relational database in the cloud. This API enables you to create and manage database instances, clusters, snapshots, and other database resources with support for multiple database engines including MySQL, PostgreSQL, MariaDB, Oracle, SQL Server, and Amazon Aurora.
+  version: '2014-10-31'
+  contact:
+    name: Amazon Web Services
+    url: https://aws.amazon.com/contact-us/
+  termsOfService: https://aws.amazon.com/service-terms/
+servers:
+- url: https://rds.{region}.amazonaws.com
+  description: Amazon RDS Regional Endpoint
+  variables:
+    region:
+      default: us-east-1
+      description: AWS Region
+security:
+- sigv4Auth: []
+tags:
+- name: DB Engine Versions
+  description: Operations for describing available database engine versions
+paths:
+  /?Action=DescribeDBEngineVersions:
+    get:
+      operationId: describeDBEngineVersions
+      summary: Amazon RDS Describe DB engine versions
+      description: Returns a list of the available DB engines and their versions. You can filter by engine, engine version, DB parameter group family, and other criteria.
+      tags:
+      - DB Engine Versions
+      parameters:
+      - name: Engine
+        in: query
+        description: The database engine to return (mysql, postgres, mariadb, oracle-ee, sqlserver-ee, aurora-mysql, aurora-postgresql)
+        schema:
+          type: string
+      - name: EngineVersion
+        in: query
+        description: The database engine version to return
+        schema:
+          type: string
+      - name: DBParameterGroupFamily
+        in: query
+        description: The name of a specific DB parameter group family to return details for
+        schema:
+          type: string
+      - name: DefaultOnly
+        in: query
+        description: Whether to return only the default version of the engine
+        schema:
+          type: boolean
+      - name: MaxRecords
+        in: query
+        description: Maximum number of records to include in the response
+        schema:
+          type: integer
+          minimum: 20
+          maximum: 100
+      - name: Marker
+        in: query
+        description: An optional pagination token provided by a previous request
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successfully described DB engine versions
+        '400':
+          description: Invalid request parameters
+        '401':
+          description: Authentication failure
+components:
+  securitySchemes:
+    sigv4Auth:
+      type: apiKey
+      name: Authorization
+      in: header
+      description: AWS Signature Version 4 authentication
+externalDocs:
+  description: Amazon RDS API Reference
+  url: https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/

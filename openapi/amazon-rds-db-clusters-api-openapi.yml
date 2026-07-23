@@ -1,0 +1,293 @@
+openapi: 3.1.0
+info:
+  title: Amazon RDS DB Clusters API
+  description: Amazon Relational Database Service (RDS) makes it easy to set up, operate, and scale a relational database in the cloud. This API enables you to create and manage database instances, clusters, snapshots, and other database resources with support for multiple database engines including MySQL, PostgreSQL, MariaDB, Oracle, SQL Server, and Amazon Aurora.
+  version: '2014-10-31'
+  contact:
+    name: Amazon Web Services
+    url: https://aws.amazon.com/contact-us/
+  termsOfService: https://aws.amazon.com/service-terms/
+servers:
+- url: https://rds.{region}.amazonaws.com
+  description: Amazon RDS Regional Endpoint
+  variables:
+    region:
+      default: us-east-1
+      description: AWS Region
+security:
+- sigv4Auth: []
+tags:
+- name: DB Clusters
+  description: Operations for creating and managing Aurora database clusters
+paths:
+  /?Action=CreateDBCluster:
+    get:
+      operationId: createDBCluster
+      summary: Amazon RDS Create a new DB cluster
+      description: Creates a new Amazon Aurora DB cluster or Multi-AZ DB cluster. You can use the ReplicationSourceIdentifier parameter to create an Amazon Aurora DB cluster as a read replica of another DB cluster or Amazon RDS MySQL or PostgreSQL DB instance.
+      tags:
+      - DB Clusters
+      parameters:
+      - name: DBClusterIdentifier
+        in: query
+        required: true
+        description: The DB cluster identifier, unique for each DB cluster
+        schema:
+          type: string
+      - name: Engine
+        in: query
+        required: true
+        description: The database engine to use (aurora-mysql, aurora-postgresql)
+        schema:
+          type: string
+      - name: EngineVersion
+        in: query
+        description: The version number of the database engine to use
+        schema:
+          type: string
+      - name: MasterUsername
+        in: query
+        description: The name of the master user for the DB cluster
+        schema:
+          type: string
+      - name: MasterUserPassword
+        in: query
+        description: The password for the master database user
+        schema:
+          type: string
+      - name: DatabaseName
+        in: query
+        description: The name for a database to create in the DB cluster
+        schema:
+          type: string
+      - name: Port
+        in: query
+        description: The port number on which the instances in the DB cluster accept connections
+        schema:
+          type: integer
+      - name: DBSubnetGroupName
+        in: query
+        description: A DB subnet group to associate with this DB cluster
+        schema:
+          type: string
+      - name: VpcSecurityGroupIds.member.1
+        in: query
+        description: A VPC security group to associate with the DB cluster
+        schema:
+          type: string
+      - name: StorageEncrypted
+        in: query
+        description: Whether the DB cluster is encrypted
+        schema:
+          type: boolean
+      - name: BackupRetentionPeriod
+        in: query
+        description: The number of days for which automated backups are retained (1-35)
+        schema:
+          type: integer
+          minimum: 1
+          maximum: 35
+      responses:
+        '200':
+          description: Successfully created DB cluster
+          content:
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/CreateDBClusterResponse'
+        '400':
+          description: Invalid request parameters
+        '401':
+          description: Authentication failure
+        '403':
+          description: Authorization failure
+  /?Action=DescribeDBClusters:
+    get:
+      operationId: describeDBClusters
+      summary: Amazon RDS Describe DB clusters
+      description: Returns information about Amazon Aurora DB clusters and Multi-AZ DB clusters. This API supports pagination. For more information on Amazon Aurora DB clusters, see the Amazon Aurora User Guide.
+      tags:
+      - DB Clusters
+      parameters:
+      - name: DBClusterIdentifier
+        in: query
+        description: The identifier of the DB cluster to describe
+        schema:
+          type: string
+      - name: Filters.member.1.Name
+        in: query
+        description: The name of a filter
+        schema:
+          type: string
+      - name: Filters.member.1.Values.member.1
+        in: query
+        description: A value for the filter
+        schema:
+          type: string
+      - name: MaxRecords
+        in: query
+        description: Maximum number of records to include in the response
+        schema:
+          type: integer
+          minimum: 20
+          maximum: 100
+      - name: Marker
+        in: query
+        description: An optional pagination token provided by a previous request
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successfully described DB clusters
+          content:
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/DescribeDBClustersResponse'
+        '400':
+          description: Invalid request parameters
+        '401':
+          description: Authentication failure
+  /?Action=DeleteDBCluster:
+    get:
+      operationId: deleteDBCluster
+      summary: Amazon RDS Delete a DB cluster
+      description: Deletes a previously provisioned DB cluster. When you delete a DB cluster, all automated backups are deleted and cannot be recovered. Manual DB cluster snapshots are not deleted.
+      tags:
+      - DB Clusters
+      parameters:
+      - name: DBClusterIdentifier
+        in: query
+        required: true
+        description: The DB cluster identifier for the DB cluster to be deleted
+        schema:
+          type: string
+      - name: SkipFinalSnapshot
+        in: query
+        description: Whether to skip the creation of a final DB cluster snapshot before deleting the cluster
+        schema:
+          type: boolean
+      - name: FinalDBSnapshotIdentifier
+        in: query
+        description: The identifier of the final DB cluster snapshot to create before deleting the cluster
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successfully deleted DB cluster
+        '400':
+          description: Invalid request parameters
+        '401':
+          description: Authentication failure
+components:
+  schemas:
+    DBCluster:
+      type: object
+      description: Describes an Amazon Aurora DB cluster
+      properties:
+        dBClusterIdentifier:
+          type: string
+          description: The user-supplied identifier for the DB cluster
+        dBClusterArn:
+          type: string
+          description: The Amazon Resource Name (ARN) for the DB cluster
+        status:
+          type: string
+          description: The current state of the DB cluster
+        engine:
+          type: string
+          description: The database engine for the DB cluster
+        engineVersion:
+          type: string
+          description: The version of the database engine
+        databaseName:
+          type: string
+          description: The name of the initial database
+        masterUsername:
+          type: string
+          description: The master username for the DB cluster
+        endpoint:
+          type: string
+          description: The DNS address of the primary instance of the DB cluster
+        readerEndpoint:
+          type: string
+          description: The reader endpoint for the DB cluster
+        port:
+          type: integer
+          description: The port that the database engine is listening on
+        dBClusterMembers:
+          type: array
+          description: The list of DB instances that are part of the cluster
+          items:
+            type: object
+            properties:
+              dBInstanceIdentifier:
+                type: string
+                description: The instance identifier for the cluster member
+              isClusterWriter:
+                type: boolean
+                description: Whether the cluster member is the primary instance
+              dBClusterParameterGroupStatus:
+                type: string
+                description: The status of the parameter group for this member
+        availabilityZones:
+          type: array
+          description: The Availability Zones the DB cluster is associated with
+          items:
+            type: string
+        backupRetentionPeriod:
+          type: integer
+          description: The number of days for which automatic DB snapshots are retained
+        storageEncrypted:
+          type: boolean
+          description: Whether the DB cluster is encrypted
+        multiAZ:
+          type: boolean
+          description: Whether the DB cluster has instances in multiple AZs
+        clusterCreateTime:
+          type: string
+          format: date-time
+          description: The time when the DB cluster was created
+        allocatedStorage:
+          type: integer
+          description: The current allocated storage size in GiB for the cluster
+        tags:
+          type: array
+          description: Tags assigned to the DB cluster
+          items:
+            $ref: '#/components/schemas/Tag'
+    Tag:
+      type: object
+      description: Describes a resource tag
+      properties:
+        key:
+          type: string
+          description: The key of the tag
+        value:
+          type: string
+          description: The value of the tag
+    DescribeDBClustersResponse:
+      type: object
+      description: Response from the DescribeDBClusters action
+      properties:
+        dBClusters:
+          type: array
+          description: A list of DB cluster descriptions
+          items:
+            $ref: '#/components/schemas/DBCluster'
+        marker:
+          type: string
+          description: An optional pagination token provided by a previous request
+    CreateDBClusterResponse:
+      type: object
+      description: Response from the CreateDBCluster action
+      properties:
+        dBCluster:
+          $ref: '#/components/schemas/DBCluster'
+  securitySchemes:
+    sigv4Auth:
+      type: apiKey
+      name: Authorization
+      in: header
+      description: AWS Signature Version 4 authentication
+externalDocs:
+  description: Amazon RDS API Reference
+  url: https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/
