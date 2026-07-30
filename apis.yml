@@ -3,52 +3,152 @@ description: >-
   Amazon Relational Database Service (RDS) makes it easy to set up, operate, and scale a relational database in the
   cloud, providing cost-efficient and resizable capacity while automating time-consuming administration tasks such as
   hardware provisioning, database setup, patching, and backups.
+accessModel:
+  pricing: freemium
+  onboarding: self-serve
+  trial: false
+  try_now: true
+  public: false
+  label: Freemium · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
 image: https://a0.awsstatic.com/libra-css/images/logos/aws_logo_smile_1200x630.png
 url: https://raw.githubusercontent.com/api-evangelist/amazon-rds/refs/heads/main/apis.yml
 created: '2024-01-15'
 modified: '2026-05-19'
 apis:
-  - name: Amazon RDS API
-    description: >-
-      Core API for managing Amazon RDS database instances, clusters, snapshots, parameter groups, subnet groups, and
-      other relational database resources across multiple database engines including MySQL, PostgreSQL, MariaDB, Oracle,
-      SQL Server, and Amazon Aurora.
-    image: https://a0.awsstatic.com/libra-css/images/logos/aws_logo_smile_1200x630.png
-    humanURL: https://aws.amazon.com/rds/
-    baseURL: https://rds.amazonaws.com
-    tags:
-      - AWS
-      - Cloud Databases
-      - Databases
-      - Managed Databases
-      - Relational Databases
-    properties:
-      - type: Documentation
-        url: https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/Welcome.html
-      - type: OpenAPI
-        url: openapi/amazon-rds-openapi.yml
-      - type: OpenAPI
-        url: https://api.apis.guru/v2/specs/amazonaws.com/rds/2014-10-31/openapi.yaml
-      - type: JSONSchema
-        url: json-schema/amazon-rds-instance-schema.json
-      - type: JSONLD
-        url: json-ld/amazon-rds-context.jsonld
-      - type: Pricing
-        url: https://aws.amazon.com/rds/pricing/
-      - type: GettingStarted
-        url: https://aws.amazon.com/rds/getting-started/
-      - type: FAQ
-        url: https://aws.amazon.com/rds/faqs/
-      - type: ServiceLevelAgreement
-        url: https://aws.amazon.com/rds/sla/
-      - type: User Guide
-        url: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/
-      - type: APIReference
-        url: https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/
-      - type: CLI
-        url: https://docs.aws.amazon.com/cli/latest/reference/rds/
-      - type: Security
-        url: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.html
+- aid: amazon-rds:amazon-rds-db-clusters-api
+  name: Amazon RDS DB Clusters API
+  description: Operations for creating and managing Aurora database clusters
+  humanURL: https://aws.amazon.com/rds/
+  baseURL: https://rds.amazonaws.com
+  tags:
+  - DB Clusters
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-rds-db-clusters-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/Welcome.html
+  - type: JSONSchema
+    url: json-schema/amazon-rds-instance-schema.json
+  - type: JSONLD
+    url: json-ld/amazon-rds-context.jsonld
+  - type: Pricing
+    url: https://aws.amazon.com/rds/pricing/
+  - type: GettingStarted
+    url: https://aws.amazon.com/rds/getting-started/
+  - type: FAQ
+    url: https://aws.amazon.com/rds/faqs/
+  - type: ServiceLevelAgreement
+    url: https://aws.amazon.com/rds/sla/
+  - type: User Guide
+    url: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/
+  - type: APIReference
+    url: https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/
+  - type: CLI
+    url: https://docs.aws.amazon.com/cli/latest/reference/rds/
+  - type: Security
+    url: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.html
+- aid: amazon-rds:amazon-rds-db-engine-versions-api
+  name: Amazon RDS DB Engine Versions API
+  description: Operations for describing available database engine versions
+  humanURL: https://aws.amazon.com/rds/
+  baseURL: https://rds.amazonaws.com
+  tags:
+  - DB Engine Versions
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-rds-db-engine-versions-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/Welcome.html
+  - type: JSONSchema
+    url: json-schema/amazon-rds-instance-schema.json
+  - type: JSONLD
+    url: json-ld/amazon-rds-context.jsonld
+  - type: Pricing
+    url: https://aws.amazon.com/rds/pricing/
+  - type: GettingStarted
+    url: https://aws.amazon.com/rds/getting-started/
+  - type: FAQ
+    url: https://aws.amazon.com/rds/faqs/
+  - type: ServiceLevelAgreement
+    url: https://aws.amazon.com/rds/sla/
+  - type: User Guide
+    url: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/
+  - type: APIReference
+    url: https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/
+  - type: CLI
+    url: https://docs.aws.amazon.com/cli/latest/reference/rds/
+  - type: Security
+    url: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.html
+- aid: amazon-rds:amazon-rds-db-instances-api
+  name: Amazon RDS DB Instances API
+  description: Operations for creating, managing, and deleting RDS database instances
+  humanURL: https://aws.amazon.com/rds/
+  baseURL: https://rds.amazonaws.com
+  tags:
+  - DB Instances
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-rds-db-instances-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/Welcome.html
+  - type: JSONSchema
+    url: json-schema/amazon-rds-instance-schema.json
+  - type: JSONLD
+    url: json-ld/amazon-rds-context.jsonld
+  - type: Pricing
+    url: https://aws.amazon.com/rds/pricing/
+  - type: GettingStarted
+    url: https://aws.amazon.com/rds/getting-started/
+  - type: FAQ
+    url: https://aws.amazon.com/rds/faqs/
+  - type: ServiceLevelAgreement
+    url: https://aws.amazon.com/rds/sla/
+  - type: User Guide
+    url: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/
+  - type: APIReference
+    url: https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/
+  - type: CLI
+    url: https://docs.aws.amazon.com/cli/latest/reference/rds/
+  - type: Security
+    url: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.html
+- aid: amazon-rds:amazon-rds-db-snapshots-api
+  name: Amazon RDS DB Snapshots API
+  description: Operations for creating and managing database snapshots
+  humanURL: https://aws.amazon.com/rds/
+  baseURL: https://rds.amazonaws.com
+  tags:
+  - DB Snapshots
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-rds-db-snapshots-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/Welcome.html
+  - type: JSONSchema
+    url: json-schema/amazon-rds-instance-schema.json
+  - type: JSONLD
+    url: json-ld/amazon-rds-context.jsonld
+  - type: Pricing
+    url: https://aws.amazon.com/rds/pricing/
+  - type: GettingStarted
+    url: https://aws.amazon.com/rds/getting-started/
+  - type: FAQ
+    url: https://aws.amazon.com/rds/faqs/
+  - type: ServiceLevelAgreement
+    url: https://aws.amazon.com/rds/sla/
+  - type: User Guide
+    url: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/
+  - type: APIReference
+    url: https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/
+  - type: CLI
+    url: https://docs.aws.amazon.com/cli/latest/reference/rds/
+  - type: Security
+    url: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.html
 common:
   - type: AgenticAccess
     url: agentic-access/amazon-rds-agentic-access.yml
