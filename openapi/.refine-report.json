@@ -1,0 +1,20 @@
+{
+  "provider": "amazon-rds",
+  "sources": [
+    "amazon-rds-db-clusters-api-openapi.yml",
+    "amazon-rds-db-engine-versions-api-openapi.yml",
+    "amazon-rds-db-instances-api-openapi.yml",
+    "amazon-rds-db-snapshots-api-openapi.yml"
+  ],
+  "outputs": [
+    "amazon-rds-db-clusters-api-openapi.yml",
+    "amazon-rds-db-engine-versions-api-openapi.yml",
+    "amazon-rds-db-instances-api-openapi.yml",
+    "amazon-rds-db-snapshots-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
