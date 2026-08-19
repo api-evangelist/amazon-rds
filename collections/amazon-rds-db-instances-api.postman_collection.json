@@ -1,0 +1,1713 @@
+{
+  "item": [
+    {
+      "id": "ec818c7b-6a94-476b-8bc8-2acb3edfa570",
+      "name": "DB Instances",
+      "description": {
+        "content": "Operations for creating, managing, and deleting RDS database instances",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "869fde93-4506-455a-ba66-ac9f8eafec28",
+          "name": "Amazon RDS Create a new DB instance",
+          "request": {
+            "name": "Amazon RDS Create a new DB instance",
+            "description": {
+              "content": "Creates a new DB instance. The new DB instance can be an RDS DB instance, or it can be a DB instance in an Aurora DB cluster. You can specify the DB engine, instance class, allocated storage, master username and password, and other configuration settings.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "key": "Action",
+                  "value": "CreateDBInstance"
+                },
+                {
+                  "disabled": false,
+                  "key": "DBInstanceIdentifier",
+                  "value": "<string>",
+                  "description": "(Required) The DB instance identifier, unique for each DB instance"
+                },
+                {
+                  "disabled": false,
+                  "key": "DBInstanceClass",
+                  "value": "<string>",
+                  "description": "(Required) The compute and memory capacity of the DB instance (e.g., db.m5.large)"
+                },
+                {
+                  "disabled": false,
+                  "key": "Engine",
+                  "value": "<string>",
+                  "description": "(Required) The database engine to use (mysql, postgres, mariadb, oracle-ee, sqlserver-ee, aurora-mysql, aurora-postgresql)"
+                },
+                {
+                  "disabled": false,
+                  "key": "MasterUsername",
+                  "value": "<string>",
+                  "description": "The name for the master user"
+                },
+                {
+                  "disabled": false,
+                  "key": "MasterUserPassword",
+                  "value": "<string>",
+                  "description": "The password for the master user"
+                },
+                {
+                  "disabled": false,
+                  "key": "AllocatedStorage",
+                  "value": "<integer>",
+                  "description": "The amount of storage in gibibytes (GiB) to allocate for the DB instance"
+                },
+                {
+                  "disabled": false,
+                  "key": "EngineVersion",
+                  "value": "<string>",
+                  "description": "The version number of the database engine to use"
+                },
+                {
+                  "disabled": false,
+                  "key": "DBName",
+                  "value": "<string>",
+                  "description": "The name of the database to create when the DB instance is created"
+                },
+                {
+                  "disabled": false,
+                  "key": "Port",
+                  "value": "<integer>",
+                  "description": "The port number on which the database accepts connections"
+                },
+                {
+                  "disabled": false,
+                  "key": "MultiAZ",
+                  "value": "<boolean>",
+                  "description": "Whether the DB instance is a Multi-AZ deployment"
+                },
+                {
+                  "disabled": false,
+                  "key": "StorageType",
+                  "value": "<string>",
+                  "description": "The storage type to associate with the DB instance (gp2, gp3, io1, standard)"
+                },
+                {
+                  "disabled": false,
+                  "key": "PubliclyAccessible",
+                  "value": "<boolean>",
+                  "description": "Whether the DB instance is publicly accessible"
+                },
+                {
+                  "disabled": false,
+                  "key": "VpcSecurityGroupIds.member.1",
+                  "value": "<string>",
+                  "description": "A VPC security group to associate with the DB instance"
+                },
+                {
+                  "disabled": false,
+                  "key": "DBSubnetGroupName",
+                  "value": "<string>",
+                  "description": "A DB subnet group to associate with this DB instance"
+                }
+              ],
+              "variable": [
+                {
+                  "description": "AWS Region",
+                  "type": "any",
+                  "value": "{{region}}",
+                  "key": "region"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/xml"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "cc618e1d-3e90-4012-b4f5-b70dd967f32e",
+              "name": "Successfully created DB instance",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "DBInstanceIdentifier",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "DBInstanceClass",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "Engine",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "MasterUsername",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "MasterUserPassword",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "AllocatedStorage",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "EngineVersion",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "DBName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "Port",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "MultiAZ",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "StorageType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "PubliclyAccessible",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "VpcSecurityGroupIds.member.1",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "DBSubnetGroupName",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "AWS Region",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/xml"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/xml"
+                }
+              ],
+              "body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<element>\n  <dBInstance>\n    <dBInstanceIdentifier>(string)</dBInstanceIdentifier>\n    <dBInstanceClass>(string)</dBInstanceClass>\n    <engine>(string)</engine>\n    <engineVersion>(string)</engineVersion>\n    <dBInstanceStatus>(string)</dBInstanceStatus>\n    <masterUsername>(string)</masterUsername>\n    <dBName>(string)</dBName>\n    <endpoint>\n      <address>(string)</address>\n      <port>(integer)</port>\n      <hostedZoneId>(string)</hostedZoneId>\n    </endpoint>\n    <allocatedStorage>(integer)</allocatedStorage>\n    <instanceCreateTime>(string)</instanceCreateTime>\n    <preferredBackupWindow>(string)</preferredBackupWindow>\n    <backupRetentionPeriod>(integer)</backupRetentionPeriod>\n    <vpcSecurityGroups>\n      <vpcSecurityGroupId>(string)</vpcSecurityGroupId>\n      <status>(string)</status>\n    </vpcSecurityGroups>\n    <vpcSecurityGroups>\n      <vpcSecurityGroupId>(string)</vpcSecurityGroupId>\n      <status>(string)</status>\n    </vpcSecurityGroups>\n    <availabilityZone>(string)</availabilityZone>\n    <dBSubnetGroup>\n      <dBSubnetGroupName>(string)</dBSubnetGroupName>\n      <dBSubnetGroupDescription>(string)</dBSubnetGroupDescription>\n      <vpcId>(string)</vpcId>\n    </dBSubnetGroup>\n    <multiAZ>(boolean)</multiAZ>\n    <autoMinorVersionUpgrade>(boolean)</autoMinorVersionUpgrade>\n    <storageType>(string)</storageType>\n    <storageEncrypted>(boolean)</storageEncrypted>\n    <publiclyAccessible>(boolean)</publiclyAccessible>\n    <dBInstanceArn>(string)</dBInstanceArn>\n    <tags>\n      <key>(string)</key>\n      <value>(string)</value>\n    </tags>\n    <tags>\n      <key>(string)</key>\n      <value>(string)</value>\n    </tags>\n  </dBInstance>\n</element>",
+              "cookie": [],
+              "_postman_previewlanguage": "xml"
+            },
+            {
+              "id": "5481f053-7ece-4ecb-bb43-3a73ddddb50f",
+              "name": "Invalid request parameters",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "DBInstanceIdentifier",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "DBInstanceClass",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "Engine",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "MasterUsername",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "MasterUserPassword",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "AllocatedStorage",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "EngineVersion",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "DBName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "Port",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "MultiAZ",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "StorageType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "PubliclyAccessible",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "VpcSecurityGroupIds.member.1",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "DBSubnetGroupName",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "AWS Region",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "a8d15bdb-d076-4efb-962f-2f3d4a272a27",
+              "name": "Authentication failure",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "DBInstanceIdentifier",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "DBInstanceClass",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "Engine",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "MasterUsername",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "MasterUserPassword",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "AllocatedStorage",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "EngineVersion",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "DBName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "Port",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "MultiAZ",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "StorageType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "PubliclyAccessible",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "VpcSecurityGroupIds.member.1",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "DBSubnetGroupName",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "AWS Region",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "f0c440a5-acdd-40bc-ad71-6d7183fbeef3",
+              "name": "Authorization failure",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "DBInstanceIdentifier",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "DBInstanceClass",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "Engine",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "MasterUsername",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "MasterUserPassword",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "AllocatedStorage",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "EngineVersion",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "DBName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "Port",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "MultiAZ",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "StorageType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "PubliclyAccessible",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "VpcSecurityGroupIds.member.1",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "DBSubnetGroupName",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "AWS Region",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "52c5566d-64c0-4c42-bb25-ff954392efa0",
+          "name": "Amazon RDS Describe DB instances",
+          "request": {
+            "name": "Amazon RDS Describe DB instances",
+            "description": {
+              "content": "Describes provisioned RDS instances. This API supports pagination. Returns information about the DB instances including engine, instance class, storage, endpoint, status, and configuration details.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "key": "Action",
+                  "value": "DescribeDBInstances"
+                },
+                {
+                  "disabled": false,
+                  "key": "DBInstanceIdentifier",
+                  "value": "<string>",
+                  "description": "The identifier of the DB instance to describe"
+                },
+                {
+                  "disabled": false,
+                  "key": "Filters.member.1.Name",
+                  "value": "<string>",
+                  "description": "The name of a filter"
+                },
+                {
+                  "disabled": false,
+                  "key": "Filters.member.1.Values.member.1",
+                  "value": "<string>",
+                  "description": "A value for the filter"
+                },
+                {
+                  "disabled": false,
+                  "key": "MaxRecords",
+                  "value": "<integer>",
+                  "description": "Maximum number of records to include in the response"
+                },
+                {
+                  "disabled": false,
+                  "key": "Marker",
+                  "value": "<string>",
+                  "description": "An optional pagination token provided by a previous request"
+                }
+              ],
+              "variable": [
+                {
+                  "description": "AWS Region",
+                  "type": "any",
+                  "value": "{{region}}",
+                  "key": "region"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/xml"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "6acd9bda-7f68-423b-ab62-dbddbc5539d8",
+              "name": "Successfully described DB instances",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "DBInstanceIdentifier",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "Filters.member.1.Name",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "Filters.member.1.Values.member.1",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "MaxRecords",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "Marker",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "AWS Region",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/xml"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/xml"
+                }
+              ],
+              "body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<element>\n  <dBInstances>\n    <dBInstanceIdentifier>(string)</dBInstanceIdentifier>\n    <dBInstanceClass>(string)</dBInstanceClass>\n    <engine>(string)</engine>\n    <engineVersion>(string)</engineVersion>\n    <dBInstanceStatus>(string)</dBInstanceStatus>\n    <masterUsername>(string)</masterUsername>\n    <dBName>(string)</dBName>\n    <endpoint>\n      <address>(string)</address>\n      <port>(integer)</port>\n      <hostedZoneId>(string)</hostedZoneId>\n    </endpoint>\n    <allocatedStorage>(integer)</allocatedStorage>\n    <instanceCreateTime>(string)</instanceCreateTime>\n    <preferredBackupWindow>(string)</preferredBackupWindow>\n    <backupRetentionPeriod>(integer)</backupRetentionPeriod>\n    <vpcSecurityGroups>\n      <vpcSecurityGroupId>(string)</vpcSecurityGroupId>\n      <status>(string)</status>\n    </vpcSecurityGroups>\n    <vpcSecurityGroups>\n      <vpcSecurityGroupId>(string)</vpcSecurityGroupId>\n      <status>(string)</status>\n    </vpcSecurityGroups>\n    <availabilityZone>(string)</availabilityZone>\n    <dBSubnetGroup>\n      <dBSubnetGroupName>(string)</dBSubnetGroupName>\n      <dBSubnetGroupDescription>(string)</dBSubnetGroupDescription>\n      <vpcId>(string)</vpcId>\n    </dBSubnetGroup>\n    <multiAZ>(boolean)</multiAZ>\n    <autoMinorVersionUpgrade>(boolean)</autoMinorVersionUpgrade>\n    <storageType>(string)</storageType>\n    <storageEncrypted>(boolean)</storageEncrypted>\n    <publiclyAccessible>(boolean)</publiclyAccessible>\n    <dBInstanceArn>(string)</dBInstanceArn>\n    <tags>\n      <key>(string)</key>\n      <value>(string)</value>\n    </tags>\n    <tags>\n      <key>(string)</key>\n      <value>(string)</value>\n    </tags>\n  </dBInstances>\n  <dBInstances>\n    <dBInstanceIdentifier>(string)</dBInstanceIdentifier>\n    <dBInstanceClass>(string)</dBInstanceClass>\n    <engine>(string)</engine>\n    <engineVersion>(string)</engineVersion>\n    <dBInstanceStatus>(string)</dBInstanceStatus>\n    <masterUsername>(string)</masterUsername>\n    <dBName>(string)</dBName>\n    <endpoint>\n      <address>(string)</address>\n      <port>(integer)</port>\n      <hostedZoneId>(string)</hostedZoneId>\n    </endpoint>\n    <allocatedStorage>(integer)</allocatedStorage>\n    <instanceCreateTime>(string)</instanceCreateTime>\n    <preferredBackupWindow>(string)</preferredBackupWindow>\n    <backupRetentionPeriod>(integer)</backupRetentionPeriod>\n    <vpcSecurityGroups>\n      <vpcSecurityGroupId>(string)</vpcSecurityGroupId>\n      <status>(string)</status>\n    </vpcSecurityGroups>\n    <vpcSecurityGroups>\n      <vpcSecurityGroupId>(string)</vpcSecurityGroupId>\n      <status>(string)</status>\n    </vpcSecurityGroups>\n    <availabilityZone>(string)</availabilityZone>\n    <dBSubnetGroup>\n      <dBSubnetGroupName>(string)</dBSubnetGroupName>\n      <dBSubnetGroupDescription>(string)</dBSubnetGroupDescription>\n      <vpcId>(string)</vpcId>\n    </dBSubnetGroup>\n    <multiAZ>(boolean)</multiAZ>\n    <autoMinorVersionUpgrade>(boolean)</autoMinorVersionUpgrade>\n    <storageType>(string)</storageType>\n    <storageEncrypted>(boolean)</storageEncrypted>\n    <publiclyAccessible>(boolean)</publiclyAccessible>\n    <dBInstanceArn>(string)</dBInstanceArn>\n    <tags>\n      <key>(string)</key>\n      <value>(string)</value>\n    </tags>\n    <tags>\n      <key>(string)</key>\n      <value>(string)</value>\n    </tags>\n  </dBInstances>\n  <marker>(string)</marker>\n</element>",
+              "cookie": [],
+              "_postman_previewlanguage": "xml"
+            },
+            {
+              "id": "d8cded59-54cb-4e16-b844-24c1e71926e7",
+              "name": "Invalid request parameters",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "DBInstanceIdentifier",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "Filters.member.1.Name",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "Filters.member.1.Values.member.1",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "MaxRecords",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "Marker",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "AWS Region",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "472fcd1f-4de0-49f5-a4a5-d683f52ae89a",
+              "name": "Authentication failure",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "DBInstanceIdentifier",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "Filters.member.1.Name",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "Filters.member.1.Values.member.1",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "MaxRecords",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "Marker",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "AWS Region",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "91cad03f-05e1-4da7-9976-9c6a6d0c0e0f",
+          "name": "Amazon RDS Modify a DB instance",
+          "request": {
+            "name": "Amazon RDS Modify a DB instance",
+            "description": {
+              "content": "Modifies settings for a DB instance. You can change one or more database configuration parameters by specifying these parameters and the new values in the request. Some modifications are applied immediately, while others are applied during the next maintenance window.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "key": "Action",
+                  "value": "ModifyDBInstance"
+                },
+                {
+                  "disabled": false,
+                  "key": "DBInstanceIdentifier",
+                  "value": "<string>",
+                  "description": "(Required) The DB instance identifier for the instance to be modified"
+                },
+                {
+                  "disabled": false,
+                  "key": "DBInstanceClass",
+                  "value": "<string>",
+                  "description": "The new compute and memory capacity of the DB instance"
+                },
+                {
+                  "disabled": false,
+                  "key": "AllocatedStorage",
+                  "value": "<integer>",
+                  "description": "The new amount of storage in GiB to allocate for the DB instance"
+                },
+                {
+                  "disabled": false,
+                  "key": "MasterUserPassword",
+                  "value": "<string>",
+                  "description": "The new password for the master user"
+                },
+                {
+                  "disabled": false,
+                  "key": "MultiAZ",
+                  "value": "<boolean>",
+                  "description": "Whether the DB instance is a Multi-AZ deployment"
+                },
+                {
+                  "disabled": false,
+                  "key": "EngineVersion",
+                  "value": "<string>",
+                  "description": "The version number of the database engine to upgrade to"
+                },
+                {
+                  "disabled": false,
+                  "key": "ApplyImmediately",
+                  "value": "<boolean>",
+                  "description": "Whether to apply the modification immediately or during the next maintenance window"
+                },
+                {
+                  "disabled": false,
+                  "key": "BackupRetentionPeriod",
+                  "value": "<integer>",
+                  "description": "The number of days to retain automated backups (0-35)"
+                },
+                {
+                  "disabled": false,
+                  "key": "StorageType",
+                  "value": "<string>",
+                  "description": "The storage type to associate with the DB instance"
+                }
+              ],
+              "variable": [
+                {
+                  "description": "AWS Region",
+                  "type": "any",
+                  "value": "{{region}}",
+                  "key": "region"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/xml"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c4bb7511-d397-4cf2-b799-4226e52abf4f",
+              "name": "Successfully modified DB instance",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "DBInstanceIdentifier",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "DBInstanceClass",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "AllocatedStorage",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "MasterUserPassword",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "MultiAZ",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "EngineVersion",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "ApplyImmediately",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "BackupRetentionPeriod",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "StorageType",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "AWS Region",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/xml"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/xml"
+                }
+              ],
+              "body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<element>\n  <dBInstance>\n    <dBInstanceIdentifier>(string)</dBInstanceIdentifier>\n    <dBInstanceClass>(string)</dBInstanceClass>\n    <engine>(string)</engine>\n    <engineVersion>(string)</engineVersion>\n    <dBInstanceStatus>(string)</dBInstanceStatus>\n    <masterUsername>(string)</masterUsername>\n    <dBName>(string)</dBName>\n    <endpoint>\n      <address>(string)</address>\n      <port>(integer)</port>\n      <hostedZoneId>(string)</hostedZoneId>\n    </endpoint>\n    <allocatedStorage>(integer)</allocatedStorage>\n    <instanceCreateTime>(string)</instanceCreateTime>\n    <preferredBackupWindow>(string)</preferredBackupWindow>\n    <backupRetentionPeriod>(integer)</backupRetentionPeriod>\n    <vpcSecurityGroups>\n      <vpcSecurityGroupId>(string)</vpcSecurityGroupId>\n      <status>(string)</status>\n    </vpcSecurityGroups>\n    <vpcSecurityGroups>\n      <vpcSecurityGroupId>(string)</vpcSecurityGroupId>\n      <status>(string)</status>\n    </vpcSecurityGroups>\n    <availabilityZone>(string)</availabilityZone>\n    <dBSubnetGroup>\n      <dBSubnetGroupName>(string)</dBSubnetGroupName>\n      <dBSubnetGroupDescription>(string)</dBSubnetGroupDescription>\n      <vpcId>(string)</vpcId>\n    </dBSubnetGroup>\n    <multiAZ>(boolean)</multiAZ>\n    <autoMinorVersionUpgrade>(boolean)</autoMinorVersionUpgrade>\n    <storageType>(string)</storageType>\n    <storageEncrypted>(boolean)</storageEncrypted>\n    <publiclyAccessible>(boolean)</publiclyAccessible>\n    <dBInstanceArn>(string)</dBInstanceArn>\n    <tags>\n      <key>(string)</key>\n      <value>(string)</value>\n    </tags>\n    <tags>\n      <key>(string)</key>\n      <value>(string)</value>\n    </tags>\n  </dBInstance>\n</element>",
+              "cookie": [],
+              "_postman_previewlanguage": "xml"
+            },
+            {
+              "id": "6d97c3cf-42bf-417a-9359-4d9f156e5a75",
+              "name": "Invalid request parameters",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "DBInstanceIdentifier",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "DBInstanceClass",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "AllocatedStorage",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "MasterUserPassword",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "MultiAZ",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "EngineVersion",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "ApplyImmediately",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "BackupRetentionPeriod",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "StorageType",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "AWS Region",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "f8c90d59-911a-448e-9271-54e940fbe619",
+              "name": "Authentication failure",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "DBInstanceIdentifier",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "DBInstanceClass",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "AllocatedStorage",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "MasterUserPassword",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "MultiAZ",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "EngineVersion",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "ApplyImmediately",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "BackupRetentionPeriod",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "StorageType",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "AWS Region",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "442c937c-ccbb-4550-80b1-97b4a15d257f",
+          "name": "Amazon RDS Delete a DB instance",
+          "request": {
+            "name": "Amazon RDS Delete a DB instance",
+            "description": {
+              "content": "Deletes a previously provisioned DB instance. When you delete a DB instance, all automated backups are deleted and cannot be recovered. Manual DB snapshots are not deleted.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "key": "Action",
+                  "value": "DeleteDBInstance"
+                },
+                {
+                  "disabled": false,
+                  "key": "DBInstanceIdentifier",
+                  "value": "<string>",
+                  "description": "(Required) The DB instance identifier for the DB instance to be deleted"
+                },
+                {
+                  "disabled": false,
+                  "key": "SkipFinalSnapshot",
+                  "value": "<boolean>",
+                  "description": "Whether to skip the creation of a final DB snapshot before deleting the instance"
+                },
+                {
+                  "disabled": false,
+                  "key": "FinalDBSnapshotIdentifier",
+                  "value": "<string>",
+                  "description": "The identifier of the final DB snapshot to create before deleting the instance"
+                },
+                {
+                  "disabled": false,
+                  "key": "DeleteAutomatedBackups",
+                  "value": "<boolean>",
+                  "description": "Whether to remove automated backups immediately after deletion"
+                }
+              ],
+              "variable": [
+                {
+                  "description": "AWS Region",
+                  "type": "any",
+                  "value": "{{region}}",
+                  "key": "region"
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c964163a-3731-4cc4-813f-38ba0e426f83",
+              "name": "Successfully deleted DB instance",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "DBInstanceIdentifier",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "SkipFinalSnapshot",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "FinalDBSnapshotIdentifier",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "DeleteAutomatedBackups",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "AWS Region",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "26d2edfb-bf44-4df1-b1e6-48247926eb67",
+              "name": "Invalid request parameters",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "DBInstanceIdentifier",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "SkipFinalSnapshot",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "FinalDBSnapshotIdentifier",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "DeleteAutomatedBackups",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "AWS Region",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "1203d2c2-2301-4a41-a3eb-646b7bf5efab",
+              "name": "Authentication failure",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "DBInstanceIdentifier",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "SkipFinalSnapshot",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "FinalDBSnapshotIdentifier",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "DeleteAutomatedBackups",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "AWS Region",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "bbde5882-5f06-4238-85a5-3ab461a1db1f",
+          "name": "Amazon RDS Reboot a DB instance",
+          "request": {
+            "name": "Amazon RDS Reboot a DB instance",
+            "description": {
+              "content": "Reboots a DB instance. The reboot causes a momentary outage and the database instance status is set to rebooting. A DB instance can be rebooted when it is in the available state. If the DB instance is in a Multi-AZ deployment, you can force a failover from one AZ to another.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "key": "Action",
+                  "value": "RebootDBInstance"
+                },
+                {
+                  "disabled": false,
+                  "key": "DBInstanceIdentifier",
+                  "value": "<string>",
+                  "description": "(Required) The DB instance identifier"
+                },
+                {
+                  "disabled": false,
+                  "key": "ForceFailover",
+                  "value": "<boolean>",
+                  "description": "Whether to force a failover from one AZ to another in a Multi-AZ deployment"
+                }
+              ],
+              "variable": [
+                {
+                  "description": "AWS Region",
+                  "type": "any",
+                  "value": "{{region}}",
+                  "key": "region"
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f15d6c97-ab61-4c03-a996-641c1f60f5e9",
+              "name": "Successfully requested DB instance reboot",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "DBInstanceIdentifier",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "ForceFailover",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "AWS Region",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "fb6a99ff-62d3-4dc3-b7c2-2f41deffb7c6",
+              "name": "Invalid request parameters",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "DBInstanceIdentifier",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "ForceFailover",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "AWS Region",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "47b9709b-9988-490f-b589-f481bc887d52",
+              "name": "Authentication failure",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "DBInstanceIdentifier",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "ForceFailover",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "AWS Region",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": "AWS Region",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "us-east-1",
+      "key": "region"
+    },
+    {
+      "type": "string",
+      "value": "https://rds.{{region}}.amazonaws.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "e0e43bfd-0cfd-4f44-99e1-85dee6dc2863",
+    "name": "Amazon RDS DB Clusters DB Instances API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Amazon Relational Database Service (RDS) makes it easy to set up, operate, and scale a relational database in the cloud. This API enables you to create and manage database instances, clusters, snapshots, and other database resources with support for multiple database engines including MySQL, PostgreSQL, MariaDB, Oracle, SQL Server, and Amazon Aurora.\n\nContact Support:\n Name: Amazon Web Services",
+      "type": "text/plain"
+    }
+  }
+}

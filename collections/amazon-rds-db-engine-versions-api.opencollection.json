@@ -1,0 +1,75 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Amazon RDS DB Clusters DB Engine Versions API",
+    "version": "2014-10-31"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "DB Engine Versions",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Amazon RDS Describe DB engine versions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://rds.{region}.amazonaws.com/?Action=DescribeDBEngineVersions",
+            "params": [
+              {
+                "name": "Engine",
+                "value": "",
+                "type": "query",
+                "description": "The database engine to return (mysql, postgres, mariadb, oracle-ee, sqlserver-ee, aurora-mysql, aurora-postgresql)"
+              },
+              {
+                "name": "EngineVersion",
+                "value": "",
+                "type": "query",
+                "description": "The database engine version to return"
+              },
+              {
+                "name": "DBParameterGroupFamily",
+                "value": "",
+                "type": "query",
+                "description": "The name of a specific DB parameter group family to return details for"
+              },
+              {
+                "name": "DefaultOnly",
+                "value": "",
+                "type": "query",
+                "description": "Whether to return only the default version of the engine"
+              },
+              {
+                "name": "MaxRecords",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of records to include in the response"
+              },
+              {
+                "name": "Marker",
+                "value": "",
+                "type": "query",
+                "description": "An optional pagination token provided by a previous request"
+              }
+            ]
+          },
+          "docs": "Returns a list of the available DB engines and their versions. You can filter by engine, engine version, DB parameter group family, and other criteria."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

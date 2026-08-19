@@ -1,0 +1,1057 @@
+{
+  "item": [
+    {
+      "id": "9a7cda17-58d9-4998-93f5-4aabada560b2",
+      "name": "DB Clusters",
+      "description": {
+        "content": "Operations for creating and managing Aurora database clusters",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "c19bf1bb-2bd9-43fe-bdaf-23e63569bcee",
+          "name": "Amazon RDS Create a new DB cluster",
+          "request": {
+            "name": "Amazon RDS Create a new DB cluster",
+            "description": {
+              "content": "Creates a new Amazon Aurora DB cluster or Multi-AZ DB cluster. You can use the ReplicationSourceIdentifier parameter to create an Amazon Aurora DB cluster as a read replica of another DB cluster or Amazon RDS MySQL or PostgreSQL DB instance.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "key": "Action",
+                  "value": "CreateDBCluster"
+                },
+                {
+                  "disabled": false,
+                  "key": "DBClusterIdentifier",
+                  "value": "<string>",
+                  "description": "(Required) The DB cluster identifier, unique for each DB cluster"
+                },
+                {
+                  "disabled": false,
+                  "key": "Engine",
+                  "value": "<string>",
+                  "description": "(Required) The database engine to use (aurora-mysql, aurora-postgresql)"
+                },
+                {
+                  "disabled": false,
+                  "key": "EngineVersion",
+                  "value": "<string>",
+                  "description": "The version number of the database engine to use"
+                },
+                {
+                  "disabled": false,
+                  "key": "MasterUsername",
+                  "value": "<string>",
+                  "description": "The name of the master user for the DB cluster"
+                },
+                {
+                  "disabled": false,
+                  "key": "MasterUserPassword",
+                  "value": "<string>",
+                  "description": "The password for the master database user"
+                },
+                {
+                  "disabled": false,
+                  "key": "DatabaseName",
+                  "value": "<string>",
+                  "description": "The name for a database to create in the DB cluster"
+                },
+                {
+                  "disabled": false,
+                  "key": "Port",
+                  "value": "<integer>",
+                  "description": "The port number on which the instances in the DB cluster accept connections"
+                },
+                {
+                  "disabled": false,
+                  "key": "DBSubnetGroupName",
+                  "value": "<string>",
+                  "description": "A DB subnet group to associate with this DB cluster"
+                },
+                {
+                  "disabled": false,
+                  "key": "VpcSecurityGroupIds.member.1",
+                  "value": "<string>",
+                  "description": "A VPC security group to associate with the DB cluster"
+                },
+                {
+                  "disabled": false,
+                  "key": "StorageEncrypted",
+                  "value": "<boolean>",
+                  "description": "Whether the DB cluster is encrypted"
+                },
+                {
+                  "disabled": false,
+                  "key": "BackupRetentionPeriod",
+                  "value": "<integer>",
+                  "description": "The number of days for which automated backups are retained (1-35)"
+                }
+              ],
+              "variable": [
+                {
+                  "description": "AWS Region",
+                  "type": "any",
+                  "value": "{{region}}",
+                  "key": "region"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/xml"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "80a2d8c0-b3e1-40f3-b929-75109915990b",
+              "name": "Successfully created DB cluster",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "DBClusterIdentifier",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "Engine",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "EngineVersion",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "MasterUsername",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "MasterUserPassword",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "DatabaseName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "Port",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "DBSubnetGroupName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "VpcSecurityGroupIds.member.1",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "StorageEncrypted",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "BackupRetentionPeriod",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "AWS Region",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/xml"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/xml"
+                }
+              ],
+              "body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<element>\n  <dBCluster>\n    <dBClusterIdentifier>(string)</dBClusterIdentifier>\n    <dBClusterArn>(string)</dBClusterArn>\n    <status>(string)</status>\n    <engine>(string)</engine>\n    <engineVersion>(string)</engineVersion>\n    <databaseName>(string)</databaseName>\n    <masterUsername>(string)</masterUsername>\n    <endpoint>(string)</endpoint>\n    <readerEndpoint>(string)</readerEndpoint>\n    <port>(integer)</port>\n    <dBClusterMembers>\n      <dBInstanceIdentifier>(string)</dBInstanceIdentifier>\n      <isClusterWriter>(boolean)</isClusterWriter>\n      <dBClusterParameterGroupStatus>(string)</dBClusterParameterGroupStatus>\n    </dBClusterMembers>\n    <dBClusterMembers>\n      <dBInstanceIdentifier>(string)</dBInstanceIdentifier>\n      <isClusterWriter>(boolean)</isClusterWriter>\n      <dBClusterParameterGroupStatus>(string)</dBClusterParameterGroupStatus>\n    </dBClusterMembers>\n    <availabilityZones>(string)</availabilityZones>\n    <availabilityZones>(string)</availabilityZones>\n    <backupRetentionPeriod>(integer)</backupRetentionPeriod>\n    <storageEncrypted>(boolean)</storageEncrypted>\n    <multiAZ>(boolean)</multiAZ>\n    <clusterCreateTime>(string)</clusterCreateTime>\n    <allocatedStorage>(integer)</allocatedStorage>\n    <tags>\n      <key>(string)</key>\n      <value>(string)</value>\n    </tags>\n    <tags>\n      <key>(string)</key>\n      <value>(string)</value>\n    </tags>\n  </dBCluster>\n</element>",
+              "cookie": [],
+              "_postman_previewlanguage": "xml"
+            },
+            {
+              "id": "97c13dfb-9746-492d-82af-93f244993d44",
+              "name": "Invalid request parameters",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "DBClusterIdentifier",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "Engine",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "EngineVersion",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "MasterUsername",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "MasterUserPassword",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "DatabaseName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "Port",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "DBSubnetGroupName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "VpcSecurityGroupIds.member.1",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "StorageEncrypted",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "BackupRetentionPeriod",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "AWS Region",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "e7a80f79-ed6d-4fb8-a519-12eb47768435",
+              "name": "Authentication failure",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "DBClusterIdentifier",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "Engine",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "EngineVersion",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "MasterUsername",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "MasterUserPassword",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "DatabaseName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "Port",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "DBSubnetGroupName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "VpcSecurityGroupIds.member.1",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "StorageEncrypted",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "BackupRetentionPeriod",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "AWS Region",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "197cdaa4-f43e-4306-9fd2-e4131bcd85d3",
+              "name": "Authorization failure",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "DBClusterIdentifier",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "Engine",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "EngineVersion",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "MasterUsername",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "MasterUserPassword",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "DatabaseName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "Port",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "DBSubnetGroupName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "VpcSecurityGroupIds.member.1",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "StorageEncrypted",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "BackupRetentionPeriod",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "AWS Region",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b7210c0e-9089-4fb0-acdd-caf7efbf03b5",
+          "name": "Amazon RDS Describe DB clusters",
+          "request": {
+            "name": "Amazon RDS Describe DB clusters",
+            "description": {
+              "content": "Returns information about Amazon Aurora DB clusters and Multi-AZ DB clusters. This API supports pagination. For more information on Amazon Aurora DB clusters, see the Amazon Aurora User Guide.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "key": "Action",
+                  "value": "DescribeDBClusters"
+                },
+                {
+                  "disabled": false,
+                  "key": "DBClusterIdentifier",
+                  "value": "<string>",
+                  "description": "The identifier of the DB cluster to describe"
+                },
+                {
+                  "disabled": false,
+                  "key": "Filters.member.1.Name",
+                  "value": "<string>",
+                  "description": "The name of a filter"
+                },
+                {
+                  "disabled": false,
+                  "key": "Filters.member.1.Values.member.1",
+                  "value": "<string>",
+                  "description": "A value for the filter"
+                },
+                {
+                  "disabled": false,
+                  "key": "MaxRecords",
+                  "value": "<integer>",
+                  "description": "Maximum number of records to include in the response"
+                },
+                {
+                  "disabled": false,
+                  "key": "Marker",
+                  "value": "<string>",
+                  "description": "An optional pagination token provided by a previous request"
+                }
+              ],
+              "variable": [
+                {
+                  "description": "AWS Region",
+                  "type": "any",
+                  "value": "{{region}}",
+                  "key": "region"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/xml"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d957ad37-e054-4d0e-996d-b1c45b619e36",
+              "name": "Successfully described DB clusters",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "DBClusterIdentifier",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "Filters.member.1.Name",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "Filters.member.1.Values.member.1",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "MaxRecords",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "Marker",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "AWS Region",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/xml"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/xml"
+                }
+              ],
+              "body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<element>\n  <dBClusters>\n    <dBClusterIdentifier>(string)</dBClusterIdentifier>\n    <dBClusterArn>(string)</dBClusterArn>\n    <status>(string)</status>\n    <engine>(string)</engine>\n    <engineVersion>(string)</engineVersion>\n    <databaseName>(string)</databaseName>\n    <masterUsername>(string)</masterUsername>\n    <endpoint>(string)</endpoint>\n    <readerEndpoint>(string)</readerEndpoint>\n    <port>(integer)</port>\n    <dBClusterMembers>\n      <dBInstanceIdentifier>(string)</dBInstanceIdentifier>\n      <isClusterWriter>(boolean)</isClusterWriter>\n      <dBClusterParameterGroupStatus>(string)</dBClusterParameterGroupStatus>\n    </dBClusterMembers>\n    <dBClusterMembers>\n      <dBInstanceIdentifier>(string)</dBInstanceIdentifier>\n      <isClusterWriter>(boolean)</isClusterWriter>\n      <dBClusterParameterGroupStatus>(string)</dBClusterParameterGroupStatus>\n    </dBClusterMembers>\n    <availabilityZones>(string)</availabilityZones>\n    <availabilityZones>(string)</availabilityZones>\n    <backupRetentionPeriod>(integer)</backupRetentionPeriod>\n    <storageEncrypted>(boolean)</storageEncrypted>\n    <multiAZ>(boolean)</multiAZ>\n    <clusterCreateTime>(string)</clusterCreateTime>\n    <allocatedStorage>(integer)</allocatedStorage>\n    <tags>\n      <key>(string)</key>\n      <value>(string)</value>\n    </tags>\n    <tags>\n      <key>(string)</key>\n      <value>(string)</value>\n    </tags>\n  </dBClusters>\n  <dBClusters>\n    <dBClusterIdentifier>(string)</dBClusterIdentifier>\n    <dBClusterArn>(string)</dBClusterArn>\n    <status>(string)</status>\n    <engine>(string)</engine>\n    <engineVersion>(string)</engineVersion>\n    <databaseName>(string)</databaseName>\n    <masterUsername>(string)</masterUsername>\n    <endpoint>(string)</endpoint>\n    <readerEndpoint>(string)</readerEndpoint>\n    <port>(integer)</port>\n    <dBClusterMembers>\n      <dBInstanceIdentifier>(string)</dBInstanceIdentifier>\n      <isClusterWriter>(boolean)</isClusterWriter>\n      <dBClusterParameterGroupStatus>(string)</dBClusterParameterGroupStatus>\n    </dBClusterMembers>\n    <dBClusterMembers>\n      <dBInstanceIdentifier>(string)</dBInstanceIdentifier>\n      <isClusterWriter>(boolean)</isClusterWriter>\n      <dBClusterParameterGroupStatus>(string)</dBClusterParameterGroupStatus>\n    </dBClusterMembers>\n    <availabilityZones>(string)</availabilityZones>\n    <availabilityZones>(string)</availabilityZones>\n    <backupRetentionPeriod>(integer)</backupRetentionPeriod>\n    <storageEncrypted>(boolean)</storageEncrypted>\n    <multiAZ>(boolean)</multiAZ>\n    <clusterCreateTime>(string)</clusterCreateTime>\n    <allocatedStorage>(integer)</allocatedStorage>\n    <tags>\n      <key>(string)</key>\n      <value>(string)</value>\n    </tags>\n    <tags>\n      <key>(string)</key>\n      <value>(string)</value>\n    </tags>\n  </dBClusters>\n  <marker>(string)</marker>\n</element>",
+              "cookie": [],
+              "_postman_previewlanguage": "xml"
+            },
+            {
+              "id": "fd464e67-2af6-4580-b04c-b58e012cf02b",
+              "name": "Invalid request parameters",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "DBClusterIdentifier",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "Filters.member.1.Name",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "Filters.member.1.Values.member.1",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "MaxRecords",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "Marker",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "AWS Region",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "d780f1ab-711a-4ec3-bbec-7b388f19fd83",
+              "name": "Authentication failure",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "DBClusterIdentifier",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "Filters.member.1.Name",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "Filters.member.1.Values.member.1",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "MaxRecords",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "Marker",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "AWS Region",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2bf390a3-769d-49d8-b2f1-3c54eff70051",
+          "name": "Amazon RDS Delete a DB cluster",
+          "request": {
+            "name": "Amazon RDS Delete a DB cluster",
+            "description": {
+              "content": "Deletes a previously provisioned DB cluster. When you delete a DB cluster, all automated backups are deleted and cannot be recovered. Manual DB cluster snapshots are not deleted.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "key": "Action",
+                  "value": "DeleteDBCluster"
+                },
+                {
+                  "disabled": false,
+                  "key": "DBClusterIdentifier",
+                  "value": "<string>",
+                  "description": "(Required) The DB cluster identifier for the DB cluster to be deleted"
+                },
+                {
+                  "disabled": false,
+                  "key": "SkipFinalSnapshot",
+                  "value": "<boolean>",
+                  "description": "Whether to skip the creation of a final DB cluster snapshot before deleting the cluster"
+                },
+                {
+                  "disabled": false,
+                  "key": "FinalDBSnapshotIdentifier",
+                  "value": "<string>",
+                  "description": "The identifier of the final DB cluster snapshot to create before deleting the cluster"
+                }
+              ],
+              "variable": [
+                {
+                  "description": "AWS Region",
+                  "type": "any",
+                  "value": "{{region}}",
+                  "key": "region"
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f212deb7-8298-4db0-9ee7-f5b2d858abda",
+              "name": "Successfully deleted DB cluster",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "DBClusterIdentifier",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "SkipFinalSnapshot",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "FinalDBSnapshotIdentifier",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "AWS Region",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "4c3a7b43-ccfb-4c64-932c-f90e726f920e",
+              "name": "Invalid request parameters",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "DBClusterIdentifier",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "SkipFinalSnapshot",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "FinalDBSnapshotIdentifier",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "AWS Region",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "c0bc8777-9201-4aca-b4a5-aa4f3fa34c77",
+              "name": "Authentication failure",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "DBClusterIdentifier",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "SkipFinalSnapshot",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "FinalDBSnapshotIdentifier",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "AWS Region",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": "AWS Region",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "us-east-1",
+      "key": "region"
+    },
+    {
+      "type": "string",
+      "value": "https://rds.{{region}}.amazonaws.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "3327cd0e-52b7-46cc-9dd2-93e1f6e9ea1b",
+    "name": "Amazon RDS DB Clusters API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Amazon Relational Database Service (RDS) makes it easy to set up, operate, and scale a relational database in the cloud. This API enables you to create and manage database instances, clusters, snapshots, and other database resources with support for multiple database engines including MySQL, PostgreSQL, MariaDB, Oracle, SQL Server, and Amazon Aurora.\n\nContact Support:\n Name: Amazon Web Services",
+      "type": "text/plain"
+    }
+  }
+}

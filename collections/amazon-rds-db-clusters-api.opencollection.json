@@ -1,0 +1,179 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Amazon RDS DB Clusters API",
+    "version": "2014-10-31"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "DB Clusters",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Amazon RDS Create a new DB cluster",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://rds.{region}.amazonaws.com/?Action=CreateDBCluster",
+            "params": [
+              {
+                "name": "DBClusterIdentifier",
+                "value": "",
+                "type": "query",
+                "description": "The DB cluster identifier, unique for each DB cluster"
+              },
+              {
+                "name": "Engine",
+                "value": "",
+                "type": "query",
+                "description": "The database engine to use (aurora-mysql, aurora-postgresql)"
+              },
+              {
+                "name": "EngineVersion",
+                "value": "",
+                "type": "query",
+                "description": "The version number of the database engine to use"
+              },
+              {
+                "name": "MasterUsername",
+                "value": "",
+                "type": "query",
+                "description": "The name of the master user for the DB cluster"
+              },
+              {
+                "name": "MasterUserPassword",
+                "value": "",
+                "type": "query",
+                "description": "The password for the master database user"
+              },
+              {
+                "name": "DatabaseName",
+                "value": "",
+                "type": "query",
+                "description": "The name for a database to create in the DB cluster"
+              },
+              {
+                "name": "Port",
+                "value": "",
+                "type": "query",
+                "description": "The port number on which the instances in the DB cluster accept connections"
+              },
+              {
+                "name": "DBSubnetGroupName",
+                "value": "",
+                "type": "query",
+                "description": "A DB subnet group to associate with this DB cluster"
+              },
+              {
+                "name": "VpcSecurityGroupIds.member.1",
+                "value": "",
+                "type": "query",
+                "description": "A VPC security group to associate with the DB cluster"
+              },
+              {
+                "name": "StorageEncrypted",
+                "value": "",
+                "type": "query",
+                "description": "Whether the DB cluster is encrypted"
+              },
+              {
+                "name": "BackupRetentionPeriod",
+                "value": "",
+                "type": "query",
+                "description": "The number of days for which automated backups are retained (1-35)"
+              }
+            ]
+          },
+          "docs": "Creates a new Amazon Aurora DB cluster or Multi-AZ DB cluster. You can use the ReplicationSourceIdentifier parameter to create an Amazon Aurora DB cluster as a read replica of another DB cluster or Amazon RDS MySQL or PostgreSQL DB instance."
+        },
+        {
+          "info": {
+            "name": "Amazon RDS Describe DB clusters",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://rds.{region}.amazonaws.com/?Action=DescribeDBClusters",
+            "params": [
+              {
+                "name": "DBClusterIdentifier",
+                "value": "",
+                "type": "query",
+                "description": "The identifier of the DB cluster to describe"
+              },
+              {
+                "name": "Filters.member.1.Name",
+                "value": "",
+                "type": "query",
+                "description": "The name of a filter"
+              },
+              {
+                "name": "Filters.member.1.Values.member.1",
+                "value": "",
+                "type": "query",
+                "description": "A value for the filter"
+              },
+              {
+                "name": "MaxRecords",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of records to include in the response"
+              },
+              {
+                "name": "Marker",
+                "value": "",
+                "type": "query",
+                "description": "An optional pagination token provided by a previous request"
+              }
+            ]
+          },
+          "docs": "Returns information about Amazon Aurora DB clusters and Multi-AZ DB clusters. This API supports pagination. For more information on Amazon Aurora DB clusters, see the Amazon Aurora User Guide."
+        },
+        {
+          "info": {
+            "name": "Amazon RDS Delete a DB cluster",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://rds.{region}.amazonaws.com/?Action=DeleteDBCluster",
+            "params": [
+              {
+                "name": "DBClusterIdentifier",
+                "value": "",
+                "type": "query",
+                "description": "The DB cluster identifier for the DB cluster to be deleted"
+              },
+              {
+                "name": "SkipFinalSnapshot",
+                "value": "",
+                "type": "query",
+                "description": "Whether to skip the creation of a final DB cluster snapshot before deleting the cluster"
+              },
+              {
+                "name": "FinalDBSnapshotIdentifier",
+                "value": "",
+                "type": "query",
+                "description": "The identifier of the final DB cluster snapshot to create before deleting the cluster"
+              }
+            ]
+          },
+          "docs": "Deletes a previously provisioned DB cluster. When you delete a DB cluster, all automated backups are deleted and cannot be recovered. Manual DB cluster snapshots are not deleted."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

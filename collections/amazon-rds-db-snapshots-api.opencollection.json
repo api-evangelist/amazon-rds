@@ -1,0 +1,113 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Amazon RDS DB Clusters DB Snapshots API",
+    "version": "2014-10-31"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "DB Snapshots",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Amazon RDS Create a DB snapshot",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://rds.{region}.amazonaws.com/?Action=CreateDBSnapshot",
+            "params": [
+              {
+                "name": "DBSnapshotIdentifier",
+                "value": "",
+                "type": "query",
+                "description": "The identifier for the DB snapshot"
+              },
+              {
+                "name": "DBInstanceIdentifier",
+                "value": "",
+                "type": "query",
+                "description": "The identifier of the DB instance to create the snapshot from"
+              }
+            ]
+          },
+          "docs": "Creates a snapshot of a DB instance. The source DB instance must be in the available or storage-optimization state. The DB snapshot is created with a snapshot type of manual."
+        },
+        {
+          "info": {
+            "name": "Amazon RDS Describe DB snapshots",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://rds.{region}.amazonaws.com/?Action=DescribeDBSnapshots",
+            "params": [
+              {
+                "name": "DBInstanceIdentifier",
+                "value": "",
+                "type": "query",
+                "description": "The ID of the DB instance to retrieve snapshots for"
+              },
+              {
+                "name": "DBSnapshotIdentifier",
+                "value": "",
+                "type": "query",
+                "description": "A specific DB snapshot identifier to describe"
+              },
+              {
+                "name": "SnapshotType",
+                "value": "",
+                "type": "query",
+                "description": "The type of snapshots to return (automated, manual, shared, public, awsbackup)"
+              },
+              {
+                "name": "MaxRecords",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of records to include in the response"
+              },
+              {
+                "name": "Marker",
+                "value": "",
+                "type": "query",
+                "description": "An optional pagination token provided by a previous request"
+              }
+            ]
+          },
+          "docs": "Returns information about DB snapshots. This API supports pagination. You can filter by DB instance identifier, DB snapshot identifier, snapshot type, and other criteria."
+        },
+        {
+          "info": {
+            "name": "Amazon RDS Delete a DB snapshot",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://rds.{region}.amazonaws.com/?Action=DeleteDBSnapshot",
+            "params": [
+              {
+                "name": "DBSnapshotIdentifier",
+                "value": "",
+                "type": "query",
+                "description": "The identifier of the DB snapshot to delete"
+              }
+            ]
+          },
+          "docs": "Deletes a DB snapshot. If the snapshot is being copied, the copy operation is terminated. The DB snapshot must be in the available state to be deleted."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

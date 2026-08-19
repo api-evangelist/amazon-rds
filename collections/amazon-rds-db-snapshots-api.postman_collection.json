@@ -1,0 +1,768 @@
+{
+  "item": [
+    {
+      "id": "785ffa2e-345e-4f1c-b75d-ad80527da894",
+      "name": "DB Snapshots",
+      "description": {
+        "content": "Operations for creating and managing database snapshots",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "392d7e90-e1ae-4ef7-be36-7f6343470ac1",
+          "name": "Amazon RDS Create a DB snapshot",
+          "request": {
+            "name": "Amazon RDS Create a DB snapshot",
+            "description": {
+              "content": "Creates a snapshot of a DB instance. The source DB instance must be in the available or storage-optimization state. The DB snapshot is created with a snapshot type of manual.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "key": "Action",
+                  "value": "CreateDBSnapshot"
+                },
+                {
+                  "disabled": false,
+                  "key": "DBSnapshotIdentifier",
+                  "value": "<string>",
+                  "description": "(Required) The identifier for the DB snapshot"
+                },
+                {
+                  "disabled": false,
+                  "key": "DBInstanceIdentifier",
+                  "value": "<string>",
+                  "description": "(Required) The identifier of the DB instance to create the snapshot from"
+                }
+              ],
+              "variable": [
+                {
+                  "description": "AWS Region",
+                  "type": "any",
+                  "value": "{{region}}",
+                  "key": "region"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/xml"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "dbd36623-3df3-4dfa-9d00-f7c3380e8c47",
+              "name": "Successfully created DB snapshot",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "DBSnapshotIdentifier",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "DBInstanceIdentifier",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "AWS Region",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/xml"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/xml"
+                }
+              ],
+              "body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<element>\n  <dBSnapshot>\n    <dBSnapshotIdentifier>(string)</dBSnapshotIdentifier>\n    <dBInstanceIdentifier>(string)</dBInstanceIdentifier>\n    <snapshotCreateTime>(string)</snapshotCreateTime>\n    <engine>(string)</engine>\n    <engineVersion>(string)</engineVersion>\n    <status>(string)</status>\n    <allocatedStorage>(integer)</allocatedStorage>\n    <port>(integer)</port>\n    <availabilityZone>(string)</availabilityZone>\n    <vpcId>(string)</vpcId>\n    <instanceCreateTime>(string)</instanceCreateTime>\n    <masterUsername>(string)</masterUsername>\n    <snapshotType>(string)</snapshotType>\n    <encrypted>(boolean)</encrypted>\n    <storageType>(string)</storageType>\n    <dBSnapshotArn>(string)</dBSnapshotArn>\n    <tags>\n      <key>(string)</key>\n      <value>(string)</value>\n    </tags>\n    <tags>\n      <key>(string)</key>\n      <value>(string)</value>\n    </tags>\n  </dBSnapshot>\n</element>",
+              "cookie": [],
+              "_postman_previewlanguage": "xml"
+            },
+            {
+              "id": "db0447c3-ac8f-499e-8b8d-4ebfe4cd1cc7",
+              "name": "Invalid request parameters",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "DBSnapshotIdentifier",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "DBInstanceIdentifier",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "AWS Region",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "6ab3870b-25ea-4ee0-ada7-8a610cccc47b",
+              "name": "Authentication failure",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "DBSnapshotIdentifier",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "DBInstanceIdentifier",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "AWS Region",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "aea31216-5f14-4e55-aed6-8fb31dc6ac07",
+          "name": "Amazon RDS Describe DB snapshots",
+          "request": {
+            "name": "Amazon RDS Describe DB snapshots",
+            "description": {
+              "content": "Returns information about DB snapshots. This API supports pagination. You can filter by DB instance identifier, DB snapshot identifier, snapshot type, and other criteria.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "key": "Action",
+                  "value": "DescribeDBSnapshots"
+                },
+                {
+                  "disabled": false,
+                  "key": "DBInstanceIdentifier",
+                  "value": "<string>",
+                  "description": "The ID of the DB instance to retrieve snapshots for"
+                },
+                {
+                  "disabled": false,
+                  "key": "DBSnapshotIdentifier",
+                  "value": "<string>",
+                  "description": "A specific DB snapshot identifier to describe"
+                },
+                {
+                  "disabled": false,
+                  "key": "SnapshotType",
+                  "value": "<string>",
+                  "description": "The type of snapshots to return (automated, manual, shared, public, awsbackup)"
+                },
+                {
+                  "disabled": false,
+                  "key": "MaxRecords",
+                  "value": "<integer>",
+                  "description": "Maximum number of records to include in the response"
+                },
+                {
+                  "disabled": false,
+                  "key": "Marker",
+                  "value": "<string>",
+                  "description": "An optional pagination token provided by a previous request"
+                }
+              ],
+              "variable": [
+                {
+                  "description": "AWS Region",
+                  "type": "any",
+                  "value": "{{region}}",
+                  "key": "region"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/xml"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "cfeeb75a-b49d-4879-b9b4-dd687ce38edb",
+              "name": "Successfully described DB snapshots",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "DBInstanceIdentifier",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "DBSnapshotIdentifier",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "SnapshotType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "MaxRecords",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "Marker",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "AWS Region",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/xml"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/xml"
+                }
+              ],
+              "body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<element>\n  <dBSnapshots>\n    <dBSnapshotIdentifier>(string)</dBSnapshotIdentifier>\n    <dBInstanceIdentifier>(string)</dBInstanceIdentifier>\n    <snapshotCreateTime>(string)</snapshotCreateTime>\n    <engine>(string)</engine>\n    <engineVersion>(string)</engineVersion>\n    <status>(string)</status>\n    <allocatedStorage>(integer)</allocatedStorage>\n    <port>(integer)</port>\n    <availabilityZone>(string)</availabilityZone>\n    <vpcId>(string)</vpcId>\n    <instanceCreateTime>(string)</instanceCreateTime>\n    <masterUsername>(string)</masterUsername>\n    <snapshotType>(string)</snapshotType>\n    <encrypted>(boolean)</encrypted>\n    <storageType>(string)</storageType>\n    <dBSnapshotArn>(string)</dBSnapshotArn>\n    <tags>\n      <key>(string)</key>\n      <value>(string)</value>\n    </tags>\n    <tags>\n      <key>(string)</key>\n      <value>(string)</value>\n    </tags>\n  </dBSnapshots>\n  <dBSnapshots>\n    <dBSnapshotIdentifier>(string)</dBSnapshotIdentifier>\n    <dBInstanceIdentifier>(string)</dBInstanceIdentifier>\n    <snapshotCreateTime>(string)</snapshotCreateTime>\n    <engine>(string)</engine>\n    <engineVersion>(string)</engineVersion>\n    <status>(string)</status>\n    <allocatedStorage>(integer)</allocatedStorage>\n    <port>(integer)</port>\n    <availabilityZone>(string)</availabilityZone>\n    <vpcId>(string)</vpcId>\n    <instanceCreateTime>(string)</instanceCreateTime>\n    <masterUsername>(string)</masterUsername>\n    <snapshotType>(string)</snapshotType>\n    <encrypted>(boolean)</encrypted>\n    <storageType>(string)</storageType>\n    <dBSnapshotArn>(string)</dBSnapshotArn>\n    <tags>\n      <key>(string)</key>\n      <value>(string)</value>\n    </tags>\n    <tags>\n      <key>(string)</key>\n      <value>(string)</value>\n    </tags>\n  </dBSnapshots>\n  <marker>(string)</marker>\n</element>",
+              "cookie": [],
+              "_postman_previewlanguage": "xml"
+            },
+            {
+              "id": "f50240dc-2eff-4703-8a20-91c22d64b81f",
+              "name": "Invalid request parameters",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "DBInstanceIdentifier",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "DBSnapshotIdentifier",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "SnapshotType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "MaxRecords",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "Marker",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "AWS Region",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "7fc68e27-7bfd-4fbe-88cd-f962ff3bccf8",
+              "name": "Authentication failure",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "DBInstanceIdentifier",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "DBSnapshotIdentifier",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "SnapshotType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "MaxRecords",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "Marker",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "AWS Region",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "76f424da-c006-49d2-a715-3cbc9aa2eb73",
+          "name": "Amazon RDS Delete a DB snapshot",
+          "request": {
+            "name": "Amazon RDS Delete a DB snapshot",
+            "description": {
+              "content": "Deletes a DB snapshot. If the snapshot is being copied, the copy operation is terminated. The DB snapshot must be in the available state to be deleted.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "key": "Action",
+                  "value": "DeleteDBSnapshot"
+                },
+                {
+                  "disabled": false,
+                  "key": "DBSnapshotIdentifier",
+                  "value": "<string>",
+                  "description": "(Required) The identifier of the DB snapshot to delete"
+                }
+              ],
+              "variable": [
+                {
+                  "description": "AWS Region",
+                  "type": "any",
+                  "value": "{{region}}",
+                  "key": "region"
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "96b36124-174c-4e87-ae32-e5ccf439378e",
+              "name": "Successfully deleted DB snapshot",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "DBSnapshotIdentifier",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "AWS Region",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "ebb04a3c-ae98-41cd-82b3-3929e82ffd7f",
+              "name": "Invalid request parameters",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "DBSnapshotIdentifier",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "AWS Region",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "b563c326-ad20-44b4-9518-786909270157",
+              "name": "Authentication failure",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "DBSnapshotIdentifier",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "AWS Region",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": "AWS Region",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "us-east-1",
+      "key": "region"
+    },
+    {
+      "type": "string",
+      "value": "https://rds.{{region}}.amazonaws.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "8b3365cc-0659-45fb-9801-534111f95925",
+    "name": "Amazon RDS DB Clusters DB Snapshots API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Amazon Relational Database Service (RDS) makes it easy to set up, operate, and scale a relational database in the cloud. This API enables you to create and manage database instances, clusters, snapshots, and other database resources with support for multiple database engines including MySQL, PostgreSQL, MariaDB, Oracle, SQL Server, and Amazon Aurora.\n\nContact Support:\n Name: Amazon Web Services",
+      "type": "text/plain"
+    }
+  }
+}
