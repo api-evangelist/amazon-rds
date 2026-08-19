@@ -3,6 +3,7 @@ description: >-
   Amazon Relational Database Service (RDS) makes it easy to set up, operate, and scale a relational database in the
   cloud, providing cost-efficient and resizable capacity while automating time-consuming administration tasks such as
   hardware provisioning, database setup, patching, and backups.
+specificationVersion: '0.23'
 accessModel:
   pricing: freemium
   onboarding: self-serve
