@@ -12,8 +12,11 @@ info:
     description.
   version: 1.0.0
 sourceDescriptions:
-- name: amazonRdsApi
-  url: ../openapi/amazon-rds-openapi.yml
+- name: dbClustersApi
+  url: ../openapi/amazon-rds-db-clusters-api-openapi.yml
+  type: openapi
+- name: dbInstancesApi
+  url: ../openapi/amazon-rds-db-instances-api-openapi.yml
   type: openapi
 workflows:
 - workflowId: delete-aurora-cluster

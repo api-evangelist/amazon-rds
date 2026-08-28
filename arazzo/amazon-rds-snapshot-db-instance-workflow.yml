@@ -11,8 +11,11 @@ info:
     read and executed without opening the underlying OpenAPI description.
   version: 1.0.0
 sourceDescriptions:
-- name: amazonRdsApi
-  url: ../openapi/amazon-rds-openapi.yml
+- name: dbInstancesApi
+  url: ../openapi/amazon-rds-db-instances-api-openapi.yml
+  type: openapi
+- name: dbSnapshotsApi
+  url: ../openapi/amazon-rds-db-snapshots-api-openapi.yml
   type: openapi
 workflows:
 - workflowId: snapshot-db-instance
