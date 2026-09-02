@@ -1,4 +1,4 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
   title: Amazon RDS DB Clusters API
   description: Amazon Relational Database Service (RDS) makes it easy to set up, operate, and scale a relational database in the cloud. This API enables you to create and manage database instances, clusters, snapshots, and other database resources with support for multiple database engines including MySQL, PostgreSQL, MariaDB, Oracle, SQL Server, and Amazon Aurora.
@@ -179,6 +179,28 @@ paths:
           description: Authentication failure
 components:
   schemas:
+    Tag:
+      type: object
+      description: Describes a resource tag
+      properties:
+        key:
+          type: string
+          description: The key of the tag
+        value:
+          type: string
+          description: The value of the tag
+    DescribeDBClustersResponse:
+      type: object
+      description: Response from the DescribeDBClusters action
+      properties:
+        dBClusters:
+          type: array
+          description: A list of DB cluster descriptions
+          items:
+            $ref: '#/components/schemas/DBCluster'
+        marker:
+          type: string
+          description: An optional pagination token provided by a previous request
     DBCluster:
       type: object
       description: Describes an Amazon Aurora DB cluster
@@ -254,28 +276,6 @@ components:
           description: Tags assigned to the DB cluster
           items:
             $ref: '#/components/schemas/Tag'
-    Tag:
-      type: object
-      description: Describes a resource tag
-      properties:
-        key:
-          type: string
-          description: The key of the tag
-        value:
-          type: string
-          description: The value of the tag
-    DescribeDBClustersResponse:
-      type: object
-      description: Response from the DescribeDBClusters action
-      properties:
-        dBClusters:
-          type: array
-          description: A list of DB cluster descriptions
-          items:
-            $ref: '#/components/schemas/DBCluster'
-        marker:
-          type: string
-          description: An optional pagination token provided by a previous request
     CreateDBClusterResponse:
       type: object
       description: Response from the CreateDBCluster action
