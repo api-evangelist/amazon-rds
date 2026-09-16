@@ -1,8 +1,7 @@
 name: Amazon RDS
-description: >-
-  Amazon Relational Database Service (RDS) makes it easy to set up, operate, and scale a relational database in the
-  cloud, providing cost-efficient and resizable capacity while automating time-consuming administration tasks such as
-  hardware provisioning, database setup, patching, and backups.
+description: Amazon Relational Database Service (RDS) makes it easy to set up, operate, and scale a relational
+  database in the cloud, providing cost-efficient and resizable capacity while automating time-consuming
+  administration tasks such as hardware provisioning, database setup, patching, and backups.
 deliveryModel:
   model: saas
   open_source: false
@@ -33,7 +32,7 @@ accessModel:
 image: https://a0.awsstatic.com/libra-css/images/logos/aws_logo_smile_1200x630.png
 url: https://raw.githubusercontent.com/api-evangelist/amazon-rds/refs/heads/main/apis.yml
 created: '2024-01-15'
-modified: '2026-05-19'
+modified: '2026-09-16'
 apis:
 - aid: amazon-rds:amazon-rds-db-clusters-api
   name: Amazon RDS DB Clusters API
@@ -164,206 +163,208 @@ apis:
   - type: Security
     url: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.html
 common:
-  - type: AgenticAccess
-    url: agentic-access/amazon-rds-agentic-access.yml
-  - type: TrustCenter
-    url: security/amazon-rds-trust-center.yml
-  - type: VulnerabilityDisclosure
-    url: security/amazon-rds-vulnerability-disclosure.yml
-  - type: DomainSecurity
-    url: security/amazon-rds-domain-security.yml
-  - type: Authentication
-    url: authentication/amazon-rds-authentication.yml
-  - type: PostmanWorkspace
-    url: https://www.postman.com/kinlaneapi/amazon-rds/overview
-  - type: Arazzo
-    url: arazzo/amazon-rds-add-aurora-replica-instance-workflow.yml
-    name: Amazon RDS Add an Aurora Replica Instance
-  - type: Arazzo
-    url: arazzo/amazon-rds-clean-up-snapshot-workflow.yml
-    name: Amazon RDS Clean Up a DB Snapshot
-  - type: Arazzo
-    url: arazzo/amazon-rds-clone-instance-from-snapshot-restore-workflow.yml
-    name: Amazon RDS Snapshot and Rebuild a DB Instance
-  - type: Arazzo
-    url: arazzo/amazon-rds-convert-to-multi-az-workflow.yml
-    name: Amazon RDS Convert Instance to Multi-AZ
-  - type: Arazzo
-    url: arazzo/amazon-rds-delete-aurora-cluster-workflow.yml
-    name: Amazon RDS Delete an Aurora DB Cluster
-  - type: Arazzo
-    url: arazzo/amazon-rds-enable-backup-retention-workflow.yml
-    name: Amazon RDS Enable Backup Retention
-  - type: Arazzo
-    url: arazzo/amazon-rds-modify-instance-class-workflow.yml
-    name: Amazon RDS Modify a DB Instance Class
-  - type: Arazzo
-    url: arazzo/amazon-rds-provision-aurora-cluster-workflow.yml
-    name: Amazon RDS Provision an Aurora DB Cluster
-  - type: Arazzo
-    url: arazzo/amazon-rds-provision-db-instance-workflow.yml
-    name: Amazon RDS Provision a DB Instance
-  - type: Arazzo
-    url: arazzo/amazon-rds-reboot-instance-workflow.yml
-    name: Amazon RDS Reboot a DB Instance
-  - type: Arazzo
-    url: arazzo/amazon-rds-rotate-master-password-workflow.yml
-    name: Amazon RDS Rotate Master Password
-  - type: Arazzo
-    url: arazzo/amazon-rds-scale-instance-storage-workflow.yml
-    name: Amazon RDS Scale DB Instance Storage
-  - type: Arazzo
-    url: arazzo/amazon-rds-snapshot-db-instance-workflow.yml
-    name: Amazon RDS Snapshot a DB Instance
-  - type: Arazzo
-    url: arazzo/amazon-rds-snapshot-then-delete-instance-workflow.yml
-    name: Amazon RDS Snapshot Then Delete a DB Instance
-  - type: Arazzo
-    url: arazzo/amazon-rds-upgrade-engine-version-workflow.yml
-    name: Amazon RDS Upgrade DB Engine Version
-  - type: Arazzo
-    url: arazzo/amazon-rds-verify-engine-then-provision-workflow.yml
-    name: Amazon RDS Verify Engine Support Then Provision
-  - type: Portal
-    url: https://aws.amazon.com/
-  - type: Portal
-    url: https://aws.amazon.com/rds/
-  - type: Documentation
-    url: https://docs.aws.amazon.com/rds/
-  - type: TermsOfService
-    url: https://aws.amazon.com/service-terms/
-  - type: PrivacyPolicy
-    url: https://aws.amazon.com/privacy/
-  - type: Support
-    url: https://aws.amazon.com/premiumsupport/
-  - type: Blog
-    url: https://aws.amazon.com/blogs/database/
-  - type: GitHubOrganization
-    url: https://github.com/aws
-  - type: Portal
-    url: https://console.aws.amazon.com/rds/
-  - type: Signup
-    url: https://signin.aws.amazon.com/signup?request_type=register
-  - type: Login
-    url: https://aws.amazon.com/console/
-  - type: StatusPage
-    url: https://health.aws.amazon.com/health/status
-  - type: Knowledge Center
-    url: https://repost.aws/knowledge-center
-  - type: YouTube
-    url: https://www.youtube.com/user/AmazonWebServices
-  - type: StackOverflow
-    url: https://stackoverflow.com/questions/tagged/amazon-rds
-  - type: Contact
-    url: https://aws.amazon.com/contact-us/
-  - type: Security
-    url: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.html
-  - type: Compliance
-    url: https://aws.amazon.com/compliance/
-  - type: JSONLD
-    url: json-ld/amazon-rds-context-context.jsonld
-  - type: JSONSchema
-    url: json-schema/amazon-rds-openapi-create-db-cluster-response-schema.json
-  - type: JSONSchema
-    url: json-schema/amazon-rds-openapi-create-db-instance-response-schema.json
-  - type: JSONSchema
-    url: json-schema/amazon-rds-openapi-create-db-snapshot-response-schema.json
-  - type: JSONSchema
-    url: json-schema/amazon-rds-openapi-db-cluster-schema.json
-  - type: JSONSchema
-    url: json-schema/amazon-rds-openapi-db-instance-schema.json
-  - type: JSONSchema
-    url: json-schema/amazon-rds-openapi-db-snapshot-schema.json
-  - type: JSONSchema
-    url: json-schema/amazon-rds-openapi-describe-db-clusters-response-schema.json
-  - type: JSONSchema
-    url: json-schema/amazon-rds-openapi-describe-db-instances-response-schema.json
-  - type: JSONSchema
-    url: json-schema/amazon-rds-openapi-describe-db-snapshots-response-schema.json
-  - type: JSONSchema
-    url: json-schema/amazon-rds-openapi-modify-db-instance-response-schema.json
-  - type: JSONSchema
-    url: json-schema/amazon-rds-openapi-tag-schema.json
-  - type: JSONStructure
-    url: json-structure/amazon-rds-instance-structure.json
-  - type: JSONStructure
-    url: json-structure/amazon-rds-openapi-create-db-cluster-response-structure.json
-  - type: JSONStructure
-    url: json-structure/amazon-rds-openapi-create-db-instance-response-structure.json
-  - type: JSONStructure
-    url: json-structure/amazon-rds-openapi-create-db-snapshot-response-structure.json
-  - type: JSONStructure
-    url: json-structure/amazon-rds-openapi-db-cluster-structure.json
-  - type: JSONStructure
-    url: json-structure/amazon-rds-openapi-db-instance-structure.json
-  - type: JSONStructure
-    url: json-structure/amazon-rds-openapi-db-snapshot-structure.json
-  - type: JSONStructure
-    url: json-structure/amazon-rds-openapi-describe-db-clusters-response-structure.json
-  - type: JSONStructure
-    url: json-structure/amazon-rds-openapi-describe-db-instances-response-structure.json
-  - type: JSONStructure
-    url: json-structure/amazon-rds-openapi-describe-db-snapshots-response-structure.json
-  - type: JSONStructure
-    url: json-structure/amazon-rds-openapi-modify-db-instance-response-structure.json
-  - type: JSONStructure
-    url: json-structure/amazon-rds-openapi-tag-structure.json
-  - type: Examples
-    url: examples/amazon-rds-instance-example.json
-  - type: Examples
-    url: examples/amazon-rds-openapi-create-db-cluster-response-example.json
-  - type: Examples
-    url: examples/amazon-rds-openapi-create-db-instance-response-example.json
-  - type: Examples
-    url: examples/amazon-rds-openapi-create-db-snapshot-response-example.json
-  - type: Examples
-    url: examples/amazon-rds-openapi-db-cluster-example.json
-  - type: Examples
-    url: examples/amazon-rds-openapi-db-instance-example.json
-  - type: Examples
-    url: examples/amazon-rds-openapi-db-snapshot-example.json
-  - type: Examples
-    url: examples/amazon-rds-openapi-describe-db-clusters-response-example.json
-  - type: Examples
-    url: examples/amazon-rds-openapi-describe-db-instances-response-example.json
-  - type: Examples
-    url: examples/amazon-rds-openapi-describe-db-snapshots-response-example.json
-  - type: Examples
-    url: examples/amazon-rds-openapi-modify-db-instance-response-example.json
-  - type: Examples
-    url: examples/amazon-rds-openapi-tag-example.json
-  - type: SpectralRules
-    url: rules/amazon-rds-spectral-rules.yml
-  - type: Vocabulary
-    url: vocabulary/amazon-rds-vocabulary.yaml
-  - type: Integrations
-    url: https://aws.amazon.com/partners/
+- type: Website
+  url: https://amazon.com
+- type: AgenticAccess
+  url: agentic-access/amazon-rds-agentic-access.yml
+- type: TrustCenter
+  url: security/amazon-rds-trust-center.yml
+- type: VulnerabilityDisclosure
+  url: security/amazon-rds-vulnerability-disclosure.yml
+- type: DomainSecurity
+  url: security/amazon-rds-domain-security.yml
+- type: Authentication
+  url: authentication/amazon-rds-authentication.yml
+- type: PostmanWorkspace
+  url: https://www.postman.com/kinlaneapi/amazon-rds/overview
+- type: Arazzo
+  url: arazzo/amazon-rds-add-aurora-replica-instance-workflow.yml
+  name: Amazon RDS Add an Aurora Replica Instance
+- type: Arazzo
+  url: arazzo/amazon-rds-clean-up-snapshot-workflow.yml
+  name: Amazon RDS Clean Up a DB Snapshot
+- type: Arazzo
+  url: arazzo/amazon-rds-clone-instance-from-snapshot-restore-workflow.yml
+  name: Amazon RDS Snapshot and Rebuild a DB Instance
+- type: Arazzo
+  url: arazzo/amazon-rds-convert-to-multi-az-workflow.yml
+  name: Amazon RDS Convert Instance to Multi-AZ
+- type: Arazzo
+  url: arazzo/amazon-rds-delete-aurora-cluster-workflow.yml
+  name: Amazon RDS Delete an Aurora DB Cluster
+- type: Arazzo
+  url: arazzo/amazon-rds-enable-backup-retention-workflow.yml
+  name: Amazon RDS Enable Backup Retention
+- type: Arazzo
+  url: arazzo/amazon-rds-modify-instance-class-workflow.yml
+  name: Amazon RDS Modify a DB Instance Class
+- type: Arazzo
+  url: arazzo/amazon-rds-provision-aurora-cluster-workflow.yml
+  name: Amazon RDS Provision an Aurora DB Cluster
+- type: Arazzo
+  url: arazzo/amazon-rds-provision-db-instance-workflow.yml
+  name: Amazon RDS Provision a DB Instance
+- type: Arazzo
+  url: arazzo/amazon-rds-reboot-instance-workflow.yml
+  name: Amazon RDS Reboot a DB Instance
+- type: Arazzo
+  url: arazzo/amazon-rds-rotate-master-password-workflow.yml
+  name: Amazon RDS Rotate Master Password
+- type: Arazzo
+  url: arazzo/amazon-rds-scale-instance-storage-workflow.yml
+  name: Amazon RDS Scale DB Instance Storage
+- type: Arazzo
+  url: arazzo/amazon-rds-snapshot-db-instance-workflow.yml
+  name: Amazon RDS Snapshot a DB Instance
+- type: Arazzo
+  url: arazzo/amazon-rds-snapshot-then-delete-instance-workflow.yml
+  name: Amazon RDS Snapshot Then Delete a DB Instance
+- type: Arazzo
+  url: arazzo/amazon-rds-upgrade-engine-version-workflow.yml
+  name: Amazon RDS Upgrade DB Engine Version
+- type: Arazzo
+  url: arazzo/amazon-rds-verify-engine-then-provision-workflow.yml
+  name: Amazon RDS Verify Engine Support Then Provision
+- type: Portal
+  url: https://aws.amazon.com/
+- type: Portal
+  url: https://aws.amazon.com/rds/
+- type: Documentation
+  url: https://docs.aws.amazon.com/rds/
+- type: TermsOfService
+  url: https://aws.amazon.com/service-terms/
+- type: PrivacyPolicy
+  url: https://aws.amazon.com/privacy/
+- type: Support
+  url: https://aws.amazon.com/premiumsupport/
+- type: Blog
+  url: https://aws.amazon.com/blogs/database/
+- type: GitHubOrganization
+  url: https://github.com/aws
+- type: Portal
+  url: https://console.aws.amazon.com/rds/
+- type: Signup
+  url: https://signin.aws.amazon.com/signup?request_type=register
+- type: Login
+  url: https://aws.amazon.com/console/
+- type: StatusPage
+  url: https://health.aws.amazon.com/health/status
+- type: Knowledge Center
+  url: https://repost.aws/knowledge-center
+- type: YouTube
+  url: https://www.youtube.com/user/AmazonWebServices
+- type: StackOverflow
+  url: https://stackoverflow.com/questions/tagged/amazon-rds
+- type: Contact
+  url: https://aws.amazon.com/contact-us/
+- type: Security
+  url: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.html
+- type: Compliance
+  url: https://aws.amazon.com/compliance/
+- type: JSONLD
+  url: json-ld/amazon-rds-context-context.jsonld
+- type: JSONSchema
+  url: json-schema/amazon-rds-openapi-create-db-cluster-response-schema.json
+- type: JSONSchema
+  url: json-schema/amazon-rds-openapi-create-db-instance-response-schema.json
+- type: JSONSchema
+  url: json-schema/amazon-rds-openapi-create-db-snapshot-response-schema.json
+- type: JSONSchema
+  url: json-schema/amazon-rds-openapi-db-cluster-schema.json
+- type: JSONSchema
+  url: json-schema/amazon-rds-openapi-db-instance-schema.json
+- type: JSONSchema
+  url: json-schema/amazon-rds-openapi-db-snapshot-schema.json
+- type: JSONSchema
+  url: json-schema/amazon-rds-openapi-describe-db-clusters-response-schema.json
+- type: JSONSchema
+  url: json-schema/amazon-rds-openapi-describe-db-instances-response-schema.json
+- type: JSONSchema
+  url: json-schema/amazon-rds-openapi-describe-db-snapshots-response-schema.json
+- type: JSONSchema
+  url: json-schema/amazon-rds-openapi-modify-db-instance-response-schema.json
+- type: JSONSchema
+  url: json-schema/amazon-rds-openapi-tag-schema.json
+- type: JSONStructure
+  url: json-structure/amazon-rds-instance-structure.json
+- type: JSONStructure
+  url: json-structure/amazon-rds-openapi-create-db-cluster-response-structure.json
+- type: JSONStructure
+  url: json-structure/amazon-rds-openapi-create-db-instance-response-structure.json
+- type: JSONStructure
+  url: json-structure/amazon-rds-openapi-create-db-snapshot-response-structure.json
+- type: JSONStructure
+  url: json-structure/amazon-rds-openapi-db-cluster-structure.json
+- type: JSONStructure
+  url: json-structure/amazon-rds-openapi-db-instance-structure.json
+- type: JSONStructure
+  url: json-structure/amazon-rds-openapi-db-snapshot-structure.json
+- type: JSONStructure
+  url: json-structure/amazon-rds-openapi-describe-db-clusters-response-structure.json
+- type: JSONStructure
+  url: json-structure/amazon-rds-openapi-describe-db-instances-response-structure.json
+- type: JSONStructure
+  url: json-structure/amazon-rds-openapi-describe-db-snapshots-response-structure.json
+- type: JSONStructure
+  url: json-structure/amazon-rds-openapi-modify-db-instance-response-structure.json
+- type: JSONStructure
+  url: json-structure/amazon-rds-openapi-tag-structure.json
+- type: Examples
+  url: examples/amazon-rds-instance-example.json
+- type: Examples
+  url: examples/amazon-rds-openapi-create-db-cluster-response-example.json
+- type: Examples
+  url: examples/amazon-rds-openapi-create-db-instance-response-example.json
+- type: Examples
+  url: examples/amazon-rds-openapi-create-db-snapshot-response-example.json
+- type: Examples
+  url: examples/amazon-rds-openapi-db-cluster-example.json
+- type: Examples
+  url: examples/amazon-rds-openapi-db-instance-example.json
+- type: Examples
+  url: examples/amazon-rds-openapi-db-snapshot-example.json
+- type: Examples
+  url: examples/amazon-rds-openapi-describe-db-clusters-response-example.json
+- type: Examples
+  url: examples/amazon-rds-openapi-describe-db-instances-response-example.json
+- type: Examples
+  url: examples/amazon-rds-openapi-describe-db-snapshots-response-example.json
+- type: Examples
+  url: examples/amazon-rds-openapi-modify-db-instance-response-example.json
+- type: Examples
+  url: examples/amazon-rds-openapi-tag-example.json
+- type: SpectralRules
+  url: rules/amazon-rds-spectral-rules.yml
+- type: Vocabulary
+  url: vocabulary/amazon-rds-vocabulary.yaml
+- type: Integrations
+  url: https://aws.amazon.com/partners/
 integrations:
-  - name: Partner Programs
-  - name: Resources
-  - name: Success Stories
-  - name: Work with an AWS Partner
-  - name: AWS Marketplace
-  - name: AWS Partner Central
-  - name: Partner Paths
-  - name: co-sell with AWS
+- name: Partner Programs
+- name: Resources
+- name: Success Stories
+- name: Work with an AWS Partner
+- name: AWS Marketplace
+- name: AWS Partner Central
+- name: Partner Paths
+- name: co-sell with AWS
 maintainers:
-  - FN: Kin Lane
-    email: kin@apievangelist.com
-    url: https://apievangelist.com
+- FN: Kin Lane
+  email: kin@apievangelist.com
+  url: https://apievangelist.com
 tags:
-  - AWS
-  - Cloud Databases
-  - Database Service
-  - Database-as-a-Service
-  - Managed Databases
-  - Relational Databases
+- AWS
+- Cloud Databases
+- Database Service
+- Database-as-a-Service
+- Managed Databases
+- Relational Databases
 tags_raw:
-  - AWS
-  - Cloud Databases
-  - Database Service
-  - DBaaS
-  - Managed Databases
-  - Relational Databases
+- AWS
+- Cloud Databases
+- Database Service
+- DBaaS
+- Managed Databases
+- Relational Databases
 x-parent: aws
 x-relationship: product
