@@ -1,10 +1,7 @@
 {
   "provider": "amazon-rds",
   "sources": [
-    "amazon-rds-db-clusters-api-openapi.yml",
-    "amazon-rds-db-engine-versions-api-openapi.yml",
-    "amazon-rds-db-instances-api-openapi.yml",
-    "amazon-rds-db-snapshots-api-openapi.yml"
+    "_original/amazon-rds-openapi.yml"
   ],
   "outputs": [
     "amazon-rds-db-clusters-api-openapi.yml",
@@ -16,7 +13,14 @@
   "errors": [],
   "warnings": [],
   "notes": [
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "amazon-rds-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
     "apis.yml register: already-registered"
   ],
-  "skipped": []
+  "skipped": [
+    "amazon-rds-db-clusters-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "amazon-rds-db-engine-versions-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "amazon-rds-db-instances-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "amazon-rds-db-snapshots-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }

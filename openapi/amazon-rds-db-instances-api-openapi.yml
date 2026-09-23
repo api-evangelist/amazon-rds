@@ -1,6 +1,6 @@
 openapi: 3.2.0
 info:
-  title: Amazon RDS DB Clusters DB Instances API
+  title: Amazon RDS DB Instances API
   description: Amazon Relational Database Service (RDS) makes it easy to set up, operate, and scale a relational database in the cloud. This API enables you to create and manage database instances, clusters, snapshots, and other database resources with support for multiple database engines including MySQL, PostgreSQL, MariaDB, Oracle, SQL Server, and Amazon Aurora.
   version: '2014-10-31'
   contact:
@@ -293,40 +293,6 @@ paths:
           description: Authentication failure
 components:
   schemas:
-    CreateDBInstanceResponse:
-      type: object
-      description: Response from the CreateDBInstance action
-      properties:
-        dBInstance:
-          $ref: '#/components/schemas/DBInstance'
-    ModifyDBInstanceResponse:
-      type: object
-      description: Response from the ModifyDBInstance action
-      properties:
-        dBInstance:
-          $ref: '#/components/schemas/DBInstance'
-    DescribeDBInstancesResponse:
-      type: object
-      description: Response from the DescribeDBInstances action
-      properties:
-        dBInstances:
-          type: array
-          description: A list of DB instance descriptions
-          items:
-            $ref: '#/components/schemas/DBInstance'
-        marker:
-          type: string
-          description: An optional pagination token provided by a previous request
-    Tag:
-      type: object
-      description: Describes a resource tag
-      properties:
-        key:
-          type: string
-          description: The key of the tag
-        value:
-          type: string
-          description: The value of the tag
     DBInstance:
       type: object
       description: Describes an Amazon RDS DB instance
@@ -457,6 +423,40 @@ components:
           description: Tags assigned to the DB instance
           items:
             $ref: '#/components/schemas/Tag'
+    CreateDBInstanceResponse:
+      type: object
+      description: Response from the CreateDBInstance action
+      properties:
+        dBInstance:
+          $ref: '#/components/schemas/DBInstance'
+    ModifyDBInstanceResponse:
+      type: object
+      description: Response from the ModifyDBInstance action
+      properties:
+        dBInstance:
+          $ref: '#/components/schemas/DBInstance'
+    Tag:
+      type: object
+      description: Describes a resource tag
+      properties:
+        key:
+          type: string
+          description: The key of the tag
+        value:
+          type: string
+          description: The value of the tag
+    DescribeDBInstancesResponse:
+      type: object
+      description: Response from the DescribeDBInstances action
+      properties:
+        dBInstances:
+          type: array
+          description: A list of DB instance descriptions
+          items:
+            $ref: '#/components/schemas/DBInstance'
+        marker:
+          type: string
+          description: An optional pagination token provided by a previous request
   securitySchemes:
     sigv4Auth:
       type: apiKey
