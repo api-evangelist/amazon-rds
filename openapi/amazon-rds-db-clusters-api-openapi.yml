@@ -195,6 +195,18 @@ components:
       properties:
         dBCluster:
           $ref: '#/components/schemas/DBCluster'
+    DescribeDBClustersResponse:
+      type: object
+      description: Response from the DescribeDBClusters action
+      properties:
+        dBClusters:
+          type: array
+          description: A list of DB cluster descriptions
+          items:
+            $ref: '#/components/schemas/DBCluster'
+        marker:
+          type: string
+          description: An optional pagination token provided by a previous request
     DBCluster:
       type: object
       description: Describes an Amazon Aurora DB cluster
@@ -270,18 +282,6 @@ components:
           description: Tags assigned to the DB cluster
           items:
             $ref: '#/components/schemas/Tag'
-    DescribeDBClustersResponse:
-      type: object
-      description: Response from the DescribeDBClusters action
-      properties:
-        dBClusters:
-          type: array
-          description: A list of DB cluster descriptions
-          items:
-            $ref: '#/components/schemas/DBCluster'
-        marker:
-          type: string
-          description: An optional pagination token provided by a previous request
   securitySchemes:
     sigv4Auth:
       type: apiKey

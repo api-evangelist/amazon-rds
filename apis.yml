@@ -164,7 +164,7 @@ apis:
     url: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.html
 common:
 - type: Website
-  url: https://amazon.com
+  url: https://aws.amazon.com/rds/
 - type: AgenticAccess
   url: agentic-access/amazon-rds-agentic-access.yml
 - type: TrustCenter
@@ -359,6 +359,7 @@ tags:
 - Database-as-a-Service
 - Managed Database
 - Relational Databases
+- Database
 tags_raw:
 - AWS
 - Cloud Databases
@@ -366,5 +367,6 @@ tags_raw:
 - DBaaS
 - Managed Databases
 - Relational Databases
-x-parent: aws
+- Database
+x-parent: amazon-web-services
 x-relationship: product

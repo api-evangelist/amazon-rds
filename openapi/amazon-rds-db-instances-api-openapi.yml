@@ -423,18 +423,6 @@ components:
           description: Tags assigned to the DB instance
           items:
             $ref: '#/components/schemas/Tag'
-    CreateDBInstanceResponse:
-      type: object
-      description: Response from the CreateDBInstance action
-      properties:
-        dBInstance:
-          $ref: '#/components/schemas/DBInstance'
-    ModifyDBInstanceResponse:
-      type: object
-      description: Response from the ModifyDBInstance action
-      properties:
-        dBInstance:
-          $ref: '#/components/schemas/DBInstance'
     Tag:
       type: object
       description: Describes a resource tag
@@ -445,6 +433,18 @@ components:
         value:
           type: string
           description: The value of the tag
+    ModifyDBInstanceResponse:
+      type: object
+      description: Response from the ModifyDBInstance action
+      properties:
+        dBInstance:
+          $ref: '#/components/schemas/DBInstance'
+    CreateDBInstanceResponse:
+      type: object
+      description: Response from the CreateDBInstance action
+      properties:
+        dBInstance:
+          $ref: '#/components/schemas/DBInstance'
     DescribeDBInstancesResponse:
       type: object
       description: Response from the DescribeDBInstances action
