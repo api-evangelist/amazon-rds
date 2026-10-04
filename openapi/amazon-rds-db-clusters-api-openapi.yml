@@ -179,34 +179,6 @@ paths:
           description: Authentication failure
 components:
   schemas:
-    DescribeDBClustersResponse:
-      type: object
-      description: Response from the DescribeDBClusters action
-      properties:
-        dBClusters:
-          type: array
-          description: A list of DB cluster descriptions
-          items:
-            $ref: '#/components/schemas/DBCluster'
-        marker:
-          type: string
-          description: An optional pagination token provided by a previous request
-    CreateDBClusterResponse:
-      type: object
-      description: Response from the CreateDBCluster action
-      properties:
-        dBCluster:
-          $ref: '#/components/schemas/DBCluster'
-    Tag:
-      type: object
-      description: Describes a resource tag
-      properties:
-        key:
-          type: string
-          description: The key of the tag
-        value:
-          type: string
-          description: The value of the tag
     DBCluster:
       type: object
       description: Describes an Amazon Aurora DB cluster
@@ -282,6 +254,34 @@ components:
           description: Tags assigned to the DB cluster
           items:
             $ref: '#/components/schemas/Tag'
+    CreateDBClusterResponse:
+      type: object
+      description: Response from the CreateDBCluster action
+      properties:
+        dBCluster:
+          $ref: '#/components/schemas/DBCluster'
+    DescribeDBClustersResponse:
+      type: object
+      description: Response from the DescribeDBClusters action
+      properties:
+        dBClusters:
+          type: array
+          description: A list of DB cluster descriptions
+          items:
+            $ref: '#/components/schemas/DBCluster'
+        marker:
+          type: string
+          description: An optional pagination token provided by a previous request
+    Tag:
+      type: object
+      description: Describes a resource tag
+      properties:
+        key:
+          type: string
+          description: The key of the tag
+        value:
+          type: string
+          description: The value of the tag
   securitySchemes:
     sigv4Auth:
       type: apiKey
