@@ -163,6 +163,9 @@ apis:
   - type: Security
     url: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.html
 common:
+- type: CapabilityMap
+  url: capabilities/amazon-rds-capability-edges.yml
+  name: Amazon RDS Business Capability Map
 - type: Website
   url: https://aws.amazon.com/rds/
 - type: AgenticAccess
