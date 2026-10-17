@@ -179,6 +179,12 @@ paths:
           description: Authentication failure
 components:
   schemas:
+    CreateDBClusterResponse:
+      type: object
+      description: Response from the CreateDBCluster action
+      properties:
+        dBCluster:
+          $ref: '#/components/schemas/DBCluster'
     DBCluster:
       type: object
       description: Describes an Amazon Aurora DB cluster
@@ -254,12 +260,16 @@ components:
           description: Tags assigned to the DB cluster
           items:
             $ref: '#/components/schemas/Tag'
-    CreateDBClusterResponse:
+    Tag:
       type: object
-      description: Response from the CreateDBCluster action
+      description: Describes a resource tag
       properties:
-        dBCluster:
-          $ref: '#/components/schemas/DBCluster'
+        key:
+          type: string
+          description: The key of the tag
+        value:
+          type: string
+          description: The value of the tag
     DescribeDBClustersResponse:
       type: object
       description: Response from the DescribeDBClusters action
@@ -272,16 +282,6 @@ components:
         marker:
           type: string
           description: An optional pagination token provided by a previous request
-    Tag:
-      type: object
-      description: Describes a resource tag
-      properties:
-        key:
-          type: string
-          description: The key of the tag
-        value:
-          type: string
-          description: The value of the tag
   securitySchemes:
     sigv4Auth:
       type: apiKey

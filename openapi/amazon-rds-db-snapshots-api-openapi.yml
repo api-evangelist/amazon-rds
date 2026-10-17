@@ -130,6 +130,18 @@ components:
         value:
           type: string
           description: The value of the tag
+    DescribeDBSnapshotsResponse:
+      type: object
+      description: Response from the DescribeDBSnapshots action
+      properties:
+        dBSnapshots:
+          type: array
+          description: A list of DB snapshot descriptions
+          items:
+            $ref: '#/components/schemas/DBSnapshot'
+        marker:
+          type: string
+          description: An optional pagination token provided by a previous request
     DBSnapshot:
       type: object
       description: Describes an Amazon RDS DB snapshot
@@ -200,18 +212,6 @@ components:
           description: Tags assigned to the DB snapshot
           items:
             $ref: '#/components/schemas/Tag'
-    DescribeDBSnapshotsResponse:
-      type: object
-      description: Response from the DescribeDBSnapshots action
-      properties:
-        dBSnapshots:
-          type: array
-          description: A list of DB snapshot descriptions
-          items:
-            $ref: '#/components/schemas/DBSnapshot'
-        marker:
-          type: string
-          description: An optional pagination token provided by a previous request
     CreateDBSnapshotResponse:
       type: object
       description: Response from the CreateDBSnapshot action
