@@ -1,0 +1,87 @@
+# Pricing transcribed from the provider's own page — see provenance. Numbers are quoted, not derived.
+generated: '2026-10-28'
+method: searched
+source: https://aws.amazon.com/rds/pricing/
+sources:
+- https://aws.amazon.com/rds/pricing/
+provenance:
+  tool: engine/economics/harvest_pricing.py
+  run: 20261028T141238
+  grounding: every price_text was found verbatim in the fetched page text
+audience: developer-api
+pricing_basis: usage-other
+delivery:
+  delivery: managed
+  method: page
+  read: '2026-10-28'
+  managed_tier: Amazon RDS On-Demand Instances
+published: true
+note: 'Overview pricing page: actual instance rates are on per-engine pages. Only numeric prices on this
+  page are free-tier credits/hours and the $0.01 per GB cross-AZ data transfer rate. Mentions On-Demand
+  per-second billing, Reserved Instances (1- or 3-year, up to 69% savings) and Database Savings Plans
+  without rates.'
+plan_count: 3
+currency: USD
+plans:
+- name: Free Tier (signed up before July 15, 2025)
+  price_text: free for up to 12 months
+  price: 12
+  period: month
+  unit: single-AZ instance hours
+  included_quota: up to 750 hours per month, 20 GB of General Purpose SSD storage (gp2) per month and
+    20 GB of automated database backup storage per month for 1 year
+  overage: You are billed at standard Amazon RDS prices for instance hours beyond what the Amazon RDS
+    Free Tier provides.
+- name: Free Tier credits (signed up after July 15, 2025)
+  price_text: $100 in credits
+  price: 100
+  currency: USD
+  period: none
+  unit: credits
+  included_quota: up to an additional $100 in credits for activating foundational AWS services; valid
+    for up to 12 months
+- name: Cross-AZ data transfer (EC2 to RDS, different AZs)
+  price_text: $0.01 per GB in/out
+  price: 0.01
+  currency: USD
+  period: per-use
+  unit: GB
+  included_quota: Data transferred between Amazon RDS and Amazon EC2 instances in the same Availability
+    Zone Free; replication of Multi-AZ deployments Free
+rate_limit_statements:
+- You can purchase up to 40 Reserved Instances. If you wish to run more than 40 DB instances, please complete
+  the Amazon RDS DB Instance request form
+x-canonical:
+  generated: '2026-11-01'
+  vocabulary: engine/economics/plans-canonical.yml
+  models:
+  - hybrid
+  units:
+  - compute
+  - credit
+  - data
+  plans:
+  - name: Free Tier (signed up before July 15, 2025)
+    access: other
+    model: hybrid
+    model_how: derived
+    units:
+    - compute
+    periods:
+    - month
+  - name: Free Tier credits (signed up after July 15, 2025)
+    access: other
+    model: hybrid
+    model_how: derived
+    units:
+    - credit
+    periods:
+    - none
+  - name: Cross-AZ data transfer (EC2 to RDS, different AZs)
+    access: other
+    model: hybrid
+    model_how: derived
+    units:
+    - data
+    periods:
+    - other
