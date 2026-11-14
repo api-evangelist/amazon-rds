@@ -1,7 +1,7 @@
 name: Amazon RDS
-description: Amazon Relational Database Service (RDS) makes it easy to set up, operate, and scale a relational
-  database in the cloud, providing cost-efficient and resizable capacity while automating time-consuming
-  administration tasks such as hardware provisioning, database setup, patching, and backups.
+description: Amazon Relational Database Service (RDS) makes it easy to set up, operate, and scale a relational database in the cloud, providing
+  cost-efficient and resizable capacity while automating time-consuming administration tasks such as hardware provisioning, database setup, patching,
+  and backups.
 deliveryModel:
   model: saas
   open_source: false
@@ -30,383 +30,73 @@ accessModel:
   - plans
   - authentication
   - security
-  generated: '2026-11-06'
+  generated: '2026-11-13'
   method: derived
 image: https://a0.awsstatic.com/libra-css/images/logos/aws_logo_smile_1200x630.png
 url: https://raw.githubusercontent.com/api-evangelist/amazon-rds/refs/heads/main/apis.yml
 created: '2024-01-15'
 modified: '2026-09-16'
-apis:
-- aid: amazon-rds:amazon-rds-db-clusters-api
-  name: Amazon RDS DB Clusters API
-  description: Operations for creating and managing Aurora database clusters
-  humanURL: https://aws.amazon.com/rds/
-  baseURL: https://rds.amazonaws.com
-  tags:
-  - DB Clusters
-  properties:
-  - type: OpenAPI
-    url: openapi/amazon-rds-db-clusters-api-openapi.yml
-  - type: Documentation
-    url: https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/Welcome.html
-  - type: JSONSchema
-    url: json-schema/amazon-rds-instance-schema.json
-  - type: JSONLD
-    url: json-ld/amazon-rds-context.jsonld
-  - type: Pricing
-    url: https://aws.amazon.com/rds/pricing/
-  - type: GettingStarted
-    url: https://aws.amazon.com/rds/getting-started/
-  - type: FAQ
-    url: https://aws.amazon.com/rds/faqs/
-  - type: ServiceLevelAgreement
-    url: https://aws.amazon.com/rds/sla/
-  - type: User Guide
-    url: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/
-  - type: APIReference
-    url: https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/
-  - type: CLI
-    url: https://docs.aws.amazon.com/cli/latest/reference/rds/
-  - type: Security
-    url: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.html
-- aid: amazon-rds:amazon-rds-db-engine-versions-api
-  name: Amazon RDS DB Engine Versions API
-  description: Operations for describing available database engine versions
-  humanURL: https://aws.amazon.com/rds/
-  baseURL: https://rds.amazonaws.com
-  tags:
-  - DB Engine Versions
-  properties:
-  - type: OpenAPI
-    url: openapi/amazon-rds-db-engine-versions-api-openapi.yml
-  - type: Documentation
-    url: https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/Welcome.html
-  - type: JSONSchema
-    url: json-schema/amazon-rds-instance-schema.json
-  - type: JSONLD
-    url: json-ld/amazon-rds-context.jsonld
-  - type: Pricing
-    url: https://aws.amazon.com/rds/pricing/
-  - type: GettingStarted
-    url: https://aws.amazon.com/rds/getting-started/
-  - type: FAQ
-    url: https://aws.amazon.com/rds/faqs/
-  - type: ServiceLevelAgreement
-    url: https://aws.amazon.com/rds/sla/
-  - type: User Guide
-    url: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/
-  - type: APIReference
-    url: https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/
-  - type: CLI
-    url: https://docs.aws.amazon.com/cli/latest/reference/rds/
-  - type: Security
-    url: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.html
-- aid: amazon-rds:amazon-rds-db-instances-api
-  name: Amazon RDS DB Instances API
-  description: Operations for creating, managing, and deleting RDS database instances
-  humanURL: https://aws.amazon.com/rds/
-  baseURL: https://rds.amazonaws.com
-  tags:
-  - DB Instances
-  properties:
-  - type: OpenAPI
-    url: openapi/amazon-rds-db-instances-api-openapi.yml
-  - type: Documentation
-    url: https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/Welcome.html
-  - type: JSONSchema
-    url: json-schema/amazon-rds-instance-schema.json
-  - type: JSONLD
-    url: json-ld/amazon-rds-context.jsonld
-  - type: Pricing
-    url: https://aws.amazon.com/rds/pricing/
-  - type: GettingStarted
-    url: https://aws.amazon.com/rds/getting-started/
-  - type: FAQ
-    url: https://aws.amazon.com/rds/faqs/
-  - type: ServiceLevelAgreement
-    url: https://aws.amazon.com/rds/sla/
-  - type: User Guide
-    url: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/
-  - type: APIReference
-    url: https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/
-  - type: CLI
-    url: https://docs.aws.amazon.com/cli/latest/reference/rds/
-  - type: Security
-    url: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.html
-- aid: amazon-rds:amazon-rds-db-snapshots-api
-  name: Amazon RDS DB Snapshots API
-  description: Operations for creating and managing database snapshots
-  humanURL: https://aws.amazon.com/rds/
-  baseURL: https://rds.amazonaws.com
-  tags:
-  - DB Snapshots
-  properties:
-  - type: OpenAPI
-    url: openapi/amazon-rds-db-snapshots-api-openapi.yml
-  - type: Documentation
-    url: https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/Welcome.html
-  - type: JSONSchema
-    url: json-schema/amazon-rds-instance-schema.json
-  - type: JSONLD
-    url: json-ld/amazon-rds-context.jsonld
-  - type: Pricing
-    url: https://aws.amazon.com/rds/pricing/
-  - type: GettingStarted
-    url: https://aws.amazon.com/rds/getting-started/
-  - type: FAQ
-    url: https://aws.amazon.com/rds/faqs/
-  - type: ServiceLevelAgreement
-    url: https://aws.amazon.com/rds/sla/
-  - type: User Guide
-    url: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/
-  - type: APIReference
-    url: https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/
-  - type: CLI
-    url: https://docs.aws.amazon.com/cli/latest/reference/rds/
-  - type: Security
-    url: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.html
-- aid: amazon-rds:amazon-rds-activity-stream-api
-  name: Amazon RDS Rds Activity Stream API
-  description: The Rds Activity Stream API from Amazon RDS — 3 operation(s) for rds activity stream.
-  humanURL: https://aws.amazon.com/rds/
-  baseURL: https://rds.amazonaws.com
-  tags:
-  - Rds Activity Stream
-  properties:
-  - type: OpenAPI
-    url: openapi/amazon-rds-activity-stream-api-openapi.yml
-- aid: amazon-rds:amazon-rds-blue-green-deployment-api
-  name: Amazon RDS Rds Blue Green Deployment API
-  description: >-
-    The Rds Blue Green Deployment API from Amazon RDS — 3 operation(s) for rds blue green deployment.
-  humanURL: https://aws.amazon.com/rds/
-  baseURL: https://rds.amazonaws.com
-  tags:
-  - Rds Blue Green Deployment
-  properties:
-  - type: OpenAPI
-    url: openapi/amazon-rds-blue-green-deployment-api-openapi.yml
-- aid: amazon-rds:amazon-rds-custom-db-engine-version-api
-  name: Amazon RDS Rds Custom Db Engine Version API
-  description: >-
-    The Rds Custom Db Engine Version API from Amazon RDS — 3 operation(s) for rds custom db engine version.
-  humanURL: https://aws.amazon.com/rds/
-  baseURL: https://rds.amazonaws.com
-  tags:
-  - Rds Custom Db Engine Version
-  properties:
-  - type: OpenAPI
-    url: openapi/amazon-rds-custom-db-engine-version-api-openapi.yml
-- aid: amazon-rds:amazon-rds-db-capacity-reservation-api
-  name: Amazon RDS Rds Db Capacity Reservation API
-  description: >-
-    The Rds Db Capacity Reservation API from Amazon RDS — 4 operation(s) for rds db capacity reservation.
-  humanURL: https://aws.amazon.com/rds/
-  baseURL: https://rds.amazonaws.com
-  tags:
-  - Rds Db Capacity Reservation
-  properties:
-  - type: OpenAPI
-    url: openapi/amazon-rds-db-capacity-reservation-api-openapi.yml
-- aid: amazon-rds:amazon-rds-db-cluster-endpoint-api
-  name: Amazon RDS Rds Db Cluster Endpoint API
-  description: >-
-    The Rds Db Cluster Endpoint API from Amazon RDS — 4 operation(s) for rds db cluster endpoint.
-  humanURL: https://aws.amazon.com/rds/
-  baseURL: https://rds.amazonaws.com
-  tags:
-  - Rds Db Cluster Endpoint
-  properties:
-  - type: OpenAPI
-    url: openapi/amazon-rds-db-cluster-endpoint-api-openapi.yml
-- aid: amazon-rds:amazon-rds-db-cluster-parameter-group-api
-  name: Amazon RDS Rds Db Cluster Parameter Group API
-  description: >-
-    The Rds Db Cluster Parameter Group API from Amazon RDS — 5 operation(s) for rds db cluster parameter
-    group.
-  humanURL: https://aws.amazon.com/rds/
-  baseURL: https://rds.amazonaws.com
-  tags:
-  - Rds Db Cluster Parameter Group
-  properties:
-  - type: OpenAPI
-    url: openapi/amazon-rds-db-cluster-parameter-group-api-openapi.yml
-- aid: amazon-rds:amazon-rds-db-cluster-snapshot-api
-  name: Amazon RDS Rds Db Cluster Snapshot API
-  description: >-
-    The Rds Db Cluster Snapshot API from Amazon RDS — 3 operation(s) for rds db cluster snapshot.
-  humanURL: https://aws.amazon.com/rds/
-  baseURL: https://rds.amazonaws.com
-  tags:
-  - Rds Db Cluster Snapshot
-  properties:
-  - type: OpenAPI
-    url: openapi/amazon-rds-db-cluster-snapshot-api-openapi.yml
-- aid: amazon-rds:amazon-rds-db-parameter-group-api
-  name: Amazon RDS Rds Db Parameter Group API
-  description: >-
-    The Rds Db Parameter Group API from Amazon RDS — 5 operation(s) for rds db parameter group.
-  humanURL: https://aws.amazon.com/rds/
-  baseURL: https://rds.amazonaws.com
-  tags:
-  - Rds Db Parameter Group
-  properties:
-  - type: OpenAPI
-    url: openapi/amazon-rds-db-parameter-group-api-openapi.yml
-- aid: amazon-rds:amazon-rds-db-proxy-api
-  name: Amazon RDS Rds Db Proxy API
-  description: The Rds Db Proxy API from Amazon RDS — 4 operation(s) for rds db proxy.
-  humanURL: https://aws.amazon.com/rds/
-  baseURL: https://rds.amazonaws.com
-  tags:
-  - Rds Db Proxy
-  properties:
-  - type: OpenAPI
-    url: openapi/amazon-rds-db-proxy-api-openapi.yml
-- aid: amazon-rds:amazon-rds-db-proxy-endpoint-api
-  name: Amazon RDS Rds Db Proxy Endpoint API
-  description: >-
-    The Rds Db Proxy Endpoint API from Amazon RDS — 4 operation(s) for rds db proxy endpoint.
-  humanURL: https://aws.amazon.com/rds/
-  baseURL: https://rds.amazonaws.com
-  tags:
-  - Rds Db Proxy Endpoint
-  properties:
-  - type: OpenAPI
-    url: openapi/amazon-rds-db-proxy-endpoint-api-openapi.yml
-- aid: amazon-rds:amazon-rds-db-proxy-target-api
-  name: Amazon RDS Rds Db Proxy Target API
-  description: The Rds Db Proxy Target API from Amazon RDS — 3 operation(s) for rds db proxy target.
-  humanURL: https://aws.amazon.com/rds/
-  baseURL: https://rds.amazonaws.com
-  tags:
-  - Rds Db Proxy Target
-  properties:
-  - type: OpenAPI
-    url: openapi/amazon-rds-db-proxy-target-api-openapi.yml
-- aid: amazon-rds:amazon-rds-db-security-group-api
-  name: Amazon RDS Rds Db Security Group API
-  description: >-
-    The Rds Db Security Group API from Amazon RDS — 3 operation(s) for rds db security group.
-  humanURL: https://aws.amazon.com/rds/
-  baseURL: https://rds.amazonaws.com
-  tags:
-  - Rds Db Security Group
-  properties:
-  - type: OpenAPI
-    url: openapi/amazon-rds-db-security-group-api-openapi.yml
-- aid: amazon-rds:amazon-rds-db-shard-group-api
-  name: Amazon RDS Rds Db Shard Group API
-  description: The Rds Db Shard Group API from Amazon RDS — 4 operation(s) for rds db shard group.
-  humanURL: https://aws.amazon.com/rds/
-  baseURL: https://rds.amazonaws.com
-  tags:
-  - Rds Db Shard Group
-  properties:
-  - type: OpenAPI
-    url: openapi/amazon-rds-db-shard-group-api-openapi.yml
-- aid: amazon-rds:amazon-rds-db-subnet-group-api
-  name: Amazon RDS Rds Db Subnet Group API
-  description: The Rds Db Subnet Group API from Amazon RDS — 4 operation(s) for rds db subnet group.
-  humanURL: https://aws.amazon.com/rds/
-  baseURL: https://rds.amazonaws.com
-  tags:
-  - Rds Db Subnet Group
-  properties:
-  - type: OpenAPI
-    url: openapi/amazon-rds-db-subnet-group-api-openapi.yml
-- aid: amazon-rds:amazon-rds-event-subscription-api
-  name: Amazon RDS Rds Event Subscription API
-  description: >-
-    The Rds Event Subscription API from Amazon RDS — 4 operation(s) for rds event subscription.
-  humanURL: https://aws.amazon.com/rds/
-  baseURL: https://rds.amazonaws.com
-  tags:
-  - Rds Event Subscription
-  properties:
-  - type: OpenAPI
-    url: openapi/amazon-rds-event-subscription-api-openapi.yml
-- aid: amazon-rds:amazon-rds-export-task-api
-  name: Amazon RDS Rds Export Task API
-  description: The Rds Export Task API from Amazon RDS — 3 operation(s) for rds export task.
-  humanURL: https://aws.amazon.com/rds/
-  baseURL: https://rds.amazonaws.com
-  tags:
-  - Rds Export Task
-  properties:
-  - type: OpenAPI
-    url: openapi/amazon-rds-export-task-api-openapi.yml
-- aid: amazon-rds:amazon-rds-global-cluster-api
-  name: Amazon RDS Rds Global Cluster API
-  description: The Rds Global Cluster API from Amazon RDS — 4 operation(s) for rds global cluster.
-  humanURL: https://aws.amazon.com/rds/
-  baseURL: https://rds.amazonaws.com
-  tags:
-  - Rds Global Cluster
-  properties:
-  - type: OpenAPI
-    url: openapi/amazon-rds-global-cluster-api-openapi.yml
-- aid: amazon-rds:amazon-rds-integration-api
-  name: Amazon RDS Rds Integration API
-  description: The Rds Integration API from Amazon RDS — 4 operation(s) for rds integration.
-  humanURL: https://aws.amazon.com/rds/
-  baseURL: https://rds.amazonaws.com
-  tags:
-  - Rds Integration
-  properties:
-  - type: OpenAPI
-    url: openapi/amazon-rds-integration-api-openapi.yml
-- aid: amazon-rds:amazon-rds-operations-api
-  name: Amazon RDS Rds Operations API
-  description: The Rds Operations API from Amazon RDS — 63 operation(s) for rds operations.
-  humanURL: https://aws.amazon.com/rds/
-  baseURL: https://rds.amazonaws.com
-  tags:
-  - Rds Operations
-  properties:
-  - type: OpenAPI
-    url: openapi/amazon-rds-operations-api-openapi.yml
-- aid: amazon-rds:amazon-rds-option-group-api
-  name: Amazon RDS Rds Option Group API
-  description: The Rds Option Group API from Amazon RDS — 4 operation(s) for rds option group.
-  humanURL: https://aws.amazon.com/rds/
-  baseURL: https://rds.amazonaws.com
-  tags:
-  - Rds Option Group
-  properties:
-  - type: OpenAPI
-    url: openapi/amazon-rds-option-group-api-openapi.yml
-- aid: amazon-rds:amazon-rds-role-api
-  name: Amazon RDS Rds Role API
-  description: The Rds Role API from Amazon RDS — 4 operation(s) for rds role.
-  humanURL: https://aws.amazon.com/rds/
-  baseURL: https://rds.amazonaws.com
-  tags:
-  - Rds Role
-  properties:
-  - type: OpenAPI
-    url: openapi/amazon-rds-role-api-openapi.yml
-- aid: amazon-rds:amazon-rds-tag-api
-  name: Amazon RDS Rds Tag API
-  description: The Rds Tag API from Amazon RDS — 3 operation(s) for rds tag.
-  humanURL: https://aws.amazon.com/rds/
-  baseURL: https://rds.amazonaws.com
-  tags:
-  - Rds Tag
-  properties:
-  - type: OpenAPI
-    url: openapi/amazon-rds-tag-api-openapi.yml
-- aid: amazon-rds:amazon-rds-tenant-database-api
-  name: Amazon RDS Rds Tenant Database API
-  description: The Rds Tenant Database API from Amazon RDS — 4 operation(s) for rds tenant database.
-  humanURL: https://aws.amazon.com/rds/
-  baseURL: https://rds.amazonaws.com
-  tags:
-  - Rds Tenant Database
-  properties:
-  - type: OpenAPI
-    url: openapi/amazon-rds-tenant-database-api-openapi.yml
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com
+  url: https://apievangelist.com
+tags:
+- Amazon Web Services
+- Cloud Databases
+- Database Service
+- Database-as-a-Service
+- Managed Database
+- Relational Databases
+- Database
+tags_raw:
+- AWS
+- Cloud Databases
+- Database Service
+- Database-as-a-Service
+- Managed Database
+- Relational Databases
+- Database
 common:
+- type: Spectral
+  url: rules/amazon-rds-spectral-rules.yml
+- type: Spectral
+  url: rules/amazon-rds-rules.yml
+- type: Spectral
+  url: rules/amazon-rds-jsonschema-spectral-rules.yml
+- type: Vocabulary
+  url: vocabulary/amazon-rds-vocabulary.yml
+- type: DataModel
+  url: data-model/amazon-rds-data-model.yml
+- type: ErrorCatalog
+  url: errors/amazon-rds-problem-types.yml
+- type: Conformance
+  url: conformance/amazon-rds-conformance.yml
+- type: LLMsTxt
+  url: llms/amazon-rds-llms.txt
+- type: MCPServer
+  url: mcp/amazon-rds-mcp.yml
+- type: SecurityTxt
+  url: well-known/amazon-rds-security.txt
+- type: SecurityTxt
+  url: well-known/amazon-rds-repost-security.txt
+- type: WellKnown
+  url: well-known/amazon-rds-well-known.yml
+- type: Hosts
+  url: hosts/amazon-rds-hosts.yml
+- type: IntegrationEdges
+  url: integrations/amazon-rds-integration-edges.yml
+- type: Vendors
+  url: vendors/amazon-rds-vendors.yml
+- type: SDKs
+  url: packages/amazon-rds-packages.yml
+- type: Packages
+  url: packages/amazon-rds-packages.yml
+- type: Sandbox
+  url: https://console.aws.amazon.com/console/home/?nc2=h_si&src=header-signin
+- type: Newsroom
+  url: https://aws.amazon.com/media/?nc2=h_sol_ind_med
+- type: GettingStarted
+  url: https://developer.amazon.com/frustration-free-setup
 - type: Plans
   url: plans/amazon-rds-plans-pricing.yml
 - type: RateLimits
@@ -592,6 +282,625 @@ common:
   url: vocabulary/amazon-rds-vocabulary.yaml
 - type: Integrations
   url: https://aws.amazon.com/partners/
+- type: UsageTerms
+  url: terms/amazon-rds-terms-of-service.yml
+- type: DataProcessing
+  url: privacy/amazon-rds-privacy-policy.yml
+- type: Attestations
+  url: compliance/amazon-rds-compliance.yml
+- type: Eligibility
+  url: eligibility/amazon-rds-eligibility.yml
+apis:
+- aid: amazon-rds:amazon-rds-db-clusters-api
+  name: Amazon RDS DB Clusters API
+  description: Operations for creating and managing Aurora database clusters
+  humanURL: https://aws.amazon.com/rds/
+  baseURL: https://rds.amazonaws.com
+  tags:
+  - DB Clusters
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-rds-db-clusters-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/Welcome.html
+  - type: JSONSchema
+    url: json-schema/amazon-rds-instance-schema.json
+  - type: JSONLD
+    url: json-ld/amazon-rds-context.jsonld
+  - type: Pricing
+    url: https://aws.amazon.com/rds/pricing/
+  - type: GettingStarted
+    url: https://aws.amazon.com/rds/getting-started/
+  - type: FAQ
+    url: https://aws.amazon.com/rds/faqs/
+  - type: ServiceLevelAgreement
+    url: https://aws.amazon.com/rds/sla/
+  - type: User Guide
+    url: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/
+  - type: APIReference
+    url: https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/
+  - type: CLI
+    url: https://docs.aws.amazon.com/cli/latest/reference/rds/
+  - type: Security
+    url: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.html
+- aid: amazon-rds:amazon-rds-db-engine-versions-api
+  name: Amazon RDS DB Engine Versions API
+  description: Operations for describing available database engine versions
+  humanURL: https://aws.amazon.com/rds/
+  baseURL: https://rds.amazonaws.com
+  tags:
+  - DB Engine Versions
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-rds-db-engine-versions-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/Welcome.html
+  - type: JSONSchema
+    url: json-schema/amazon-rds-instance-schema.json
+  - type: JSONLD
+    url: json-ld/amazon-rds-context.jsonld
+  - type: Pricing
+    url: https://aws.amazon.com/rds/pricing/
+  - type: GettingStarted
+    url: https://aws.amazon.com/rds/getting-started/
+  - type: FAQ
+    url: https://aws.amazon.com/rds/faqs/
+  - type: ServiceLevelAgreement
+    url: https://aws.amazon.com/rds/sla/
+  - type: User Guide
+    url: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/
+  - type: APIReference
+    url: https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/
+  - type: CLI
+    url: https://docs.aws.amazon.com/cli/latest/reference/rds/
+  - type: Security
+    url: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.html
+- aid: amazon-rds:amazon-rds-db-instances-api
+  name: Amazon RDS DB Instances API
+  description: Operations for creating, managing, and deleting RDS database instances
+  humanURL: https://aws.amazon.com/rds/
+  baseURL: https://rds.amazonaws.com
+  tags:
+  - DB Instances
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-rds-db-instances-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/Welcome.html
+  - type: JSONSchema
+    url: json-schema/amazon-rds-instance-schema.json
+  - type: JSONLD
+    url: json-ld/amazon-rds-context.jsonld
+  - type: Pricing
+    url: https://aws.amazon.com/rds/pricing/
+  - type: GettingStarted
+    url: https://aws.amazon.com/rds/getting-started/
+  - type: FAQ
+    url: https://aws.amazon.com/rds/faqs/
+  - type: ServiceLevelAgreement
+    url: https://aws.amazon.com/rds/sla/
+  - type: User Guide
+    url: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/
+  - type: APIReference
+    url: https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/
+  - type: CLI
+    url: https://docs.aws.amazon.com/cli/latest/reference/rds/
+  - type: Security
+    url: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.html
+- aid: amazon-rds:amazon-rds-db-snapshots-api
+  name: Amazon RDS DB Snapshots API
+  description: Operations for creating and managing database snapshots
+  humanURL: https://aws.amazon.com/rds/
+  baseURL: https://rds.amazonaws.com
+  tags:
+  - DB Snapshots
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-rds-db-snapshots-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/Welcome.html
+  - type: JSONSchema
+    url: json-schema/amazon-rds-instance-schema.json
+  - type: JSONLD
+    url: json-ld/amazon-rds-context.jsonld
+  - type: Pricing
+    url: https://aws.amazon.com/rds/pricing/
+  - type: GettingStarted
+    url: https://aws.amazon.com/rds/getting-started/
+  - type: FAQ
+    url: https://aws.amazon.com/rds/faqs/
+  - type: ServiceLevelAgreement
+    url: https://aws.amazon.com/rds/sla/
+  - type: User Guide
+    url: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/
+  - type: APIReference
+    url: https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/
+  - type: CLI
+    url: https://docs.aws.amazon.com/cli/latest/reference/rds/
+  - type: Security
+    url: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.html
+- aid: amazon-rds:amazon-rds-activity-stream-api
+  name: Amazon RDS Rds Activity Stream API
+  description: The Rds Activity Stream API from Amazon RDS — 3 operation(s) for rds activity stream.
+  humanURL: https://aws.amazon.com/rds/
+  baseURL: https://rds.amazonaws.com
+  tags:
+  - Rds Activity Stream
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-rds-activity-stream-api-openapi.yml
+  - type: JSONSchema
+    url: json-schema/amazon-rds-start-activity-stream-request-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-rds-modify-activity-stream-response-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-rds-start-activity-stream-response-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-rds-stop-activity-stream-response-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-rds-modify-activity-stream-request-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-rds-stop-activity-stream-request-schema.json
+- aid: amazon-rds:amazon-rds-blue-green-deployment-api
+  name: Amazon RDS Rds Blue Green Deployment API
+  description: The Rds Blue Green Deployment API from Amazon RDS — 3 operation(s) for rds blue green deployment.
+  humanURL: https://aws.amazon.com/rds/
+  baseURL: https://rds.amazonaws.com
+  tags:
+  - Rds Blue Green Deployment
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-rds-blue-green-deployment-api-openapi.yml
+  - type: JSONSchema
+    url: json-schema/amazon-rds-create-blue-green-deployment-request-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-rds-describe-blue-green-deployments-request-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-rds-delete-blue-green-deployment-request-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-rds-describe-blue-green-deployments-response-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-rds-create-blue-green-deployment-response-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-rds-delete-blue-green-deployment-response-schema.json
+- aid: amazon-rds:amazon-rds-custom-db-engine-version-api
+  name: Amazon RDS Rds Custom Db Engine Version API
+  description: The Rds Custom Db Engine Version API from Amazon RDS — 3 operation(s) for rds custom db engine version.
+  humanURL: https://aws.amazon.com/rds/
+  baseURL: https://rds.amazonaws.com
+  tags:
+  - Rds Custom Db Engine Version
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-rds-custom-db-engine-version-api-openapi.yml
+  - type: JSONSchema
+    url: json-schema/amazon-rds-dbengine-version-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-rds-create-custom-dbengine-version-message-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-rds-modify-custom-dbengine-version-message-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-rds-delete-custom-dbengine-version-message-schema.json
+- aid: amazon-rds:amazon-rds-db-capacity-reservation-api
+  name: Amazon RDS Rds Db Capacity Reservation API
+  description: The Rds Db Capacity Reservation API from Amazon RDS — 4 operation(s) for rds db capacity reservation.
+  humanURL: https://aws.amazon.com/rds/
+  baseURL: https://rds.amazonaws.com
+  tags:
+  - Rds Db Capacity Reservation
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-rds-db-capacity-reservation-api-openapi.yml
+  - type: JSONSchema
+    url: json-schema/amazon-rds-create-dbcapacity-reservation-request-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-rds-modify-dbcapacity-reservation-request-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-rds-describe-dbcapacity-reservations-request-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-rds-describe-dbcapacity-reservations-response-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-rds-cancel-dbcapacity-reservation-request-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-rds-cancel-dbcapacity-reservation-response-schema.json
+- aid: amazon-rds:amazon-rds-db-cluster-endpoint-api
+  name: Amazon RDS Rds Db Cluster Endpoint API
+  description: The Rds Db Cluster Endpoint API from Amazon RDS — 4 operation(s) for rds db cluster endpoint.
+  humanURL: https://aws.amazon.com/rds/
+  baseURL: https://rds.amazonaws.com
+  tags:
+  - Rds Db Cluster Endpoint
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-rds-db-cluster-endpoint-api-openapi.yml
+  - type: JSONSchema
+    url: json-schema/amazon-rds-dbcluster-endpoint-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-rds-describe-dbcluster-endpoints-message-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-rds-create-dbcluster-endpoint-message-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-rds-modify-dbcluster-endpoint-message-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-rds-dbcluster-endpoint-message-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-rds-delete-dbcluster-endpoint-message-schema.json
+- aid: amazon-rds:amazon-rds-db-cluster-parameter-group-api
+  name: Amazon RDS Rds Db Cluster Parameter Group API
+  description: The Rds Db Cluster Parameter Group API from Amazon RDS — 5 operation(s) for rds db cluster parameter group.
+  humanURL: https://aws.amazon.com/rds/
+  baseURL: https://rds.amazonaws.com
+  tags:
+  - Rds Db Cluster Parameter Group
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-rds-db-cluster-parameter-group-api-openapi.yml
+  - type: JSONSchema
+    url: json-schema/amazon-rds-create-dbcluster-parameter-group-message-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-rds-describe-dbcluster-parameter-groups-message-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-rds-modify-dbcluster-parameter-group-message-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-rds-reset-dbcluster-parameter-group-message-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-rds-dbcluster-parameter-groups-message-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-rds-delete-dbcluster-parameter-group-message-schema.json
+- aid: amazon-rds:amazon-rds-db-cluster-snapshot-api
+  name: Amazon RDS Rds Db Cluster Snapshot API
+  description: The Rds Db Cluster Snapshot API from Amazon RDS — 3 operation(s) for rds db cluster snapshot.
+  humanURL: https://aws.amazon.com/rds/
+  baseURL: https://rds.amazonaws.com
+  tags:
+  - Rds Db Cluster Snapshot
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-rds-db-cluster-snapshot-api-openapi.yml
+  - type: JSONSchema
+    url: json-schema/amazon-rds-describe-dbcluster-snapshots-message-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-rds-create-dbcluster-snapshot-message-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-rds-dbcluster-snapshot-message-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-rds-delete-dbcluster-snapshot-message-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-rds-create-dbcluster-snapshot-result-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-rds-delete-dbcluster-snapshot-result-schema.json
+- aid: amazon-rds:amazon-rds-db-parameter-group-api
+  name: Amazon RDS Rds Db Parameter Group API
+  description: The Rds Db Parameter Group API from Amazon RDS — 5 operation(s) for rds db parameter group.
+  humanURL: https://aws.amazon.com/rds/
+  baseURL: https://rds.amazonaws.com
+  tags:
+  - Rds Db Parameter Group
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-rds-db-parameter-group-api-openapi.yml
+  - type: JSONSchema
+    url: json-schema/amazon-rds-create-dbparameter-group-message-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-rds-reset-dbparameter-group-message-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-rds-describe-dbparameter-groups-message-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-rds-modify-dbparameter-group-message-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-rds-dbparameter-groups-message-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-rds-delete-dbparameter-group-message-schema.json
+- aid: amazon-rds:amazon-rds-db-proxy-api
+  name: Amazon RDS Rds Db Proxy API
+  description: The Rds Db Proxy API from Amazon RDS — 4 operation(s) for rds db proxy.
+  humanURL: https://aws.amazon.com/rds/
+  baseURL: https://rds.amazonaws.com
+  tags:
+  - Rds Db Proxy
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-rds-db-proxy-api-openapi.yml
+  - type: JSONSchema
+    url: json-schema/amazon-rds-create-dbproxy-request-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-rds-modify-dbproxy-request-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-rds-describe-dbproxies-request-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-rds-describe-dbproxies-response-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-rds-delete-dbproxy-request-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-rds-create-dbproxy-response-schema.json
+- aid: amazon-rds:amazon-rds-db-proxy-endpoint-api
+  name: Amazon RDS Rds Db Proxy Endpoint API
+  description: The Rds Db Proxy Endpoint API from Amazon RDS — 4 operation(s) for rds db proxy endpoint.
+  humanURL: https://aws.amazon.com/rds/
+  baseURL: https://rds.amazonaws.com
+  tags:
+  - Rds Db Proxy Endpoint
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-rds-db-proxy-endpoint-api-openapi.yml
+  - type: JSONSchema
+    url: json-schema/amazon-rds-create-dbproxy-endpoint-request-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-rds-describe-dbproxy-endpoints-request-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-rds-modify-dbproxy-endpoint-request-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-rds-describe-dbproxy-endpoints-response-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-rds-delete-dbproxy-endpoint-request-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-rds-create-dbproxy-endpoint-response-schema.json
+- aid: amazon-rds:amazon-rds-db-proxy-target-api
+  name: Amazon RDS Rds Db Proxy Target API
+  description: The Rds Db Proxy Target API from Amazon RDS — 3 operation(s) for rds db proxy target.
+  humanURL: https://aws.amazon.com/rds/
+  baseURL: https://rds.amazonaws.com
+  tags:
+  - Rds Db Proxy Target
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-rds-db-proxy-target-api-openapi.yml
+  - type: JSONSchema
+    url: json-schema/amazon-rds-describe-dbproxy-targets-request-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-rds-deregister-dbproxy-targets-request-schema.json
+- aid: amazon-rds:amazon-rds-db-security-group-api
+  name: Amazon RDS Rds Db Security Group API
+  description: The Rds Db Security Group API from Amazon RDS — 3 operation(s) for rds db security group.
+  humanURL: https://aws.amazon.com/rds/
+  baseURL: https://rds.amazonaws.com
+  tags:
+  - Rds Db Security Group
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-rds-db-security-group-api-openapi.yml
+  - type: JSONSchema
+    url: json-schema/amazon-rds-describe-dbsecurity-groups-message-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-rds-create-dbsecurity-group-message-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-rds-dbsecurity-group-message-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-rds-delete-dbsecurity-group-message-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-rds-create-dbsecurity-group-result-schema.json
+- aid: amazon-rds:amazon-rds-db-shard-group-api
+  name: Amazon RDS Rds Db Shard Group API
+  description: The Rds Db Shard Group API from Amazon RDS — 4 operation(s) for rds db shard group.
+  humanURL: https://aws.amazon.com/rds/
+  baseURL: https://rds.amazonaws.com
+  tags:
+  - Rds Db Shard Group
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-rds-db-shard-group-api-openapi.yml
+  - type: JSONSchema
+    url: json-schema/amazon-rds-dbshard-group-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-rds-create-dbshard-group-message-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-rds-describe-dbshard-groups-message-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-rds-modify-dbshard-group-message-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-rds-describe-dbshard-groups-response-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-rds-delete-dbshard-group-message-schema.json
+- aid: amazon-rds:amazon-rds-db-subnet-group-api
+  name: Amazon RDS Rds Db Subnet Group API
+  description: The Rds Db Subnet Group API from Amazon RDS — 4 operation(s) for rds db subnet group.
+  humanURL: https://aws.amazon.com/rds/
+  baseURL: https://rds.amazonaws.com
+  tags:
+  - Rds Db Subnet Group
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-rds-db-subnet-group-api-openapi.yml
+  - type: JSONSchema
+    url: json-schema/amazon-rds-describe-dbsubnet-groups-message-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-rds-create-dbsubnet-group-message-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-rds-modify-dbsubnet-group-message-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-rds-dbsubnet-group-message-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-rds-delete-dbsubnet-group-message-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-rds-create-dbsubnet-group-result-schema.json
+- aid: amazon-rds:amazon-rds-event-subscription-api
+  name: Amazon RDS Rds Event Subscription API
+  description: The Rds Event Subscription API from Amazon RDS — 4 operation(s) for rds event subscription.
+  humanURL: https://aws.amazon.com/rds/
+  baseURL: https://rds.amazonaws.com
+  tags:
+  - Rds Event Subscription
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-rds-event-subscription-api-openapi.yml
+  - type: JSONSchema
+    url: json-schema/amazon-rds-create-event-subscription-message-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-rds-modify-event-subscription-message-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-rds-describe-event-subscriptions-message-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-rds-event-subscriptions-message-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-rds-delete-event-subscription-message-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-rds-create-event-subscription-result-schema.json
+- aid: amazon-rds:amazon-rds-export-task-api
+  name: Amazon RDS Rds Export Task API
+  description: The Rds Export Task API from Amazon RDS — 3 operation(s) for rds export task.
+  humanURL: https://aws.amazon.com/rds/
+  baseURL: https://rds.amazonaws.com
+  tags:
+  - Rds Export Task
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-rds-export-task-api-openapi.yml
+  - type: JSONSchema
+    url: json-schema/amazon-rds-export-task-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-rds-start-export-task-message-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-rds-describe-export-tasks-message-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-rds-export-tasks-message-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-rds-cancel-export-task-message-schema.json
+- aid: amazon-rds:amazon-rds-global-cluster-api
+  name: Amazon RDS Rds Global Cluster API
+  description: The Rds Global Cluster API from Amazon RDS — 4 operation(s) for rds global cluster.
+  humanURL: https://aws.amazon.com/rds/
+  baseURL: https://rds.amazonaws.com
+  tags:
+  - Rds Global Cluster
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-rds-global-cluster-api-openapi.yml
+  - type: JSONSchema
+    url: json-schema/amazon-rds-create-global-cluster-message-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-rds-modify-global-cluster-message-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-rds-describe-global-clusters-message-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-rds-global-clusters-message-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-rds-delete-global-cluster-message-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-rds-create-global-cluster-result-schema.json
+- aid: amazon-rds:amazon-rds-integration-api
+  name: Amazon RDS Rds Integration API
+  description: The Rds Integration API from Amazon RDS — 4 operation(s) for rds integration.
+  humanURL: https://aws.amazon.com/rds/
+  baseURL: https://rds.amazonaws.com
+  tags:
+  - Rds Integration
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-rds-integration-api-openapi.yml
+  - type: JSONSchema
+    url: json-schema/amazon-rds-integration-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-rds-create-integration-message-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-rds-describe-integrations-message-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-rds-modify-integration-message-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-rds-describe-integrations-response-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-rds-delete-integration-message-schema.json
+- aid: amazon-rds:amazon-rds-operations-api
+  name: Amazon RDS Rds Operations API
+  description: The Rds Operations API from Amazon RDS — 63 operation(s) for rds operations.
+  humanURL: https://aws.amazon.com/rds/
+  baseURL: https://rds.amazonaws.com
+  tags:
+  - Rds Operations
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-rds-operations-api-openapi.yml
+  - type: JSONSchema
+    url: json-schema/amazon-rds-create-dbinstance-read-replica-message-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-rds-copy-dbsnapshot-message-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-rds-copy-dbcluster-snapshot-message-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-rds-execute-statement-request-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-rds-describe-events-message-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-rds-describe-dbsnapshot-tenant-databases-message-schema.json
+- aid: amazon-rds:amazon-rds-option-group-api
+  name: Amazon RDS Rds Option Group API
+  description: The Rds Option Group API from Amazon RDS — 4 operation(s) for rds option group.
+  humanURL: https://aws.amazon.com/rds/
+  baseURL: https://rds.amazonaws.com
+  tags:
+  - Rds Option Group
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-rds-option-group-api-openapi.yml
+  - type: JSONSchema
+    url: json-schema/amazon-rds-describe-option-groups-message-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-rds-create-option-group-message-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-rds-modify-option-group-message-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-rds-option-groups-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-rds-delete-option-group-message-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-rds-create-option-group-result-schema.json
+- aid: amazon-rds:amazon-rds-role-api
+  name: Amazon RDS Rds Role API
+  description: The Rds Role API from Amazon RDS — 4 operation(s) for rds role.
+  humanURL: https://aws.amazon.com/rds/
+  baseURL: https://rds.amazonaws.com
+  tags:
+  - Rds Role
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-rds-role-api-openapi.yml
+  - type: JSONSchema
+    url: json-schema/amazon-rds-remove-role-from-dbinstance-message-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-rds-remove-role-from-dbcluster-message-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-rds-add-role-to-dbinstance-message-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-rds-add-role-to-dbcluster-message-schema.json
+- aid: amazon-rds:amazon-rds-tag-api
+  name: Amazon RDS Rds Tag API
+  description: The Rds Tag API from Amazon RDS — 3 operation(s) for rds tag.
+  humanURL: https://aws.amazon.com/rds/
+  baseURL: https://rds.amazonaws.com
+  tags:
+  - Rds Tag
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-rds-tag-api-openapi.yml
+  - type: JSONSchema
+    url: json-schema/amazon-rds-remove-tags-from-resource-message-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-rds-list-tags-for-resource-message-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-rds-add-tags-to-resource-message-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-rds-tag-list-message-schema.json
+- aid: amazon-rds:amazon-rds-tenant-database-api
+  name: Amazon RDS Rds Tenant Database API
+  description: The Rds Tenant Database API from Amazon RDS — 4 operation(s) for rds tenant database.
+  humanURL: https://aws.amazon.com/rds/
+  baseURL: https://rds.amazonaws.com
+  tags:
+  - Rds Tenant Database
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-rds-tenant-database-api-openapi.yml
+  - type: JSONSchema
+    url: json-schema/amazon-rds-modify-tenant-database-message-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-rds-create-tenant-database-message-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-rds-describe-tenant-databases-message-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-rds-delete-tenant-database-message-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-rds-tenant-databases-message-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-rds-create-tenant-database-result-schema.json
 integrations:
 - name: Partner Programs
 - name: Resources
@@ -601,18 +910,6 @@ integrations:
 - name: AWS Partner Central
 - name: Partner Paths
 - name: co-sell with AWS
-maintainers:
-- FN: Kin Lane
-  email: kin@apievangelist.com
-  url: https://apievangelist.com
-tags:
-- Amazon Web Services
-- Cloud Databases
-- Database Service
-- Database-as-a-Service
-- Managed Database
-- Relational Databases
-- Database
 tags_raw:
 - AWS
 - Cloud Databases
@@ -623,3 +920,8 @@ tags_raw:
 - Database
 x-parent: amazon-web-services
 x-relationship: product
+x-enrichment:
+  date: '2026-11-11'
+  status: enriched
+  artifacts_added: 4
+  pass: local-v6

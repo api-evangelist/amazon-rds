@@ -59,6 +59,9 @@ artifacts:
   capabilities/amazon-rds-capability-edges.yml:
     method: unknown
     evidence: no authorship recorded
+  certification/status.yml:
+    method: unknown
+    evidence: no authorship recorded
   collections/amazon-rds-db-clusters-api.opencollection.json:
     method: derived
     evidence: openapi/amazon-rds-db-clusters-api
@@ -89,6 +92,21 @@ artifacts:
   collections/amazon-rds.postman_collection.json:
     method: derived
     evidence: openapi/amazon-rds
+  compliance/amazon-rds-compliance.yml:
+    method: harvested
+    evidence: declared in the artifact
+  conformance/amazon-rds-conformance.yml:
+    method: derived
+    evidence: declared in the artifact
+  data-model/amazon-rds-data-model.yml:
+    method: derived
+    evidence: declared in the artifact
+  eligibility/amazon-rds-eligibility.yml:
+    method: harvested
+    evidence: declared in the artifact
+  errors/amazon-rds-problem-types.yml:
+    method: searched
+    evidence: declared in the artifact
   examples/amazon-rds-instance-example.json:
     method: unknown
     evidence: no authorship recorded
@@ -131,6 +149,9 @@ artifacts:
   front-door-ai/2026-09-17.yml:
     method: unknown
     evidence: no authorship recorded
+  hosts/amazon-rds-hosts.yml:
+    method: derived
+    evidence: declared in the artifact
   integrations/_index.yml:
     method: generated
     evidence: carries an API Evangelist house phrase
@@ -143,7 +164,346 @@ artifacts:
   json-ld/amazon-rds-context.jsonld:
     method: unknown
     evidence: no authorship recorded
+  json-schema/amazon-rds-add-role-to-dbcluster-message-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-rds-add-role-to-dbinstance-message-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-rds-add-tags-to-resource-message-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-rds-cancel-dbcapacity-reservation-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-rds-cancel-dbcapacity-reservation-response-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-rds-cancel-export-task-message-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-rds-copy-dbcluster-snapshot-message-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-rds-copy-dbsnapshot-message-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-rds-create-blue-green-deployment-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-rds-create-blue-green-deployment-response-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-rds-create-custom-dbengine-version-message-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-rds-create-dbcapacity-reservation-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-rds-create-dbcluster-endpoint-message-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-rds-create-dbcluster-parameter-group-message-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-rds-create-dbcluster-snapshot-message-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-rds-create-dbcluster-snapshot-result-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-rds-create-dbinstance-read-replica-message-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-rds-create-dbparameter-group-message-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-rds-create-dbproxy-endpoint-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-rds-create-dbproxy-endpoint-response-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-rds-create-dbproxy-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-rds-create-dbproxy-response-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-rds-create-dbsecurity-group-message-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-rds-create-dbsecurity-group-result-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-rds-create-dbshard-group-message-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-rds-create-dbsubnet-group-message-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-rds-create-dbsubnet-group-result-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-rds-create-event-subscription-message-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-rds-create-event-subscription-result-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-rds-create-global-cluster-message-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-rds-create-global-cluster-result-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-rds-create-integration-message-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-rds-create-option-group-message-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-rds-create-option-group-result-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-rds-create-tenant-database-message-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-rds-create-tenant-database-result-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-rds-dbcluster-endpoint-message-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-rds-dbcluster-endpoint-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-rds-dbcluster-parameter-groups-message-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-rds-dbcluster-snapshot-message-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-rds-dbengine-version-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-rds-dbparameter-groups-message-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-rds-dbsecurity-group-message-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-rds-dbshard-group-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-rds-dbsubnet-group-message-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-rds-delete-blue-green-deployment-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-rds-delete-blue-green-deployment-response-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-rds-delete-custom-dbengine-version-message-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-rds-delete-dbcluster-endpoint-message-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-rds-delete-dbcluster-parameter-group-message-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-rds-delete-dbcluster-snapshot-message-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-rds-delete-dbcluster-snapshot-result-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-rds-delete-dbparameter-group-message-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-rds-delete-dbproxy-endpoint-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-rds-delete-dbproxy-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-rds-delete-dbsecurity-group-message-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-rds-delete-dbshard-group-message-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-rds-delete-dbsubnet-group-message-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-rds-delete-event-subscription-message-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-rds-delete-global-cluster-message-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-rds-delete-integration-message-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-rds-delete-option-group-message-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-rds-delete-tenant-database-message-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-rds-deregister-dbproxy-targets-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-rds-describe-blue-green-deployments-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-rds-describe-blue-green-deployments-response-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-rds-describe-dbcapacity-reservations-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-rds-describe-dbcapacity-reservations-response-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-rds-describe-dbcluster-endpoints-message-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-rds-describe-dbcluster-parameter-groups-message-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-rds-describe-dbcluster-snapshots-message-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-rds-describe-dbparameter-groups-message-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-rds-describe-dbproxies-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-rds-describe-dbproxies-response-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-rds-describe-dbproxy-endpoints-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-rds-describe-dbproxy-endpoints-response-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-rds-describe-dbproxy-targets-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-rds-describe-dbsecurity-groups-message-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-rds-describe-dbshard-groups-message-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-rds-describe-dbshard-groups-response-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-rds-describe-dbsnapshot-tenant-databases-message-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-rds-describe-dbsubnet-groups-message-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-rds-describe-event-subscriptions-message-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-rds-describe-events-message-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-rds-describe-export-tasks-message-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-rds-describe-global-clusters-message-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-rds-describe-integrations-message-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-rds-describe-integrations-response-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-rds-describe-option-groups-message-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-rds-describe-tenant-databases-message-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-rds-event-subscriptions-message-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-rds-execute-statement-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-rds-export-task-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-rds-export-tasks-message-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-rds-global-clusters-message-schema.json:
+    method: unknown
+    evidence: no authorship recorded
   json-schema/amazon-rds-instance-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-rds-integration-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-rds-list-tags-for-resource-message-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-rds-modify-activity-stream-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-rds-modify-activity-stream-response-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-rds-modify-custom-dbengine-version-message-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-rds-modify-dbcapacity-reservation-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-rds-modify-dbcluster-endpoint-message-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-rds-modify-dbcluster-parameter-group-message-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-rds-modify-dbparameter-group-message-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-rds-modify-dbproxy-endpoint-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-rds-modify-dbproxy-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-rds-modify-dbshard-group-message-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-rds-modify-dbsubnet-group-message-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-rds-modify-event-subscription-message-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-rds-modify-global-cluster-message-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-rds-modify-integration-message-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-rds-modify-option-group-message-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-rds-modify-tenant-database-message-schema.json:
     method: unknown
     evidence: no authorship recorded
   json-schema/amazon-rds-openapi-create-db-cluster-response-schema.json:
@@ -177,6 +537,45 @@ artifacts:
     method: unknown
     evidence: no authorship recorded
   json-schema/amazon-rds-openapi-tag-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-rds-option-groups-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-rds-remove-role-from-dbcluster-message-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-rds-remove-role-from-dbinstance-message-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-rds-remove-tags-from-resource-message-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-rds-reset-dbcluster-parameter-group-message-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-rds-reset-dbparameter-group-message-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-rds-start-activity-stream-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-rds-start-activity-stream-response-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-rds-start-export-task-message-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-rds-stop-activity-stream-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-rds-stop-activity-stream-response-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-rds-tag-list-message-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-rds-tenant-databases-message-schema.json:
     method: unknown
     evidence: no authorship recorded
   json-structure/amazon-rds-instance-structure.json:
@@ -218,7 +617,7 @@ artifacts:
   kin/checks-2026-10-23T222754.yml:
     method: generated
     evidence: Kin Score snapshot written by score.rb
-  kin/checks-2026-11-02T082323.yml:
+  kin/checks-2026-11-06T143934.yml:
     method: generated
     evidence: Kin Score snapshot written by score.rb
   kin/score-2026-09-23T000603.yml:
@@ -287,10 +686,18 @@ artifacts:
   kin/score-2026-11-02T082323.yml:
     method: generated
     evidence: Kin Score snapshot written by score.rb
-  openapi/_original/amazon-rds-openapi.yml:
-    method: harvested
-    evidence: found in openapi/_original/; the fetch URL and bytes were not recorded, so byte-identity
-      to the provider's source is unverified
+  kin/score-2026-11-06T143934.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  llms/amazon-rds-llms-provenance.yml:
+    method: unknown
+    evidence: no authorship recorded
+  llms/amazon-rds-llms.txt:
+    method: unknown
+    evidence: no authorship recorded
+  mcp/amazon-rds-mcp.yml:
+    method: searched
+    evidence: declared in the artifact
   openapi/amazon-rds-activity-stream-api-openapi.yml:
     method: unknown
     evidence: no authorship recorded
@@ -316,8 +723,8 @@ artifacts:
     method: unknown
     evidence: no authorship recorded
   openapi/amazon-rds-db-engine-versions-api-openapi.yml:
-    method: derived
-    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
+    method: unknown
+    evidence: no authorship recorded
   openapi/amazon-rds-db-instances-api-openapi.yml:
     method: unknown
     evidence: no authorship recorded
@@ -372,16 +779,28 @@ artifacts:
   openapi/amazon-rds-tenant-database-api-openapi.yml:
     method: unknown
     evidence: no authorship recorded
+  packages/amazon-rds-packages.yml:
+    method: searched
+    evidence: declared in the artifact
+  patterns/amazon-rds-patterns.yml:
+    method: derived
+    evidence: declared in the artifact
   plans/amazon-rds-plans-pricing.yml:
     method: searched
     evidence: declared in the artifact
   postman/amazon-rds.postman_collection.json:
     method: derived
     evidence: openapi/amazon-rds
+  privacy/amazon-rds-privacy-policy.yml:
+    method: harvested
+    evidence: declared in the artifact
   rate-limits/amazon-rds-rate-limits.yml:
     method: generated
     evidence: declared in the artifact
   rules/amazon-rds-jsonschema-spectral-rules.yml:
+    method: generated
+    evidence: declared in the artifact
+  rules/amazon-rds-rules.yml:
     method: generated
     evidence: declared in the artifact
   rules/amazon-rds-spectral-rules.yml:
@@ -400,8 +819,34 @@ artifacts:
     method: searched
     evidence: declared in the artifact
   smithy/rds-2014-10-31.json:
+    method: harvested
+    evidence: byte-identical to https://raw.githubusercontent.com/aws/api-models-aws/3cd98287b471c106254abd89279cc87308d38bfd/models/rds/service/2014-10-31/rds-2014-10-31.json
+      (sha256 d948a4150384, fetched 2026-11-11T21:14:19+00:00)
+  smithy/rds-data-2018-08-01.json:
+    method: harvested
+    evidence: byte-identical to https://raw.githubusercontent.com/aws/api-models-aws/3cd98287b471c106254abd89279cc87308d38bfd/models/rds-data/service/2018-08-01/rds-data-2018-08-01.json
+      (sha256 4e6e59fc3bb8, fetched 2026-11-11T21:14:21+00:00)
+  terms/amazon-rds-terms-of-service.yml:
+    method: harvested
+    evidence: declared in the artifact
+  vendors/amazon-rds-vendors.yml:
     method: unknown
     evidence: no authorship recorded
   vocabulary/amazon-rds-vocabulary.yaml:
+    method: unknown
+    evidence: no authorship recorded
+  vocabulary/amazon-rds-vocabulary.yml:
+    method: derived
+    evidence: declared in the artifact
+  well-known/amazon-rds-midway-auth-openid-configuration.json:
+    method: unknown
+    evidence: no authorship recorded
+  well-known/amazon-rds-repost-security.txt:
+    method: unknown
+    evidence: no authorship recorded
+  well-known/amazon-rds-security.txt:
+    method: unknown
+    evidence: no authorship recorded
+  well-known/amazon-rds-well-known.yml:
     method: unknown
     evidence: no authorship recorded
