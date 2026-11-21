@@ -1,3 +1,4 @@
+aid: amazon-rds
 name: Amazon RDS
 description: Amazon Relational Database Service (RDS) makes it easy to set up, operate, and scale a relational database in the cloud, providing
   cost-efficient and resizable capacity while automating time-consuming administration tasks such as hardware provisioning, database setup, patching,
@@ -30,7 +31,7 @@ accessModel:
   - plans
   - authentication
   - security
-  generated: '2026-11-13'
+  generated: '2026-11-20'
   method: derived
 image: https://a0.awsstatic.com/libra-css/images/logos/aws_logo_smile_1200x630.png
 url: https://raw.githubusercontent.com/api-evangelist/amazon-rds/refs/heads/main/apis.yml
